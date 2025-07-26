@@ -169,12 +169,10 @@ class InternetArchiveSource(object):
             def resolve_root_reference_item(reference_item):
                 return model.ReferenceItem(name=reference_item.name, url=self.url)
 
+            # TODO: Not all first-level containers (e.g., .bin) can be accessed on the Internet Archive.
             def resolve_first_tier_reference_item(reference_item):
-                # Only .iso, .tar, and .zip files are extracted for us on Solarcene.
-                if not self.relative_path.lower()[-4:] in [".iso", ".zip", ".tar"]:
-                    return reference_item
                 return model.ReferenceItem(name=reference_item.name,
-                                           url=f"https://psion.solarcene.community/{self.id}/contents/{reference_item.name}")
+                                           url=self.url + "/" + quote_plus(reference_item.name))
 
             if len(reference) < 1:
                 return reference
