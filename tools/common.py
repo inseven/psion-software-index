@@ -58,6 +58,7 @@ class Library(object):
         if "INDEXER_ASSETS_DIRECTORY" in os.environ:
             self.assets_directory = os.environ["INDEXER_ASSETS_DIRECTORY"]
             logging.warning("Using $INDEXER_ASSETS_DIRECTORY environment variable (%s)", self.assets_directory)
+        self.intermediates_directory = os.path.normpath(os.path.join(root_directory, self._configuration['intermediates_directory']))
         self.index_directory = os.path.normpath(os.path.join(root_directory, self._configuration['index_directory']))
         self.output_directory = os.path.normpath(os.path.join(root_directory, self._configuration['output_directory']))
         self.sources = [InternetArchiveSource(self.assets_directory, url)
@@ -69,9 +70,9 @@ class Library(object):
             source.sync()
 
 
+# TODO: Check what this means?
 def is_downloadable_package(path):
     return os.path.splitext(path)[1].lower() in DOWNLOADABLE_PACKAGES
-
 
 
 class InternetArchiveSource(object):

@@ -25,6 +25,7 @@ import array
 import base64
 import collections
 import contextlib
+import copy
 import csv
 import glob
 import hashlib
@@ -59,6 +60,7 @@ logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%
 
 # These SIS files currently cause issues with the extraction tools we're using so they're being ignored for the time
 # being to allow us to make progress with some of the existing libraries.
+# TODO: There should be no need for this blacklist; they should simply be recorded in the failures.
 IGNORED = set([
     "netutils.sis",
     "NETUTILS.SIS",
@@ -106,6 +108,7 @@ LIBRARY_INDEXES = [
     "library/siena",
 ]
 
+# TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
 
 
@@ -137,6 +140,7 @@ class DummyMetadataProvider(object):
         return None
 
 
+# Perhaps it would be good to drop the metadata provider and allow it to all be added in post.
 class LibraryMetadataProvider(object):
 
     def __init__(self, path):
@@ -183,16 +187,30 @@ class Version(object):
 
     def __init__(self, installers):
         self.installers = installers
-        self.variants = group_collections(installers, lambda x: x.sha256)
+        self.variants = group_collections(installers, lambda x: x['sha256'])
 
     @property
     def version(self):
-        return self.installers[0].version
+        return self.installers[0]['version']
 
     def as_dict(self, relative_icons_path):
+        # TODO: We probably don't want to do this in the future, but for the time being, we strip some data out of the
+        # releases to make sure they exactly match the original format to avoid making too many changes at once.
+        variants = [{
+            'identifier': variant.identifier,
+            'items': copy.deepcopy(variant.items),
+        } for variant in self.variants]
+
+        for variant in variants:
+            for item in variant['items']:
+                if 'readme' in item:
+                    del item['readme']
+                if 'icon' in item and 'bpp' in item['icon']:
+                    del item['icon']['bpp']
+
         return {
             'version': self.version,
-            'variants': [variant.as_dict(relative_icons_path=relative_icons_path) for variant in self.variants],
+            'variants': variants,
         }
 
 
@@ -204,39 +222,44 @@ class Program(object):
         self.screenshots = screenshots
         versions = collections.defaultdict(list)
         for installer in installers:
-            versions[installer.version].append(installer)
+            versions[installer['version']].append(installer)
         # We use `natsort` to sort the versions to ensure, for example, 10.0 sorts _after_ 2.0.
         self.versions = natsort.natsorted([Version(installers=installers) for installers in versions.values()], key=lambda x: x.version)
         tags = set()
         for installer in installers:
-            for tag in installer.tags:
+            for tag in installer['tags']:
                 tags.add(tag)
         self.tags = tags
         kinds = set()
         for installer in installers:
-            kinds.add(installer.kind)
+            kinds.add(installer['kind'])
         self.kinds = kinds
 
 
     @property
     def name(self):
-        return self.installers[0].name
+        return self.installers[0]['name']
 
     @property
     def summary(self):
-        return self.installers[0].summary
+        # TODO: Maybe select the first non-empty one (see readme).
+        if 'summary' not in self.installers[0]:
+            return None
+        return self.installers[0]['summary']
 
     @property
     def readme(self):
+        # TODO: REMOVE THIS
         for installer in self.installers:
-            if installer.readme is not None:
-                return installer.readme
+            if 'readme' in installer:
+                return installer['readme']
 
     @property
     def icon(self):
-        return select_icon([installer.icon for installer in self.installers
-                            if installer.icon])
+        return select_icon_dict([installer['icon'] for installer in self.installers
+                                if 'icon' in installer])
 
+    # TODO: THE relative_icons_path isn't necessary.
     def as_dict(self, relative_icons_path):
         dict = {
             'uid': self.uid,
@@ -244,7 +267,7 @@ class Program(object):
             'summary': self.summary,
             'versions': [version.as_dict(relative_icons_path=relative_icons_path) for version in self.versions],
             'tags': sorted(list(self.tags)),
-            'kinds': sorted([kind.value for kind in self.kinds]),
+            'kinds': [kind for kind in self.kinds],
         }
         summary = self.summary
         if summary:
@@ -254,10 +277,12 @@ class Program(object):
             dict['readme'] = readme
         icon = self.icon
         if icon:
+            dict['icon'] = icon
+            # TODO: Don't recreate the dict.
             dict['icon'] = {
-                'path': os.path.join(relative_icons_path, icon.filename),
-                'width': icon.width,
-                'height': icon.height,
+                'path': icon['path'],
+                'width': icon['width'],
+                'height': icon['height'],
             }
         return dict
 
@@ -288,12 +313,20 @@ class Release(object):
             'version': self.version,
             'tags': sorted(list(self.tags)),
         }
+        # TODO: Output all the icons into the intermediate format.
+        # TODO: Select the icons at render time.
+        # TODO: Store the icon hash too to make it possible to group by the icon.
         if self.icon is not None:
             dict['icon'] = {
                 'path': os.path.join(relative_icons_path, self.icon.filename),
                 'width': self.icon.width,
                 'height': self.icon.height,
+                'bpp': self.icon.bpp,
             }
+        if self.readme is not None:
+            dict['readme'] = self.readme
+        if self.summary is not None:
+            dict['summary'] = self.summary
         return dict
 
     def write_assets(self, icons_path):
@@ -336,9 +369,18 @@ def readme_for(path):
             return decode(fh.read())
 
 
+# TODO: It should be possible to drop this if the intermediate index is richer.
 def select_icon(icons):
     candidates = [icon for icon in icons if icon.width == icon.height and icon.width <= 48]
     icons = list(reversed(sorted(candidates, key=lambda x: (x.bpp, x.width))))
+    if len(icons) < 1:
+        return None
+    return icons[0]
+
+
+def select_icon_dict(icons):
+    candidates = [icon for icon in icons if icon['width'] == icon['height'] and icon['width'] <= 48]
+    icons = list(reversed(sorted(candidates, key=lambda x: (x['bpp'], x['width']))))
     if len(icons) < 1:
         return None
     return icons[0]
@@ -511,16 +553,44 @@ def import_source(source, reference=None, path=None, indent=0, error_handler=Non
 
 
 def index(library, error_handler):
+    releases = []
+    for source in library.sources:
+        releases += import_source(source, error_handler=error_handler)
+    releases_path = os.path.join(library.intermediates_directory, "releases.json")
+    icons_directory = os.path.join(library.intermediates_directory, "icons")
 
+    # Clean up the intermediates directory.
+    if os.path.exists(library.intermediates_directory):
+        shutil.rmtree(library.intermediates_directory)
+    os.makedirs(library.intermediates_directory)
+    os.makedirs(icons_directory)
+
+    # TODO: Write the icons out?
+    # TODO: write the files out.
+
+    # Write out the icons.
+    for release in releases:
+        release.write_assets(icons_directory)
+
+    # Write the intermediate index.
+    with open(releases_path, "w") as fh:
+        json.dump([release.as_dict(relative_icons_path="icons") for release in releases], fh, indent=4)
+
+
+def group(library):
+    # TODO: Surely this should be a property of the library!!
     summary_path = os.path.join(library.index_directory, "summary.json")
     sources_path = os.path.join(library.index_directory, "sources.json")
     programs_path = os.path.join(library.index_directory, "programs.json")
     icons_path = os.path.join(library.index_directory, "icons")
 
-    # Import all the standalone apps and installers.
-    releases = []
-    for source in library.sources:
-        releases += import_source(source, error_handler=error_handler)
+    # TODO: Move into library.
+    releases_path = os.path.join(library.intermediates_directory, "releases.json")
+    intermediate_icons_directory = os.path.join(library.intermediates_directory, "icons")
+
+    # Load the releases.
+    with open(releases_path) as fh:
+        releases = json.load(fh)
 
     # Generate the library summary.
     unique_uids = set()
@@ -529,48 +599,50 @@ def index(library, error_handler):
     total_count = 0
     details = collections.defaultdict(list)
     groups = collections.defaultdict(list)
+
     for release in releases:
-        unique_uids.add(release.uid)
-        unique_versions.add((release.uid, release.version))
-        unique_shas.add(release.sha256)
+        unique_uids.add(release['uid'])
+        unique_versions.add((release['uid'], release['version']))
+        unique_shas.add(release['sha256'])
         total_count = total_count + 1
-        details[(release.uid, release.sha256, release.version)].append(release)
-        groups[(release.uid)].append(release)
+        details[(release['uid'], release['sha256'], release['version'])].append(release)
+        groups[(release['uid'])].append(release)
     summary = Summary(installer_count=total_count,
                       uid_count=len(unique_uids),
                       version_count=len(unique_versions),
                       sha_count=len(unique_shas))
 
     # Generate the library by grouping the programs together by identifier/uid.
+    # This relies heavily on automagic grouping in the `Program` constructor which we may wish to make more explicit in
+    # the future.
     applications = []
     for identifier, installers in sorted([item for item in groups.items()],
-                                         key=lambda x: x[1][0].name.lower()):
+                                         key=lambda x: x[1][0]['name'].lower()):
         applications.append(Program(identifier, installers, []))
 
     # Create the output directory.
     os.makedirs(library.index_directory, exist_ok=True)
 
     # Write the summary.
-    logging.info("Writing summary '%s'...", summary_path)
+    logging.info("Writing summary to '%s'...", summary_path)
     with open(summary_path, "w") as fh:
         json.dump(summary.as_dict(), fh)
 
     # Write the sources.
-    logging.info("Writing sources '%s'...", sources_path)
+    logging.info("Writing sources to '%s'...", sources_path)
     with open(sources_path, "w") as fh:
         json.dump([source.as_dict() for source in library.sources], fh)
 
     # Write the library.
-    logging.info("Writing the library '%s'...", programs_path)
+    logging.info("Writing library to '%s'...", programs_path)
     with open(programs_path, "w", encoding="utf-8") as fh:
         json.dump([application.as_dict(relative_icons_path="icons") for application in applications], fh)
 
-    # Iterate over all the individual standalone app and installer instances and write the assets to disk.
+    # Copy the icons.
+    logging.info("Copying icons to '%s'...", icons_path)
     if os.path.exists(icons_path):
         shutil.rmtree(icons_path)
-    os.makedirs(icons_path)
-    for release in releases:
-        release.write_assets(icons_path=icons_path)
+    shutil.copytree(intermediate_icons_directory, icons_path)
 
 
 def overlay(library):
@@ -667,9 +739,9 @@ def overlay(library):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("definition")
-    parser.add_argument("command", choices=["sync", "index", "overlay"], nargs="+", help="command to run")
+    parser.add_argument("command", choices=["sync", "index", "group", "overlay"], nargs="+", help="command to run")
     parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
-    # TODO: This is specific to the "index" command.
+    # TODO: We should always copy the failures.
     parser.add_argument('--copy-failures', type=str, help="save failing files to this directory for future investigation")
     options = parser.parse_args()
 
@@ -697,6 +769,8 @@ def main():
                     pass
             index(library, error_handler=error_handler)
             # print(f"Completed with {failure_count} unreadable files.")
+        if command == "group":
+            group(library)
         if command == "overlay":
             overlay(library)
 

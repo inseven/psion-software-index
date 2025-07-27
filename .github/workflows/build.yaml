@@ -31,7 +31,7 @@ jobs:
         INDEXER_ASSETS_DIRECTORY: /Users/jbmorley/psion-software-index/assets
       run: |
         mkdir -p "$INDEXER_ASSETS_DIRECTORY"
-        tools/indexer libraries/full.yaml sync index overlay
+        tools/indexer libraries/full.yaml sync index group overlay
 
     - name: Build site
       run: |

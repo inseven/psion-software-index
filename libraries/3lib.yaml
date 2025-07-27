@@ -8,5 +8,6 @@ overlays:
 - ../overlays
 
 assets_directory: ../_assets
-index_directory: ../_index
+intermediates_directory: ../_intermediates  # TODO: This is actually the index.
+index_directory: ../_index  # TODO: RENAME THIS
 output_directory: ../site
