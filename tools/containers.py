@@ -23,58 +23,17 @@
 import collections
 import logging
 import os
+import subprocess
 import tarfile
 import tempfile
 import zipfile
 import zlib
 
-import pycdlib
-
 import model
 
 
-def extract_iso(path, destination_path):
-
-    iso = pycdlib.PyCdlib()
-    iso.open(path)
-
-    pathname = 'iso_path'
-    if iso.has_udf():
-        pathname = 'udf_path'
-    elif iso.has_joliet():
-        pathname = 'joliet_path'
-
-    start_path = '/'
-    root_entry = iso.get_record(**{pathname: start_path})
-
-    dirs = collections.deque([root_entry])
-    while dirs:
-        dir_record = dirs.popleft()
-        ident_to_here = iso.full_path_from_dirrecord(dir_record,
-                                                     rockridge=pathname == 'rr_path')
-        relname = ident_to_here[len(start_path):]
-        if relname and relname[0] == '/':
-            relname = relname[1:]
-        if dir_record.is_dir():
-            if relname != '':
-                os.makedirs(os.path.join(destination_path, relname))
-            child_lister = iso.list_children(**{pathname: ident_to_here})
-
-            for child in child_lister:
-                if child is None or child.is_dot() or child.is_dotdot():
-                    continue
-                dirs.append(child)
-        else:
-            if dir_record.is_symlink():
-                fullpath = os.path.join(destination_path, relname)
-                local_dir = os.path.dirname(fullpath)
-                local_link_name = os.path.basename(fullpath)
-                old_dir = os.getcwd()
-                os.chdir(local_dir)
-                os.symlink(dir_record.rock_ridge.symlink_path(), local_link_name)
-                os.chdir(old_dir)
-            else:
-                iso.get_file_from_iso(os.path.join(destination_path, relname), **{pathname: ident_to_here})
+def extract_iso(source, destination):
+    subprocess.check_call(["7z", "-o%s" % destination, "x", source])
 
 
 def extract_tar(source, destination):

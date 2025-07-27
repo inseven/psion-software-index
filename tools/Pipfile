@@ -9,7 +9,6 @@ verify_ssl = true
 jinja2 = "*"
 natsort = "*"
 pillow = "*"
-pycdlib = "*"
 python-frontmatter = "*"
 pyyaml = "*"
 requests = "*"
