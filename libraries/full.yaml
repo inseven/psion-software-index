@@ -49,6 +49,10 @@ sources:
 - https://archive.org/download/wpc-0696/wpc-0696.iso
 - https://archive.org/download/wpc-0996/wpc-0996.iso
 - https://archive.org/download/wpc-1296/wpc-1296.iso
+- https://archive.org/download/pdf125full/pdf%2B125full.zip
+- https://archive.org/download/tucows_48514_EZBank_Series_5/ezbanks5.zip
+- https://archive.org/download/tucows_59344_SaveMail_Series_5/savem_r3.zip
+- https://archive.org/download/tucows_49673_nSISUtil/nSISUtil.zip
 
 overlays:
 - ../overlays
