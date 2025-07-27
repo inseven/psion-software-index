@@ -108,7 +108,7 @@ def run_json_command(command, path):
         print(stderr)
         print("stdout")
         print(stdout)
-        exit("Failed to read SIS file")
+        raise
 
     return json.loads(stdout)
 
@@ -132,7 +132,6 @@ def dumpsis_extract(source, destination):
         return None
 
     # Check the return code.
-    # It might be nicer to mark
     try:
         result.check_returncode()
     except:
@@ -140,7 +139,7 @@ def dumpsis_extract(source, destination):
         print(stderr)
         print("stdout")
         print(stdout)
-        exit("Failed to read SIS file")
+        raise
 
 
 def get_icons(aif_path):

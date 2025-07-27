@@ -109,6 +109,10 @@ LIBRARY_INDEXES = [
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
 
 
+class MissingName(Exception):
+    pass
+
+
 class ReleaseKind(Enum):
     INSTALLER = "installer"
     STANDALONE = "standalone"
@@ -351,8 +355,8 @@ def select_name(names):
     for language in LANGUAGE_ORDER:
         if language in names:
             return names[language]
-    logging.effort("Failed to select a name from candidates '%s'.", names)
-    exit("Unable to find language")
+    logging.error("Failed to select a name from candidates '%s'.", names)
+    raise MissingName("No supported localizations found")
 
 
 def shasum(path):
@@ -397,7 +401,7 @@ def discover_tags(path):
     return tags
 
 
-def import_installer(source, reference, path):
+def import_installer(source, reference, path, error_handler):
     info = opolua.dumpsis(path)
     icons = []
     tags = []
@@ -412,7 +416,10 @@ def import_installer(source, reference, path):
             contents = glob.glob("**/*.aif", recursive=True)
             if contents:
                 aif_path = contents[0]
-                icons = opolua.get_icons(aif_path)
+                try:
+                    icons = opolua.get_icons(aif_path)
+                except Exception as e:
+                    error_handler(aif_path, e)
 
     summary = source.summary_for(path)
     readme = readme_for(path)
@@ -429,7 +436,7 @@ def import_installer(source, reference, path):
 
 
 # TODO: Rename to just import?
-def import_source(source, reference=None, path=None, indent=0):
+def import_source(source, reference=None, path=None, indent=0, error_handler=None):
 
     apps = []
     logging.info(" " * indent + f"Importing source '{source.path}'...")
@@ -454,18 +461,25 @@ def import_source(source, reference=None, path=None, indent=0):
             icons = []
             app_name = name
             if aif_path:
-                info = opolua.dumpaif(aif_path)
-                uid = ("0x%08x" % info["uid3"]).lower()
-                app_name = select_name(info["captions"])
-                icons = opolua.get_icons(aif_path)
+                try:
+                    info = opolua.dumpaif(aif_path)
+                    uid = ("0x%08x" % info["uid3"]).lower()
+                    app_name = select_name(info["captions"])
+                    icons = opolua.get_icons(aif_path)
+                except MissingName as e:
+                    error_handler(aif_path, e)
+                except BaseException as e:
+                    error_handler(aif_path, e)
+                    logging.warning("Failed to parse APP as AIF with message '%s'", e)
             else:
                 try:
                     info = opolua.dumpaif(file_path)
                     icons = opolua.get_icons(file_path)
                     app_name = select_name(info["captions"])
-                except opolua.InvalidAIF:
-                    pass
+                except opolua.InvalidAIF as e:
+                    error_handler(file_path, e)
                 except BaseException as e:
+                    error_handler(file_path, e)
                     logging.warning("Failed to parse APP as AIF with message '%s'", e)
             summary = source.summary_for(file_path)
             readme = readme_for(file_path)
@@ -485,14 +499,18 @@ def import_source(source, reference=None, path=None, indent=0):
 
             logging.info(" " * indent + f"Importing installer '{file_path}'...")
             try:
-                apps.append(import_installer(source=source, reference=reference, path=file_path))
+                apps.append(import_installer(source=source, reference=reference, path=file_path, error_handler=error_handler))
             except opolua.InvalidInstaller as e:
                 logging.error("Failed to import installer with message '%s", e)
+                error_handler(file_path, e)
+            except Exception as e:
+                logging.error("Failed to import installer with message '%s", e)
+                error_handler(file_path, e)
 
     return apps
 
 
-def index(library):
+def index(library, error_handler):
 
     summary_path = os.path.join(library.index_directory, "summary.json")
     sources_path = os.path.join(library.index_directory, "sources.json")
@@ -502,7 +520,7 @@ def index(library):
     # Import all the standalone apps and installers.
     releases = []
     for source in library.sources:
-        releases += import_source(source)
+        releases += import_source(source, error_handler=error_handler)
 
     # Generate the library summary.
     unique_uids = set()
@@ -648,9 +666,11 @@ def overlay(library):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
     parser.add_argument("definition")
     parser.add_argument("command", choices=["sync", "index", "overlay"], nargs="+", help="command to run")
+    parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
+    # TODO: This is specific to the "index" command.
+    parser.add_argument('--copy-failures', type=str, help="save failing files to this directory for future investigation")
     options = parser.parse_args()
 
     library = common.Library(options.definition)
@@ -659,7 +679,24 @@ def main():
         if command == "sync":
             library.sync()
         if command == "index":
-            index(library)
+            if options.copy_failures:
+                failure_path = os.path.abspath(options.copy_failures)
+                def error_handler(path, error):
+                    # Create a new path for each failing file and log the error alongside the file.
+                    sha = shasum(path)
+                    destination_path = os.path.join(failure_path, sha)
+                    if os.path.exists(destination_path):
+                        logging.warning(f"Ignoring duplicate failing file with shasum '{sha}'...")
+                        return
+                    os.makedirs(destination_path)
+                    shutil.copy(path, destination_path)
+                    with open(os.path.join(destination_path, "error.txt"), "w") as fh:
+                        fh.write(str(error))
+            else:
+                def error_handler(path, error):
+                    pass
+            index(library, error_handler=error_handler)
+            # print(f"Completed with {failure_count} unreadable files.")
         if command == "overlay":
             overlay(library)
 
