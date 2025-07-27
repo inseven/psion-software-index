@@ -552,21 +552,38 @@ def import_source(source, reference=None, path=None, indent=0, error_handler=Non
     return apps
 
 
-def index(library, error_handler):
-    releases = []
-    for source in library.sources:
-        releases += import_source(source, error_handler=error_handler)
+def index(library):
+
+    # Paths.
+    # TODO: These are shared between different indexing stages and should probably be a property of the library itself.
     releases_path = os.path.join(library.intermediates_directory, "releases.json")
     icons_directory = os.path.join(library.intermediates_directory, "icons")
+    errors_directory = os.path.join(library.intermediates_directory, "errors")
 
     # Clean up the intermediates directory.
     if os.path.exists(library.intermediates_directory):
         shutil.rmtree(library.intermediates_directory)
     os.makedirs(library.intermediates_directory)
     os.makedirs(icons_directory)
+    os.makedirs(errors_directory)
 
-    # TODO: Write the icons out?
-    # TODO: write the files out.
+    # Capture failing files for later investigation.
+    # This creates a new path for each unique failing file and stores the error alongside the file.
+    def error_handler(path, error):
+        sha = shasum(path)
+        destination_path = os.path.join(errors_directory, sha)
+        if os.path.exists(destination_path):
+            logging.warning(f"Ignoring duplicate failing file with shasum '{sha}'...")
+            return
+        os.makedirs(destination_path)
+        shutil.copy(path, destination_path)
+        with open(os.path.join(destination_path, "error.txt"), "w") as fh:
+            fh.write(str(error))
+
+    # Index all the individual releases.
+    releases = []
+    for source in library.sources:
+        releases += import_source(source, error_handler=error_handler)
 
     # Write out the icons.
     for release in releases:
@@ -741,8 +758,6 @@ def main():
     parser.add_argument("definition")
     parser.add_argument("command", choices=["sync", "index", "group", "overlay"], nargs="+", help="command to run")
     parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
-    # TODO: We should always copy the failures.
-    parser.add_argument('--copy-failures', type=str, help="save failing files to this directory for future investigation")
     options = parser.parse_args()
 
     library = common.Library(options.definition)
@@ -751,24 +766,7 @@ def main():
         if command == "sync":
             library.sync()
         if command == "index":
-            if options.copy_failures:
-                failure_path = os.path.abspath(options.copy_failures)
-                def error_handler(path, error):
-                    # Create a new path for each failing file and log the error alongside the file.
-                    sha = shasum(path)
-                    destination_path = os.path.join(failure_path, sha)
-                    if os.path.exists(destination_path):
-                        logging.warning(f"Ignoring duplicate failing file with shasum '{sha}'...")
-                        return
-                    os.makedirs(destination_path)
-                    shutil.copy(path, destination_path)
-                    with open(os.path.join(destination_path, "error.txt"), "w") as fh:
-                        fh.write(str(error))
-            else:
-                def error_handler(path, error):
-                    pass
-            index(library, error_handler=error_handler)
-            # print(f"Completed with {failure_count} unreadable files.")
+            index(library)
         if command == "group":
             group(library)
         if command == "overlay":
