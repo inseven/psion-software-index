@@ -14,6 +14,7 @@ sources:
 - https://archive.org/download/enrouteeurope/EnRouteEurope_Contents.zip
 - https://archive.org/download/NWTPsion3/NWT_Psion3.tar
 - https://archive.org/download/palmtop-cd-2/palmtop%20cd2.zip
+- https://archive.org/download/pdf125full/pdf%2B125full.zip
 - https://archive.org/download/pilowar/pilowar.iso
 - https://archive.org/download/pocketwarewoerterbuch/PocketWareTrueDic.iso
 - https://archive.org/download/psion-cdtextfiles.com/PSION_cdtextfiles.com.zip
@@ -24,11 +25,14 @@ sources:
 - https://archive.org/download/tucows_31661_PsiBlocks/psiblock.zip
 - https://archive.org/download/tucows_35391_Fairway/fairway.zip
 - https://archive.org/download/tucows_47400_Morleysoft_Fern/morleysoft_fern.zip
+- https://archive.org/download/tucows_48514_EZBank_Series_5/ezbanks5.zip
 - https://archive.org/download/tucows_48861_Fancy_Galaxy/fg.zip
+- https://archive.org/download/tucows_49673_nSISUtil/nSISUtil.zip
 - https://archive.org/download/tucows_51566_LittleSense/lsenseUK.zip
 - https://archive.org/download/tucows_56884_DCALC/dcalc202_en.zip
 - https://archive.org/download/tucows_56884_DCALC/dcalc202_en.zip
 - https://archive.org/download/tucows_58742_BMI_Pro/BMIPro.zip
+- https://archive.org/download/tucows_59344_SaveMail_Series_5/savem_r3.zip
 - https://archive.org/download/tucows_67813_Internettime_German/time.zip
 - https://archive.org/download/tucows_74116_Goby/goby.zip
 - https://archive.org/download/tucows_79322_Yoris/yoris_dist.zip
@@ -49,10 +53,6 @@ sources:
 - https://archive.org/download/wpc-0696/wpc-0696.iso
 - https://archive.org/download/wpc-0996/wpc-0996.iso
 - https://archive.org/download/wpc-1296/wpc-1296.iso
-- https://archive.org/download/pdf125full/pdf%2B125full.zip
-- https://archive.org/download/tucows_48514_EZBank_Series_5/ezbanks5.zip
-- https://archive.org/download/tucows_59344_SaveMail_Series_5/savem_r3.zip
-- https://archive.org/download/tucows_49673_nSISUtil/nSISUtil.zip
 
 overlays:
 - ../overlays
