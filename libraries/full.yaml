@@ -43,5 +43,6 @@ overlays:
 - ../overlays
 
 assets_directory: ../_assets
+intermediates_directory: ../_intermediates
 index_directory: ../_index
 output_directory: ../site
