@@ -58,28 +58,6 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-# These SIS files currently cause issues with the extraction tools we're using so they're being ignored for the time
-# being to allow us to make progress with some of the existing libraries.
-# TODO: There should be no need for this blacklist; they should simply be recorded in the failures.
-IGNORED = set([
-    "netutils.sis",
-    "NETUTILS.SIS",
-    "NetUtils.sis",
-    "nEzumi 2.sis",
-    "RevoSDK.zip",
-    "SCOMMSW.SIS",
-
-    # pilowar
-    "cclock.sis",
-    "japoleon.sis",
-    "GeneWar.sis",
-    "Re-mem.app",
-    "RateCalc.sis",
-    "CubeLine.sis",
-    "WinEPOC.sis",
-    "PsiStatsPro.sis",
-])
-
 LIBRARY_INDEXES = [
     "library/epocgames",
     "library/epocgraphics",
@@ -487,10 +465,6 @@ def import_source(source, reference=None, path=None, indent=0, error_handler=Non
         name, ext = os.path.splitext(basename)
         ext = ext.lower()
 
-        # TODO: See if this is now fixed with Tom's new detection stuff.
-        if basename in IGNORED or "System/Install" in file_path:
-            continue
-
         if ext == ".app" or ext == ".opa":
 
             # TODO: Combine APP and SIS.
@@ -581,17 +555,22 @@ def index(library):
             fh.write(str(error))
 
     # Index all the individual releases.
+    logging.info("Indexing...")
     releases = []
     for source in library.sources:
         releases += import_source(source, error_handler=error_handler)
 
     # Write out the icons.
+    logging.info("Writing icons to '%s'...", icons_directory)
     for release in releases:
         release.write_assets(icons_directory)
 
     # Write the intermediate index.
+    logging.info("Writing intermediate index to '%s'...", releases_path)
     with open(releases_path, "w") as fh:
         json.dump([release.as_dict(relative_icons_path="icons") for release in releases], fh, indent=4)
+
+    logging.info("Indexing complete.")
 
 
 def group(library):
