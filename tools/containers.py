@@ -32,6 +32,18 @@ import zlib
 import model
 
 
+def extract_cab(source, destination):
+    # TODO: Differentiate between InstallShield files and regular Microsoft installer files.
+    file_type = subprocess.check_output(["file", "-b", source]).decode("utf-8").strip()
+    if file_type == "InstallShield CAB":
+        # Unfortunately for the time being we don't seem to have a way to reliably extract InstallShield CAB files.
+        return
+        # subprocess.check_call(["unshield", "-d", destination, "x", source])
+    # else:
+        # TODO: Or consider use `cabextract`
+    subprocess.check_call(["7z", "-o%s" % destination, "x", source])
+
+
 def extract_iso(source, destination):
     subprocess.check_call(["7z", "-o%s" % destination, "x", source])
 
@@ -50,6 +62,7 @@ CONTAINER_MAPPING = {
     ".iso": extract_iso,
     ".tar": extract_tar,
     ".zip": extract_zip,
+    ".cab": extract_cab,
 }
 
 
