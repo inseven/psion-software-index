@@ -26,6 +26,10 @@ body {
     background-color: var(--background-color);
 }
 
+p {
+    line-height: 1.5em;
+}
+
 header nav {
     text-align: center;
     font-weight: 300;

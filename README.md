@@ -9,6 +9,12 @@ Tools for generating an index of Psion software
 Install the dependencies:
 
 ```bash
+brew install p7zip
+```
+
+And then:
+
+```bash
 scripts/install-dependencies.sh
 ```
 
@@ -22,6 +28,12 @@ Generate the index:
 
 ```bash
 tools/indexer libraries/full.yaml index
+```
+
+Perform grouping:
+
+```bash
+tools/indexer libraries/full.yaml group
 ```
 
 Apply the overlay:
@@ -51,7 +63,7 @@ git submodule update --init --recursive
 It can be useful to be able to run the indexer on a smaller library:
 
 ```bash
-tools/indexer libraries/3lib.yaml sync index overlay
+tools/indexer libraries/3lib.yaml sync index group overlay
 ```
 
 You can serve the site locally as follows:
@@ -66,7 +78,7 @@ Subsequent calls to update the index will cause the site to be rebuilt automatic
 **Note:** The indexer runs multiple commands and Lua scripts during the indexing process (approximately 100,000 for the current library). Small changes in process launch times can therefore significantly impact index generation performance, and shim-based environment managers like [asdf](https://asdf-vm.com) can cause real problems. To work around this, the indexer respects the `LUA_PATH` environment variable to allow shims to be bypassed. For example,
 
 ```bash
-LUA_PATH=/opt/homebrew/bin/lua tools/indexer libraries/3lib.yaml sync index overlay
+LUA_PATH=/opt/homebrew/bin/lua tools/indexer libraries/3lib.yaml sync index group overlay
 ```
 
 ## Contributing
