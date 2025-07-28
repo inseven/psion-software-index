@@ -5,8 +5,7 @@ description: "Index of software for the Psion range of palmtop computers."
 baseurl: ""
 url: "https://software.psion.info"
 
-plugins:
-  - jekyll-feed
+plugins: []
 destination: ../_site
 
 defaults:
