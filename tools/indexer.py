@@ -171,7 +171,7 @@ class Version(object):
     def version(self):
         return self.installers[0]['version']
 
-    def as_dict(self, relative_icons_path):
+    def as_dict(self):
         # TODO: We probably don't want to do this in the future, but for the time being, we strip some data out of the
         # releases to make sure they exactly match the original format to avoid making too many changes at once.
         variants = [{
@@ -237,13 +237,12 @@ class Program(object):
         return select_icon_dict([installer['icon'] for installer in self.installers
                                 if 'icon' in installer])
 
-    # TODO: THE relative_icons_path isn't necessary.
-    def as_dict(self, relative_icons_path):
+    def as_dict(self):
         dict = {
             'uid': self.uid,
             'name': self.name,
             'summary': self.summary,
-            'versions': [version.as_dict(relative_icons_path=relative_icons_path) for version in self.versions],
+            'versions': [version.as_dict() for version in self.versions],
             'tags': sorted(list(self.tags)),
             'kinds': [kind for kind in self.kinds],
         }
@@ -278,7 +277,6 @@ class Release(object):
         self.icons = icons
         self.summary = summary
         self.readme = readme
-        self.icon = select_icon(self.icons)
         self.tags = tags
 
     def as_dict(self, relative_icons_path):
@@ -291,16 +289,11 @@ class Release(object):
             'version': self.version,
             'tags': sorted(list(self.tags)),
         }
-        # TODO: Output all the icons into the intermediate format.
-        # TODO: Select the icons at render time.
-        # TODO: Store the icon hash too to make it possible to group by the icon.
-        if self.icon is not None:
-            dict['icon'] = {
-                'path': os.path.join(relative_icons_path, self.icon.filename),
-                'width': self.icon.width,
-                'height': self.icon.height,
-                'bpp': self.icon.bpp,
-            }
+        dict['icons'] = [{'filename': icon.filename,
+                          'width': icon.width,
+                          'height': icon.height,
+                          'bpp': icon.bpp,
+                          'sha256': icon.shasum} for icon in self.icons]
         if self.readme is not None:
             dict['readme'] = self.readme
         if self.summary is not None:
@@ -308,9 +301,8 @@ class Release(object):
         return dict
 
     def write_assets(self, icons_path):
-        if self.icon is None:
-            return
-        self.icon.write(directory_path=icons_path)
+        for icon in self.icons:
+            icon.write(directory_path=icons_path)
 
 
 class Reference(object):
@@ -345,15 +337,6 @@ def readme_for(path):
     if readme_path:
         with open(readme_path, "rb") as fh:
             return decode(fh.read())
-
-
-# TODO: It should be possible to drop this if the intermediate index is richer.
-def select_icon(icons):
-    candidates = [icon for icon in icons if icon.width == icon.height and icon.width <= 48]
-    icons = list(reversed(sorted(candidates, key=lambda x: (x.bpp, x.width))))
-    if len(icons) < 1:
-        return None
-    return icons[0]
 
 
 def select_icon_dict(icons):
@@ -611,10 +594,32 @@ def group(library):
     # Generate the library by grouping the programs together by identifier/uid.
     # This relies heavily on automagic grouping in the `Program` constructor which we may wish to make more explicit in
     # the future.
-    applications = []
+    programs = []
     for identifier, installers in sorted([item for item in groups.items()],
                                          key=lambda x: x[1][0]['name'].lower()):
-        applications.append(Program(identifier, installers, []))
+
+        releases = []
+        for installer in installers:
+            # Strip down the release for the API.
+            required_keys = ['reference', 'kind', 'sha256', 'uid', 'name', 'version', 'tags']
+            optional_keys = ['readme', 'summary']
+            release = {}
+            for key in required_keys:
+                release[key] = installer[key]
+            for key in optional_keys:
+                if key in installer:
+                    release[key] = installer[key]
+            icon = select_icon_dict(installer['icons'])
+            if icon is not None:
+                release['icon'] = {
+                    'path': os.path.join("icons", icon['filename']),
+                    'width': icon['width'],
+                    'height': icon['height'],
+                    'bpp': icon['bpp'],
+                }
+            releases.append(release)
+
+        programs.append(Program(identifier, releases, []))
 
     # Create the output directory.
     os.makedirs(library.index_directory, exist_ok=True)
@@ -632,7 +637,7 @@ def group(library):
     # Write the library.
     logging.info("Writing library to '%s'...", programs_path)
     with open(programs_path, "w", encoding="utf-8") as fh:
-        json.dump([application.as_dict(relative_icons_path="icons") for application in applications], fh)
+        json.dump([program.as_dict() for program in programs], fh)
 
     # Copy the icons.
     logging.info("Copying icons to '%s'...", icons_path)
