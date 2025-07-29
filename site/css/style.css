@@ -32,7 +32,7 @@ body {
     background-color: var(--background-color);
 }
 
-p {
+p, details {
     line-height: 1.7em;
 }
 
@@ -123,10 +123,6 @@ footer nav ul {
 footer nav ul li {
     display: inline;
     margin-right: 0.5em;
-}
-
-table.statistics {
-    margin: auto;
 }
 
 .stat {
@@ -314,6 +310,11 @@ ul.sources li {
 ul.sources li:nth-child(odd) {
     background: var(--tertiary-background-color);
     transition: background-color .3s ease-in-out;
+}
+
+.source-description {
+    margin: var(--vertical-spacing);
+    white-space: pre-wrap;
 }
 
 /* Dividers */
