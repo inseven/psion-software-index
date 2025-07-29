@@ -266,9 +266,10 @@ class Program(object):
 
 class Release(object):
 
-    # TODO: Rename UID to identifier everywhere.
-    def __init__(self, filename, reference, kind, identifier, sha256, name, version, icons, summary, readme, tags):
+    # TODO: Make the UID optional and don't attempt to synthesize other identifiers at this stage.
+    def __init__(self, filename, size, reference, kind, identifier, sha256, name, version, icons, summary, readme, tags):
         self.filename = filename
+        self.size = size
         self.reference = reference
         self.kind = kind
         self.uid = identifier
@@ -283,6 +284,7 @@ class Release(object):
     def as_dict(self, relative_icons_path):
         dict = {
             'filename': self.filename,
+            'size': self.size,
             'reference': [item.as_dict() for item in self.reference],
             'kind': self.kind.value,
             'sha256': self.sha256,
@@ -432,6 +434,7 @@ def import_installer(source, output_directory, reference, path, error_handler):
     sha256 = shasum(path)
     shutil.copyfile(path, os.path.join(output_directory, sha256))
     return Release(filename=os.path.basename(path),
+                   size=os.path.getsize(path),
                    reference=reference,
                    kind=ReleaseKind.INSTALLER,
                    identifier="0x%08x" % info["uid"],
@@ -491,6 +494,7 @@ def import_source(source, output_directory, error_handler=None):
             sha256 = shasum(file_path)
             shutil.copyfile(file_path, os.path.join(output_directory, sha256))
             release = Release(filename=os.path.basename(file_path),
+                              size=os.path.getsize(file_path),
                               reference=reference,
                               kind=ReleaseKind.STANDALONE,
                               identifier=uid,
@@ -620,7 +624,7 @@ def group(library):
         releases = []
         for installer in installers:
             # Strip down the release for the API.
-            required_keys = ['filename', 'reference', 'kind', 'sha256', 'uid', 'name', 'version', 'tags']
+            required_keys = ['filename', 'size', 'reference', 'kind', 'sha256', 'uid', 'name', 'version', 'tags']
             optional_keys = ['readme', 'summary']
             release = {}
             for key in required_keys:

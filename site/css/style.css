@@ -1,5 +1,6 @@
 :root {
     --foreground-color: #000;
+    --secondary-foreground-color: #ccc;
     --background-color: #fff;
     --secondary-background-color: #fff;
     --tertiary-background-color: #fafafa;
@@ -12,6 +13,7 @@
 
     :root {
         --foreground-color: #fff;
+        --secondary-foreground-color: #ccc;
         --background-color: #171616;
         --secondary-background-color: rgb(33, 32, 33);
         --tertiary-background-color: #2b2b2b;
@@ -143,7 +145,7 @@ footer nav ul li {
 
 .sha, .uid, variant-hash {
     font-family: monospace;
-    color: #ccc;
+    color: var(--secondary-foreground-color);
     font-size: 13px;
 }
 
@@ -203,7 +205,7 @@ ul.applications > li > a img {
 .application-identifier {
     text-align: center;
     font-family: monospace;
-    color: #ccc;
+    color: var(--secondary-foreground-color);
     font-size: 15px;
 }
 
@@ -298,6 +300,10 @@ variant-title {
     display: block;
 }
 
+.file-size {
+    color: var(--secondary-foreground-color);
+}
+
 ul.sources {
     width: 100%;
     padding: 0;
@@ -317,8 +323,6 @@ ul.sources li:nth-child(odd) {
     margin: var(--vertical-spacing);
     white-space: pre-wrap;
 }
-
-/* Dividers */
 
 .summary {
     border-bottom: 1px solid var(--tertiary-background-color);

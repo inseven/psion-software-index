@@ -56,6 +56,7 @@ layout: default
                         </variant-hash>
                     </variant-details>
                     <variant-actions>
+                        <span class="file-size">{{ release.size | divided_by: 1024 }} kB</span>
                         <a class="download" href="/files/{{ release.sha256 }}" download="{{ release.filename }}">Download</a>
                     </variant-actions>
                 </variant-header>
