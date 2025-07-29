@@ -4,7 +4,7 @@
     --secondary-background-color: #fff;
     --tertiary-background-color: #fafafa;
     --button-background-color: #eee;
-    --link-color: orange;
+    --link-color: darkorange;
     --vertical-spacing: 1rem;
 }
 
@@ -16,14 +16,14 @@
         --secondary-background-color: rgb(33, 32, 33);
         --tertiary-background-color: #2b2b2b;
         --button-background-color: #2b2b2b;
-        --link-color: orange;
+        --link-color: darkorange;
     }
 }
 
 body {
     font-family: Helvetica, sans-serif;
     font-weight: 200;
-    font-size: 15px;
+    font-size: 17px;
     /* font-family: sans-serif; */
     text-align: center;
     margin: 0;
@@ -33,13 +33,12 @@ body {
 }
 
 p {
-    line-height: 1.5em;
+    line-height: 1.7em;
 }
 
 header nav {
     text-align: center;
     font-weight: 400;
-    font-size: 17px;
 }
 
 header ul {
@@ -208,22 +207,24 @@ ul.applications > li > a img {
     text-align: center;
     font-family: monospace;
     color: #ccc;
+    font-size: 15px;
 }
 
 a.download {
-    color: orange;
     background-color: var(--button-background-color);
-    transition: background-color .3s ease-in-out;
-    font-weight: 400;
-    text-decoration: none;
-    padding: 0.6em 1em;
-    display: inline-block;
     border-radius: 2em;
+    color: var(--link-color);
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 0.6em 1em;
+    text-decoration: none;
+    transition: background-color .3s ease-in-out;
 }
 
 .path {
-    /* font-family: monospace; */
     word-break: break-all;
+    font-size: 15px;
 }
 
 ul.tags {
