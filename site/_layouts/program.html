@@ -63,6 +63,7 @@ layout: default
                             {% endfor %}
                         </div>
                         <div class="sha">{{ release.sha256 }}</div>
+                        <a href="/files/{{ release.sha256 }}" download="{{ release.filename }}">Download</a>
                     </td>
                 </tr>
             {% endfor %}

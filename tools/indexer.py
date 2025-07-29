@@ -267,7 +267,8 @@ class Program(object):
 class Release(object):
 
     # TODO: Rename UID to identifier everywhere.
-    def __init__(self, reference, kind, identifier, sha256, name, version, icons, summary, readme, tags):
+    def __init__(self, filename, reference, kind, identifier, sha256, name, version, icons, summary, readme, tags):
+        self.filename = filename
         self.reference = reference
         self.kind = kind
         self.uid = identifier
@@ -281,6 +282,7 @@ class Release(object):
 
     def as_dict(self, relative_icons_path):
         dict = {
+            'filename': self.filename,
             'reference': [item.as_dict() for item in self.reference],
             'kind': self.kind.value,
             'sha256': self.sha256,
@@ -404,11 +406,12 @@ def discover_tags(path):
     return tags
 
 
-def import_installer(source, reference, path, error_handler):
+def import_installer(source, output_directory, reference, path, error_handler):
     info = opolua.dumpsis(path)
     icons = []
     tags = []
 
+    # TODO: Move this into an OpoLua utility.
     with tempfile.TemporaryDirectory() as temporary_directory_path:
 
         with Chdir(temporary_directory_path):
@@ -426,10 +429,13 @@ def import_installer(source, reference, path, error_handler):
 
     summary = source.summary_for(path)
     readme = readme_for(path)
-    return Release(reference=reference,
+    sha256 = shasum(path)
+    shutil.copyfile(path, os.path.join(output_directory, sha256))
+    return Release(filename=os.path.basename(path),
+                   reference=reference,
                    kind=ReleaseKind.INSTALLER,
                    identifier="0x%08x" % info["uid"],
-                   sha256=shasum(path),
+                   sha256=sha256,
                    name=select_name(info["name"]),
                    version=info["version"],
                    icons=icons,
@@ -439,10 +445,10 @@ def import_installer(source, reference, path, error_handler):
 
 
 # TODO: Rename to just import?
-def import_source(source, reference=None, path=None, indent=0, error_handler=None):
+def import_source(source, output_directory, error_handler=None):
 
     apps = []
-    logging.info(" " * indent + f"Importing source '{source.path}'...")
+    logging.info(f"Importing source '{source.path}'...")
     for (file_path, reference) in source.assets:
         basename = os.path.basename(file_path)
         name, ext = os.path.splitext(basename)
@@ -454,7 +460,7 @@ def import_source(source, reference=None, path=None, indent=0, error_handler=Non
 
             tags = discover_tags(os.path.dirname(file_path))
 
-            logging.info(" " * indent + f"Importing app '{file_path}'...")
+            logging.info(f"Importing app '{file_path}'...")
             aif_path = find_sibling(file_path, name + ".aif")
             uid = shasum(file_path)
             icons = []
@@ -482,10 +488,13 @@ def import_source(source, reference=None, path=None, indent=0, error_handler=Non
                     logging.warning("Failed to parse APP as AIF with message '%s'", e)
             summary = source.summary_for(file_path)
             readme = readme_for(file_path)
-            release = Release(reference=reference,
+            sha256 = shasum(file_path)
+            shutil.copyfile(file_path, os.path.join(output_directory, sha256))
+            release = Release(filename=os.path.basename(file_path),
+                              reference=reference,
                               kind=ReleaseKind.STANDALONE,
                               identifier=uid,
-                              sha256=shasum(file_path),
+                              sha256=sha256,
                               name=app_name,
                               version="Unknown",
                               icons=icons,
@@ -496,9 +505,13 @@ def import_source(source, reference=None, path=None, indent=0, error_handler=Non
 
         elif ext == ".sis":
 
-            logging.info(" " * indent + f"Importing installer '{file_path}'...")
+            logging.info(f"Importing installer '{file_path}'...")
             try:
-                apps.append(import_installer(source=source, reference=reference, path=file_path, error_handler=error_handler))
+                apps.append(import_installer(source=source,
+                                             output_directory=output_directory,
+                                             reference=reference,
+                                             path=file_path,
+                                             error_handler=error_handler))
             except opolua.InvalidInstaller as e:
                 logging.error("Failed to import installer with message '%s", e)
                 error_handler(file_path, e)
@@ -514,6 +527,7 @@ def index(library):
     # Paths.
     # TODO: These are shared between different indexing stages and should probably be a property of the library itself.
     releases_path = os.path.join(library.intermediates_directory, "releases.json")
+    files_directory = os.path.join(library.intermediates_directory, "files")
     icons_directory = os.path.join(library.intermediates_directory, "icons")
     errors_directory = os.path.join(library.intermediates_directory, "errors")
 
@@ -521,6 +535,7 @@ def index(library):
     if os.path.exists(library.intermediates_directory):
         shutil.rmtree(library.intermediates_directory)
     os.makedirs(library.intermediates_directory)
+    os.makedirs(files_directory)
     os.makedirs(icons_directory)
     os.makedirs(errors_directory)
 
@@ -541,7 +556,9 @@ def index(library):
     logging.info("Indexing...")
     releases = []
     for source in library.sources:
-        releases += import_source(source, error_handler=error_handler)
+        releases += import_source(source=source,
+                                  output_directory=files_directory,
+                                  error_handler=error_handler)
 
     # Write out the icons.
     logging.info("Writing icons to '%s'...", icons_directory)
@@ -561,10 +578,12 @@ def group(library):
     summary_path = os.path.join(library.index_directory, "summary.json")
     sources_path = os.path.join(library.index_directory, "sources.json")
     programs_path = os.path.join(library.index_directory, "programs.json")
+    files_path = os.path.join(library.index_directory, "files")
     icons_path = os.path.join(library.index_directory, "icons")
 
     # TODO: Move into library.
     releases_path = os.path.join(library.intermediates_directory, "releases.json")
+    intermediate_files_directory = os.path.join(library.intermediates_directory, "files")
     intermediate_icons_directory = os.path.join(library.intermediates_directory, "icons")
 
     # Load the releases.
@@ -601,7 +620,7 @@ def group(library):
         releases = []
         for installer in installers:
             # Strip down the release for the API.
-            required_keys = ['reference', 'kind', 'sha256', 'uid', 'name', 'version', 'tags']
+            required_keys = ['filename', 'reference', 'kind', 'sha256', 'uid', 'name', 'version', 'tags']
             optional_keys = ['readme', 'summary']
             release = {}
             for key in required_keys:
@@ -639,6 +658,12 @@ def group(library):
     with open(programs_path, "w", encoding="utf-8") as fh:
         json.dump([program.as_dict() for program in programs], fh)
 
+    # Copy the files.
+    logging.info("Copying files to '%s'...", files_path)
+    if os.path.exists(files_path):
+        shutil.rmtree(files_path)
+    shutil.copytree(intermediate_files_directory, files_path)
+
     # Copy the icons.
     logging.info("Copying icons to '%s'...", icons_path)
     if os.path.exists(icons_path):
@@ -652,10 +677,12 @@ def overlay(library):
     source_programs_path = os.path.join(library.index_directory, "programs.json")
     source_sources_path = os.path.join(library.index_directory, "sources.json")
     source_summary_path = os.path.join(library.index_directory, "summary.json")
+    files_path = os.path.join(library.index_directory, "files")
     icons_path = os.path.join(library.index_directory, "icons")
 
     data_output_path = os.path.join(library.output_directory, "_data")
     screenshots_output_path = os.path.join(library.output_directory, "screenshots")
+    files_output_path = os.path.join(library.output_directory, "files")
     icons_output_path = os.path.join(library.output_directory, "icons")
     api_v1_output_path = os.path.join(library.output_directory, "api", "v1")
 
@@ -686,6 +713,8 @@ def overlay(library):
         shutil.rmtree(screenshots_output_path)
     if os.path.exists(data_output_path):
         shutil.rmtree(data_output_path)
+    if os.path.exists(files_output_path):
+        shutil.rmtree(files_output_path)
     if os.path.exists(icons_output_path):
         shutil.rmtree(icons_output_path)
     if os.path.exists(api_v1_output_path):
@@ -722,6 +751,9 @@ def overlay(library):
     shutil.copyfile(source_summary_path, destination_summary_path)
     with open(destination_programs_path, "w") as fh:
         json.dump(index, fh)
+
+    # Copy the files.
+    shutil.copytree(files_path, files_output_path)
 
     # Copy the icons.
     shutil.copytree(icons_path, icons_output_path)
