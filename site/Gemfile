@@ -3,6 +3,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.2.0"
 gem "webrick", "~> 1.8.2"
 gem "rexml", ">= 3.3.3"
+gem 'jekyll-typogrify'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.

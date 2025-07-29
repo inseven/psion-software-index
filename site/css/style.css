@@ -72,6 +72,36 @@ h1 {
     text-align: center;
 }
 
+header program-icon {
+    display: block;
+    margin-bottom: var(--vertical-spacing);
+    text-align: center;
+}
+
+header program-title {
+    display: block;
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: var(--vertical-spacing);
+    text-align: center;
+}
+
+header program-subtitle {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: var(--vertical-spacing);
+    text-align: center;
+}
+
+header program-identifier {
+    color: var(--secondary-foreground-color);
+    display: block;
+    font-family: monospace;
+    font-size: 15px;
+    margin-bottom: var(--vertical-spacing);
+    text-align: center;
+}
+
 .content, footer {
     text-align: left;
     max-width: 720px;
@@ -156,12 +186,14 @@ footer nav ul li {
 .screenshots {
     overflow-x: scroll;
     white-space: nowrap;
+    scroll-snap-type: x mandatory;
 }
 
 .screenshot {
     border: 1px solid var(--tertiary-background-color);
     max-width: 90%;
     height: auto;
+    scroll-snap-align: left;
 }
 
 ul.applications {
@@ -200,13 +232,6 @@ ul.applications > li > a:hover {
 ul.applications > li > a img {
     vertical-align: middle;
     margin-right: 1rem;
-}
-
-.application-identifier {
-    text-align: center;
-    font-family: monospace;
-    color: var(--secondary-foreground-color);
-    font-size: 15px;
 }
 
 a.download {

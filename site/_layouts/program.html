@@ -5,17 +5,18 @@ layout: default
 {% assign program = page.program %}
 
 <header>
-
-    {% if program.icon %}
-        <img class="icon" width="{{ program.icon.width }}" height="{{ program.icon.height }}" src="/{{ program.icon.path }}">
-    {% else %}
-        <img class="icon" width="48" height="48" src="/images/unknown.gif">
+    <program-icon>
+        {% if program.icon %}
+            <img class="icon" width="{{ program.icon.width }}" height="{{ program.icon.height }}" src="/{{ program.icon.path }}">
+        {% else %}
+            <img class="icon" width="48" height="48" src="/images/unknown.gif">
+        {% endif %}
+    </program-icon>
+    <program-title>{{ page.title }}</program-title>
+    {% if program.subtitle %}
+        <program-subtitle>{{ program.subtitle | titlecase }}</program-subtitle>
     {% endif %}
-
-    <h1>{{ page.title }}</h1>
-
-    <p class="application-identifier">{{ program.uid }}</p>
-
+    <program-identifier>{{ program.uid }}</program-identifier>
 </header>
 
 {% if program.screenshots %}
@@ -32,8 +33,16 @@ layout: default
     </div>
 {% endif %}
 
+{% if program.description %}
+    <div class="description">
+        <p>{{ program.description | markdownify }}</p>
+    </div>
+{% endif %}
+
+<h2>Releases</h2>
+
 {% for version in program.versions %}
-    <h2>{{ version.version }}</h2>
+    <h3>{{ version.version }}</h3>
 
     <ul class="variants">
         {% for variant in version.variants %}

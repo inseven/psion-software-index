@@ -704,7 +704,7 @@ def overlay(library):
             overlay[identifier]["screenshots"] = [os.path.join(screenshots_path, screenshot)
                                                   for screenshot in os.listdir(screenshots_path)
                                                   if screenshot.endswith(".png")]
-            overlay_index_path = os.path.join(overlay_directory, "index.md")
+            overlay_index_path = os.path.join(overlay_directory, identifier, "index.md")
             if os.path.exists(overlay_index_path):
                 overlay[identifier]["index"] = frontmatter.load(overlay_index_path)
 
@@ -733,10 +733,19 @@ def overlay(library):
         identifier = application['uid']
         if identifier not in overlay:
             continue
+
+        # Inject the metadata.
+        if "index" in overlay[identifier]:
+            metadata = overlay[identifier]["index"]
+            application['description'] = metadata.content
+            for key in metadata.metadata.keys():
+                application[key] = metadata.metadata[key]
+
+        # Inject the screenshots.
         screenshots = overlay[identifier]["screenshots"] if "screenshots" in overlay[identifier] else []
         os.makedirs(os.path.join(screenshots_output_path, identifier))
         relative_paths = []
-        for screenshot in screenshots:
+        for screenshot in sorted(screenshots):
             relative_path = os.path.join("screenshots", identifier, os.path.basename(screenshot))
             destination_path = os.path.join(library.output_directory, relative_path)
             logging.info("Copying '%s' to '%s'...", screenshot, destination_path)
