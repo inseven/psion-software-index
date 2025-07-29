@@ -163,6 +163,7 @@ table.statistics {
 .screenshot {
     border: 1px solid var(--tertiary-background-color);
     max-width: 90%;
+    height: auto;
 }
 
 ul.applications {
