@@ -32,41 +32,44 @@ layout: default
     </div>
 {% endif %}
 
-{% if program.readme %}
-    <details class="readme">
-        <summary>README</summary>
-        <div class="readme-contents">{{ program.readme | xml_escape }}</div>
-    </details>
-{% endif %}
-
 {% for version in program.versions %}
     <h2>{{ version.version }}</h2>
-    <table>
+
+    <ul class="variants">
         {% for variant in version.variants %}
-            {% for release in variant.items %}
-                <tr>
-                    <td>
+            {% assign release = variant.items[0] %}
+            <li>
+                <variant-header>
+                    <variant-icon>
                         {% if release.icon %}
                             <img class="icon" width="{{ release.icon.width }}" height="{{ release.icon.height }}" src="/{{ release.icon.path }}">
                         {% else %}
                             <img class="icon" width="48" height="48" src="/images/unknown.gif">
                         {% endif %}
-                    </td>
-                    <td>
-                        <div>{{ release.name }}</div>
-                        <div class="path">
-                            {% for component in release.reference %}
-                                {% if component.url %}<a href="{{ component.url }}">{% endif %}{{ component.name | xml_escape }}{% if component.url %}</a>{% endif %}
-                                {% if forloop.last == false %}
-                                    &#8594;
-                                {% endif %}
-                            {% endfor %}
+                    </variant-icon>
+                    <variant-details>
+                        <variant-title>
+                            {{ release.name }}
+                        </variant-title>
+                        <variant-hash title="{{ release.sha256 }}">
+                            {{ release.sha256 | truncate: 8, "" }}
+                        </variant-hash>
+                    </variant-details>
+                    <variant-actions>
+                        <a class="download" href="/files/{{ release.sha256 }}" download="{{ release.filename }}">Download</a>
+                    </variant-actions>
+                </variant-header>
+                <ul class="sources">
+                    {% for release in variant.items %}
+                        <li>
+                            <div class="path">
+                            {% for component in release.reference %}{% if component.url %}<a href="{{ component.url }}">{% endif %}{{ component.name | xml_escape }}{% if component.url %}</a>{% endif %}{% if forloop.last == false %} / {% endif %}{% endfor %}
                         </div>
-                        <div class="sha">{{ release.sha256 }}</div>
-                        <a href="/files/{{ release.sha256 }}" download="{{ release.filename }}">Download</a>
-                    </td>
-                </tr>
-            {% endfor %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
         {% endfor %}
-    </table>
+    </ul>
+
 {% endfor %}
