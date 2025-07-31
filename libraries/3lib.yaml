@@ -8,6 +8,6 @@ overlays:
 - ../overlays
 
 assets_directory: ../_assets
-intermediates_directory: ../_intermediates
-index_directory: ../_index
+intermediates_directory: ../_small/_intermediates
+index_directory: ../_small/_index
 output_directory: ../site

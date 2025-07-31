@@ -6,6 +6,8 @@ verify_ssl = true
 
 [packages]
 
+b2sdk = "*"
+beautifulsoup4 = "*"
 jinja2 = "*"
 natsort = "*"
 pillow = "*"
