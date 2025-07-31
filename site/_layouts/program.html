@@ -64,8 +64,10 @@ layout: default
                             {{ release.sha256 | truncate: 8, "" }}
                         </variant-hash>
                     </variant-details>
-                    <variant-actions>
+                    <variant-size>
                         <span class="file-size">{{ release.size | divided_by: 1024 }} kB</span>
+                    </variant-size>
+                    <variant-actions>
                         <a class="download" href="/files/{{ release.sha256 }}" download="{{ release.filename }}">Download</a>
                     </variant-actions>
                 </variant-header>

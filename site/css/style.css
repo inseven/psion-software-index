@@ -181,6 +181,7 @@ footer nav ul li {
 
 .icon {
     image-rendering: pixelated;
+    vertical-align: middle;
 }
 
 .screenshots {
@@ -297,12 +298,13 @@ ul.variants > li {
 }
 
 variant-header {
-    max-width: var(--content-width);
-    margin: auto;
-    padding: 0;
+    align-items: center;
     display: grid;
-    grid-template-columns: 48px auto auto;
     grid-gap: 1rem;
+    grid-template-columns: 48px auto auto max-content;
+    margin: 0 auto var(--vertical-spacing) auto;
+    max-width: var(--content-width);
+    padding: 0;
 }
 
 variant-icon {
@@ -314,6 +316,11 @@ variant-details {
 
 variant-hash {
     display: block;
+}
+
+variant-size {
+    text-align: right;
+    vertical-align: middle;
 }
 
 variant-actions {
