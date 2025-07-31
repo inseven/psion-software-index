@@ -111,10 +111,6 @@ class InternetArchiveSource(object):
     def sync(self):
         logging.info("Syncing '%s'...", self.id)
         os.makedirs(self.item_directory, exist_ok=True)
-
-        # This implementation fails-over to downloading from our mirror https://psion.solarcene.community if we get a
-        # 503 or a timeout from the Internet Archive.
-
         if not os.path.exists(self.item_metadata_path):
             utils.download_file_with_mirrors([
                 f"https://archive.org/download/{self.id}/{self.id}_meta.xml",
@@ -125,15 +121,6 @@ class InternetArchiveSource(object):
                 f"https://archive.org/download/{self.id}/{self.id}_files.xml",
                 f"https://psion.solarcene.community/{self.id}/{self.id}_files.xml",
             ], self.file_metadata_path)
-        # TODO: Check the shas.
-        if not os.path.exists(self.path):
-            destination_directory = os.path.dirname(self.path)
-            logging.info(destination_directory)
-            os.makedirs(destination_directory, exist_ok=True)
-            utils.download_file_with_mirrors([
-                self.url,
-                f"https://psion.solarcene.community/{self.id}/{self.relative_path}",
-            ], self.path)
 
     @property
     def metadata(self):
@@ -161,9 +148,7 @@ class InternetArchiveSource(object):
         # URLs. The work is delegated to the sources as they know how to generate source-specific download URLs (at
         # least until we start caching assets somewhere else).
 
-        # I'm undecided if it might not be cleaner to inject reference resolver to the containers.walk method rather
-        # than fixing up the returned references; certainly this current fix-up implementation does more work than
-        # strictly necessary.
+        details_reference = model.ReferenceItem(name=self.title, url=f"https://archive.org/details/{self.id}")
 
         def resolve_reference(reference):
 
@@ -176,12 +161,12 @@ class InternetArchiveSource(object):
                                            url=self.url + "/" + quote_plus(reference_item.name))
 
             if len(reference) < 1:
-                return reference
+                return [details_reference]
             if len(reference) == 1:
-                return [resolve_root_reference_item(reference[0])]
+                return [details_reference, resolve_root_reference_item(reference[0])]
             else:
                 root, first_tier, *tail = reference
-                return [resolve_root_reference_item(root)] + [resolve_first_tier_reference_item(first_tier)] + tail
+                return [details_reference, resolve_root_reference_item(root)] + [resolve_first_tier_reference_item(first_tier)] + tail
 
         for path, reference in containers.walk(self.path, relative_to=self.item_directory):
             yield (path, resolve_reference(reference))
