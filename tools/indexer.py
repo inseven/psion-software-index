@@ -58,34 +58,6 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-LIBRARY_INDEXES = [
-    "library/epocgames",
-    "library/epocgraphics",
-    "library/epocmap",
-    "library/epocmisc",
-    "library/epocmoney",
-    "library/epocprog",
-    "library/epocutil",
-    "library/epocvault",
-    "library/geofox",
-    "library/msgsuite",
-    "library/pcba",
-    "library/psiwin",
-    "library/revogames",
-    "library/s3comms",
-    "library/s3games",
-    "library/s3graphics",
-    "library/s3mapping",
-    "library/s3misc",
-    "library/s3money",
-    "library/s3prog",
-    "library/s3units",
-    "library/s3util",
-    "library/s3vault",
-    "library/s7games",
-    "library/siena",
-]
-
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
 
@@ -115,32 +87,6 @@ class Chdir(object):
 class DummyMetadataProvider(object):
 
     def summary_for(self, path):
-        return None
-
-
-# Perhaps it would be good to drop the metadata provider and allow it to all be added in post.
-class LibraryMetadataProvider(object):
-
-    def __init__(self, path):
-        self.path = path
-        self.descriptions = {}
-        for index_path in LIBRARY_INDEXES:
-            with open(os.path.join(path, index_path) + ".htm") as fh:
-                for line in fh.readlines():
-                    match = re.match(r"^(\S+)\s+(\d{2}/\d{2}/\d{2})\s+(.+)$", line)
-                    if not match:
-                        continue
-                    application_path = os.path.join(path, index_path, match.group(1)).lower()
-                    self.descriptions[application_path] = match.group(3)
-                    if not os.path.exists(application_path):
-                        logging.warning("WARN: Missing application path", application_path)
-
-    def summary_for(self, path):
-        directory = os.path.dirname(path).lower()
-        while directory != "/":
-            if directory in self.descriptions:
-                return self.descriptions[directory]
-            directory = os.path.dirname(directory)
         return None
 
 
