@@ -1,8 +1,5 @@
 /.local
-/_assets
-/_intermediates
-/_index
-/_site
+/_*
 /assets.txt
 /site/_data
 /site/api/v1

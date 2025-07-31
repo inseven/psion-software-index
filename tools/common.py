@@ -20,8 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import contextlib
+import json
 import logging
 import os
+import shutil
+import sys
+import tempfile
 
 from urllib.parse import quote_plus
 from urllib.parse import urlparse
@@ -35,14 +40,26 @@ import model
 import utils
 
 
-class UnsupportedURL(Exception):
-    pass
+SNAPSHOTS_BASE_URL = "https://f002.backblazeb2.com/file/psion-software-index-snapshots/"
 
 
 ARCHIVE_EXTENSIONS = set([
     ".zip",
     ".iso",
 ])
+
+
+class UnsupportedURL(Exception):
+    pass
+
+
+def create_source(assets_directory, url):
+    url_components = urlparse(url)
+    if url_components.hostname == "archive.org":
+        return InternetArchiveSource(assets_directory, url)
+    elif url.startswith(SNAPSHOTS_BASE_URL):
+        return SnapshotSource(assets_directory, url)
+    raise UnsupportedURL(url)
 
 
 class Library(object):
@@ -61,8 +78,7 @@ class Library(object):
         self.intermediates_directory = os.path.normpath(os.path.join(root_directory, self._configuration['intermediates_directory']))
         self.index_directory = os.path.normpath(os.path.join(root_directory, self._configuration['index_directory']))
         self.output_directory = os.path.normpath(os.path.join(root_directory, self._configuration['output_directory']))
-        self.sources = [InternetArchiveSource(self.assets_directory, url)
-                        for url in self._configuration['sources']]
+        self.sources = [create_source(self.assets_directory, url) for url in self._configuration['sources']]
 
     def sync(self):
         logging.info("Syncing library...")
@@ -143,7 +159,7 @@ class InternetArchiveSource(object):
         # URLs. The work is delegated to the sources as they know how to generate source-specific download URLs (at
         # least until we start caching assets somewhere else).
 
-        details_reference = model.ReferenceItem(name=self.title, url=f"https://archive.org/details/{self.id}")
+        source_reference = model.ReferenceItem(name=self.title, url=f"https://archive.org/details/{self.id}")
 
         def resolve_reference(reference):
 
@@ -156,12 +172,12 @@ class InternetArchiveSource(object):
                                            url=self.url + "/" + quote_plus(reference_item.name))
 
             if len(reference) < 1:
-                return [details_reference]
+                return [source_reference]
             if len(reference) == 1:
-                return [details_reference, resolve_root_reference_item(reference[0])]
+                return [source_reference, resolve_root_reference_item(reference[0])]
             else:
                 root, first_tier, *tail = reference
-                return [details_reference, resolve_root_reference_item(root)] + [resolve_first_tier_reference_item(first_tier)] + tail
+                return [source_reference, resolve_root_reference_item(root)] + [resolve_first_tier_reference_item(first_tier)] + tail
 
         for path, reference in containers.walk(self.path, relative_to=self.item_directory):
             yield (path, resolve_reference(reference))
@@ -173,4 +189,78 @@ class InternetArchiveSource(object):
             'description': self.description,
             'url': self.url,
             'html_url': f"https://archive.org/details/{self.id}"
+        }
+
+
+class SnapshotSource(object):
+
+    def __init__(self, root_directory, url):
+        self.root_directory = root_directory
+        self.url = url
+        if not url.startswith(SNAPSHOTS_BASE_URL) or not url.endswith(".tar.gz"):
+            raise UnsupportedURL(url)
+        url_components = urlparse(url)
+        filename = url_components.path.split("/")[-1]
+        basename = filename[:-(len(".tar.gz"))]
+        identifier = basename.replace("+", " ")
+
+        self.path = os.path.join(root_directory, "snapshots", identifier)
+        self._identifier = identifier
+        self._contents_path = os.path.join(self.path, "contents.tar.gz")
+        self._metadata_path = os.path.join(self.path, "metadata.json")
+        self._metadata = None
+
+    def sync(self):
+        logging.info("Syncing '%s'...", self.url)
+        if os.path.exists(self.path):
+            return
+        with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
+            print("Creating directory...")
+            filename = utils.download_file(self.url)
+            contents_path = os.path.join(temporary_directory, "contents")
+            os.makedirs(contents_path)
+            containers.extract_tar_gz(filename, contents_path)
+            shutil.move(contents_path, self.path)
+
+    @property
+    def metadata(self):
+        if self._metadata is None:
+            with open(self._metadata_path) as fh:
+                self._metadata = json.load(fh)
+        return self._metadata
+
+    @property
+    def title(self):
+        return self.metadata['title']
+
+    @property
+    def snapshot_url(self):
+        return self.metadata["url"]
+
+    @property
+    def description(self):
+        return ""
+
+    @property
+    def assets(self):
+
+        source_reference = model.ReferenceItem(name=self.title, url=self.snapshot_url)
+
+        def make_link(reference):
+            return model.ReferenceItem(name=reference.name, url=self.snapshot_url + "/" + reference.name)
+
+        def resolve_reference(reference):
+            contents_reference = reference[1:]
+            if len(contents_reference) < 1:
+                return [source_reference]
+            else:
+                return [source_reference] + [make_link(contents_reference[0])] + contents_reference[1:]
+
+        for path, reference in containers.walk(self._contents_path, relative_to=self.path):
+            yield path, resolve_reference(reference)
+
+    def as_dict(self):
+        return {
+            "name": self.title,
+            "html_url": self.snapshot_url,
         }
