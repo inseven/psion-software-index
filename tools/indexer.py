@@ -267,7 +267,7 @@ class Program(object):
 class Release(object):
 
     # TODO: Make the UID optional and don't attempt to synthesize other identifiers at this stage.
-    def __init__(self, filename, size, reference, kind, identifier, sha256, name, version, icons, summary, readme, tags):
+    def __init__(self, filename, size, reference, kind, identifier, sha256, name, version, icons, readme, tags):
         self.filename = filename
         self.size = size
         self.reference = reference
@@ -277,7 +277,6 @@ class Release(object):
         self.name = name
         self.version = version
         self.icons = icons
-        self.summary = summary
         self.readme = readme
         self.tags = tags
 
@@ -300,8 +299,6 @@ class Release(object):
                           'sha256': icon.shasum} for icon in self.icons]
         if self.readme is not None:
             dict['readme'] = self.readme
-        if self.summary is not None:
-            dict['summary'] = self.summary
         return dict
 
     def write_assets(self, icons_path):
@@ -429,7 +426,6 @@ def import_installer(source, output_directory, reference, path, error_handler):
                 except Exception as e:
                     error_handler(aif_path, e)
 
-    summary = source.summary_for(path)
     readme = readme_for(path)
     sha256 = shasum(path)
     shutil.copyfile(path, os.path.join(output_directory, sha256))
@@ -442,7 +438,6 @@ def import_installer(source, output_directory, reference, path, error_handler):
                    name=select_name(info["name"]),
                    version=info["version"],
                    icons=icons,
-                   summary=summary,
                    readme=readme,
                    tags=tags)
 
@@ -489,7 +484,6 @@ def import_source(source, output_directory, error_handler=None):
                 except BaseException as e:
                     error_handler(file_path, e)
                     logging.warning("Failed to parse APP as AIF with message '%s'", e)
-            summary = source.summary_for(file_path)
             readme = readme_for(file_path)
             sha256 = shasum(file_path)
             shutil.copyfile(file_path, os.path.join(output_directory, sha256))
@@ -502,7 +496,6 @@ def import_source(source, output_directory, error_handler=None):
                               name=app_name,
                               version="Unknown",
                               icons=icons,
-                              summary=summary,
                               readme=readme,
                               tags=tags)
             apps.append(release)

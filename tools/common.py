@@ -186,10 +186,6 @@ class InternetArchiveSource(object):
         for path, reference in containers.walk(self.path, relative_to=self.item_directory):
             yield (path, resolve_reference(reference))
 
-    # TODO: Implement this!
-    def summary_for(self, path):
-        return None
-
     def as_dict(self):
         return {
             'path': self.path,
