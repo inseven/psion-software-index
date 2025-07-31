@@ -127,8 +127,6 @@ class Version(object):
 
         for variant in variants:
             for item in variant['items']:
-                if 'readme' in item:
-                    del item['readme']
                 if 'icon' in item and 'bpp' in item['icon']:
                     del item['icon']['bpp']
 
@@ -172,13 +170,6 @@ class Program(object):
         return self.installers[0]['summary']
 
     @property
-    def readme(self):
-        # TODO: REMOVE THIS
-        for installer in self.installers:
-            if 'readme' in installer:
-                return installer['readme']
-
-    @property
     def icon(self):
         return select_icon_dict([installer['icon'] for installer in self.installers
                                 if 'icon' in installer])
@@ -195,9 +186,6 @@ class Program(object):
         summary = self.summary
         if summary:
             dict['summary'] = summary
-        readme = self.readme
-        if readme:
-            dict['readme'] = readme
         icon = self.icon
         if icon:
             dict['icon'] = icon
@@ -213,7 +201,7 @@ class Program(object):
 class Release(object):
 
     # TODO: Make the UID optional and don't attempt to synthesize other identifiers at this stage.
-    def __init__(self, filename, size, reference, kind, identifier, sha256, name, version, icons, readme, tags):
+    def __init__(self, filename, size, reference, kind, identifier, sha256, name, version, icons, tags):
         self.filename = filename
         self.size = size
         self.reference = reference
@@ -223,7 +211,6 @@ class Release(object):
         self.name = name
         self.version = version
         self.icons = icons
-        self.readme = readme
         self.tags = tags
 
     def as_dict(self, relative_icons_path):
@@ -243,8 +230,6 @@ class Release(object):
                           'height': icon.height,
                           'bpp': icon.bpp,
                           'sha256': icon.shasum} for icon in self.icons]
-        if self.readme is not None:
-            dict['readme'] = self.readme
         return dict
 
     def write_assets(self, icons_path):
@@ -277,13 +262,6 @@ def find_sibling(path, name):
     for f in files:
         if f.lower() == name.lower():
             return os.path.join(directory_path, f)
-
-
-def readme_for(path):
-    readme_path = find_sibling(path, "readme.txt")
-    if readme_path:
-        with open(readme_path, "rb") as fh:
-            return decode(fh.read())
 
 
 def select_icon_dict(icons):
@@ -372,7 +350,6 @@ def import_installer(source, output_directory, reference, path, error_handler):
                 except Exception as e:
                     error_handler(aif_path, e)
 
-    readme = readme_for(path)
     sha256 = shasum(path)
     shutil.copyfile(path, os.path.join(output_directory, sha256))
     return Release(filename=os.path.basename(path),
@@ -384,7 +361,6 @@ def import_installer(source, output_directory, reference, path, error_handler):
                    name=select_name(info["name"]),
                    version=info["version"],
                    icons=icons,
-                   readme=readme,
                    tags=tags)
 
 
@@ -430,7 +406,6 @@ def import_source(source, output_directory, error_handler=None):
                 except BaseException as e:
                     error_handler(file_path, e)
                     logging.warning("Failed to parse APP as AIF with message '%s'", e)
-            readme = readme_for(file_path)
             sha256 = shasum(file_path)
             shutil.copyfile(file_path, os.path.join(output_directory, sha256))
             release = Release(filename=os.path.basename(file_path),
@@ -442,7 +417,6 @@ def import_source(source, output_directory, error_handler=None):
                               name=app_name,
                               version="Unknown",
                               icons=icons,
-                              readme=readme,
                               tags=tags)
             apps.append(release)
 
@@ -564,13 +538,9 @@ def group(library):
         for installer in installers:
             # Strip down the release for the API.
             required_keys = ['filename', 'size', 'reference', 'kind', 'sha256', 'uid', 'name', 'version', 'tags']
-            optional_keys = ['readme', 'summary']
             release = {}
             for key in required_keys:
                 release[key] = installer[key]
-            for key in optional_keys:
-                if key in installer:
-                    release[key] = installer[key]
             icon = select_icon_dict(installer['icons'])
             if icon is not None:
                 release['icon'] = {
