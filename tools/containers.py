@@ -32,7 +32,7 @@ import zlib
 import model
 
 
-def extract_iso(source, destination):
+def extract_7z(source, destination):
     subprocess.check_call(["7z", "-o%s" % destination, "x", source])
 
 
@@ -41,16 +41,29 @@ def extract_tar(source, destination):
         tar.extractall(path=destination)
 
 
+def extract_tar_gz(source, destination):
+    subprocess.check_call(["tar", "-zxvf", source, "-C", destination])
+
+
 def extract_zip(source, destination):
     with zipfile.ZipFile(source) as zip:
         zip.extractall(path=destination)
 
 
 CONTAINER_MAPPING = {
-    ".iso": extract_iso,
+    ".cab": extract_7z,
+    ".iso": extract_7z,
+    ".tar.gz": extract_tar_gz,
     ".tar": extract_tar,
     ".zip": extract_zip,
 }
+
+
+def get_extraction_method(path):
+    for ext, extraction_method in CONTAINER_MAPPING.items():
+        if path.lower().endswith(ext):
+            return extraction_method
+    return None
 
 
 class Extractor(object):
@@ -81,24 +94,28 @@ def walk(path, reference=None, relative_to=None):
     path = os.path.abspath(path)
     if os.path.isdir(path):
         for root, dirs, files in os.walk(path):
+            files = [f for f in files if not f.startswith("._")]  # Ignore resource files.
             for a in [os.path.join(root, f) for f in files]:
                 reference_item = model.ReferenceItem(name=os.path.relpath(a, relative_to), url=None)
                 for (inner_path, inner_reference) in walk(a, reference=reference, relative_to=relative_to):
                     yield (inner_path, inner_reference)
     else:
         reference_item = model.ReferenceItem(name=os.path.relpath(path, relative_to), url=None)
-        _, ext = os.path.splitext(path)
-        ext = ext.lower()
-
-        if ext in CONTAINER_MAPPING:
+        extraction_method = get_extraction_method(path)
+        if extraction_method is not None:
             logging.debug("Extracting '%s'...", path)
             try:
-                with Extractor(path, method=CONTAINER_MAPPING[ext]) as contents_path:
+                with Extractor(path, method=extraction_method) as contents_path:
                     for (inner_path, inner_reference) in walk(contents_path,
                                                               reference=reference + [reference_item],
                                                               relative_to=contents_path):
                         yield (inner_path, inner_reference)
-            except (NotImplementedError, zipfile.BadZipFile, OSError, RuntimeError, tarfile.ReadError, zlib.error) as e:
+            except (NotImplementedError,
+                    zipfile.BadZipFile,
+                    OSError, RuntimeError,
+                    tarfile.ReadError,
+                    zlib.error,
+                    subprocess.CalledProcessError) as e:
                 logging.warning("Failed to extract file '%s' with error '%s'.", path, e)
         else:
             yield (path, reference + [reference_item])

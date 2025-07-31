@@ -70,11 +70,6 @@ class Library(object):
             source.sync()
 
 
-# TODO: Check what this means?
-def is_downloadable_package(path):
-    return os.path.splitext(path)[1].lower() in DOWNLOADABLE_PACKAGES
-
-
 class InternetArchiveSource(object):
 
     def __init__(self, root_directory, url):
