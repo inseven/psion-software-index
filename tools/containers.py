@@ -53,6 +53,7 @@ def extract_zip(source, destination):
 CONTAINER_MAPPING = {
     ".7z": extract_7z,
     ".cab": extract_7z,
+    ".ima": extract_7z,
     ".iso": extract_7z,
     ".tar.gz": extract_tar_gz,
     ".tar": extract_tar,
