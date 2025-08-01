@@ -3,17 +3,17 @@ options:
 
 sources:
 
-# - https://archive.org/details/tucows_11029_Setclock
-# - https://archive.org/download/czchip200308cd/Chip_2003-08_cd1.bin
-# - https://archive.org/download/czchip200308cd/Chip_2003-08_cd2.bin
-# - https://archive.org/download/mame-sl/mame-sl/psion_ssd.zip
-
 - https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
+- https://archive.org/download/berlitzphrasebook/BerlitzPhraseBook_Contents.zip
 - https://archive.org/download/club-utilisateurs-psion/Club%20Utilisateurs%20Psion.zip
 - https://archive.org/download/diamond_mako/Mako.iso
+- https://archive.org/download/econnect/econnect.iso
 - https://archive.org/download/enrouteeurope/EnRouteEurope_Contents.zip
+- https://archive.org/download/enrouteeurope/EnRouteEurope.iso
 - https://archive.org/download/MoneyPsionSeries5/MONEY.ISO
+- https://archive.org/download/neuondownloads/neuon_downloads.zip
 - https://archive.org/download/NWTPsion3/NWT_Psion3.tar
+- https://archive.org/download/NWTPsion5/NWT_Psion5.tar
 - https://archive.org/download/palmtop-cd-2/palmtop%20cd2.zip
 - https://archive.org/download/palmtops-numero-01/Palmtops_numero01.iso
 - https://archive.org/download/palmtops-numero-03/Palmtops_numero03.iso
@@ -26,31 +26,45 @@ sources:
 - https://archive.org/download/pocketwarewoerterbuch/PocketWareTrueDic.iso
 - https://archive.org/download/pocketwarewoerterbuch/PocketWareTrueDic.iso
 - https://archive.org/download/psion_netbook/psion_netbook.iso
+- https://archive.org/download/psion-calligrapher/Calligrapher.zip
 - https://archive.org/download/psion-cdtextfiles.com/PSION_cdtextfiles.com.zip
+- https://archive.org/download/psion-convertpro/ConvertPro.zip
+- https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Series%203A.7z
+- https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Series%203C.7z
+- https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Siena.7z
+- https://archive.org/download/psion-powerbase/PowerBase.zip
 - https://archive.org/download/psion-street-planner-99-uk/Psion_StreetPlanner99UK.ISO
 - https://archive.org/download/psioncdvol1/PsionCDVol1.iso
 - https://archive.org/download/psioncdvol2/PsionCDVol2.iso
+- https://archive.org/download/psionpowerbuch/PsionPowerBuch.iso
 - https://archive.org/download/psionpowercd2de/PsionPowerCD2.iso
 - https://archive.org/download/psionsystemvoraussetzungen/PsionSystemvoraussetzungen.iso
 - https://archive.org/download/streetplanner99/StreetPlanner99_Contents.zip
 - https://archive.org/download/tucows_6844_Golf_Pro_Enhanced/mx-golfp.zip
+- https://archive.org/download/tucows_25998_PhoneCode/phoncode.zip
 - https://archive.org/download/tucows_31661_PsiBlocks/psiblock.zip
 - https://archive.org/download/tucows_35391_Fairway/fairway.zip
 - https://archive.org/download/tucows_47400_Morleysoft_Fern/morleysoft_fern.zip
 - https://archive.org/download/tucows_48514_EZBank_Series_5/ezbanks5.zip
 - https://archive.org/download/tucows_48861_Fancy_Galaxy/fg.zip
 - https://archive.org/download/tucows_49673_nSISUtil/nSISUtil.zip
+- https://archive.org/download/tucows_49925_The_Psion_Hampster_Dance/hampster.zip
 - https://archive.org/download/tucows_51566_LittleSense/lsenseUK.zip
+- https://archive.org/download/tucows_55931_QuickNote/quicknote.zip
 - https://archive.org/download/tucows_56884_DCALC/dcalc202_en.zip
-- https://archive.org/download/tucows_56884_DCALC/dcalc202_en.zip
+- https://archive.org/download/tucows_57427_SKey/skey.zip
 - https://archive.org/download/tucows_58742_BMI_Pro/BMIPro.zip
 - https://archive.org/download/tucows_59344_SaveMail_Series_5/savem_r3.zip
 - https://archive.org/download/tucows_67813_Internettime_German/time.zip
+- https://archive.org/download/tucows_69489_fastbank/S3_FASTBANK_V10.ZIP
+- https://archive.org/download/tucows_73325_psinoweb/psinoweb-mksis.zip
 - https://archive.org/download/tucows_74116_Goby/goby.zip
 - https://archive.org/download/tucows_79322_Yoris/yoris_dist.zip
 - https://archive.org/download/tucows_151416_WinEpoc/WinEpoc.zip
 - https://archive.org/download/tucows_165646_Lingo/lingo20.zip
 - https://archive.org/download/tucows_171771_AgnPrint/AgnPrint.zip
+- https://archive.org/download/tucows_173034_Mocha_EPOC_Telnet/ntelnet.zip
+- https://archive.org/download/tucows_173663_eMoon/emoon.zip
 - https://archive.org/download/tucows_228843_Alignment/alignment.zip
 - https://archive.org/download/tucows_260548_DXFV/dxfv.zip
 - https://archive.org/download/tucows_296952_EPOC_Network_Utilities/netutils.zip
@@ -65,6 +79,7 @@ sources:
 - https://archive.org/download/wpc-0696/wpc-0696.iso
 - https://archive.org/download/wpc-0996/wpc-0996.iso
 - https://archive.org/download/wpc-1296/wpc-1296.iso
+
 - https://f002.backblazeb2.com/file/psion-software-index-snapshots/2025-07-31+05-46-08+www.psion-user-club.at.tar.gz
 
 overlays:

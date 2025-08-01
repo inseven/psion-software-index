@@ -125,13 +125,18 @@ class InternetArchiveSource(object):
         if not os.path.exists(self.item_metadata_path):
             utils.download_file_with_mirrors([
                 f"https://archive.org/download/{self.id}/{self.id}_meta.xml",
-                f"https://psion.solarcene.community/{self.id}/{self.id}_meta.xml",
             ], self.item_metadata_path)
         if not os.path.exists(self.file_metadata_path):
             utils.download_file_with_mirrors([
                 f"https://archive.org/download/{self.id}/{self.id}_files.xml",
-                f"https://psion.solarcene.community/{self.id}/{self.id}_files.xml",
             ], self.file_metadata_path)
+        if not os.path.exists(self.path):
+            destination_directory = os.path.dirname(self.path)
+            logging.info(destination_directory)
+            os.makedirs(destination_directory, exist_ok=True)
+            utils.download_file_with_mirrors([
+                self.url,
+            ], self.path)
 
     @property
     def metadata(self):
