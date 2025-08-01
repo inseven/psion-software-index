@@ -1,9 +1,11 @@
 :root {
     --foreground-color: #000;
     --secondary-foreground-color: #ccc;
+    --tertiary-foreground-color: #ddd;
     --background-color: #fff;
     --secondary-background-color: #fff;
     --tertiary-background-color: #fafafa;
+    --shadow-color: rgba(0, 0, 0, 0.12);
     --button-background-color: #eee;
     --link-color: darkorange;
     --vertical-spacing: 1rem;
@@ -13,10 +15,12 @@
 
     :root {
         --foreground-color: #fff;
-        --secondary-foreground-color: #ccc;
+        --secondary-foreground-color: #555;
+        --tertiary-foreground-color: #333;
         --background-color: #171616;
         --secondary-background-color: rgb(33, 32, 33);
-        --tertiary-background-color: #2b2b2b;
+        --tertiary-background-color: #222;
+        --shadow-color: rgba(0, 0, 0, 0.5);
         --button-background-color: #2b2b2b;
         --link-color: darkorange;
     }
@@ -26,7 +30,6 @@ body {
     font-family: Helvetica, sans-serif;
     font-weight: 200;
     font-size: 17px;
-    /* font-family: sans-serif; */
     text-align: center;
     margin: 0;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -72,6 +75,30 @@ h1 {
     text-align: center;
 }
 
+.search-header {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 1rem;
+}
+
+.search {
+    box-sizing: border-box;
+    text-align: left;
+    background-color: var(--secondary-background-color);
+    border-radius: 2.2em;
+    border: 1px solid var(--tertiary-foreground-color);
+    box-shadow: 0 0 16px var(--shadow-color);
+    color: var(--foreground-color);
+    font-size: 1.2rem;
+    margin: 0 auto calc(2 * var(--vertical-spacing)) auto;
+    padding: 0.6em 1em;
+    max-width: 100%;
+}
+
+.search::placeholder {
+    color: var(--tertiary-foreground-color);
+}
+
 header program-icon {
     display: block;
     margin-bottom: var(--vertical-spacing);
@@ -115,12 +142,6 @@ header program-identifier {
 
 .content.full {
     max-width: initial;
-}
-
-@media (max-width: 760px) {
-    .content {
-        margin: 2rem;
-    }
 }
 
 a {
@@ -213,21 +234,22 @@ ul.applications {
     }
 }
 
+@media screen and (max-width: 600px) {
+    ul.applications {
+        grid-template-columns: 1fr;
+    }
+}
+
 ul.applications > li > a {
     color: var(--foreground-color);
     display: block;
     padding: 1.6rem;
     border-radius: 1rem;
     background-color: var(--secondary-background-color);
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 16px var(--shadow-color);
     transition: all .3s ease-in-out;
     align-items: baseline;
     font-size: 1.2rem;
-}
-
-ul.applications > li > a:hover {
-    text-decoration: none;
-    transform: scale(1.05);
 }
 
 ul.applications > li > a img {

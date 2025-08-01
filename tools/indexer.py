@@ -495,6 +495,7 @@ def group(library):
     summary_path = os.path.join(library.index_directory, "summary.json")
     sources_path = os.path.join(library.index_directory, "sources.json")
     programs_path = os.path.join(library.index_directory, "programs.json")
+    group_index_path = os.path.join(library.index_directory, "groups.json")
     files_path = os.path.join(library.index_directory, "files")
     icons_path = os.path.join(library.index_directory, "icons")
 
@@ -528,7 +529,7 @@ def group(library):
                       sha_count=len(unique_shas))
 
     # Generate the library by grouping the programs together by identifier/uid.
-    # This relies heavily on automagic grouping in the `Program` constructor which we may wish to make more explicit in
+    # This relies heavily on automatic grouping in the `Program` constructor which we may wish to make more explicit in
     # the future.
     programs = []
     for identifier, installers in sorted([item for item in groups.items()],
@@ -553,6 +554,17 @@ def group(library):
 
         programs.append(Program(identifier, releases, []))
 
+    # Generate a minimal grouped index to use for search and filtering.
+    group_index = []
+    for program in programs:
+        entry = {
+            'uid': program.uid,
+            'name': program.name,
+        }
+        if program.icon is not None:
+            entry['icon'] = program.icon
+        group_index.append(entry)
+
     # Create the output directory.
     os.makedirs(library.index_directory, exist_ok=True)
 
@@ -570,6 +582,13 @@ def group(library):
     logging.info("Writing library to '%s'...", programs_path)
     with open(programs_path, "w", encoding="utf-8") as fh:
         json.dump([program.as_dict() for program in programs], fh)
+
+    # Write the group index.
+    logging.info("Writing group index to '%s'...", group_index_path)
+    with open(group_index_path, "w", encoding="utf-8") as fh:
+        json.dump(group_index, fh)
+
+
 
     # Copy the files.
     logging.info("Copying files to '%s'...", files_path)
@@ -590,6 +609,7 @@ def overlay(library):
     source_programs_path = os.path.join(library.index_directory, "programs.json")
     source_sources_path = os.path.join(library.index_directory, "sources.json")
     source_summary_path = os.path.join(library.index_directory, "summary.json")
+    source_group_index_path = os.path.join(library.index_directory, "groups.json")
     files_path = os.path.join(library.index_directory, "files")
     icons_path = os.path.join(library.index_directory, "icons")
 
@@ -602,6 +622,7 @@ def overlay(library):
     destination_programs_path = os.path.join(data_output_path, "programs.json")
     destination_sources_path = os.path.join(data_output_path, "sources.json")
     destination_summary_path = os.path.join(data_output_path, "summary.json")
+    destination_group_index_path = os.path.join(data_output_path, "groups.json")
 
     # Import screenshots and metadata from the overlay.
     overlay = collections.defaultdict(dict)
@@ -671,6 +692,7 @@ def overlay(library):
     # Write the index.
     shutil.copyfile(source_sources_path, destination_sources_path)
     shutil.copyfile(source_summary_path, destination_summary_path)
+    shutil.copyfile(source_group_index_path, destination_group_index_path)
     with open(destination_programs_path, "w") as fh:
         json.dump(index, fh)
 
@@ -690,6 +712,8 @@ def overlay(library):
     shutil.copyfile(destination_sources_path, os.path.join(api_v1_output_path, "sources", "index.json"))
     os.makedirs(os.path.join(api_v1_output_path, "summary"), exist_ok=True)
     shutil.copyfile(destination_summary_path, os.path.join(api_v1_output_path, "summary", "index.json"))
+    os.makedirs(os.path.join(api_v1_output_path, "groups"), exist_ok=True)
+    shutil.copyfile(destination_group_index_path, os.path.join(api_v1_output_path, "groups", "index.json"))
 
 def main():
     parser = argparse.ArgumentParser()
