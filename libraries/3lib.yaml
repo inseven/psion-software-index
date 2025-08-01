@@ -1,9 +1,3 @@
-options:
-  show_install_buttons: False
-
-sources:
-- https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
-
 overlays:
 - ../overlays
 

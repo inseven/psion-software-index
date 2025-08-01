@@ -1,0 +1,13 @@
+# Entries in this library are work-in-progress, either because they don't extract correctly, or we need to contact
+# content owners about including them in the index.
+
+sources:
+- https://f002.backblazeb2.com/file/psion-software-index-snapshots/2025-07-31+22-29-00+www.mypsion.ru.tar.gz
+
+overlays:
+- ../overlays
+
+assets_directory: ../_assets
+intermediates_directory: ../_small/_intermediates
+index_directory: ../_small/_index
+output_directory: ../site
