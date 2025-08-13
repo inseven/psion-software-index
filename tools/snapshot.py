@@ -44,6 +44,8 @@ SNAPSHOTS_DIRECTORY = os.path.join(ROOT_DIRECTORY, "_snapshots")
 
 CONFIG_PATH = os.path.expanduser("~/.config/psion-software-index/snapshot-config.json")
 
+USER_AGENT = "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
+
 
 verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
@@ -58,7 +60,7 @@ def mirror_site(url, path, log_path):
                                  "--mirror",
                                  "--directory-prefix", "root",
                                  "--no-host-directories",
-                                 "--user-agent", "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0",
+                                 "--user-agent", USER_AGENT,
                                  "-o", log_path,
                                  url])
         tar("root", path)
@@ -74,7 +76,9 @@ def tar(source, destination):
 
 
 def get_title(url):
-    response = requests.get(url)
+    response = requests.get(url, headers={
+        "User-Agent": USER_AGENT,
+    })
     document = BeautifulSoup(response.text, 'html.parser')
     return document.title.text
 
