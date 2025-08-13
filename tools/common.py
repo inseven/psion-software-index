@@ -105,30 +105,33 @@ class InternetArchiveSource(object):
             for component in path_components[:-1]:
                 if os.path.splitext(component)[1].lower() in ARCHIVE_EXTENSIONS:
                     raise UnsupportedURL(url)
-            id = path_components[1]
+            internet_archive_identifier = path_components[1]
+            identifier = "+".join(path_components[1:])
         elif path_components[0] == "details" and len(path_components) == 2:
-            id = path_components[1]
+            internet_archive_identifier = path_components[1]
+            identifier = path_components[1]
         else:
             raise UnsupportedURL(url)
 
-        self.id = id
-        self.item_directory = os.path.join(root_directory, self.id)
-        self.item_metadata_path = os.path.join(self.item_directory, f"{self.id}_meta.xml")
-        self.file_metadata_path = os.path.join(self.item_directory, f"{self.id}_files.xml")
+        self.internet_archive_identifier = internet_archive_identifier
+        self.identifier = utils.safe_identifier("internet-archive-" + identifier)
+        self.item_directory = os.path.join(root_directory, self.internet_archive_identifier)
+        self.item_metadata_path = os.path.join(self.item_directory, f"{self.internet_archive_identifier}_meta.xml")
+        self.file_metadata_path = os.path.join(self.item_directory, f"{self.internet_archive_identifier}_files.xml")
         self.relative_path = os.path.join(*(path_components[2:]))
         self.path = os.path.join(self.item_directory, self.relative_path)
         self._metadata = None
 
     def sync(self):
-        logging.info("Syncing '%s'...", self.id)
+        logging.info("Syncing '%s'...", self.internet_archive_identifier)
         os.makedirs(self.item_directory, exist_ok=True)
         if not os.path.exists(self.item_metadata_path):
             utils.download_file_with_mirrors([
-                f"https://archive.org/download/{self.id}/{self.id}_meta.xml",
+                f"https://archive.org/download/{self.internet_archive_identifier}/{self.internet_archive_identifier}_meta.xml",
             ], self.item_metadata_path)
         if not os.path.exists(self.file_metadata_path):
             utils.download_file_with_mirrors([
-                f"https://archive.org/download/{self.id}/{self.id}_files.xml",
+                f"https://archive.org/download/{self.internet_archive_identifier}/{self.internet_archive_identifier}_files.xml",
             ], self.file_metadata_path)
         if not os.path.exists(self.path):
             destination_directory = os.path.dirname(self.path)
@@ -137,6 +140,10 @@ class InternetArchiveSource(object):
             utils.download_file_with_mirrors([
                 self.url,
             ], self.path)
+
+    @property
+    def hash(self):
+        return utils.shasum(self.path)
 
     @property
     def metadata(self):
@@ -164,7 +171,7 @@ class InternetArchiveSource(object):
         # URLs. The work is delegated to the sources as they know how to generate source-specific download URLs (at
         # least until we start caching assets somewhere else).
 
-        source_reference = model.ReferenceItem(name=self.title, url=f"https://archive.org/details/{self.id}")
+        source_reference = model.ReferenceItem(name=self.title, url=f"https://archive.org/details/{self.internet_archive_identifier}")
 
         def resolve_reference(reference):
 
@@ -193,7 +200,7 @@ class InternetArchiveSource(object):
             'name': self.title,
             'description': self.description,
             'url': self.url,
-            'html_url': f"https://archive.org/details/{self.id}"
+            'html_url': f"https://archive.org/details/{self.internet_archive_identifier}"
         }
 
 
@@ -210,7 +217,7 @@ class SnapshotSource(object):
         identifier = basename.replace("+", " ")
 
         self.path = os.path.join(root_directory, "snapshots", identifier)
-        self._identifier = identifier
+        self.identifier = utils.safe_identifier("snapshot-" + identifier)
         self._contents_path = os.path.join(self.path, "contents.tar.gz")
         self._metadata_path = os.path.join(self.path, "metadata.json")
         self._metadata = None
@@ -226,6 +233,10 @@ class SnapshotSource(object):
             os.makedirs(contents_path)
             containers.extract_tar_gz(filename, contents_path)
             shutil.move(contents_path, self.path)
+
+    @property
+    def hash(self):
+        return utils.shasum(self.path)
 
     @property
     def metadata(self):

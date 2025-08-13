@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+import hashlib
 import logging
 import os
 import requests
@@ -27,6 +28,48 @@ import shutil
 import tempfile
 
 from tqdm import tqdm
+
+
+def reset_directory(path):
+    if os.path.exists(path):
+        shutil.rmtree(path)
+    os.makedirs(path)
+
+
+def create_directories(paths):
+    for path in paths:
+        os.makedirs(path, exist_ok=True)
+
+
+def safe_listdir(path):
+    return [f for f in os.listdir(path) if f not in [".DS_Store"]]  # Because macOS is terrible.
+
+
+def shasum(path):
+    sha256 = hashlib.sha256()
+    if os.path.isdir(path):
+        for f in sorted(safe_listdir(path)):
+            sha256.update(shasum(os.path.join(path, f)).encode('utf-8'))
+    else:
+        with open(path, 'rb') as f:
+            while True:
+                data = f.read(65536)
+                if not data:
+                    break
+                sha256.update(data)
+    return sha256.hexdigest()
+
+
+def merge_files(source, destination):
+    for f in safe_listdir(source):
+        source_path = os.path.join(source, f)
+        destination_path = os.path.join(destination, f)
+        if not os.path.exists(destination_path):
+            shutil.copy(source_path, destination_path)
+
+
+def safe_identifier(id):
+    return id.replace(".", "-").replace(" ", "+").replace("/", "-").replace(":", "-")
 
 
 def download_file_with_mirrors(urls, local_filename=None):

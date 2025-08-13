@@ -58,6 +58,8 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
+INDEXER_VERSION = 3
+
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
 
@@ -156,7 +158,6 @@ class Program(object):
         for installer in installers:
             kinds.add(installer['kind'])
         self.kinds = kinds
-
 
     @property
     def name(self):
@@ -287,17 +288,6 @@ def select_name(names):
     raise MissingName("No supported localizations found")
 
 
-def shasum(path):
-    sha256 = hashlib.sha256()
-    with open(path, 'rb') as f:
-        while True:
-            data = f.read(65536)
-            if not data:
-                break
-            sha256.update(data)
-    return sha256.hexdigest()
-
-
 TAG_MAPPING = {
     "opl": "opl",
     "opo": "opl",
@@ -350,7 +340,7 @@ def import_installer(source, output_directory, reference, path, error_handler):
                 except Exception as e:
                     error_handler(aif_path, e)
 
-    sha256 = shasum(path)
+    sha256 = utils.shasum(path)
     shutil.copyfile(path, os.path.join(output_directory, sha256))
     return Release(filename=os.path.basename(path),
                    size=os.path.getsize(path),
@@ -382,7 +372,7 @@ def import_source(source, output_directory, error_handler=None):
 
             logging.info(f"Importing app '{file_path}'...")
             aif_path = find_sibling(file_path, name + ".aif")
-            uid = shasum(file_path)
+            uid = utils.shasum(file_path)
             icons = []
             app_name = name
             if aif_path:
@@ -406,7 +396,7 @@ def import_source(source, output_directory, error_handler=None):
                 except BaseException as e:
                     error_handler(file_path, e)
                     logging.warning("Failed to parse APP as AIF with message '%s'", e)
-            sha256 = shasum(file_path)
+            sha256 = utils.shasum(file_path)
             shutil.copyfile(file_path, os.path.join(output_directory, sha256))
             release = Release(filename=os.path.basename(file_path),
                               size=os.path.getsize(file_path),
@@ -446,46 +436,110 @@ def index(library):
     releases_path = os.path.join(library.intermediates_directory, "releases.json")
     files_directory = os.path.join(library.intermediates_directory, "files")
     icons_directory = os.path.join(library.intermediates_directory, "icons")
-    errors_directory = os.path.join(library.intermediates_directory, "errors")
 
     # Clean up the intermediates directory.
-    if os.path.exists(library.intermediates_directory):
-        shutil.rmtree(library.intermediates_directory)
-    os.makedirs(library.intermediates_directory)
-    os.makedirs(files_directory)
-    os.makedirs(icons_directory)
-    os.makedirs(errors_directory)
+    utils.reset_directory(files_directory)
+    utils.reset_directory(icons_directory)
 
     # Capture failing files for later investigation.
     # This creates a new path for each unique failing file and stores the error alongside the file.
-    def error_handler(path, error):
-        sha = shasum(path)
-        destination_path = os.path.join(errors_directory, sha)
-        if os.path.exists(destination_path):
-            logging.warning(f"Ignoring duplicate failing file with shasum '{sha}'...")
-            return
-        os.makedirs(destination_path)
-        shutil.copy(path, destination_path)
-        with open(os.path.join(destination_path, "error.txt"), "w") as fh:
-            fh.write(str(error))
+    def error_handler(errors_directory):
+        def inner(path, error):
+            sha = utils.shasum(path)
+            destination_path = os.path.join(errors_directory, sha)
+            if os.path.exists(destination_path):
+                logging.warning(f"Ignoring duplicate failing file with shasum '{sha}'...")
+                return
+            os.makedirs(destination_path)
+            shutil.copy(path, destination_path)
+            with open(os.path.join(destination_path, "error.txt"), "w") as fh:
+                fh.write(str(error))
+        return inner
 
-    # Index all the individual releases.
+    # Generate indexes for all the individual sources.
     logging.info("Indexing...")
     releases = []
     for source in library.sources:
-        releases += import_source(source=source,
-                                  output_directory=files_directory,
-                                  error_handler=error_handler)
+        logging.info("Indexing '%s'...", source.url)
 
-    # Write out the icons.
-    logging.info("Writing icons to '%s'...", icons_directory)
-    for release in releases:
-        release.write_assets(icons_directory)
+        # Paths.
+        source_index_directory = os.path.join(library.intermediates_directory, "sources", source.identifier)
+        source_index_files_directory = os.path.join(source_index_directory, "files")
+        source_index_icons_directory = os.path.join(source_index_directory, "icons")
+        source_index_errors_directory = os.path.join(source_index_directory, "errors")
+        source_manifest_path = os.path.join(source_index_directory, "manifest.json")
+        source_releases_path = os.path.join(source_index_directory, "releases.json")
+
+        # Get the hash of the current source.
+        source_hash = source.hash
+
+        # Load the manifest.
+        # We initialize the manifest here with dummy values so we can always safely inspect it.
+        source_manifest = {
+            "identifier": source.identifier,
+            "hash": "",
+            "indexer_version": -1,
+        }
+        if os.path.exists(source_manifest_path):
+            with open(source_manifest_path, "r") as fh:
+                source_manifest = json.load(fh)
+
+        # Check the manifest to see if we need to index the source.
+        if (source_manifest["indexer_version"] == INDEXER_VERSION
+            and source_manifest["hash"] == source_hash):
+
+            # Load the source index.
+            logging.info("Loading cached source index...")
+            with open(source_releases_path, "r") as fh:
+                source_releases = json.load(fh)
+
+        else:
+
+            # Prepare the source index directory.
+            utils.reset_directory(source_index_directory)
+            utils.create_directories([
+                source_index_files_directory,
+                source_index_icons_directory,
+                source_index_errors_directory
+            ])
+
+            source_releases = import_source(source=source,
+                                            output_directory=source_index_files_directory,
+                                            error_handler=error_handler(source_index_errors_directory))
+
+            logging.info("Writing manifest to '%s'...", source_manifest_path)
+            with open(source_manifest_path, "w") as fh:
+                json.dump({
+                    "identifier": source.identifier,
+                    "hash": source.hash,
+                    "indexer_version": INDEXER_VERSION,
+                }, fh, indent=4)
+
+            # Write the source index.
+            logging.info("Writing source index to '%s'...", source_releases_path)
+            with open(source_releases_path, "w") as fh:
+                json.dump([release.as_dict(relative_icons_path="icons") for release in source_releases], fh, indent=4)
+
+            # Write out the icons.
+            logging.info("Writing icons to '%s'...", source_index_icons_directory)
+            for release in source_releases:
+                release.write_assets(source_index_icons_directory)
+
+            # Convert the releases to a dictionary.
+            source_releases = [release.as_dict(relative_icons_path="icons") for release in source_releases]
+
+        # Append the releases from this source.
+        releases += source_releases
+
+        # Merge the source files and icons into the main directory.
+        logging.info("Merging source files and icons...")
+        utils.merge_files(source_index_files_directory, files_directory)
+        utils.merge_files(source_index_icons_directory, icons_directory)
 
     # Write the intermediate index.
     logging.info("Writing intermediate index to '%s'...", releases_path)
     with open(releases_path, "w") as fh:
-        json.dump([release.as_dict(relative_icons_path="icons") for release in releases], fh, indent=4)
+        json.dump(releases, fh, indent=4)
 
     logging.info("Indexing complete.")
 
