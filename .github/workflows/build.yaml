@@ -29,8 +29,10 @@ jobs:
     - name: Build the index
       env:
         INDEXER_ASSETS_DIRECTORY: /Users/jbmorley/psion-software-index/assets
+        INDEXER_INTERMEDIATES_DIRECTORY: /Users/jbmorley/psion-software-index/intermediates
       run: |
         mkdir -p "$INDEXER_ASSETS_DIRECTORY"
+        mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
         tools/indexer libraries/full.yaml sync index group overlay
 
     - name: Build site

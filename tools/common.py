@@ -71,11 +71,17 @@ class Library(object):
         root_directory = os.path.dirname(self.path)
         self.overlay_directories = [os.path.join(root_directory, overlay_directory)
                                     for overlay_directory in self._configuration['overlays']]
+
         self.assets_directory = os.path.normpath(os.path.join(root_directory, self._configuration['assets_directory']))
         if "INDEXER_ASSETS_DIRECTORY" in os.environ:
             self.assets_directory = os.environ["INDEXER_ASSETS_DIRECTORY"]
             logging.warning("Using $INDEXER_ASSETS_DIRECTORY environment variable (%s)", self.assets_directory)
+
         self.intermediates_directory = os.path.normpath(os.path.join(root_directory, self._configuration['intermediates_directory']))
+        if "INDEXER_INTERMEDIATES_DIRECTORY" in os.environ:
+            self.intermediates_directory = os.environ["INDEXER_INTERMEDIATES_DIRECTORY"]
+            logging.warning("Using $INDEXER_INTERMEDIATES_DIRECTORY environment variable (%s)", self.intermediates_directory)
+
         self.index_directory = os.path.normpath(os.path.join(root_directory, self._configuration['index_directory']))
         self.output_directory = os.path.normpath(os.path.join(root_directory, self._configuration['output_directory']))
         self.sources = [create_source(self.assets_directory, url) for url in self._configuration['sources']]
