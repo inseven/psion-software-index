@@ -8,6 +8,7 @@ verify_ssl = true
 
 b2sdk = "*"
 beautifulsoup4 = "*"
+fastcommand = "*"
 jinja2 = "*"
 natsort = "*"
 pillow = "*"
