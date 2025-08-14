@@ -114,7 +114,15 @@ def run_json_command(command, path):
 
 
 def dumpsis(path):
-    return run_json_command(DUMPSIS_PATH, path)
+    sis = run_json_command(DUMPSIS_PATH, path)
+
+    # Fix-up the version to match the previous expectations.
+    if "version" in sis:
+        version = sis["version"]
+        sis["version"] = "%d.%02d" % (version["major"], version["minor"])
+        sis["version_components"] = version
+
+    return sis
 
 
 def dumpaif(path):
@@ -122,24 +130,9 @@ def dumpaif(path):
 
 
 def dumpsis_extract(source, destination):
-    result = subprocess.run([LUA_PATH, DUMPSIS_PATH, source, destination], capture_output=True)
-
-    # Sadly we ignore foreign characters right now and using CP1252 by default.
-    stdout = result.stdout.decode('utf-8')
-    stderr = result.stderr.decode('utf-8')
-
-    if "Illegal byte sequence" in stdout + stderr:
-        return None
-
-    # Check the return code.
-    try:
-        result.check_returncode()
-    except:
-        print("stderr")
-        print(stderr)
-        print("stdout")
-        print(stdout)
-        raise
+    # TODO: #147: Capture dumpsis stdout and stderr in the case of failures
+    #       https://github.com/inseven/psion-software-index/issues/147
+    subprocess.check_call([LUA_PATH, DUMPSIS_PATH, source, destination])
 
 
 def get_icons(aif_path):

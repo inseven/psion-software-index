@@ -33,6 +33,8 @@ class ExtractionTests(unittest.TestCase):
                                          error_handler=error_handler)
         installer_dictionary = installer.as_dict(relative_icons_path="icons")
         self.assertEqual(installer_dictionary["version"], "1.06")
+        self.assertEqual(installer_dictionary["version_components"]["major"], 1)
+        self.assertEqual(installer_dictionary["version_components"]["minor"], 6)
 
 
 if __name__ == "__main__":
