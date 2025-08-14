@@ -6,13 +6,17 @@ layout: full
 # Psion Software Index
 
 <div class="search-header">
-    <input type="text" id="search" name="search" class="search" placeholder="Filter" />
+    <form id="search-form" class="search-form">
+        <input type="text" id="search" name="search" class="search" placeholder="Filter" autocorrect="off" />
+        <button type="reset" class="clear"><picture><source srcset="/images/x-dark.svg" media="(prefers-color-scheme: dark)" /><img src="/images/x-light.svg" /></picture></button>
+    </form>
 </div>
 
 <ul id="applications" class="applications"></ul>
 
 <script type="module">
     const applicationsList = document.getElementById("applications");
+    const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("search");
     const response = await fetch("/api/v1/groups");
     const groups = await response.json();
@@ -76,6 +80,10 @@ layout: full
         };
     }
 
+    searchForm.addEventListener('reset', function(event) {
+        filter("");
+        searchInput.focus();
+    });
     searchInput.addEventListener('input', debounce(function(event) {
         filter(searchInput.value);
     }, 30));

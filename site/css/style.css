@@ -81,22 +81,52 @@ h1 {
     margin: 0 1rem;
 }
 
+form.search-form {
+    position: relative;
+    display: inline-block;
+}
+
+form.search-form input:placeholder-shown + button.clear {
+  opacity: 0;
+  pointer-events: none;
+}
+
+form.search-form button.clear {
+    aspect-ratio: 1;
+    background-color: var(--secondary-foreground-color);
+    border-radius: 50%;
+    border: none;
+    padding: 0.3rem;
+    position: absolute;
+    right: 0;
+    right: 0.6rem;
+    top: 0.6rem;
+    vertical-align: middle;
+}
+
+form.search-form button.clear img {
+    display: block;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
 .search {
-    box-sizing: border-box;
-    text-align: left;
     background-color: var(--secondary-background-color);
-    border-radius: 2.2em;
+    border-radius: 2.2rem;
     border: 1px solid var(--tertiary-foreground-color);
     box-shadow: 0 0 16px var(--shadow-color);
+    box-sizing: border-box;
     color: var(--foreground-color);
     font-size: 1.2rem;
+    height: 3rem;
     margin: 0 auto calc(2 * var(--vertical-spacing)) auto;
-    padding: 0.6em 1em;
     max-width: 100%;
+    padding: 0 2.4rem 0 1rem;
+    text-align: left;
 }
 
 .search::placeholder {
-    color: var(--tertiary-foreground-color);
+    color: var(--secondary-foreground-color);
 }
 
 header program-icon {
