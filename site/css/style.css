@@ -200,9 +200,28 @@ footer nav ul li {
     font-size: 13px;
 }
 
+.icon-wrapper {
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: white;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+
 .icon {
     image-rendering: pixelated;
     vertical-align: middle;
+    max-width: 48px;
+    max-height: 48px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .screenshots {
@@ -250,11 +269,9 @@ ul.applications > li > a {
     transition: all .3s ease-in-out;
     align-items: baseline;
     font-size: 1.2rem;
-}
-
-ul.applications > li > a img {
-    vertical-align: middle;
-    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 a.download {
