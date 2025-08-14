@@ -23,6 +23,8 @@ layout: full
         const li = document.createElement("li");
         const a = document.createElement("a");
         a.href = "/programs/" + group.uid;
+        const iconContainer = document.createElement("div");
+        iconContainer.classList.add("icon-wrapper");
         const icon = document.createElement("img");
         icon.classList.add("icon");
         if (!!group.icon) {
@@ -34,10 +36,14 @@ layout: full
             icon.width = 48;
             icon.height = 48;
         }
-        a.appendChild(icon);
+        iconContainer.appendChild(icon);
+        a.appendChild(iconContainer);
+        const label = document.createElement("div");
+        label.classList.add("label");
         const name = document.createElement("span");
         name.textContent = group.name;
-        a.appendChild(name);
+        label.appendChild(name)
+        a.appendChild(label);
         li.appendChild(a);
         applicationsList.appendChild(li);
     }

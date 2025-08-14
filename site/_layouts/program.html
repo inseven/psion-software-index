@@ -6,11 +6,13 @@ layout: default
 
 <header>
     <program-icon>
-        {% if program.icon %}
-            <img class="icon" width="{{ program.icon.width }}" height="{{ program.icon.height }}" src="/{{ program.icon.path }}">
-        {% else %}
-            <img class="icon" width="48" height="48" src="/images/unknown.gif">
-        {% endif %}
+        <div class="icon-wrapper">
+            {% if program.icon %}
+                <img class="icon" width="{{ program.icon.width }}" height="{{ program.icon.height }}" src="/{{ program.icon.path }}">
+            {% else %}
+                <img class="icon" width="48" height="48" src="/images/unknown.gif">
+            {% endif %}
+        </div>
     </program-icon>
     <program-title>{{ page.title }}</program-title>
     {% if program.subtitle %}
@@ -50,11 +52,13 @@ layout: default
             <li>
                 <variant-header>
                     <variant-icon>
-                        {% if release.icon %}
-                            <img class="icon" width="{{ release.icon.width }}" height="{{ release.icon.height }}" src="/{{ release.icon.path }}">
-                        {% else %}
-                            <img class="icon" width="48" height="48" src="/images/unknown.gif">
-                        {% endif %}
+                        <div class="icon-wrapper">
+                            {% if release.icon %}
+                                <img class="icon" width="{{ release.icon.width }}" height="{{ release.icon.height }}" src="/{{ release.icon.path }}">
+                            {% else %}
+                                <img class="icon" width="48" height="48" src="/images/unknown.gif">
+                            {% endif %}
+                        </div>
                     </variant-icon>
                     <variant-details>
                         <variant-title>
