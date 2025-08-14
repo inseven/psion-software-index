@@ -8,7 +8,14 @@ The Psion Software Index is an attempt to index all the software written for the
 
 The index is created by extracting metadata from Psion programs that have been preserved on the [Internet Archive](https://archive.org) and other sources (see <a href="{{ "/sources" | absolute_url }}">Sources</a>). It is augmented with manually curated data including descriptions, categorization, and screenshots.
 
-The index is built by [Jason Morley](https://jbmorley.co.uk), and [Tom Sutcliffe](https://github.com/tomsci), with gentle encouragement from Alex Brown and the [Psion Discord](https://discord.gg/8ZkKKkA), and use software from the [OpoLua](https://opolua.org) project for indexing.
+## Authors
+
+- [Jason Morley](https://jbmorley.co.uk)
+- [Tom Sutcliffe](https://github.com/tomsci)
+
+## Contributors
+
+- scienceapps
 
 ## Summary
 
