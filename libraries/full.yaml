@@ -7,6 +7,7 @@ overlays:
 sources:
 - https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
 - https://archive.org/download/backups_202508/backups.zip
+- https://archive.org/download/backups_202508/psion%20sis%20files.zip
 - https://archive.org/download/berlitzphrasebook/BerlitzPhraseBook_Contents.zip
 - https://archive.org/download/clock-5/Clock5.zip
 - https://archive.org/download/club-utilisateurs-psion/Club%20Utilisateurs%20Psion.zip
