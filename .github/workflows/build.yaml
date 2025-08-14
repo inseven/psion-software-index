@@ -26,6 +26,10 @@ jobs:
     - name: Install dependencies
       run: scripts/install-dependencies.sh
 
+    - name: Run the tests
+      run: |
+        scripts/test.sh
+
     - name: Build the index
       env:
         INDEXER_ASSETS_DIRECTORY: /Users/jbmorley/psion-software-index/assets
