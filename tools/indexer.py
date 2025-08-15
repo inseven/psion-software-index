@@ -770,6 +770,7 @@ def overlay(library):
     # Copy the schema.
     schemas = [
         "groups.schema.json",
+        "programs.schema.json",
         "sources.schema.json",
         "summary.schema.json",
     ]

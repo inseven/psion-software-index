@@ -17,7 +17,8 @@
                     "height": {"type": "number"},
                     "bpp": {"type": "number"}
                 },
-                "required": ["path", "width", "height", "bpp"]
+                "required": ["path", "width", "height", "bpp"],
+                "additionalProperties": false
             }
         },
         "required": ["uid", "name"],

@@ -45,5 +45,6 @@ function validate() {
 }
 
 validate "groups"
-validate "summary"
+validate "programs"
 validate "sources"
+validate "summary"

@@ -1,0 +1,139 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://software.psion.info/api/v1/programs.schema.json",
+    "title": "Programs",
+    "description": "Hierarchical grouped listing of all programs, versions, and variants.",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "uid": {"type": "string"},
+            "name": {"type": "string"},
+            "summary": {"type": ["string", "null"]},
+            "versions": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "version": {"type": "string"},
+                        "variants": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "identifier": {"type": "string"},
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "filename": {"type": "string"},
+                                                "size": {"type": "integer"},
+                                                "reference": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "name": {"type": "string"},
+                                                            "url": {"type": ["string", "null"]}
+                                                        },
+                                                        "required": ["name", "url"],
+                                                        "additionalProperties": false
+                                                    }
+                                                },
+                                                "kind": {
+                                                    "enum": ["installer", "standalone"]
+                                                },
+                                                "sha256": {"type": "string"},
+                                                "uid": {"type": "string"},
+                                                "name": {"type": "string"},
+                                                "tags": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "version": {"type": "string"},
+                                                "icon": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "path": {"type": "string"},
+                                                        "width": {"type": "number"},
+                                                        "height": {"type": "number"}
+                                                    },
+                                                    "required": ["path", "width", "height"],
+                                                    "additionalProperties": false
+                                                }
+                                            },
+                                            "required": [
+                                                "filename",
+                                                "size",
+                                                "reference",
+                                                "kind",
+                                                "sha256",
+                                                "uid",
+                                                "name",
+                                                "tags",
+                                                "version"
+                                            ],
+                                            "additionalProperties": false
+                                        }
+                                    }
+                                },
+                                "required": ["identifier", "items"],
+                                "additionalProperties": false
+                            }
+                        }
+                    },
+                    "required": ["version", "variants"],
+                    "additionalProperties": false
+                },
+                "required": ["path", "width", "height", "bpp"],
+                "additionalProperties": false
+            },
+            "tags": {
+                "type": "array",
+                "items": {"type": "string"}
+            },
+            "kinds": {
+                "type": "array",
+                "items": {"enum": ["installer", "standalone"]}
+            },
+            "icon": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string"},
+                    "width": {"type": "number"},
+                    "height": {"type": "number"}
+                },
+                "required": ["path", "width", "height"],
+                "additionalProperties": false
+            },
+            "screenshots": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "width": {"type": "integer"},
+                        "height": {"type": "integer"},
+                        "path": {"type": "string"}
+                    },
+                    "required": ["width", "height", "path"],
+                    "additionalProperties": false
+                }
+            },
+            "subtitle": {"type": "string"},
+            "authors": {
+                "type": "array",
+                "items": {"type": "string"}
+            },
+            "publishers": {
+                "type": "array",
+                "items": {"type": "string"}
+            },
+            "description": {"type": "string"}
+        },
+        "required": ["uid", "name", "summary", "tags", "kinds"],
+        "additionalProperties": false
+    }
+}

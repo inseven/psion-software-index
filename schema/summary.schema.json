@@ -5,10 +5,10 @@
     "description": "High level index statistics.",
     "type": "object",
     "properties": {
-        "installerCount": {"type": "number"},
-        "uidCount": {"type": "number"},
-        "versionCount": {"type": "number"},
-        "shaCount": {"type": "number"}
+        "installerCount": {"type": "integer"},
+        "uidCount": {"type": "integer"},
+        "versionCount": {"type": "integer"},
+        "shaCount": {"type": "integer"}
     },
     "required": ["installerCount", "uidCount", "versionCount", "shaCount"],
     "additionalProperties": false
