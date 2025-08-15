@@ -768,8 +768,14 @@ def overlay(library):
     shutil.copyfile(destination_group_index_path, os.path.join(api_v1_output_path, "groups", "index.json"))
 
     # Copy the schema.
-    shutil.copy(os.path.join(SCHEMA_DIRECTORY, "groups.schema.json"), api_v1_output_path)
-    shutil.copy(os.path.join(SCHEMA_DIRECTORY, "summary.schema.json"), api_v1_output_path)
+    schemas = [
+        "groups.schema.json",
+        "sources.schema.json",
+        "summary.schema.json",
+    ]
+    for schema in schemas:
+        shutil.copy(os.path.join(SCHEMA_DIRECTORY, schema), api_v1_output_path)
+
 
 def main():
     parser = argparse.ArgumentParser()

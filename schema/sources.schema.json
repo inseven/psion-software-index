@@ -1,0 +1,18 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://software.psion.info/api/v1/sources.schema.json",
+    "title": "Sources",
+    "description": "Metadata about the sources used to generate the index.",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {"type": "string"},
+            "description": {"type": "string"},
+            "url": {"type": "string"},
+            "html_url": {"type": "string"}
+        },
+        "required": ["name", "html_url"],
+        "additionalProperties": false
+    }
+}
