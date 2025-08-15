@@ -51,8 +51,8 @@ import model
 import opolua
 import utils
 
-TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIRECTORY = os.path.dirname(TOOLS_DIRECTORY)
+ROOT_DIRECTORY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SCHEMA_DIRECTORY = os.path.join(ROOT_DIRECTORY, "schema")
 
 verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
