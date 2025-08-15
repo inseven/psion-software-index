@@ -68,16 +68,11 @@ class Image(object):
         self._shasum = None
 
     @property
-    def data(self):
-        with BytesIO() as output:
-            self._source.save(output, format="GIF")
-            return output.getvalue()
-
-    @property
     def shasum(self):
         if self._shasum is None:
             sha256 = hashlib.sha256()
-            sha256.update(self.data)
+            # Use the raw RGBA data to ensure it's stable.
+            sha256.update(self._source.convert("RGBA").tobytes())
             self._shasum = sha256.hexdigest()
         return self._shasum
 
