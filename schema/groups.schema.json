@@ -1,0 +1,26 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://software.psion.info/api/v1/groups.schema.json",
+    "title": "Program Groups",
+    "description": "Top-level grouping for individual programs.",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "uid": {"type": "string"},
+            "name": {"type": "string"},
+            "icon": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string"},
+                    "width": {"type": "number"},
+                    "height": {"type": "number"},
+                    "bpp": {"type": "number"}
+                },
+                "required": ["path", "width", "height", "bpp"]
+            }
+        },
+        "required": ["uid", "name"],
+        "additionalProperties": false
+    }
+}

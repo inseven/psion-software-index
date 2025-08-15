@@ -31,6 +31,10 @@ SCRIPTS_DIRECTORY="$ROOT_DIRECTORY/scripts"
 TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 TESTS_DIRECTORY="$ROOT_DIRECTORY/tests"
 
+API_V1_DIRECTORY="$ROOT_DIRECTORY/site/api/v1"
+
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
-PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv run "$TESTS_DIRECTORY"/test_extraction.py
+export PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile"
+
+pipenv run check-jsonschema --schemafile "$API_V1_DIRECTORY/groups.schema.json" "$API_V1_DIRECTORY/groups/index.json"

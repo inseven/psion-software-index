@@ -642,8 +642,6 @@ def group(library):
     with open(group_index_path, "w", encoding="utf-8") as fh:
         json.dump(group_index, fh)
 
-
-
     # Copy the files.
     logging.info("Copying files to '%s'...", files_path)
     if os.path.exists(files_path):
@@ -768,6 +766,9 @@ def overlay(library):
     shutil.copyfile(destination_summary_path, os.path.join(api_v1_output_path, "summary", "index.json"))
     os.makedirs(os.path.join(api_v1_output_path, "groups"), exist_ok=True)
     shutil.copyfile(destination_group_index_path, os.path.join(api_v1_output_path, "groups", "index.json"))
+
+    # Copy the schema.
+    shutil.copy(os.path.join(SCHEMA_DIRECTORY, "groups.schema.json"), api_v1_output_path)
 
 def main():
     parser = argparse.ArgumentParser()

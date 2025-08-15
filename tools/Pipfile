@@ -8,8 +8,10 @@ verify_ssl = true
 
 b2sdk = "*"
 beautifulsoup4 = "*"
+check-jsonschema = "*"
 fastcommand = "*"
 jinja2 = "*"
+jsonschema = "*"
 natsort = "*"
 pillow = "*"
 python-frontmatter = "*"
