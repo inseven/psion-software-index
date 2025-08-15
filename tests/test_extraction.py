@@ -18,8 +18,7 @@ from indexer import import_installer
 
 class ExtractionTests(unittest.TestCase):
 
-    @unittest.expectedFailure
-    def test_import_installer(self):
+    def _import_installer(self, path):
 
         errors = []
         def error_handler(error):
@@ -29,12 +28,24 @@ class ExtractionTests(unittest.TestCase):
             installer = import_installer(source={},
                                          output_directory=temporary_directory,
                                          reference=[],
-                                         path=os.path.join(EXAMPLES_DIRECTORY, "watchdog.SIS"),
+                                         path=path,
                                          error_handler=error_handler)
-        installer_dictionary = installer.as_dict(relative_icons_path="icons")
-        self.assertEqual(installer_dictionary["version"], "1.06")
-        self.assertEqual(installer_dictionary["version_components"]["major"], 1)
-        self.assertEqual(installer_dictionary["version_components"]["minor"], 6)
+        release = installer.as_dict(relative_icons_path="icons")
+        return (release, errors)
+
+    def test_installer_version(self):
+        release, errors = self._import_installer(os.path.join(EXAMPLES_DIRECTORY, "watchdog.SIS"))
+        self.assertEqual(len(errors), 0)
+        self.assertEqual(release["version"], "1.06")
+
+    def test_import_icons(self):
+        release, errors = self._import_installer(os.path.join(EXAMPLES_DIRECTORY, "baseconv7.sis"))
+        self.assertEqual(len(errors), 0)
+        self.assertEqual(len(release["icons"]), 1)
+        icon = release["icons"][0]
+        self.assertEqual(icon['sha256'], "bde84d6d3ed948a55dbc746a140628867e572b3ca9d2ae33c25ce98499fb2c16")
+        self.assertEqual(icon['width'], 48)
+        self.assertEqual(icon['height'], 48)
 
 
 if __name__ == "__main__":
