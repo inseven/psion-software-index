@@ -38,3 +38,4 @@ source "$SCRIPTS_DIRECTORY/environment.sh"
 export PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile"
 
 pipenv run check-jsonschema --schemafile "$API_V1_DIRECTORY/groups.schema.json" "$API_V1_DIRECTORY/groups/index.json"
+pipenv run check-jsonschema --schemafile "$API_V1_DIRECTORY/summary.schema.json" "$API_V1_DIRECTORY/summary/index.json"

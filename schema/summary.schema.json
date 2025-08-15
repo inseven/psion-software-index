@@ -1,0 +1,15 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://software.psion.info/api/v1/summary.schema.json",
+    "title": "Index Summary",
+    "description": "High level index statistics.",
+    "type": "object",
+    "properties": {
+        "installerCount": {"type": "number"},
+        "uidCount": {"type": "number"},
+        "versionCount": {"type": "number"},
+        "shaCount": {"type": "number"}
+    },
+    "required": ["installerCount", "uidCount", "versionCount", "shaCount"],
+    "additionalProperties": false
+}

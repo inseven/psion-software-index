@@ -769,6 +769,7 @@ def overlay(library):
 
     # Copy the schema.
     shutil.copy(os.path.join(SCHEMA_DIRECTORY, "groups.schema.json"), api_v1_output_path)
+    shutil.copy(os.path.join(SCHEMA_DIRECTORY, "summary.schema.json"), api_v1_output_path)
 
 def main():
     parser = argparse.ArgumentParser()
