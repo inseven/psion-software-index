@@ -41,7 +41,7 @@ jobs:
 
     - name: Validate the API
       run: |
-        script/validate.sh
+        scripts/validate.sh
 
     - name: Build site
       run: |
