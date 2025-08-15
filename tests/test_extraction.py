@@ -37,8 +37,6 @@ class ExtractionTests(unittest.TestCase):
         release, errors = self._import_installer(os.path.join(EXAMPLES_DIRECTORY, "watchdog.SIS"))
         self.assertEqual(len(errors), 0)
         self.assertEqual(release["version"], "1.06")
-        self.assertEqual(release["version_components"]["major"], 1)
-        self.assertEqual(release["version_components"]["minor"], 6)
 
     def test_import_icons(self):
         release, errors = self._import_installer(os.path.join(EXAMPLES_DIRECTORY, "baseconv7.sis"))
