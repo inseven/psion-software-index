@@ -22,7 +22,6 @@
 
 set -e
 set -o pipefail
-set -x
 set -u
 
 ROOT_DIRECTORY="$( cd "$( dirname "$( dirname "${BASH_SOURCE[0]}" )" )" &> /dev/null && pwd )"
@@ -31,6 +30,21 @@ SCRIPTS_DIRECTORY="$ROOT_DIRECTORY/scripts"
 TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 TESTS_DIRECTORY="$ROOT_DIRECTORY/tests"
 
+API_V1_DIRECTORY="$ROOT_DIRECTORY/site/api/v1"
+
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
-PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv run "$TESTS_DIRECTORY"/test_extraction.py
+export PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile"
+
+function validate() {
+    SCHEMA="$1"
+    echo "Validating '$SCHEMA'..."
+    pipenv run check-jsonschema \
+        --schemafile "$API_V1_DIRECTORY/$SCHEMA.schema.json" \
+        "$API_V1_DIRECTORY/$SCHEMA/index.json"
+}
+
+validate "groups"
+validate "programs"
+validate "sources"
+validate "summary"

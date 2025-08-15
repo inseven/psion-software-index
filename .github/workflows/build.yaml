@@ -39,6 +39,10 @@ jobs:
         mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
         tools/indexer libraries/full.yaml sync index group overlay
 
+    - name: Validate the API
+      run: |
+        scripts/validate.sh
+
     - name: Build site
       run: |
         scripts/build-site.sh

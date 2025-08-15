@@ -51,8 +51,8 @@ import model
 import opolua
 import utils
 
-TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
-ROOT_DIRECTORY = os.path.dirname(TOOLS_DIRECTORY)
+ROOT_DIRECTORY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SCHEMA_DIRECTORY = os.path.join(ROOT_DIRECTORY, "schema")
 
 verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
@@ -642,8 +642,6 @@ def group(library):
     with open(group_index_path, "w", encoding="utf-8") as fh:
         json.dump(group_index, fh)
 
-
-
     # Copy the files.
     logging.info("Copying files to '%s'...", files_path)
     if os.path.exists(files_path):
@@ -768,6 +766,17 @@ def overlay(library):
     shutil.copyfile(destination_summary_path, os.path.join(api_v1_output_path, "summary", "index.json"))
     os.makedirs(os.path.join(api_v1_output_path, "groups"), exist_ok=True)
     shutil.copyfile(destination_group_index_path, os.path.join(api_v1_output_path, "groups", "index.json"))
+
+    # Copy the schema.
+    schemas = [
+        "groups.schema.json",
+        "programs.schema.json",
+        "sources.schema.json",
+        "summary.schema.json",
+    ]
+    for schema in schemas:
+        shutil.copy(os.path.join(SCHEMA_DIRECTORY, schema), api_v1_output_path)
+
 
 def main():
     parser = argparse.ArgumentParser()
