@@ -58,7 +58,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 5
+INDEXER_VERSION = 6
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
@@ -223,9 +223,10 @@ class Release(object):
             'sha256': self.sha256,
             'uid': self.uid,
             'name': self.name,
-            'version': self.version,
             'tags': sorted(list(self.tags)),
         }
+        if self.version is not None:
+            dict['version'] = self.version
         dict['icons'] = [{'filename': icon.filename,
                           'width': icon.width,
                           'height': icon.height,
@@ -320,6 +321,9 @@ def discover_tags(path):
 
 
 def import_installer(source, output_directory, reference, path, error_handler):
+
+    logging.info(f"Importing installer '{path}'...")
+
     info = opolua.dumpsis(path)
     icons = []
     tags = []
@@ -354,77 +358,77 @@ def import_installer(source, output_directory, reference, path, error_handler):
                    tags=tags)
 
 
-# TODO: Rename to just import?
+def import_application(source, output_directory, reference, path, error_handler):
+
+    logging.info(f"Importing application '{path}'...")
+
+    basename = os.path.basename(path)
+    name, _ = os.path.splitext(basename)
+    tags = discover_tags(os.path.dirname(path))
+
+    # TODO: Find the AIF by using recognize?
+    aif_path = find_sibling(path, name + ".aif")
+    uid = utils.shasum(path)
+    icons = []
+    app_name = name
+    has_aif = False
+
+    if aif_path:
+        try:
+            info = opolua.dumpaif(aif_path)
+            uid = ("0x%08x" % info["uid3"]).lower()
+            app_name = select_name(info["captions"])
+            icons = opolua.get_icons(aif_path)
+            has_aif = True
+        except Exception as e:
+            error_handler(aif_path, e)
+            logging.warning("Failed to parse AIF with message '%s'", e)
+
+    if not has_aif:
+        # TODO: Is this a valid test?
+        info = opolua.dumpaif(path)
+        icons = opolua.get_icons(path)
+        app_name = select_name(info["captions"])
+
+    sha256 = utils.shasum(path)
+    shutil.copyfile(path, os.path.join(output_directory, sha256))
+    return Release(filename=os.path.basename(path),
+                   size=os.path.getsize(path),
+                   reference=reference,
+                   kind=ReleaseKind.STANDALONE,
+                   identifier=uid,
+                   sha256=sha256,
+                   name=app_name,
+                   version=None,
+                   icons=icons,
+                   tags=tags)
+
+
 def import_source(source, output_directory, error_handler=None):
 
     apps = []
     logging.info(f"Importing source '{source.path}'...")
     for (file_path, reference) in source.assets:
         basename = os.path.basename(file_path)
-        name, ext = os.path.splitext(basename)
+        _, ext = os.path.splitext(basename)
         ext = ext.lower()
 
-        if ext == ".app" or ext == ".opa":
-
-            # TODO: Combine APP and SIS.
-
-            tags = discover_tags(os.path.dirname(file_path))
-
-            logging.info(f"Importing app '{file_path}'...")
-            aif_path = find_sibling(file_path, name + ".aif")
-            uid = utils.shasum(file_path)
-            icons = []
-            app_name = name
-            if aif_path:
-                try:
-                    info = opolua.dumpaif(aif_path)
-                    uid = ("0x%08x" % info["uid3"]).lower()
-                    app_name = select_name(info["captions"])
-                    icons = opolua.get_icons(aif_path)
-                except MissingName as e:
-                    error_handler(aif_path, e)
-                except BaseException as e:
-                    error_handler(aif_path, e)
-                    logging.warning("Failed to parse APP as AIF with message '%s'", e)
-            else:
-                try:
-                    info = opolua.dumpaif(file_path)
-                    icons = opolua.get_icons(file_path)
-                    app_name = select_name(info["captions"])
-                except opolua.InvalidAIF as e:
-                    error_handler(file_path, e)
-                except BaseException as e:
-                    error_handler(file_path, e)
-                    logging.warning("Failed to parse APP as AIF with message '%s'", e)
-            sha256 = utils.shasum(file_path)
-            shutil.copyfile(file_path, os.path.join(output_directory, sha256))
-            release = Release(filename=os.path.basename(file_path),
-                              size=os.path.getsize(file_path),
-                              reference=reference,
-                              kind=ReleaseKind.STANDALONE,
-                              identifier=uid,
-                              sha256=sha256,
-                              name=app_name,
-                              version="Unknown",
-                              icons=icons,
-                              tags=tags)
-            apps.append(release)
-
-        elif ext == ".sis":
-
-            logging.info(f"Importing installer '{file_path}'...")
-            try:
+        try:
+            if ext == ".app" or ext == ".opa":
+                apps.append(import_application(source=source,
+                                               output_directory=output_directory,
+                                               reference=reference,
+                                               path=file_path,
+                                               error_handler=error_handler))
+            elif ext == ".sis":
                 apps.append(import_installer(source=source,
-                                             output_directory=output_directory,
-                                             reference=reference,
-                                             path=file_path,
-                                             error_handler=error_handler))
-            except opolua.InvalidInstaller as e:
-                logging.error("Failed to import installer with message '%s", e)
-                error_handler(file_path, e)
-            except Exception as e:
-                logging.error("Failed to import installer with message '%s", e)
-                error_handler(file_path, e)
+                                            output_directory=output_directory,
+                                            reference=reference,
+                                            path=file_path,
+                                            error_handler=error_handler))
+        except Exception as e:
+            logging.error("Failed to import with message '%s", e)
+            error_handler(file_path, e)
 
     return apps
 
@@ -571,6 +575,8 @@ def group(library):
     groups = collections.defaultdict(list)
 
     for release in releases:
+        # Fix-up the version to match the current API expectations. Ultimately we will want to expose this to the API.
+        release['version'] = utils.format_version(release['version']) if 'version' in release else 'Unknown'
         unique_uids.add(release['uid'])
         unique_versions.add((release['uid'], release['version']))
         unique_shas.add(release['sha256'])
@@ -592,7 +598,7 @@ def group(library):
         releases = []
         for installer in installers:
             # Strip down the release for the API.
-            required_keys = ['filename', 'size', 'reference', 'kind', 'sha256', 'uid', 'name', 'version', 'tags']
+            required_keys = ['filename', 'size', 'reference', 'kind', 'sha256', 'uid', 'name', 'tags', 'version']
             release = {}
             for key in required_keys:
                 release[key] = installer[key]
