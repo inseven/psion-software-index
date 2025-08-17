@@ -54,6 +54,8 @@ class UnsupportedURL(Exception):
 
 
 def create_source(assets_directory, url):
+    if os.path.isdir(url):
+        return LocalSource(assets_directory, url)
     url_components = urlparse(url)
     if url_components.hostname == "archive.org":
         return InternetArchiveSource(assets_directory, url)
@@ -207,6 +209,35 @@ class InternetArchiveSource(object):
             'description': self.description,
             'url': self.url,
             'html_url': f"https://archive.org/details/{self.internet_archive_identifier}"
+        }
+
+
+class LocalSource(object):
+
+    def __init__(self, root_directory, url):
+        self.root_directory = root_directory
+        self.url = url
+        self.path = url
+        self.identifier = utils.safe_identifier("local-" + self.path)
+        self.title = url
+        self.description = "Local archive."
+
+    def sync(self):
+        pass
+
+    @property
+    def hash(self):
+        return utils.shasum(self.path)
+
+    @property
+    def assets(self):
+        return containers.walk(self.path, relative_to=self.path)
+
+    def as_dict(self):
+        return {
+            "kind": "local",
+            "name": self.title,
+            "html_url": "https://example.com",
         }
 
 
