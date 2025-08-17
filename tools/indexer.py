@@ -576,8 +576,7 @@ def group(library):
 
     for release in releases:
         # Fix-up the version to match the current API expectations. Ultimately we will want to expose this to the API.
-        version = utils.format_version(release['version']) if 'version' in release else 'Unknown'
-        release['version'] = version
+        release['version'] = utils.format_version(release['version']) if 'version' in release else 'Unknown'
         unique_uids.add(release['uid'])
         unique_versions.add((release['uid'], release['version']))
         unique_shas.add(release['sha256'])
@@ -599,7 +598,7 @@ def group(library):
         releases = []
         for installer in installers:
             # Strip down the release for the API.
-            required_keys = ['filename', 'size', 'reference', 'kind', 'sha256', 'uid', 'name', 'tags']
+            required_keys = ['filename', 'size', 'reference', 'kind', 'sha256', 'uid', 'name', 'tags', 'version']
             release = {}
             for key in required_keys:
                 release[key] = installer[key]
