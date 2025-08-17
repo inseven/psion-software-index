@@ -202,7 +202,7 @@ class InternetArchiveSource(object):
 
     def as_dict(self):
         return {
-            'path': self.path,
+            'kind': 'internet-archive',
             'name': self.title,
             'description': self.description,
             'url': self.url,
@@ -283,6 +283,7 @@ class SnapshotSource(object):
 
     def as_dict(self):
         return {
+            "kind": "snapshot",
             "name": self.title,
             "html_url": self.snapshot_url,
         }
