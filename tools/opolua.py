@@ -109,15 +109,7 @@ def run_json_command(command, path):
 
 
 def dumpsis(path):
-    sis = run_json_command(DUMPSIS_PATH, path)
-
-    # Fix-up the version to match the previous expectations.
-    if "version" in sis:
-        version = sis["version"]
-        sis["version"] = "%d.%02d" % (version["major"], version["minor"])
-        sis["version_components"] = version
-
-    return sis
+    return run_json_command(DUMPSIS_PATH, path)
 
 
 def dumpaif(path):

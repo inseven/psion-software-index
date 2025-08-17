@@ -30,6 +30,10 @@ import tempfile
 from tqdm import tqdm
 
 
+def format_version(version):
+    return "%d.%02d" % (version['major'], version['minor'])
+
+
 def reset_directory(path):
     if os.path.exists(path):
         shutil.rmtree(path)
