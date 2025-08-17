@@ -58,7 +58,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 7
+INDEXER_VERSION = 8
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
@@ -336,7 +336,7 @@ def import_installer(source, output_directory, reference, path, error_handler):
 
             tags = discover_tags(temporary_directory_path)
 
-            contents = glob.glob("**/*.aif", recursive=True)
+            contents = glob.glob("**/*.aif", recursive=True) + glob.glob("**/*.aco", recursive=True) + glob.glob("**/*.abw", recursive=True)
             if contents:
                 aif_path = contents[0]
                 try:
@@ -368,6 +368,10 @@ def import_application(source, output_directory, reference, path, error_handler)
 
     # TODO: Find the AIF by using recognize?
     aif_path = find_sibling(path, name + ".aif")
+    if not aif_path:
+        aif_path = find_sibling(path, name + ".aco")
+    if not aif_path:
+        aif_path = find_sibling(path, name + ".abw")
     uid = utils.shasum(path)
     icons = []
     app_name = name

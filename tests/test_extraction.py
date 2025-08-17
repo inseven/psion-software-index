@@ -60,7 +60,6 @@ class ExtractionTests(unittest.TestCase):
     def test_installer_version(self):
         release, errors = self._import_installer(os.path.join(EXAMPLES_DIRECTORY, "watchdog.SIS"))
         self.assertEqual(len(errors), 0)
-        print(release)
         self.assertEqual(release["version"]["major"], 1)
         self.assertEqual(release["version"]["minor"], 6)
 
@@ -80,6 +79,36 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(icon['sha256'], "bde84d6d3ed948a55dbc746a140628867e572b3ca9d2ae33c25ce98499fb2c16")
         self.assertEqual(icon['width'], 48)
         self.assertEqual(icon['height'], 48)
+
+    def test_alternative_aif_extensions(self):
+        release, errors = self._import_installer(os.path.join(EXAMPLES_DIRECTORY, "Checkers.sis"))
+        self.assertTrue("icons" in release)
+        self.assertEqual(len(release["icons"]), 3)
+        self.assertEqual(
+            sorted(release["icons"], key=lambda x: x["width"]),
+            [
+                {
+                    'filename': '9c6f11ae84be2f3c817af42e63949b798461a24ac3279a62c858317f4a84ba60.gif',
+                    'width': 24,
+                    'height': 24,
+                    'bpp': 8,
+                    'sha256': '9c6f11ae84be2f3c817af42e63949b798461a24ac3279a62c858317f4a84ba60'
+                },
+                {
+                    'filename': 'c84338a8d2f30e74b56326378398a7c4d4a0b9ea3c8b62487115d7cb628773a8.gif',
+                    'width': 32,
+                    'height': 32,
+                    'bpp': 8,
+                    'sha256': 'c84338a8d2f30e74b56326378398a7c4d4a0b9ea3c8b62487115d7cb628773a8'
+                },
+                {
+                    'filename': 'ae57708e5b28f22e672c4067f309ce3e274fbf3ff60cd1cf9b58fece2778f000.gif',
+                    'width': 48,
+                    'height': 48,
+                    'bpp': 8,
+                    'sha256': 'ae57708e5b28f22e672c4067f309ce3e274fbf3ff60cd1cf9b58fece2778f000'
+                }
+            ])
 
 
 if __name__ == "__main__":
