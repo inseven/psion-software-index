@@ -3,8 +3,10 @@
     --secondary-foreground-color: #ccc;
     --tertiary-foreground-color: #ddd;
     --background-color: #fff;
-    --secondary-background-color: #fff;
+    --secondary-background-color: #f0f0f0;
     --tertiary-background-color: #fafafa;
+    --program-background-color: #fff;
+    --search-background-color: #fff;
     --shadow-color: rgba(0, 0, 0, 0.12);
     --button-background-color: #eee;
     --link-color: darkorange;
@@ -18,8 +20,10 @@
         --secondary-foreground-color: #555;
         --tertiary-foreground-color: #333;
         --background-color: #171616;
-        --secondary-background-color: rgb(33, 32, 33);
+        --secondary-background-color: #222;
         --tertiary-background-color: #222;
+        --program-background-color: #333;
+        --search-background-color: #333;
         --shadow-color: rgba(0, 0, 0, 0.5);
         --button-background-color: #2b2b2b;
         --link-color: darkorange;
@@ -35,6 +39,20 @@ body {
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     color: var(--foreground-color);
     background-color: var(--background-color);
+}
+
+code {
+  font-size: 0.8em;
+  padding: 0.1em 0.2em;
+  border-radius: 0.2em;
+}
+
+pre, code {
+  background-color: var(--secondary-background-color);
+}
+
+.hljs {
+  background-color: var(--secondary-background-color);
 }
 
 h2 {
@@ -111,7 +129,7 @@ form.search-form button.clear img {
 }
 
 .search {
-    background-color: var(--secondary-background-color);
+    background-color: var(--search-background-color);
     border-radius: 2.2rem;
     border: 1px solid var(--tertiary-foreground-color);
     box-shadow: 0 0 16px var(--shadow-color);
@@ -301,7 +319,7 @@ ul.applications > li > a {
     display: block;
     padding: 1.6rem;
     border-radius: 1rem;
-    background-color: var(--secondary-background-color);
+    background-color: var(--program-background-color);
     box-shadow: 0 0 16px var(--shadow-color);
     transition: all .3s ease-in-out;
     align-items: baseline;
