@@ -4,7 +4,7 @@ title: Contributing
 
 # Contributing
 
-We're excited for all contributions to to the Software Index!
+We're excited for all contributions to the Software Index!
 
 ## Content
 
