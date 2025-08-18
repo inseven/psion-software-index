@@ -45,14 +45,14 @@ def create_directories(paths):
         os.makedirs(path, exist_ok=True)
 
 
-def safe_listdir(path):
-    return [f for f in os.listdir(path) if f not in [".DS_Store"]]  # Because macOS is terrible.
+def listdir(path, include_hidden):
+    return [f for f in os.listdir(path) if (include_hidden or not f.startswith("."))]
 
 
 def shasum(path):
     sha256 = hashlib.sha256()
     if os.path.isdir(path):
-        for f in sorted(safe_listdir(path)):
+        for f in sorted(listdir(path, include_hidden=False)):
             sha256.update(shasum(os.path.join(path, f)).encode('utf-8'))
     else:
         with open(path, 'rb') as f:
@@ -65,7 +65,7 @@ def shasum(path):
 
 
 def merge_files(source, destination):
-    for f in safe_listdir(source):
+    for f in listdir(source, include_hidden=False):
         source_path = os.path.join(source, f)
         destination_path = os.path.join(destination, f)
         if not os.path.exists(destination_path):

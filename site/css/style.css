@@ -37,6 +37,10 @@ body {
     background-color: var(--background-color);
 }
 
+h2 {
+    border-bottom: 1px solid var(--secondary-foreground-color);
+}
+
 p, details {
     line-height: 1.7em;
 }
@@ -142,6 +146,13 @@ header program-title {
 header program-subtitle {
     display: block;
     font-size: 1.2em;
+    margin-bottom: var(--vertical-spacing);
+    text-align: center;
+}
+
+header program-category {
+    color: var(--secondary-foreground-color);
+    display: block;
     margin-bottom: var(--vertical-spacing);
     text-align: center;
 }

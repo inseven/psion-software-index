@@ -41,6 +41,7 @@ import urllib.parse
 from enum import Enum
 
 import frontmatter
+import jsonschema
 import natsort
 
 from PIL import Image as PILImage, ImageOps
@@ -686,19 +687,28 @@ def overlay(library):
     destination_summary_path = os.path.join(data_output_path, "summary.json")
     destination_group_index_path = os.path.join(data_output_path, "groups.json")
 
+    # Load the overlay schema for validation.
+    with open(os.path.join(SCHEMA_DIRECTORY, "overlay-metadata.schema.json")) as fh:
+        overlay_schema = json.load(fh)
+
     # Import screenshots and metadata from the overlay.
     overlay = collections.defaultdict(dict)
     for overlay_directory in library.overlay_directories:
-        for identifier in os.listdir(overlay_directory):
-            if identifier.startswith("."):
-                continue
-            screenshots_path = os.path.join(overlay_directory, identifier)
+        for overlay_basename in utils.listdir(overlay_directory, include_hidden=False):
+            identifier = overlay_basename.split(" ")[0]
+            screenshots_path = os.path.join(overlay_directory, overlay_basename)
             overlay[identifier]["screenshots"] = [os.path.join(screenshots_path, screenshot)
                                                   for screenshot in os.listdir(screenshots_path)
                                                   if screenshot.endswith(".png")]
-            overlay_index_path = os.path.join(overlay_directory, identifier, "index.md")
+            overlay_index_path = os.path.join(overlay_directory, overlay_basename, "index.md")
             if os.path.exists(overlay_index_path):
-                overlay[identifier]["index"] = frontmatter.load(overlay_index_path)
+                overlay_index = frontmatter.load(overlay_index_path)
+                try:
+                    jsonschema.validate(instance=overlay_index.metadata, schema=overlay_schema)
+                except jsonschema.exceptions.ValidationError:
+                    logging.error("Failed to validate metadata for overlay '%s'", overlay_index_path)
+                    raise
+                overlay[identifier]["index"] = overlay_index
 
     # Load the index.
     with open(source_programs_path) as fh:
@@ -728,9 +738,11 @@ def overlay(library):
 
         # Inject the metadata.
         if "index" in overlay[identifier]:
+            logging.info("Copying '%s'...", identifier)
             metadata = overlay[identifier]["index"]
             application['description'] = metadata.content
             for key in metadata.metadata.keys():
+                logging.info("Copying '%s'...", key)
                 application[key] = metadata.metadata[key]
 
         # Inject the screenshots.
@@ -780,6 +792,7 @@ def overlay(library):
     # Copy the schema.
     schemas = [
         "groups.schema.json",
+        "overlay-metadata.schema.json",
         "programs.schema.json",
         "sources.schema.json",
         "summary.schema.json",

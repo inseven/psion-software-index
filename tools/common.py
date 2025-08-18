@@ -71,7 +71,7 @@ class Library(object):
         with open(path) as fh:
             self._configuration = yaml.safe_load(fh)
         root_directory = os.path.dirname(self.path)
-        self.overlay_directories = [os.path.join(root_directory, overlay_directory)
+        self.overlay_directories = [os.path.normpath(os.path.join(root_directory, overlay_directory))
                                     for overlay_directory in self._configuration['overlays']]
 
         self.assets_directory = os.path.normpath(os.path.join(root_directory, self._configuration['assets_directory']))
