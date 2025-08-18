@@ -18,24 +18,22 @@ If you have archives of Psion software that aren't already on the Internet archi
 
 The Software Index incorporates manually created content, stored in the '[overlays](https://github.com/inseven/psion-software-index/tree/main/overlays)' directory. We would love help generating this content; please consider raising a PR, or [getting in touch](mailto:support@jbmorley.co.uk).
 
-Program-specific content is grouped into a folder named with the program's UID[^uid]. For example, the current overlay structure looks like this:
+Program-specific content is grouped into a folder named with the program's UID[^uid]. For example, the current overlay directory structure looks like this:
 
-```text
-overlays/
-  0x02000006/
-    screenshot.png
-  ...
-  0x100053f0 NEUON PacMan/
-    1-pacman.png
-    2-spash-screen.png
-    3-about-screen.png
-    4-hiscore-table.png
-    5-preferences.png
-    index.md
-  0x101f438f/
-    game.png
-    splash.png
-```
+- overlays
+  - 0x02000006
+    - screenshot.png
+  - ...
+  - 0x100053f0 NEUON PacMan
+    - 1-pacman.png
+    - 2-spash-screen.png
+    - 3-about-screen.png
+    - 4-hiscore-table.png
+    - 5-preferences.png
+    - index.md
+  - 0x101f438f
+    - game.png
+    - splash.png
 
 [^uid]: You can find program UIDs under the title of program-specific pages in the index. They are an 8-digit hexadecimal number, beginning `0x`.
 
