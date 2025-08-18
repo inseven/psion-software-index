@@ -32,6 +32,7 @@ module SamplePlugin
 
       @program = program
       @title = program['name']
+      @content = ""
 
       # Look up front matter defaults scoped to type `categories`, if given key
       # doesn't exist in the `data` hash.
