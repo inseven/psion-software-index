@@ -15,9 +15,8 @@ layout: default
         </div>
     </program-icon>
     <program-title>{{ page.title }}</program-title>
-    {% if program.subtitle %}
-        <program-subtitle>{{ program.subtitle | titlecase }}</program-subtitle>
-    {% endif %}
+    {% if program.subtitle %}<program-subtitle>{{ program.subtitle | titlecase }}</program-subtitle>{% endif %}
+    {% if program.category %}<program-category>{{ program.category }}</program-category>{% endif %}
     <program-identifier>{{ program.uid }}</program-identifier>
 </header>
 
@@ -39,6 +38,37 @@ layout: default
     <div class="description">
         <p>{{ program.description | markdownify }}</p>
     </div>
+{% endif %}
+
+{% if program.authors or program.publishers or program.developer_url %}
+
+<h2>Information</h2>
+
+{% if program.authors %}
+<h3>Authors</h3>
+<ul>
+{% for author in program.authors %}
+    <li>{{ author }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if program.publishers %}
+<h3>Publishers</h3>
+<ul>
+{% for publisher in program.publishers %}
+    <li>{{ publisher }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if program.developer_url %}
+<h3>Links</h3>
+<ul>
+    <li><a href="{{ program.developer_url }}">Developer Website</a></li>
+</ul>
+{% endif %}
+
 {% endif %}
 
 <h2>Releases</h2>

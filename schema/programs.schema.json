@@ -123,6 +123,40 @@
                 }
             },
             "subtitle": {"type": "string"},
+            "category": {"enum": [
+                "connectivity/web",
+                "connectivity/other",
+                "games/action",
+                "games/adventure",
+                "games/arcade",
+                "games/board",
+                "games/puzzle",
+                "games/racing",
+                "games/rpg",
+                "games/shooter",
+                "games/simulation",
+                "games/sports",
+                "games/strategy",
+                "games/other",
+                "multimedia/ebooks",
+                "multimedia/music",
+                "multimedia/photo",
+                "multimedia/video",
+                "multimedia/other",
+                "productivity/calculators",
+                "productivity/date-and-time",
+                "productivity/graphics",
+                "productivity/office",
+                "productivity/organizers",
+                "productivity/scientific",
+                "productivity/other",
+                "system/addons",
+                "system/file-management",
+                "system/input",
+                "system/utilities",
+                "system/other",
+                "desktop/other"
+            ]},
             "authors": {
                 "type": "array",
                 "items": {"type": "string"}
@@ -131,7 +165,8 @@
                 "type": "array",
                 "items": {"type": "string"}
             },
-            "description": {"type": "string"}
+            "description": {"type": "string"},
+            "developer_url": {"type": "string"}
         },
         "required": ["uid", "name", "summary", "tags", "kinds"],
         "additionalProperties": false
