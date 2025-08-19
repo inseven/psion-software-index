@@ -21,7 +21,7 @@
             },
             "url": {
                 "type": "string",
-                "description": "Direct download link to the assets used to generate the index. Corresponds with the specific file in an Internet Archive item."
+                "description": "Direct download link to the asset used to generate the index. Corresponds with the specific file in an Internet Archive item."
             },
             "html_url": {
                 "type": "string",
