@@ -13,8 +13,14 @@
                 "type": "object",
                 "properties": {
                     "path": {"type": "string"},
-                    "width": {"type": "number"},
-                    "height": {"type": "number"},
+                    "width": {
+                        "type": "number",
+                        "example": 640
+                    },
+                    "height": {
+                        "type": "number",
+                        "example": 480
+                    },
                     "bpp": {"type": "number"}
                 },
                 "required": ["path", "width", "height", "bpp"],

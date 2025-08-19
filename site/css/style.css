@@ -1,5 +1,5 @@
 :root {
-    --foreground-color: #000;
+    --primary-foreground-color: #000;
     --secondary-foreground-color: #ccc;
     --tertiary-foreground-color: #ddd;
     --background-color: #fff;
@@ -16,7 +16,7 @@
 @media (prefers-color-scheme: dark) {
 
     :root {
-        --foreground-color: #fff;
+        --primary-foreground-color: #fff;
         --secondary-foreground-color: #555;
         --tertiary-foreground-color: #333;
         --background-color: #171616;
@@ -37,8 +37,26 @@ body {
     text-align: center;
     margin: 0;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
     background-color: var(--background-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--tertiary-background-color);
+    transition: background-color .3s ease-in-out;
+}
+
+table td, table th {
+  padding: 0.2em 0.4em;
+}
+
+table th {
+  border-bottom: 1px solid var(--primary-foreground-color);
 }
 
 code {
@@ -81,7 +99,7 @@ header ul li {
 
 header nav a {
     display: inline-block;
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
 }
 
 header > .icon {
@@ -134,7 +152,7 @@ form.search-form button.clear img {
     border: 1px solid var(--tertiary-foreground-color);
     box-shadow: 0 0 16px var(--shadow-color);
     box-sizing: border-box;
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
     font-size: 1.2rem;
     height: 3rem;
     margin: 0 auto calc(2 * var(--vertical-spacing)) auto;
@@ -315,7 +333,7 @@ ul.applications {
 }
 
 ul.applications > li > a {
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
     display: block;
     padding: 1.6rem;
     border-radius: 1rem;
