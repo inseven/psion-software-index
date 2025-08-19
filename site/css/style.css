@@ -75,7 +75,8 @@ pre, code {
 }
 
 h2 {
-    border-bottom: 1px solid var(--secondary-foreground-color);
+    border-bottom: 1px solid var(--primary-foreground-color);
+    padding-bottom: var(--vertical-spacing);
 }
 
 p, details {
