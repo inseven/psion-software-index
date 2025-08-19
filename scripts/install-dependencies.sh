@@ -38,6 +38,9 @@ mise install
 cd "$ROOT_DIRECTORY/dependencies/opolua"
 mise install
 
+# Install NodeJS packages into the root.
+npm install
+
 # Create directory for local tools.
 if [ -d "$ROOT_DIRECTORY/.local" ] ; then
     rm -r "$ROOT_DIRECTORY/.local"

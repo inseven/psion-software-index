@@ -1,6 +1,7 @@
 /.local
 /_*
 /assets.txt
+/node_modules
 /site/_data
 /site/api/docs
 /site/api/v1

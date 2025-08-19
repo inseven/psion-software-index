@@ -40,7 +40,7 @@ cp -R "$INDEX_DIRECTORY" "$SITE_DATA_DIRECTORY"
 
 # Generate the API documentation.
 mkdir -p "$SITE_DIRECTORY/api/docs"
-widdershins --expandBody --resolve --code "$SCHEMA_DIRECTORY/api.yaml" --summary -o "$SITE_DIRECTORY/api/docs/index.md"
+npx widdershins --expandBody --resolve --code "$SCHEMA_DIRECTORY/api.yaml" --summary -o "$SITE_DIRECTORY/api/docs/index.md"
 
 # Build the site.
 cd "$SITE_DIRECTORY"
