@@ -34,8 +34,27 @@ paths:
       summary: Summary
       responses:
         '200':
-          description: JSON object containing summary statistics about the software index.
+          description: Summary statistics about the index.
           content:
             application/json:
               schema:
-                $ref: './summary.schema.json'
+                $ref: '#/components/schemas/Summary'
+  /api/v1/sources:
+    get:
+      summary: Sources
+      description: |
+        Lists all sources used to generate the software index.
+      responses:
+        '200':
+          description: JSON object containing summary statistics about the index.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sources'
+
+components:
+  schemas:
+    Sources:
+      $ref: './sources.schema.json'
+    Summary:
+      $ref: './summary.schema.json'
