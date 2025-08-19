@@ -105,15 +105,18 @@ layout: default
                         <a class="download" href="/files/{{ release.sha256 }}" download="{{ release.filename }}">Download</a>
                     </variant-actions>
                 </variant-header>
-                <ul class="sources">
-                    {% for release in variant.items %}
-                        <li>
-                            <div class="path">
-                            {% for component in release.reference %}{% if component.url %}<a href="{{ component.url }}">{% endif %}{{ component.name | xml_escape }}{% if component.url %}</a>{% endif %}{% if forloop.last == false %} / {% endif %}{% endfor %}
-                        </div>
-                        </li>
-                    {% endfor %}
-                </ul>
+                <details>
+                    <summary>{% if variant.items.length > 1 %}{{ variant.items.length }} Sources{% else %}1 Source{% endif %}</summary>
+                    <ul class="sources">
+                        {% for release in variant.items %}
+                            <li>
+                                <div class="path">
+                                {% for component in release.reference %}{% if component.url %}<a href="{{ component.url }}">{% endif %}{{ component.name | xml_escape }}{% if component.url %}</a>{% endif %}{% if forloop.last == false %} / {% endif %}{% endfor %}
+                            </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </details>
             </li>
         {% endfor %}
     </ul>
