@@ -2,18 +2,40 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://software.psion.info/api/v1/sources.schema.json",
     "title": "Sources",
-    "description": "Metadata about the sources used to generate the index.",
+    "description": "Array of sources used to generate the index.",
     "type": "array",
     "items": {
         "type": "object",
         "properties": {
-            "kind": {"enum": ["snapshot", "internet-archive"]},
-            "name": {"type": "string"},
-            "description": {"type": "string"},
-            "url": {"type": "string"},
-            "html_url": {"type": "string"}
+            "kind": {
+                "enum": ["snapshot", "internet-archive"],
+                "description": "String enumeration giving the type of the source (e.g., Internet Archive item, or website snapshot)."
+            },
+            "name": {
+                "type": "string",
+                "description": "Display name for the source. This corresponds with the item title for Internet Archive sources."
+            },
+            "description": {
+                "type": "string",
+                "description": "HTML description of the source. In the case of the Internet Archive sources, this corresponds with the top-level item description."
+            },
+            "url": {
+                "type": "string",
+                "description": "Direct download link to the assets used to generate the index. Corresponds with the specific file in an Internet Archive item."
+            },
+            "html_url": {
+                "type": "string",
+                "description": "URL of an HTML page associated with the index. In the case of website snapshots, this is the root of the website; for Internet Archive sources, it represents the item details page."
+            }
         },
         "required": ["kind", "name", "html_url"],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "example": [{
+            "kind": "internet-archive",
+            "name": "Psion 3-Lib Shareware Library June 2005",
+            "description": "CD of the Psion 3-Lib\u00a0Shareware\u00a0library for Psion PDA's\u00a0",
+            "url": "https://archive.org/download/3-libjune-05/3LIBJUNE05.iso",
+            "html_url": "https://archive.org/details/3-libjune-05"
+        }],
     }
 }

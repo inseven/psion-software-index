@@ -28,18 +28,12 @@ set -u
 SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
-INDEX_DIRECTORY="$ROOT_DIRECTORY/_index"
+SCHEMA_DIRECTORY="$ROOT_DIRECTORY/schema"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
-SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
 
 
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
-cp -R "$INDEX_DIRECTORY" "$SITE_DATA_DIRECTORY"
-
-# Build the API documentation.
-"$SCRIPTS_DIRECTORY/build-api-docs.sh"
-
-# Build the site.
-cd "$SITE_DIRECTORY"
-bundle exec jekyll build
+# Generate the API documentation.
+mkdir -p "$SITE_DIRECTORY/api/docs"
+npx widdershins --expandBody --resolve --code "$SCHEMA_DIRECTORY/api.yaml" --summary -o "$SITE_DIRECTORY/api/docs/index.md"
