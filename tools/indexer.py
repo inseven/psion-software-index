@@ -59,7 +59,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 8
+INDEXER_VERSION = 9
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
@@ -85,12 +85,6 @@ class Chdir(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         os.chdir(self.pwd)
-
-
-class DummyMetadataProvider(object):
-
-    def summary_for(self, path):
-        return None
 
 
 class Summary(object):
@@ -165,13 +159,6 @@ class Program(object):
         return self.installers[0]['name']
 
     @property
-    def summary(self):
-        # TODO: Maybe select the first non-empty one (see readme).
-        if 'summary' not in self.installers[0]:
-            return None
-        return self.installers[0]['summary']
-
-    @property
     def icon(self):
         return select_icon_dict([installer['icon'] for installer in self.installers
                                 if 'icon' in installer])
@@ -180,14 +167,10 @@ class Program(object):
         dict = {
             'uid': self.uid,
             'name': self.name,
-            'summary': self.summary,
             'versions': [version.as_dict() for version in self.versions],
             'tags': sorted(list(self.tags)),
             'kinds': [kind for kind in self.kinds],
         }
-        summary = self.summary
-        if summary:
-            dict['summary'] = summary
         icon = self.icon
         if icon:
             dict['icon'] = icon

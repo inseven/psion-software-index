@@ -9,7 +9,6 @@
         "properties": {
             "uid": {"type": "string"},
             "name": {"type": "string"},
-            "summary": {"type": ["string", "null"]},
             "versions": {
                 "type": "array",
                 "items": {
@@ -168,7 +167,7 @@
             "description": {"type": "string"},
             "developer_url": {"type": "string"}
         },
-        "required": ["uid", "name", "summary", "tags", "kinds"],
+        "required": ["uid", "name", "tags", "kinds"],
         "additionalProperties": false
     }
 }
