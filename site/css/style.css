@@ -209,6 +209,7 @@ header program-identifier {
     max-width: 720px;
     margin: auto;
     font-weight: 200;
+    padding: 0 1rem;
 }
 
 .content ul {
@@ -217,6 +218,7 @@ header program-identifier {
 
 .content.full {
     max-width: initial;
+    padding: 0;
 }
 
 a {
