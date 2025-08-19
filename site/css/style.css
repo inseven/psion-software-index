@@ -1,10 +1,12 @@
 :root {
-    --foreground-color: #000;
+    --primary-foreground-color: #000;
     --secondary-foreground-color: #ccc;
     --tertiary-foreground-color: #ddd;
     --background-color: #fff;
-    --secondary-background-color: #fff;
+    --secondary-background-color: #f0f0f0;
     --tertiary-background-color: #fafafa;
+    --program-background-color: #fff;
+    --search-background-color: #fff;
     --shadow-color: rgba(0, 0, 0, 0.12);
     --button-background-color: #eee;
     --link-color: darkorange;
@@ -14,12 +16,14 @@
 @media (prefers-color-scheme: dark) {
 
     :root {
-        --foreground-color: #fff;
+        --primary-foreground-color: #fff;
         --secondary-foreground-color: #555;
         --tertiary-foreground-color: #333;
         --background-color: #171616;
-        --secondary-background-color: rgb(33, 32, 33);
+        --secondary-background-color: #222;
         --tertiary-background-color: #222;
+        --program-background-color: #333;
+        --search-background-color: #333;
         --shadow-color: rgba(0, 0, 0, 0.5);
         --button-background-color: #2b2b2b;
         --link-color: darkorange;
@@ -33,8 +37,46 @@ body {
     text-align: center;
     margin: 0;
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
     background-color: var(--background-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--vertical-spacing);
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--tertiary-background-color);
+    transition: background-color .3s ease-in-out;
+}
+
+table td, table th {
+    padding: 0.4em 0.8em;
+}
+
+table th {
+    border-bottom: 1px solid var(--primary-foreground-color);
+}
+
+code {
+    font-size: 0.8em;
+    padding: 0.1em 0.2em;
+    border-radius: 0.2em;
+}
+
+pre, code {
+    background-color: var(--secondary-background-color);
+}
+
+.hljs {
+    background-color: var(--secondary-background-color);
+}
+
+h2 {
+    border-bottom: 1px solid var(--primary-foreground-color);
+    padding-bottom: var(--vertical-spacing);
 }
 
 p, details {
@@ -59,7 +101,7 @@ header ul li {
 
 header nav a {
     display: inline-block;
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
 }
 
 header > .icon {
@@ -107,12 +149,12 @@ form.search-form button.clear img {
 }
 
 .search {
-    background-color: var(--secondary-background-color);
+    background-color: var(--search-background-color);
     border-radius: 2.2rem;
     border: 1px solid var(--tertiary-foreground-color);
     box-shadow: 0 0 16px var(--shadow-color);
     box-sizing: border-box;
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
     font-size: 1.2rem;
     height: 3rem;
     margin: 0 auto calc(2 * var(--vertical-spacing)) auto;
@@ -146,6 +188,13 @@ header program-subtitle {
     text-align: center;
 }
 
+header program-category {
+    color: var(--secondary-foreground-color);
+    display: block;
+    margin-bottom: var(--vertical-spacing);
+    text-align: center;
+}
+
 header program-identifier {
     color: var(--secondary-foreground-color);
     display: block;
@@ -160,6 +209,7 @@ header program-identifier {
     max-width: 720px;
     margin: auto;
     font-weight: 200;
+    padding: 0 1rem;
 }
 
 .content ul {
@@ -168,6 +218,7 @@ header program-identifier {
 
 .content.full {
     max-width: initial;
+    padding: 0;
 }
 
 a {
@@ -286,11 +337,11 @@ ul.applications {
 }
 
 ul.applications > li > a {
-    color: var(--foreground-color);
+    color: var(--primary-foreground-color);
     display: block;
     padding: 1.6rem;
     border-radius: 1rem;
-    background-color: var(--secondary-background-color);
+    background-color: var(--program-background-color);
     box-shadow: 0 0 16px var(--shadow-color);
     transition: all .3s ease-in-out;
     align-items: baseline;

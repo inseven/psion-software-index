@@ -28,32 +28,12 @@ set -u
 SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
-TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
+SCHEMA_DIRECTORY="$ROOT_DIRECTORY/schema"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
-ENVIRONMENT_PATH="$SCRIPTS_DIRECTORY/environment.sh"
 
-# Install tools.
-cd "$ROOT_DIRECTORY"
-mise install
-cd "$ROOT_DIRECTORY/dependencies/opolua"
-mise install
 
-# Install NodeJS packages into the root.
-npm install
+source "$SCRIPTS_DIRECTORY/environment.sh"
 
-# Create directory for local tools.
-if [ -d "$ROOT_DIRECTORY/.local" ] ; then
-    rm -r "$ROOT_DIRECTORY/.local"
-fi
-
-# Source the local environment configuration; this ensures tools are installed in the .local directory we just created.
-source "$ENVIRONMENT_PATH"
-
-# Install the Python dependencies
-pip3 install pipenv
-PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
-
-# Install the Ruby dependencies
-gem install bundler
-cd "$SITE_DIRECTORY"
-bundle install
+# Generate the API documentation.
+mkdir -p "$SITE_DIRECTORY/api/docs"
+npx widdershins --expandBody --resolve --code "$SCHEMA_DIRECTORY/api.yaml" --summary -o "$SITE_DIRECTORY/api/docs/index.md"

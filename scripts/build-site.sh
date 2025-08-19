@@ -32,9 +32,13 @@ INDEX_DIRECTORY="$ROOT_DIRECTORY/_index"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
 SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
 
+
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
 cp -R "$INDEX_DIRECTORY" "$SITE_DATA_DIRECTORY"
+
+# Build the API documentation.
+"$SCRIPTS_DIRECTORY/build-api-docs.sh"
 
 # Build the site.
 cd "$SITE_DIRECTORY"

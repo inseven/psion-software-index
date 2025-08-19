@@ -41,6 +41,7 @@ import urllib.parse
 from enum import Enum
 
 import frontmatter
+import jsonschema
 import natsort
 
 from PIL import Image as PILImage, ImageOps
@@ -58,7 +59,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 8
+INDEXER_VERSION = 9
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
@@ -84,12 +85,6 @@ class Chdir(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         os.chdir(self.pwd)
-
-
-class DummyMetadataProvider(object):
-
-    def summary_for(self, path):
-        return None
 
 
 class Summary(object):
@@ -164,13 +159,6 @@ class Program(object):
         return self.installers[0]['name']
 
     @property
-    def summary(self):
-        # TODO: Maybe select the first non-empty one (see readme).
-        if 'summary' not in self.installers[0]:
-            return None
-        return self.installers[0]['summary']
-
-    @property
     def icon(self):
         return select_icon_dict([installer['icon'] for installer in self.installers
                                 if 'icon' in installer])
@@ -179,14 +167,10 @@ class Program(object):
         dict = {
             'uid': self.uid,
             'name': self.name,
-            'summary': self.summary,
             'versions': [version.as_dict() for version in self.versions],
             'tags': sorted(list(self.tags)),
             'kinds': [kind for kind in self.kinds],
         }
-        summary = self.summary
-        if summary:
-            dict['summary'] = summary
         icon = self.icon
         if icon:
             dict['icon'] = icon
@@ -686,19 +670,28 @@ def overlay(library):
     destination_summary_path = os.path.join(data_output_path, "summary.json")
     destination_group_index_path = os.path.join(data_output_path, "groups.json")
 
+    # Load the overlay schema for validation.
+    with open(os.path.join(SCHEMA_DIRECTORY, "overlay-metadata.schema.json")) as fh:
+        overlay_schema = json.load(fh)
+
     # Import screenshots and metadata from the overlay.
     overlay = collections.defaultdict(dict)
     for overlay_directory in library.overlay_directories:
-        for identifier in os.listdir(overlay_directory):
-            if identifier.startswith("."):
-                continue
-            screenshots_path = os.path.join(overlay_directory, identifier)
+        for overlay_basename in utils.listdir(overlay_directory, include_hidden=False):
+            identifier = overlay_basename.split(" ")[0]
+            screenshots_path = os.path.join(overlay_directory, overlay_basename)
             overlay[identifier]["screenshots"] = [os.path.join(screenshots_path, screenshot)
                                                   for screenshot in os.listdir(screenshots_path)
                                                   if screenshot.endswith(".png")]
-            overlay_index_path = os.path.join(overlay_directory, identifier, "index.md")
+            overlay_index_path = os.path.join(overlay_directory, overlay_basename, "index.md")
             if os.path.exists(overlay_index_path):
-                overlay[identifier]["index"] = frontmatter.load(overlay_index_path)
+                overlay_index = frontmatter.load(overlay_index_path)
+                try:
+                    jsonschema.validate(instance=overlay_index.metadata, schema=overlay_schema)
+                except jsonschema.exceptions.ValidationError:
+                    logging.error("Failed to validate metadata for overlay '%s'", overlay_index_path)
+                    raise
+                overlay[identifier]["index"] = overlay_index
 
     # Load the index.
     with open(source_programs_path) as fh:
@@ -728,9 +721,11 @@ def overlay(library):
 
         # Inject the metadata.
         if "index" in overlay[identifier]:
+            logging.info("Copying '%s'...", identifier)
             metadata = overlay[identifier]["index"]
             application['description'] = metadata.content
             for key in metadata.metadata.keys():
+                logging.info("Copying '%s'...", key)
                 application[key] = metadata.metadata[key]
 
         # Inject the screenshots.
@@ -780,6 +775,7 @@ def overlay(library):
     # Copy the schema.
     schemas = [
         "groups.schema.json",
+        "overlay-metadata.schema.json",
         "programs.schema.json",
         "sources.schema.json",
         "summary.schema.json",
