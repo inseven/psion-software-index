@@ -6,7 +6,7 @@ title: About
 
 The Psion Software Index is an attempt to index all the software written for the Psion range of palmtop computers. It is currently primarily focused on EPOC software which includes the Series 5, Series 5mx, Revo, Series 7 and netbook machines, but it also includes some software for the SIBO platform, targeting the Series 3, 3a, 3c, Siena, and 3mx, with more support to be added over time.
 
-The index is created by extracting metadata from Psion programs that have been preserved on the [Internet Archive](https://archive.org) and other sources (see <a href="{{ "/sources" | absolute_url }}">Sources</a>). It is augmented with manually curated data including descriptions, categorization, and screenshots.
+The index is created by extracting metadata from Psion programs that have been preserved on the [Internet Archive](https://archive.org) and other sources. It is augmented with manually curated data including descriptions, categorization, and screenshots.
 
 ## Authors
 
@@ -44,11 +44,28 @@ The index is created by extracting metadata from Psion programs that have been p
 
 ## Sources
 
-The index is built from the following sources:
 
-{% assign sources = site.data.sources | sort: "name" %}
+### Internet Archive
+
+{% assign internet_archive_sources = site.data.sources | where: "kind", "internet-archive" | sort: "name" %}
+
+{% for source in internet_archive_sources %}
+{% if source.description %}
+<details>
+    <summary>{% if source.html_url %}<a href="{{ source.html_url }}">{% endif %}{% if source.name %}{{ source.name }}{% else %}{{ source.path }}{% endif %}{% if source.html_url %}</a>{% endif %}</summary>
+    <div class="source-description">{{ source.description | strip_html }}</div>
+</details>
+{% else %}
+{% if source.html_url %}<a href="{{ source.html_url }}">{% endif %}{% if source.name %}{{ source.name }}{% else %}{{ source.path }}{% endif %}{% if source.html_url %}</a>{% endif %}
+{% endif %}
+{% endfor %}
+
+### Websites
+
+{% assign snapshot_sources = site.data.sources | where: "kind", "snapshot" | sort: "name" %}
+
 <ul>
-{% for source in sources %}
+{% for source in snapshot_sources %}
 <li>
 {% if source.description %}
 <details>
