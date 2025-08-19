@@ -106,7 +106,7 @@ layout: default
                     </variant-actions>
                 </variant-header>
                 <details>
-                    <summary>{% if variant.items.length > 1 %}{{ variant.items.length }} Sources{% else %}1 Source{% endif %}</summary>
+                    <summary>{% if variant.items.size > 1 %}{{ variant.items.size }} Sources{% else %}1 Source{% endif %}</summary>
                     <ul class="sources">
                         {% for release in variant.items %}
                             <li>
