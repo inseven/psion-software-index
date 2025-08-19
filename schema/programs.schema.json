@@ -165,7 +165,10 @@
                 "items": {"type": "string"}
             },
             "description": {"type": "string"},
-            "developer_url": {"type": "string"}
+            "links": {
+                "type": "array",
+                "items": {"type": "string"}
+            }
         },
         "required": ["uid", "name", "tags", "kinds"],
         "additionalProperties": false

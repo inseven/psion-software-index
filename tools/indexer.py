@@ -675,6 +675,10 @@ def overlay(library):
         overlay_schema = json.load(fh)
 
     # Import screenshots and metadata from the overlay.
+    def is_screenshot(path):
+        _, ext = os.path.splitext(path)
+        return ext in [".png", ".gif"]
+    
     overlay = collections.defaultdict(dict)
     for overlay_directory in library.overlay_directories:
         for overlay_basename in utils.listdir(overlay_directory, include_hidden=False):
@@ -682,7 +686,7 @@ def overlay(library):
             screenshots_path = os.path.join(overlay_directory, overlay_basename)
             overlay[identifier]["screenshots"] = [os.path.join(screenshots_path, screenshot)
                                                   for screenshot in os.listdir(screenshots_path)
-                                                  if screenshot.endswith(".png")]
+                                                  if is_screenshot(screenshot)]
             overlay_index_path = os.path.join(overlay_directory, overlay_basename, "index.md")
             if os.path.exists(overlay_index_path):
                 overlay_index = frontmatter.load(overlay_index_path)
