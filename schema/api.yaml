@@ -1,0 +1,41 @@
+openapi: 3.1.0
+info:
+  title: Psion Software Index API
+  version: 1.0.0
+
+servers:
+  - url: https://software.psion.info
+
+paths:
+  /api/v1/groups:
+    get:
+      summary: Groups
+      description: |
+        This is a description of the endpoint.
+      responses:
+        '200':
+          description: List of program groups
+          content:
+            application/json:
+              schema:
+                $ref: './groups.schema.json'
+  /api/v1/programs:
+    get:
+      summary: Programs
+      responses:
+        '200':
+          description: List of program groups
+          content:
+            application/json:
+              schema:
+                $ref: './programs.schema.json'
+  /api/v1/summary:
+    get:
+      summary: Summary
+      responses:
+        '200':
+          description: JSON object containing summary statistics about the software index.
+          content:
+            application/json:
+              schema:
+                $ref: './summary.schema.json'
