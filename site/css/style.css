@@ -42,8 +42,9 @@ body {
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--vertical-spacing);
 }
 
 table tbody tr:nth-child(odd) {
@@ -52,25 +53,25 @@ table tbody tr:nth-child(odd) {
 }
 
 table td, table th {
-  padding: 0.2em 0.4em;
+    padding: 0.4em 0.8em;
 }
 
 table th {
-  border-bottom: 1px solid var(--primary-foreground-color);
+    border-bottom: 1px solid var(--primary-foreground-color);
 }
 
 code {
-  font-size: 0.8em;
-  padding: 0.1em 0.2em;
-  border-radius: 0.2em;
+    font-size: 0.8em;
+    padding: 0.1em 0.2em;
+    border-radius: 0.2em;
 }
 
 pre, code {
-  background-color: var(--secondary-background-color);
+    background-color: var(--secondary-background-color);
 }
 
 .hljs {
-  background-color: var(--secondary-background-color);
+    background-color: var(--secondary-background-color);
 }
 
 h2 {
