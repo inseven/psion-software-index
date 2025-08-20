@@ -110,6 +110,40 @@ class ExtractionTests(unittest.TestCase):
                 }
             ])
 
+    def test_opa_resources(self):
+        release, errors = self._import_application(os.path.join(EXAMPLES_DIRECTORY, "EMAILIT.OPA"))
+        self.assertEqual(len(errors), 0)
+        self.assertIsNotNone(release)
+        self.assertEqual(
+            release,
+            {
+                'filename': 'EMAILIT.OPA',
+                'size': 45069,
+                'reference': [],
+                'kind': 'standalone',
+                'sha256': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
+                'uid': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
+                'name':
+                'eMailIt',
+                'tags': ['opl', 'sibo', 'sis'],
+                'icons': [
+                    {
+                        'filename': 'd6536c02d9edaa8d23eb0d7da9d35c609bf8d1abd0802e0b6425cee7ef9ce56c.gif',
+                        'width': 48,
+                        'height': 48,
+                        'bpp': 1,
+                        'sha256': 'd6536c02d9edaa8d23eb0d7da9d35c609bf8d1abd0802e0b6425cee7ef9ce56c'
+                    },
+                    {
+                        'filename': '7dc76ade97a747bb5520f7b18610920fcf1ad309a63d97bc63aa4dcfd1ee5871.gif',
+                        'width': 48,
+                        'height': 48,
+                        'bpp': 1,
+                        'sha256': '7dc76ade97a747bb5520f7b18610920fcf1ad309a63d97bc63aa4dcfd1ee5871'
+                    }
+                ]
+            })
+
 
 if __name__ == "__main__":
     unittest.main()
