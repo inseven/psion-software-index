@@ -113,7 +113,6 @@ class ExtractionTests(unittest.TestCase):
     def test_opa_resources(self):
         release, errors = self._import_application(os.path.join(EXAMPLES_DIRECTORY, "EMAILIT.OPA"))
         self.assertEqual(len(errors), 0)
-        self.assertIsNotNone(release)
         self.assertEqual(
             release,
             {
