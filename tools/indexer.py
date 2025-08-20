@@ -62,7 +62,7 @@ logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%
 INDEXER_VERSION = 11
 
 # TODO: Check if there are more languages.
-LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
+LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", ""]
 
 
 class MissingName(Exception):
@@ -363,9 +363,14 @@ def import_application(source, output_directory, reference, path, error_handler)
     if details['type'] == 'unknown':
         raise UnknownApplication()
 
+    # Perhaps we're incorrectly detecting MBM files?
+    if details["type"] == "mbm" or details["type"] == "resource":
+        raise UnknownApplication()
+
     platform = "epoc16" if details["era"] == "sibo" else "epoc32"
 
     if aif_path:
+        # TODO: Remove this check.
         try:
             info = opolua.dumpaif(aif_path)
             uid = ("0x%08x" % info["uid3"]).lower()
