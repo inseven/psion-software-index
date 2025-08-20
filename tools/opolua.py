@@ -42,6 +42,7 @@ RECOGNIZE_PATH = os.path.join(OPOLUA_DIRECTORY, "src", "recognize.lua")
 
 UNSUPPORTED_MESSAGE = "Only ER5 SIS files are supported"
 NOT_AN_AI_MESSAGE = "Not an AIF file"
+NO_DEVICE_MAPPING_MESSAGE = "No device path mapping for"
 
 try:
     LUA_PATH = os.environ["LUA_PATH"]
@@ -50,12 +51,23 @@ except KeyError:
     LUA_PATH = subprocess.check_output(["mise", "which", "lua", "--cd", OPOLUA_DIRECTORY]).decode("utf-8").strip()
 
 
-class InvalidInstaller(Exception):
+class UnsupportedInstaller(Exception):
     pass
 
 
 class InvalidAIF(Exception):
     pass
+
+
+class ExecutionError(Exception):
+
+    def __init__(self, stdout, stderr):
+        self.stdout = stdout
+        self.stderr = stderr
+
+    @property
+    def output(self):
+        return self.stdout + self.stderr
 
 
 class Image(object):
@@ -84,26 +96,28 @@ class Image(object):
         self._source.save(os.path.join(directory_path, self.filename), format="GIF")
 
 
-def run_json_command(command, path):
-    result = subprocess.run([LUA_PATH, command, "--json", path], capture_output=True)
-    stdout = result.stdout.decode('utf-8')
-    stderr = result.stderr.decode('utf-8')
-
-    if UNSUPPORTED_MESSAGE in stdout + stderr:
-        raise InvalidInstaller(stdout + stderr)
-    elif NOT_AN_AI_MESSAGE in stdout + stderr:
-        raise InvalidAIF(stdout + stderr)
-
-    # Check the return code.
-    # It might be nicer to mark
+def run_lua_command(command, encoding):
+    result = subprocess.run([LUA_PATH] + command, capture_output=True)
+    stdout = result.stdout.decode(encoding)
+    stderr = result.stderr.decode(encoding)
     try:
         result.check_returncode()
     except:
-        print("stderr")
-        print(stderr)
-        print("stdout")
-        print(stdout)
-        raise
+        raise ExecutionError(stdout, stderr)
+    return stdout
+
+
+def run_json_command(command, path, encoding="utf-8"):
+    try:
+        stdout = run_lua_command([command, "--json", path], encoding="utf-8")
+    except ExecutionError as e:
+        if UNSUPPORTED_MESSAGE in e.output:
+            raise UnsupportedInstaller(e.output)
+        elif NOT_AN_AI_MESSAGE in e.output:
+            raise InvalidAIF(e.output)
+        else:
+            # Everything else is an error we'd like to know about.
+            raise
 
     return json.loads(stdout)
 
@@ -117,9 +131,15 @@ def dumpaif(path):
 
 
 def dumpsis_extract(source, destination):
-    # TODO: #147: Capture dumpsis stdout and stderr in the case of failures
-    #       https://github.com/inseven/psion-software-index/issues/147
-    subprocess.check_call([LUA_PATH, DUMPSIS_PATH, source, destination])
+    # TODO: #188: Remove guard against dumpsis invalid relative path extraction failures #18
+    #       https://github.com/inseven/psion-software-index/issues/1888
+    try:
+        return run_lua_command([DUMPSIS_PATH, source, destination], encoding='cp1252')
+    except ExecutionError as e:
+        if NO_DEVICE_MAPPING_MESSAGE in e.output:
+            raise UnsupportedInstaller(e.output)
+        else:
+            raise
 
 
 def get_icons(aif_path):

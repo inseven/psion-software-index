@@ -37,6 +37,14 @@ The index is created by extracting metadata from Psion programs that have been p
         <td>Unique files</td>
     </tr>
     <tr>
+        <td class="stat">{{ site.data.summary.platforms.epoc16 }}</td>
+        <td>EPOC16 files</td>
+    </tr>
+    <tr>
+        <td class="stat">{{ site.data.summary.platforms.epoc32 }}</td>
+        <td>EPOC32 files</td>
+    </tr>
+    <tr>
         <td class="stat">{{ site.data.sources.size }}</td>
         <td>Sources</td>
     </tr>
