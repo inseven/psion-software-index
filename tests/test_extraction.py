@@ -27,6 +27,8 @@ def example_zip(path):
 
 class ExtractionTests(unittest.TestCase):
 
+    maxDiff = None
+
     def _import_installer(self, path):
 
         errors = []
@@ -122,8 +124,8 @@ class ExtractionTests(unittest.TestCase):
                 'kind': 'standalone',
                 'sha256': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
                 'uid': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
-                'name':
-                'eMailIt',
+                'name': 'eMailIt',
+                'platform': 'epoc16',
                 'tags': ['opl', 'sibo', 'sis'],
                 'icons': [
                     {
