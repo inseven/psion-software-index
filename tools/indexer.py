@@ -59,10 +59,10 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 10
+INDEXER_VERSION = 11
 
 # TODO: Check if there are more languages.
-LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", ""]
+LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", ""]
 
 
 class MissingName(Exception):
@@ -85,23 +85,6 @@ class Chdir(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         os.chdir(self.pwd)
-
-
-class Summary(object):
-
-    def __init__(self, installer_count, uid_count, version_count, sha_count):
-        self.installer_count = installer_count
-        self.uid_count = uid_count
-        self.version_count = version_count
-        self.sha_count = sha_count
-
-    def as_dict(self):
-        return {
-            'installerCount': self.installer_count,
-            'uidCount': self.uid_count,
-            'versionCount': self.version_count,
-            'shaCount': self.sha_count,
-        }
 
 
 class Version(object):
@@ -186,7 +169,18 @@ class Program(object):
 class Release(object):
 
     # TODO: Make the UID optional and don't attempt to synthesize other identifiers at this stage.
-    def __init__(self, filename, size, reference, kind, identifier, sha256, name, version, icons, tags):
+    def __init__(self,
+                 filename,
+                 size,
+                 reference,
+                 kind,
+                 identifier,
+                 sha256,
+                 name,
+                 version,
+                 icons,
+                 tags,
+                 platform):
         self.filename = filename
         self.size = size
         self.reference = reference
@@ -197,6 +191,7 @@ class Release(object):
         self.version = version
         self.icons = icons
         self.tags = tags
+        self.platform = platform
 
     def as_dict(self, relative_icons_path):
         dict = {
@@ -208,6 +203,7 @@ class Release(object):
             'uid': self.uid,
             'name': self.name,
             'tags': sorted(list(self.tags)),
+            'platform': self.platform,
         }
         if self.version is not None:
             dict['version'] = self.version
@@ -339,7 +335,8 @@ def import_installer(source, output_directory, reference, path, error_handler):
                    name=select_name(info["name"]),
                    version=info["version"],
                    icons=icons,
-                   tags=tags)
+                   tags=tags,
+                   platform="epoc32")
 
 
 def import_application(source, output_directory, reference, path, error_handler):
@@ -361,7 +358,19 @@ def import_application(source, output_directory, reference, path, error_handler)
     app_name = name
     has_aif = False
 
+    # Recognize the app to determine what to do.
+    details = opolua.recognize(path)
+    if details['type'] == 'unknown':
+        raise UnknownApplication()
+
+    # Perhaps we're incorrectly detecting MBM files?
+    if details["type"] == "mbm" or details["type"] == "resource":
+        raise UnknownApplication()
+
+    platform = "epoc16" if details["era"] == "sibo" else "epoc32"
+
     if aif_path:
+        # TODO: Remove this check.
         try:
             info = opolua.dumpaif(aif_path)
             uid = ("0x%08x" % info["uid3"]).lower()
@@ -372,8 +381,8 @@ def import_application(source, output_directory, reference, path, error_handler)
             error_handler(aif_path, e)
             logging.warning("Failed to parse AIF with message '%s'", e)
 
-    if not has_aif:
-        # TODO: Is this a valid test?
+    # If we don't have a manifest, we can attempt to load one from EPOC16-era OPAs.
+    if not has_aif and details['era'] == 'sibo' and details['type'] == 'opa':
         info = opolua.dumpaif(path)
         icons = opolua.get_icons(path)
         app_name = select_name(info["captions"])
@@ -389,7 +398,12 @@ def import_application(source, output_directory, reference, path, error_handler)
                    name=app_name,
                    version=None,
                    icons=icons,
-                   tags=tags)
+                   tags=tags,
+                   platform=platform)
+
+
+class UnknownApplication(Exception):
+    pass
 
 
 def import_source(source, output_directory, error_handler=None):
@@ -414,9 +428,13 @@ def import_source(source, output_directory, error_handler=None):
                                             reference=reference,
                                             path=file_path,
                                             error_handler=error_handler))
+        except (UnknownApplication, opolua.UnsupportedInstaller):
+            # It's safe to ignore these exceptions as it implies the file is not an EPOC16 or EPOC32 file.
+            continue
         except Exception as e:
             logging.error("Failed to import with message '%s", e)
             error_handler(file_path, e)
+            raise
 
     return apps
 
@@ -561,20 +579,33 @@ def group(library):
     total_count = 0
     details = collections.defaultdict(list)
     groups = collections.defaultdict(list)
+    platforms = {}
 
     for release in releases:
         # Fix-up the version to match the current API expectations. Ultimately we will want to expose this to the API.
         release['version'] = utils.format_version(release['version']) if 'version' in release else 'Unknown'
+
+        # Count the number of platforms seen.
+        release_platform = release['platform']
+        if release_platform not in platforms:
+            platforms[release_platform] = 1
+        else:
+            platforms[release_platform] = platforms[release_platform] + 1
+        
         unique_uids.add(release['uid'])
         unique_versions.add((release['uid'], release['version']))
         unique_shas.add(release['sha256'])
         total_count = total_count + 1
         details[(release['uid'], release['sha256'], release['version'])].append(release)
         groups[(release['uid'])].append(release)
-    summary = Summary(installer_count=total_count,
-                      uid_count=len(unique_uids),
-                      version_count=len(unique_versions),
-                      sha_count=len(unique_shas))
+
+    summary = {
+        "installerCount": total_count,
+        "uidCount": len(unique_uids),
+        "versionCount": len(unique_versions),
+        "shaCount": len(unique_shas),
+        "platforms": platforms,
+    }
 
     # Generate the library by grouping the programs together by identifier/uid.
     # This relies heavily on automatic grouping in the `Program` constructor which we may wish to make more explicit in
@@ -619,7 +650,7 @@ def group(library):
     # Write the summary.
     logging.info("Writing summary to '%s'...", summary_path)
     with open(summary_path, "w") as fh:
-        json.dump(summary.as_dict(), fh)
+        json.dump(summary, fh)
 
     # Write the sources.
     logging.info("Writing sources to '%s'...", sources_path)

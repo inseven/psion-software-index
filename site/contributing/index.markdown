@@ -102,7 +102,7 @@ Supported metadata fields are as follows:
   - `desktop/other`
 - `publishers` - array of strings
 - `authors` - array of strings
-- `developer_url` - string
+- `links` - array of urls
 
 All fields are optional.
 

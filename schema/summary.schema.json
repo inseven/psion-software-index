@@ -20,6 +20,20 @@
         "shaCount": {
             "type": "integer",
             "example": 8546
+        },
+        "platforms": {
+            "type": "object",
+            "properties": {
+                "epoc32": {
+                    "type": "integer",
+                    "example": 6482
+                },
+                "epoc16": {
+                    "type": "integer",
+                    "example": 4552
+                }
+            },
+            "additionalProperties": false
         }
     },
     "required": ["installerCount", "uidCount", "versionCount", "shaCount"],
