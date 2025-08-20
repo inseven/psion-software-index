@@ -3,7 +3,7 @@ subtitle: Flashcards
 category: productivity/other
 publishers:
 - Prosoft
-developer_url: 
+links: 
 - https://www.fogma.co.uk/prosoft/series5/testme.html
 ---
 

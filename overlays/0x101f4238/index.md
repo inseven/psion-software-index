@@ -3,7 +3,7 @@ subtitle: Manage your own databases
 category: productivity/office
 publishers:
 - Corisoft
-developer_url: 
+links: 
 - https://web.archive.org/web/20020203124334/http://corisoft.free.fr/index_px.html
 ---
 

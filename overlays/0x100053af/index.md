@@ -3,7 +3,7 @@ subtitle: Backlight controls
 category: system/addons
 authors:
 - Kevin Millican
-developer_url: 
+links: 
 - https://web.archive.org/web/19991128051401/http://homepages.tesco.net/~Millican/Home/PsLight5.htm
 ---
 

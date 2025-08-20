@@ -3,7 +3,7 @@ subtitle: Maps
 category: productivity/other
 authors:
 - Kevin Millican
-developer_url: 
+links: 
 - https://realmaps.millican.info/PsiGar5.htm
 ---
 

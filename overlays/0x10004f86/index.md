@@ -3,7 +3,7 @@ subtitle: The Sales Forces Assistant
 category: productivity/office
 publishers:
 - Corisoft
-developer_url: 
+links: 
 - https://web.archive.org/web/199800000000/http://Corisoft.free.fr
 ---
 
