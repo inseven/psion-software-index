@@ -14,7 +14,7 @@ module SamplePlugin
     def initialize(site, program)
       @site = site             # the current site instance.
       @base = site.source      # path to the source directory.
-      @dir  = "programs/" + program['uid']         # the directory the page will reside in.
+      @dir  = "programs/" + program['id']         # the directory the page will reside in.
 
       # All pages have the same filename, so define attributes straight away.
       @basename = 'index'      # filename without the extension.

@@ -17,7 +17,7 @@ layout: default
     <program-title>{{ page.title }}</program-title>
     {% if program.subtitle %}<program-subtitle>{{ program.subtitle | titlecase }}</program-subtitle>{% endif %}
     {% if program.category %}<program-category>{{ program.category }}</program-category>{% endif %}
-    <program-identifier>{{ program.uid }}</program-identifier>
+    <program-identifier>{{ program.id }}</program-identifier>
 </header>
 
 {% if program.screenshots %}

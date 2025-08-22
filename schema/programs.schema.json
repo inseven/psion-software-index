@@ -7,6 +7,7 @@
     "items": {
         "type": "object",
         "properties": {
+            "id": {"type": "string"},
             "uid": {"type": "string"},
             "name": {"type": "string"},
             "versions": {
@@ -44,6 +45,7 @@
                                                     "enum": ["installer", "standalone"]
                                                 },
                                                 "sha256": {"type": "string"},
+                                                "id": {"type": "string"},
                                                 "uid": {"type": "string"},
                                                 "name": {"type": "string"},
                                                 "tags": {
@@ -62,7 +64,25 @@
                                                     },
                                                     "required": ["path", "width", "height"],
                                                     "additionalProperties": false
-                                                }
+                                                },
+                                                "icons": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "path": {"type": "string"},
+                                                            "width": {"type": "number"},
+                                                            "height": {"type": "number"},
+                                                            "bpp": {"type": "integer"},
+                                                            "filename": {"type": "string"},
+                                                            "sha256": {"type": "string"}
+                                                        },
+                                                        "required": ["width", "height", "bpp", "filename", "sha256"],
+                                                        "additionalProperties": false
+                                                    }
+                                                },
+                                                "fingerprint": {"type": "string"},
+                                                "platform": {"enum": ["epoc16", "epoc32"]}
                                             },
                                             "required": [
                                                 "filename",
@@ -70,10 +90,12 @@
                                                 "reference",
                                                 "kind",
                                                 "sha256",
+                                                "id",
                                                 "uid",
                                                 "name",
                                                 "tags",
-                                                "version"
+                                                "version",
+                                                "platform"
                                             ],
                                             "additionalProperties": false
                                         }
@@ -86,9 +108,7 @@
                     },
                     "required": ["version", "variants"],
                     "additionalProperties": false
-                },
-                "required": ["path", "width", "height", "bpp"],
-                "additionalProperties": false
+                }
             },
             "tags": {
                 "type": "array",
@@ -170,7 +190,7 @@
                 "items": {"type": "string"}
             }
         },
-        "required": ["uid", "name", "tags", "kinds"],
+        "required": ["id", "uid", "name", "tags", "kinds"],
         "additionalProperties": false
     }
 }
