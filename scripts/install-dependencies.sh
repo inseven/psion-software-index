@@ -52,6 +52,7 @@ source "$SCRIPTS_DIRECTORY/environment.sh"
 
 # Install the base Python dependencies into a venv (this is already on the path).
 python -m venv "$PYTHON_VENV"
+source "$PYTHON_VENV/bin/activate"
 pip install --upgrade pip pipenv wheel certifi
 PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
 PIPENV_PIPFILE="$CHANGES_DIRECTORY/Pipfile" pipenv install
