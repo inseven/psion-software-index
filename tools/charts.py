@@ -88,14 +88,6 @@ def generate_charts(path, current_summary_path):
         plt.grid(True, linestyle="--", alpha=0.5)
         plt.ylim(bottom=0)
         plt.legend()
-        # plt.tight_layout()
-
-    def format_bytes(x, pos):
-        for unit in ['B','KB','MB','GB','TB']:
-            if abs(x) < 1024.0:
-                return f"{x:.0f} {unit}"
-            x /= 1024.0
-        return f"{x:.0f} PB"
 
     new_plot()
     plt.plot(versions, [summary['summary']['programs']['epoc16'] for summary in summaries], marker='o', label="EPOC16")
@@ -110,15 +102,16 @@ def generate_charts(path, current_summary_path):
     plt.plot(versions, [summary['summary']['releases']['unique']['epoc32'] for summary in summaries], marker='o', label="EPOC32")
     plt.title("Releases")
     configure_plot()
-    plt.gca().yaxis.set_major_locator(MultipleLocator(1000))
+    plt.gca().yaxis.set_major_locator(MultipleLocator(2000))
     plt.savefig(os.path.join(path, "releases.png"), dpi=300)
 
     new_plot()
-    plt.plot(versions, [summary['summary']['size']['unique']['epoc16'] for summary in summaries], marker='o', label="EPOC16")
-    plt.plot(versions, [summary['summary']['size']['unique']['epoc32'] for summary in summaries], marker='o', label="EPOC32")
+    plt.plot(versions, [summary['summary']['size']['unique']['epoc16'] / 1024 / 1024 for summary in summaries], marker='o', label="EPOC16")
+    plt.plot(versions, [summary['summary']['size']['unique']['epoc32'] / 1024 / 1024 for summary in summaries], marker='o', label="EPOC32")
     plt.title("Size")
     configure_plot()
-    plt.gca().yaxis.set_major_formatter(FuncFormatter(format_bytes))
+    plt.gca().yaxis.set_major_locator(MultipleLocator(512))
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(lambda x, pos: f"{x:.0f} MB"))
     plt.savefig(os.path.join(path, "size.png"), dpi=300)
 
     new_plot()
