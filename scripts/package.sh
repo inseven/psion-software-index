@@ -57,6 +57,11 @@ done
 
 cd "$ROOT_DIRECTORY"
 
+# Determine the version and build number.
+VERSION_NUMBER=`changes version`
+BUILD_NUMBER=`build-tools generate-build-number`
+
+
 if $RELEASE ; then
 
     changes \
