@@ -34,9 +34,12 @@ export PATH="$GEM_HOME/bin":$PATH
 export BIN_DIRECTORY="$ROOT_DIRECTORY/.local/bin"
 export PATH=$BIN_DIRECTORY:$PATH
 
-export PYTHON_VENV="$LOCAL_TOOLS_PATH/python"  # Used to bootstrap virtualenv.
-export PIPENV_VENV_IN_PROJECT=1  # Forces pipenv to create the `.venv` directory in-tree.
-export PATH=$PYTHON_VENV:$PATH
+python -m venv "$LOCAL_TOOLS_PATH/python"
+source "$LOCAL_TOOLS_PATH/python/bin/activate"
+
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_IGNORE_VIRTUALENVS=1
+
 export PATH=$PATH:"$TOOLS_DIRECTORY"
 export PATH=$PATH:"$SCRIPTS_DIRECTORY/changes"
 export PATH=$PATH:"$SCRIPTS_DIRECTORY/build-tools"
