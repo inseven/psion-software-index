@@ -57,6 +57,11 @@ done
 
 cd "$ROOT_DIRECTORY"
 
+# Determine the version and build number.
+VERSION_NUMBER=`changes version`
+BUILD_NUMBER=`build-number.swift`
+
+
 if $RELEASE ; then
 
     changes \
