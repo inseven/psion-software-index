@@ -215,6 +215,7 @@ header program-platform ul {
 
 header program-platform ul li {
     display: inline;
+    text-transform: uppercase;
 }
 
 header program-platform ul li::after {
@@ -381,6 +382,7 @@ ul.program-platforms {
 
 ul.program-platforms li {
     display: inline;
+    text-transform: uppercase;
 }
 
 ul.program-platforms li::after {
