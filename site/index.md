@@ -26,7 +26,7 @@ layout: full
     function appendGroup(group) {
         const li = document.createElement("li");
         const a = document.createElement("a");
-        a.href = "/programs/" + group.uid;
+        a.href = "/programs/" + group.id;
         const iconContainer = document.createElement("div");
         iconContainer.classList.add("icon-wrapper");
         const icon = document.createElement("img");

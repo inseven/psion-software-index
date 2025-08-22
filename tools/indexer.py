@@ -59,7 +59,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 11
+INDEXER_VERSION = 12
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", ""]
@@ -118,8 +118,8 @@ class Version(object):
 
 class Program(object):
 
-    def __init__(self, uid, installers, screenshots):
-        self.uid = uid
+    def __init__(self, id, installers, screenshots):
+        self.id = id
         self.installers = installers  # TODO: Item / Program / Release?
         self.screenshots = screenshots
         versions = collections.defaultdict(list)
@@ -142,13 +142,20 @@ class Program(object):
         return self.installers[0]['name']
 
     @property
+    def platform(self):
+        return self.installers[0]['platform']
+
+    @property
     def icon(self):
         return select_icon_dict([installer['icon'] for installer in self.installers
                                 if 'icon' in installer])
 
     def as_dict(self):
         dict = {
-            'uid': self.uid,
+            'id': self.id,
+            # TODO: #154: Program UID should be optional in the programs API
+            #       https://github.com/inseven/psion-software-index/issues/154
+            'uid': self.id,
             'name': self.name,
             'versions': [version.as_dict() for version in self.versions],
             'tags': sorted(list(self.tags)),
@@ -174,7 +181,8 @@ class Release(object):
                  size,
                  reference,
                  kind,
-                 identifier,
+                 id,
+                 uid,
                  sha256,
                  name,
                  version,
@@ -185,7 +193,8 @@ class Release(object):
         self.size = size
         self.reference = reference
         self.kind = kind
-        self.uid = identifier
+        self.id = id
+        self.uid = uid
         self.sha256 = sha256
         self.name = name
         self.version = version
@@ -200,11 +209,13 @@ class Release(object):
             'reference': [item.as_dict() for item in self.reference],
             'kind': self.kind.value,
             'sha256': self.sha256,
-            'uid': self.uid,
+            'id': self.id,
             'name': self.name,
             'tags': sorted(list(self.tags)),
             'platform': self.platform,
         }
+        if self.uid is not None:
+            dict['uid'] = self.uid
         if self.version is not None:
             dict['version'] = self.version
         dict['icons'] = [{'filename': icon.filename,
@@ -330,7 +341,8 @@ def import_installer(source, output_directory, reference, path, error_handler):
                    size=os.path.getsize(path),
                    reference=reference,
                    kind=ReleaseKind.INSTALLER,
-                   identifier="0x%08x" % info["uid"],
+                   id="0x%08x" % info["uid"],
+                   uid="0x%08x" % info["uid"],
                    sha256=sha256,
                    name=select_name(info["name"]),
                    version=info["version"],
@@ -353,6 +365,9 @@ def import_application(source, output_directory, reference, path, error_handler)
         aif_path = find_sibling(path, name + ".aco")
     if not aif_path:
         aif_path = find_sibling(path, name + ".abw")
+    id = utils.shasum(path)
+    # TODO: #154: Program UID should be optional in the programs API
+    #       https://github.com/inseven/psion-software-index/issues/154
     uid = utils.shasum(path)
     icons = []
     app_name = name
@@ -393,7 +408,8 @@ def import_application(source, output_directory, reference, path, error_handler)
                    size=os.path.getsize(path),
                    reference=reference,
                    kind=ReleaseKind.STANDALONE,
-                   identifier=uid,
+                   id=id,
+                   uid=uid,
                    sha256=sha256,
                    name=app_name,
                    version=None,
@@ -554,6 +570,27 @@ def index(library):
     logging.info("Indexing complete.")
 
 
+def group_releases(releases, key):
+
+    # Perform the basic grouping.
+    groups = collections.defaultdict(list)
+    for release in releases:
+        if key not in release:
+            continue
+        id = release[key]
+        groups[id].append(release)
+
+    # Generate the structured groups, sorted by name, and subsequently by version.
+    programs = []
+    for id, group_releases in groups.items():
+        program_releases = []
+        for release in group_releases:
+            program_releases.append(release)
+        programs.append(Program(id, program_releases, []))
+
+    return programs
+
+
 def group(library):
     # TODO: Surely this should be a property of the library!!
     summary_path = os.path.join(library.index_directory, "summary.json")
@@ -572,30 +609,39 @@ def group(library):
     with open(releases_path) as fh:
         releases = json.load(fh)
 
-    # Generate the library summary.
-    unique_uids = set()
-    unique_versions = set()
-    unique_shas = set()
-    total_count = 0
-    details = collections.defaultdict(list)
-    groups = collections.defaultdict(list)
-
+    # Fix-up the version to match the current API expectations. Ultimately we will want to expose this to the API.
     for release in releases:
-        # Fix-up the version to match the current API expectations. Ultimately we will want to expose this to the API.
         release['version'] = utils.format_version(release['version']) if 'version' in release else 'Unknown'
-        unique_uids.add(release['uid'])
-        unique_versions.add((release['uid'], release['version']))
-        unique_shas.add(release['sha256'])
-        total_count = total_count + 1
-        details[(release['uid'], release['sha256'], release['version'])].append(release)
-        groups[(release['uid'])].append(release)
+        icon = select_icon_dict(release['icons'])
+        if icon is not None:
+            release['icon'] = {
+                'path': os.path.join("icons", icon['filename']),
+                'width': icon['width'],
+                'height': icon['height'],
+                'bpp': icon['bpp'],
+            }
 
+    # Generate the top-level grouping.
+    programs = group_releases(releases, "id")
+
+    # Once we've generated our top-level set, we massage it into something suitable for the API.
+    # Generate a minimal grouped index to use for search and filtering.
+    group_index = []
+    for program in sorted(programs, key=lambda x: x.name.lower()):
+        entry = {
+            'id': program.id,
+            'name': program.name,
+        }
+        if program.icon is not None:
+            entry['icon'] = program.icon
+        group_index.append(entry)
+
+    # Summary.
     unique_releases = {release['sha256']: release for release in releases}.values()
-
     summary = {
         "programs": {
-                "epoc16": len([group for group in groups.values() if group[0]["platform"] == "epoc16"]),
-                "epoc32": len([group for group in groups.values() if group[0]["platform"] == "epoc32"]),
+                "epoc16": len([group for group in programs if group.platform == "epoc16"]),
+                "epoc32": len([group for group in programs if group.platform == "epoc32"]),
             },
         "releases": {
             "total": {
@@ -619,43 +665,6 @@ def group(library):
         },
         "sources": len(library.sources),
     }
-
-    # Generate the library by grouping the programs together by identifier/uid.
-    # This relies heavily on automatic grouping in the `Program` constructor which we may wish to make more explicit in
-    # the future.
-    programs = []
-    for identifier, installers in sorted([item for item in groups.items()],
-                                         key=lambda x: x[1][0]['name'].lower()):
-
-        releases = []
-        for installer in installers:
-            # Strip down the release for the API.
-            required_keys = ['filename', 'size', 'reference', 'kind', 'sha256', 'uid', 'name', 'tags', 'version']
-            release = {}
-            for key in required_keys:
-                release[key] = installer[key]
-            icon = select_icon_dict(installer['icons'])
-            if icon is not None:
-                release['icon'] = {
-                    'path': os.path.join("icons", icon['filename']),
-                    'width': icon['width'],
-                    'height': icon['height'],
-                    'bpp': icon['bpp'],
-                }
-            releases.append(release)
-
-        programs.append(Program(identifier, releases, []))
-
-    # Generate a minimal grouped index to use for search and filtering.
-    group_index = []
-    for program in programs:
-        entry = {
-            'uid': program.uid,
-            'name': program.name,
-        }
-        if program.icon is not None:
-            entry['icon'] = program.icon
-        group_index.append(entry)
 
     # Create the output directory.
     os.makedirs(library.index_directory, exist_ok=True)
