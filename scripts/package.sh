@@ -20,26 +20,53 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+set -e
+set -o pipefail
+set -x
+set -u
+
 SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
+BUILD_DIRECTORY="$ROOT_DIRECTORY/build"
 
-export TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
-export LOCAL_TOOLS_PATH="$ROOT_DIRECTORY/.local"
+RELEASE_SCRIPT_PATH="$SCRIPTS_DIRECTORY/release.sh"
 
-export GEM_HOME="$ROOT_DIRECTORY/.local/ruby"
-mkdir -p "$GEM_HOME"
-export PATH="$GEM_HOME/bin":$PATH
+source "$SCRIPTS_DIRECTORY/environment.sh"
 
-export BIN_DIRECTORY="$ROOT_DIRECTORY/.local/bin"
-export PATH=$BIN_DIRECTORY:$PATH
+# Check that the GitHub command is available on the path.
+which gh || (echo "GitHub cli (gh) not available on the path." && exit 1)
 
-python -m venv "$LOCAL_TOOLS_PATH/python"
-source "$LOCAL_TOOLS_PATH/python/bin/activate"
+# Process the command line arguments.
+POSITIONAL=()
+RELEASE=${RELEASE:-false}
+while [[ $# -gt 0 ]]
+do
+    key="$1"
+    case $key in
+        -r|--release)
+        RELEASE=true
+        shift
+        ;;
+        *)
+        POSITIONAL+=("$1")
+        shift
+        ;;
+    esac
+done
 
-export PIPENV_VENV_IN_PROJECT=1
-export PIPENV_IGNORE_VIRTUALENVS=1
+cd "$ROOT_DIRECTORY"
 
-export PATH=$PATH:"$TOOLS_DIRECTORY"
-export PATH=$PATH:"$SCRIPTS_DIRECTORY/changes"
-export PATH=$PATH:"$SCRIPTS_DIRECTORY/build-tools"
+if $RELEASE ; then
+
+    changes \
+        release \
+        --skip-if-empty \
+        --push \
+        --exec "${RELEASE_SCRIPT_PATH}" \
+        "$ROOT_DIRECTORY/site/_data/summary.json" \
+        "$ROOT_DIRECTORY/site/_data/sources.json" \
+        "$ROOT_DIRECTORY/site/_data/groups.json" \
+        "$ROOT_DIRECTORY/site/_data/programs.json"
+
+fi

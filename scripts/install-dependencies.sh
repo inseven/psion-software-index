@@ -30,7 +30,8 @@ SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
 TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
-ENVIRONMENT_PATH="$SCRIPTS_DIRECTORY/environment.sh"
+CHANGES_DIRECTORY="$SCRIPTS_DIRECTORY/changes"
+BUILD_TOOLS_DIRECTORY="$SCRIPTS_DIRECTORY/build-tools"
 
 # Install tools.
 cd "$ROOT_DIRECTORY"
@@ -47,11 +48,13 @@ if [ -d "$ROOT_DIRECTORY/.local" ] ; then
 fi
 
 # Source the local environment configuration; this ensures tools are installed in the .local directory we just created.
-source "$ENVIRONMENT_PATH"
+source "$SCRIPTS_DIRECTORY/environment.sh"
 
-# Install the Python dependencies
-pip3 install pipenv
+pip install --upgrade pip pipenv wheel certifi
+which pipenv
 PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
+PIPENV_PIPFILE="$CHANGES_DIRECTORY/Pipfile" pipenv install
+PIPENV_PIPFILE="$BUILD_TOOLS_DIRECTORY/Pipfile" pipenv install
 
 # Install the Ruby dependencies
 gem install bundler

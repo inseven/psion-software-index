@@ -20,26 +20,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+set -e
+set -o pipefail
+set -x
 
-ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
+# Actually make the release.
+gh release create "$CHANGES_TAG" --title "$CHANGES_QUALIFIED_TITLE" --notes-file "$CHANGES_NOTES_FILE"
 
-export TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
-export LOCAL_TOOLS_PATH="$ROOT_DIRECTORY/.local"
-
-export GEM_HOME="$ROOT_DIRECTORY/.local/ruby"
-mkdir -p "$GEM_HOME"
-export PATH="$GEM_HOME/bin":$PATH
-
-export BIN_DIRECTORY="$ROOT_DIRECTORY/.local/bin"
-export PATH=$BIN_DIRECTORY:$PATH
-
-python -m venv "$LOCAL_TOOLS_PATH/python"
-source "$LOCAL_TOOLS_PATH/python/bin/activate"
-
-export PIPENV_VENV_IN_PROJECT=1
-export PIPENV_IGNORE_VIRTUALENVS=1
-
-export PATH=$PATH:"$TOOLS_DIRECTORY"
-export PATH=$PATH:"$SCRIPTS_DIRECTORY/changes"
-export PATH=$PATH:"$SCRIPTS_DIRECTORY/build-tools"
+# Upload the attachments.
+for attachment in "$@"
+do
+    gh release upload "$CHANGES_TAG" "$attachment"
+done

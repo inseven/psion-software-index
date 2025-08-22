@@ -8,6 +8,7 @@ verify_ssl = true
 
 b2sdk = "*"
 beautifulsoup4 = "*"
+certifi = "*"
 check-jsonschema = "*"
 fastcommand = "*"
 jinja2 = "*"

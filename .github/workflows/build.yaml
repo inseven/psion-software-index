@@ -21,6 +21,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: recursive
+        fetch-depth: 0
         lfs: true
 
     - name: Install dependencies
@@ -55,3 +56,10 @@ jobs:
         ANSIBLE_BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
       run: |
         ansible/deploy.py
+
+    - name: Package and optionally release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RELEASE: ${{ github.ref == 'refs/heads/main' }}
+      run: |
+        scripts/package.sh

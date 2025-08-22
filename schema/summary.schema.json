@@ -63,8 +63,9 @@
             },
             "required": ["total", "unique"],
             "additionalProperties": false
-        }
+        },
+        "sources": {"type": "integer"}
     },
-    "required": ["programs", "releases", "size"],
+    "required": ["programs", "releases", "size", "sources"],
     "additionalProperties": false
 }
