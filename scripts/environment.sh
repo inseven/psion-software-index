@@ -23,11 +23,15 @@
 SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
-TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 
-export PYTHONUSERBASE="$ROOT_DIRECTORY/.local/python"
+export TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
+export LOCAL_TOOLS_PATH="$ROOT_DIRECTORY/.local"
+
+export VENV="$LOCAL_TOOLS_PATH/venv"  # Used to bootstrap virtualenv.
+export PYTHONUSERBASE="$LOCAL_TOOLS_PATH/python"
 mkdir -p "$PYTHONUSERBASE"
 export PATH="$PYTHONUSERBASE/bin":$PATH
+export PYTHONPATH=$PYTHONUSERBASE
 
 export PIPENV_VENV_IN_PROJECT=1
 
@@ -38,4 +42,6 @@ export PATH="${GEM_HOME}/bin":$PATH
 export BIN_DIRECTORY="$ROOT_DIRECTORY/.local/bin"
 export PATH=$BIN_DIRECTORY:$PATH
 
-export PATH=$TOOLS_DIRECTORY:$PATH
+export PATH=$PATH:"$TOOLS_DIRECTORY"
+export PATH=$PATH:"$SCRIPTS_DIRECTORY/changes"
+export PATH=$PATH:"$SCRIPTS_DIRECTORY/build-tools"
