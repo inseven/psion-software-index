@@ -55,3 +55,7 @@ jobs:
         ANSIBLE_BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
       run: |
         ansible/deploy.py
+
+    - name: Package and optionally release
+      run: |
+        scripts/package.sh
