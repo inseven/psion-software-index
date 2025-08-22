@@ -78,18 +78,15 @@ class Extractor(object):
 
     def __enter__(self):
         self.pwd = os.getcwd()
-        self.temporary_directory = tempfile.TemporaryDirectory()  # TODO: Redundant?
-        os.chdir(self.temporary_directory.name)
+        self.temporary_directory = tempfile.TemporaryDirectory()
         try:
             self.method(self.path, self.temporary_directory.name)
             return self.temporary_directory.name
         except:
-            os.chdir(self.pwd)
             self.temporary_directory.cleanup()
             raise
 
     def __exit__(self, exc_type, exc_value, traceback):
-        os.chdir(self.pwd)
         self.temporary_directory.cleanup()
 
 
