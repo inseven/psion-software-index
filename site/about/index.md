@@ -51,6 +51,8 @@ pie
     "EPOC32" : {{ site.data.summary.programs.epoc32 }}
 ```
 
+![](/images/charts/programs.png)
+
 ### Releases---{{ site.data.summary.releases.unique.epoc16 | plus: site.data.summary.releases.unique.epoc32 }}
 
 _Individual instances of an installable program; either a .app, .opa, or .sis. Releases are uniqued by a hash of their file contents._
@@ -64,6 +66,8 @@ pie
     "EPOC32" : {{ site.data.summary.releases.unique.epoc32 }}
 ```
 
+![](/images/charts/releases.png)
+
 ### Size---{{ site.data.summary.size.unique.epoc16 | plus: site.data.summary.size.unique.epoc32 | filesize }}
 
 - EPOC16---{{ site.data.summary.size.unique.epoc16 | filesize }}
@@ -75,7 +79,11 @@ pie
     "EPOC32" : {{ site.data.summary.size.unique.epoc32 }}
 ```
 
+![](/images/charts/size.png)
+
 ### Sources---{{ site.data.summary.sources }}
+
+![](/images/charts/sources.png)
 
 #### Internet Archive
 

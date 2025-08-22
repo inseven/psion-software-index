@@ -20,31 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-set -e
-set -o pipefail
-set -x
-set -u
+DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+NAME=`basename "$0"`
 
-SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-
-ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
-TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
-INDEX_DIRECTORY="$ROOT_DIRECTORY/_index"
-SITE_DIRECTORY="$ROOT_DIRECTORY/site"
-SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
-
-
-source "$SCRIPTS_DIRECTORY/environment.sh"
-
-cp -R "$INDEX_DIRECTORY" "$SITE_DATA_DIRECTORY"
-
-# Build the API documentation.
-"$SCRIPTS_DIRECTORY/build-api-docs.sh"
-
-# Generate the charts.
-mkdir -p "$SITE_DIRECTORY/images/charts"
-"$TOOLS_DIRECTORY/charts" "$SITE_DIRECTORY/images/charts" "$SITE_DATA_DIRECTORY/summary.json"
-
-# Build the site.
-cd "$SITE_DIRECTORY"
-bundle exec jekyll build
+export PIPENV_VENV_IN_PROJECT=1
+export PIPENV_PIPFILE="${DIRECTORY}/Pipfile"
+pipenv run python3 "${DIRECTORY}/${NAME}.py" "$@"

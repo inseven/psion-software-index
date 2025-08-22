@@ -45,6 +45,8 @@ jobs:
         scripts/validate.sh
 
     - name: Build site
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         scripts/build-site.sh
         chmod -v -R +rX "_site/"
