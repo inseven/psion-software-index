@@ -60,14 +60,18 @@ table th {
     border-bottom: 1px solid var(--primary-foreground-color);
 }
 
-code {
-    font-size: 0.8em;
-    padding: 0.1em 0.2em;
-    border-radius: 0.2em;
-}
-
 pre, code {
     background-color: var(--secondary-background-color);
+}
+
+code {
+    border-radius: 0.2em;
+    font-size: 0.8em;
+    padding: 0.1em 0.2em;
+}
+
+pre:has(> code.language-mermaid), code.language-mermaid {
+    background-color: var(--primary-background-color);
 }
 
 .hljs {
@@ -253,12 +257,6 @@ footer nav ul {
 footer nav ul li {
     display: inline;
     margin-right: 0.5em;
-}
-
-.stat {
-    font-weight: bold;
-    padding-right: 0.4em;
-    text-align: right;
 }
 
 /* Icons */
@@ -470,11 +468,4 @@ ul.sources li:nth-child(odd) {
 .source-description {
     margin: var(--vertical-spacing);
     white-space: pre-wrap;
-}
-
-.summary {
-    border-bottom: 1px solid var(--tertiary-background-color);
-    transition: border-bottom .3s ease-in-out;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
 }
