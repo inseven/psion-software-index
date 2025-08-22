@@ -75,7 +75,7 @@ pie
     "EPOC32" : {{ site.data.summary.size.unique.epoc32 }}
 ```
 
-### Sources---{{ site.data.sources.size }}
+### Sources---{{ site.data.summary.sources }}
 
 #### Internet Archive
 

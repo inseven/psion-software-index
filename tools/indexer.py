@@ -617,6 +617,7 @@ def group(library):
                 "epoc32": sum([release['size'] for release in unique_releases if release["platform"] == "epoc32"])
             }
         },
+        "sources": len(library.sources),
     }
 
     # Generate the library by grouping the programs together by identifier/uid.
