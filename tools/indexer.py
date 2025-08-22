@@ -287,6 +287,8 @@ def discover_tags(path):
     tags = set([])
     for root, dirs, files in os.walk(path):
         for f in files:
+            if f.startswith("."):  # Ignore hidden files.
+                continue
             f = os.path.join(root, f)
             details = opolua.recognize(f)
             if "era" in details:
