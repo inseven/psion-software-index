@@ -123,6 +123,7 @@ class ExtractionTests(unittest.TestCase):
                 'reference': [],
                 'kind': 'standalone',
                 'sha256': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
+                'id': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
                 'uid': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
                 'name': 'eMailIt',
                 'platform': 'epoc16',
