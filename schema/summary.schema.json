@@ -5,37 +5,66 @@
     "description": "High level index statistics.",
     "type": "object",
     "properties": {
-        "installerCount": {
-            "type": "integer",
-            "example": 11034
-        },
-        "uidCount": {
-            "type": "integer",
-            "example": 5757
-        },
-        "versionCount": {
-            "type": "integer",
-            "example": 6582
-        },
-        "shaCount": {
-            "type": "integer",
-            "example": 8546
-        },
-        "platforms": {
+        "programs": {
             "type": "object",
             "properties": {
-                "epoc32": {
-                    "type": "integer",
-                    "example": 6482
+                "epoc16": {"type": "integer"},
+                "epoc32": {"type": "integer"}
+            },
+            "required": ["epoc16", "epoc32"],
+            "additionalProperties": false
+        },
+        "releases": {
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "object",
+                    "properties": {
+                        "epoc16": {"type": "integer"},
+                        "epoc32": {"type": "integer"}
+                    },
+                    "required": ["epoc16", "epoc32"],
+                    "additionalProperties": false
                 },
-                "epoc16": {
-                    "type": "integer",
-                    "example": 4552
+                "unique": {
+                    "type": "object",
+                    "properties": {
+                        "epoc16": {"type": "integer"},
+                        "epoc32": {"type": "integer"}
+                    },
+                    "required": ["epoc16", "epoc32"],
+                    "additionalProperties": false
                 }
             },
+            "required": ["total", "unique"],
+            "additionalProperties": false
+        },
+        "size": {
+            "type": "object",
+            "properties": {
+                "total": {
+                    "type": "object",
+                    "properties": {
+                        "epoc16": {"type": "integer"},
+                        "epoc32": {"type": "integer"}
+                    },
+                    "required": ["epoc16", "epoc32"],
+                    "additionalProperties": false
+                },
+                "unique": {
+                    "type": "object",
+                    "properties": {
+                        "epoc16": {"type": "integer"},
+                        "epoc32": {"type": "integer"}
+                    },
+                    "required": ["epoc16", "epoc32"],
+                    "additionalProperties": false
+                }
+            },
+            "required": ["total", "unique"],
             "additionalProperties": false
         }
     },
-    "required": ["installerCount", "uidCount", "versionCount", "shaCount"],
+    "required": ["programs", "releases", "size"],
     "additionalProperties": false
 }

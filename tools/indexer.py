@@ -579,19 +579,10 @@ def group(library):
     total_count = 0
     details = collections.defaultdict(list)
     groups = collections.defaultdict(list)
-    platforms = {}
 
     for release in releases:
         # Fix-up the version to match the current API expectations. Ultimately we will want to expose this to the API.
         release['version'] = utils.format_version(release['version']) if 'version' in release else 'Unknown'
-
-        # Count the number of platforms seen.
-        release_platform = release['platform']
-        if release_platform not in platforms:
-            platforms[release_platform] = 1
-        else:
-            platforms[release_platform] = platforms[release_platform] + 1
-        
         unique_uids.add(release['uid'])
         unique_versions.add((release['uid'], release['version']))
         unique_shas.add(release['sha256'])
@@ -599,12 +590,33 @@ def group(library):
         details[(release['uid'], release['sha256'], release['version'])].append(release)
         groups[(release['uid'])].append(release)
 
+    unique_releases = {release['sha256']: release for release in releases}.values()
+
     summary = {
-        "installerCount": total_count,
-        "uidCount": len(unique_uids),
-        "versionCount": len(unique_versions),
-        "shaCount": len(unique_shas),
-        "platforms": platforms,
+        "programs": {
+                "epoc16": len([group for group in groups.values() if group[0]["platform"] == "epoc16"]),
+                "epoc32": len([group for group in groups.values() if group[0]["platform"] == "epoc32"]),
+            },
+        "releases": {
+            "total": {
+                "epoc16": len([release for release in releases if release["platform"] == "epoc16"]),
+                "epoc32": len([release for release in releases if release["platform"] == "epoc32"]),
+            },
+            "unique": {
+                "epoc16": len([release for release in unique_releases if release["platform"] == "epoc16"]),
+                "epoc32": len([release for release in unique_releases if release["platform"] == "epoc32"]),
+            },
+        },
+        "size": {
+            "total": {
+                "epoc16": sum([release['size'] for release in releases if release["platform"] == "epoc16"]),
+                "epoc32": sum([release['size'] for release in releases if release["platform"] == "epoc32"])
+            },
+            "unique": {
+                "epoc16": sum([release['size'] for release in unique_releases if release["platform"] == "epoc16"]),
+                "epoc32": sum([release['size'] for release in unique_releases if release["platform"] == "epoc32"])
+            }
+        },
     }
 
     # Generate the library by grouping the programs together by identifier/uid.
@@ -709,7 +721,7 @@ def overlay(library):
     def is_screenshot(path):
         _, ext = os.path.splitext(path)
         return ext in [".png", ".gif"]
-    
+
     overlay = collections.defaultdict(dict)
     for overlay_directory in library.overlay_directories:
         for overlay_basename in utils.listdir(overlay_directory, include_hidden=False):

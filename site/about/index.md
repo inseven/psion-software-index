@@ -17,43 +17,67 @@ The index is created by extracting metadata from Psion programs that have been p
 
 - scienceapps
 
+## License
+
+### Source Code
+
+Source code used to generate the Psion Software Index is licensed under the MIT License (see [LICENSE](https://github.com/inseven/psion-software-index/blob/main/LICENSE)). It depends on the following separately licensed third-party libraries and components:
+
+- [Feather](https://feathericons.com), MIT License
+- [jekyll-humanize](https://github.com/23maverick23/jekyll-humanize), MIT License
+- [OpoLua](https://github.com/inseven/opolua), MIT License
+
+### Content
+
+The Psion Software Index is automatically generated from publicly accessible sources (primarily the Internet Archive; see below). Programs, installers, and other files included in the Index remain the sole copyright of their original authors and publishers.
+
+The Index has been created as a good faith preservation effort, and a way to support people who wish to continue using Psion and Psion-compatible devices.
+
+> [!IMPORTANT]
+> If you are the current copyright holder of content presented within the Index and wish your content removed or, if you are a website author and wish your site excluded from the Index, please [reach out by email](mailto:support@jbmorley.co.uk).
+
 ## Summary
 
-<table class="statistics">
-    <tr>
-        <td class="stat">{{ site.data.summary.installerCount }}</td>
-        <td>Programs and installers</td>
-    </tr>
-    <tr>
-        <td class="stat">{{ site.data.summary.uidCount }}</td>
-        <td>Unique programs (by UID)</td>
-    </tr>
-    <tr>
-        <td class="stat">{{ site.data.summary.versionCount }}</td>
-        <td>Unique versions</td>
-    </tr>
-    <tr>
-        <td class="stat">{{ site.data.summary.shaCount }}</td>
-        <td>Unique files</td>
-    </tr>
-    <tr>
-        <td class="stat">{{ site.data.summary.platforms.epoc16 }}</td>
-        <td>EPOC16 files</td>
-    </tr>
-    <tr>
-        <td class="stat">{{ site.data.summary.platforms.epoc32 }}</td>
-        <td>EPOC32 files</td>
-    </tr>
-    <tr>
-        <td class="stat">{{ site.data.sources.size }}</td>
-        <td>Sources</td>
-    </tr>
-</table>
+### Programs---{{ site.data.summary.programs.epoc16 | plus: site.data.summary.programs.epoc32 }}
 
-## Sources
+_Top level grouping of releases of different versions and variants, corresponding with the history of a single application or game (e.g., PacMan, released by NEUON)._
 
+- EPOC16---{{ site.data.summary.programs.epoc16 }}
+- EPOC32---{{ site.data.summary.programs.epoc32 }}
 
-### Internet Archive
+```mermaid
+pie
+    "EPOC16" : {{ site.data.summary.programs.epoc16 }}
+    "EPOC32" : {{ site.data.summary.programs.epoc32 }}
+```
+
+### Releases---{{ site.data.summary.releases.unique.epoc16 | plus: site.data.summary.releases.unique.epoc32 }}
+
+_Individual instances of an installable program; either a .app, .opa, or .sis. Releases are uniqued by a hash of their file contents._
+
+- EPOC16---{{ site.data.summary.releases.unique.epoc16 }}
+- EPOC32---{{ site.data.summary.releases.unique.epoc32 }}
+
+```mermaid
+pie
+    "EPOC16" : {{ site.data.summary.releases.unique.epoc16 }}
+    "EPOC32" : {{ site.data.summary.releases.unique.epoc32 }}
+```
+
+### Size---{{ site.data.summary.size.unique.epoc16 | plus: site.data.summary.size.unique.epoc32 | filesize }}
+
+- EPOC16---{{ site.data.summary.size.unique.epoc16 | filesize }}
+- EPOC32---{{ site.data.summary.size.unique.epoc32 | filesize }}
+
+```mermaid
+pie
+    "EPOC16" : {{ site.data.summary.size.unique.epoc16 }}
+    "EPOC32" : {{ site.data.summary.size.unique.epoc32 }}
+```
+
+### Sources---{{ site.data.sources.size }}
+
+#### Internet Archive
 
 {% assign internet_archive_sources = site.data.sources | where: "kind", "internet-archive" | sort: "name" %}
 
@@ -68,9 +92,11 @@ The index is created by extracting metadata from Psion programs that have been p
 {% endif %}
 {% endfor %}
 
-### Websites
-
 {% assign snapshot_sources = site.data.sources | where: "kind", "snapshot" | sort: "name" %}
+
+{% if snapshot_sources.size > 0 %}
+
+#### Websites
 
 <ul>
 {% for source in snapshot_sources %}
@@ -86,3 +112,5 @@ The index is created by extracting metadata from Psion programs that have been p
 </li>
 {% endfor %}
 </ul>
+
+{% endif %}
