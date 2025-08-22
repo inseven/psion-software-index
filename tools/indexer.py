@@ -60,7 +60,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 14
+INDEXER_VERSION = 15
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", "ru_RU", ""]
@@ -284,7 +284,18 @@ def remap_tag(tag):
 
 
 def discover_tags(path):
-    return set([])
+    tags = set([])
+    for root, dirs, files in os.walk(path):
+        for f in files:
+            f = os.path.join(root, f)
+            details = opolua.recognize(f)
+            if "era" in details:
+                tags.add(remap_tag(details["era"]))
+            if "type" in details:
+                tags.add(remap_tag(details["type"]))
+    if "unknown" in tags:
+        tags.remove("unknown")
+    return tags
 
 
 def find_files_recursive(path, extensions):
@@ -308,7 +319,7 @@ def import_installer(source, output_directory, reference, path, error_handler):
     # TODO: Move this into an OpoLua utility.
     with tempfile.TemporaryDirectory() as temporary_directory_path:
         opolua.dumpsis_extract(path, temporary_directory_path)
-        tags = []
+        tags = discover_tags(temporary_directory_path)
         contents = find_files_recursive(temporary_directory_path, [".aif", ".aco", ".abw"])
         if contents:
             aif_path = contents[0]
@@ -454,11 +465,6 @@ def index_source(source, source_index_directory):
             shutil.copy(path, destination_path)
             with open(os.path.join(destination_path, "error.txt"), "w") as fh:
                 fh.write(str(error))
-        return inner
-
-    def error_handler(errors_directory):
-        def inner(path, error):
-            pass
         return inner
 
     # Paths.

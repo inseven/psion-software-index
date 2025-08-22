@@ -127,7 +127,7 @@ class ExtractionTests(unittest.TestCase):
                 'uid': '21ce4b6bf58db9b616f02792d18cc0fff854bca02fec0cc69faf7f9234ad03eb',
                 'name': 'eMailIt',
                 'platform': 'epoc16',
-                'tags': [],
+                'tags': ['opl', 'resource', 'sibo', 'sis'],
                 'icons': [
                     {
                         'filename': 'd6536c02d9edaa8d23eb0d7da9d35c609bf8d1abd0802e0b6425cee7ef9ce56c.gif',
