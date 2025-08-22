@@ -118,6 +118,10 @@
                 "type": "array",
                 "items": {"enum": ["installer", "standalone"]}
             },
+            "platforms": {
+                "type": "array",
+                "items": {"enum": ["epoc16", "epoc32"]}
+            },
             "icon": {
                 "type": "object",
                 "properties": {
@@ -190,7 +194,7 @@
                 "items": {"type": "string"}
             }
         },
-        "required": ["id", "uid", "name", "tags", "kinds"],
+        "required": ["id", "uid", "name", "tags", "kinds", "platforms"],
         "additionalProperties": false
     }
 }

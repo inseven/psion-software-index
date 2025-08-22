@@ -148,6 +148,7 @@ class Program(object):
             'versions': [version.as_dict() for version in self.versions],
             'tags': sorted(list(self.tags)),
             'kinds': [kind for kind in self.kinds],
+            'platforms': [self.platform],
         }
         icon = self.icon
         if icon:
@@ -641,6 +642,7 @@ def group(library):
         entry = {
             'id': program.id,
             'name': program.name,
+            'platforms': [program.platform],
         }
         if program.icon is not None:
             entry['icon'] = program.icon
