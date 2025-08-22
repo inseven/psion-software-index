@@ -27,24 +27,12 @@ set -u
 
 SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
-ROOT_DIRECTORY="${SCRIPTS_DIRECTORY}/.."
-BUILD_DIRECTORY="${ROOT_DIRECTORY}/build"
-TEMPORARY_DIRECTORY="${ROOT_DIRECTORY}/temp"
-ARCHIVES_DIRECTORY="${ROOT_DIRECTORY}/archives"
-SPARKLE_DIRECTORY="${SCRIPTS_DIRECTORY}/Sparkle"
+ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
+BUILD_DIRECTORY="$ROOT_DIRECTORY/build"
 
-KEYCHAIN_PATH="${TEMPORARY_DIRECTORY}/temporary.keychain"
-ARCHIVE_PATH="${BUILD_DIRECTORY}/Reconnect.xcarchive"
-ENV_PATH="${ROOT_DIRECTORY}/.env"
+RELEASE_SCRIPT_PATH="$SCRIPTS_DIRECTORY/release.sh"
 
-RELEASE_SCRIPT_PATH="${SCRIPTS_DIRECTORY}/release.sh"
-
-RELEASE_NOTES_TEMPLATE_PATH="${SCRIPTS_DIRECTORY}/release-notes.html"
-
-IOS_XCODE_PATH=${IOS_XCODE_PATH:-/Applications/Xcode.app}
-MACOS_XCODE_PATH=${MACOS_XCODE_PATH:-/Applications/Xcode.app}
-
-source "${SCRIPTS_DIRECTORY}/environment.sh"
+source "$SCRIPTS_DIRECTORY/environment.sh"
 
 # Check that the GitHub command is available on the path.
 which gh || (echo "GitHub cli (gh) not available on the path." && exit 1)
@@ -68,13 +56,6 @@ do
 done
 
 cd "$ROOT_DIRECTORY"
-
-# Determine the version and build number.
-VERSION_NUMBER=`changes version`
-BUILD_NUMBER=`build-tools generate-build-number`
-
-echo $VERSION_NUMBER
-echo $BUILD_NUMBER
 
 if $RELEASE ; then
 
