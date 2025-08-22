@@ -54,6 +54,7 @@ source "$SCRIPTS_DIRECTORY/environment.sh"
 python -m venv "$PYTHON_VENV"
 source "$PYTHON_VENV/bin/activate"
 pip install --upgrade pip pipenv wheel certifi
+which pipenv
 PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
 PIPENV_PIPFILE="$CHANGES_DIRECTORY/Pipfile" pipenv install
 PIPENV_PIPFILE="$BUILD_TOOLS_DIRECTORY/Pipfile" pipenv install
