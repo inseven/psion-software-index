@@ -17,6 +17,13 @@ layout: default
     <program-title>{{ page.title }}</program-title>
     {% if program.subtitle %}<program-subtitle>{{ program.subtitle | titlecase }}</program-subtitle>{% endif %}
     {% if program.category %}<program-category>{{ program.category }}</program-category>{% endif %}
+    <program-platform>
+        <ul>
+            {% for platform in program.platforms %}
+                <li>{{ platform }}</li>
+            {% endfor %}
+        </ul>
+    </program-platform>
     <program-identifier>{{ program.id }}</program-identifier>
 </header>
 

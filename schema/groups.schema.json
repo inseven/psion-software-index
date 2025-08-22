@@ -25,9 +25,13 @@
                 },
                 "required": ["path", "width", "height", "bpp"],
                 "additionalProperties": false
+            },
+            "platforms": {
+                "type": "array",
+                "items": {"enum": ["epoc16", "epoc32"]}
             }
         },
-        "required": ["id", "name"],
+        "required": ["id", "name", "platforms"],
         "additionalProperties": false
     }
 }

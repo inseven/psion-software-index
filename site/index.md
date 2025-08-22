@@ -44,9 +44,18 @@ layout: full
         a.appendChild(iconContainer);
         const label = document.createElement("div");
         label.classList.add("label");
-        const name = document.createElement("span");
+        const name = document.createElement("div");
+        name.classList.add("program-name");
         name.textContent = group.name;
-        label.appendChild(name)
+        label.appendChild(name);
+        const platformElement = document.createElement("ul");
+        platformElement.classList.add("program-platforms")
+        for (const platform of group.platforms) {
+            const platformItem = document.createElement("li");
+            platformItem.textContent = platform;
+            platformElement.append(platformItem);
+        }
+        label.appendChild(platformElement);
         a.appendChild(label);
         li.appendChild(a);
         applicationsList.appendChild(li);
