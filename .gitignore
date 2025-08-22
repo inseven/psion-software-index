@@ -7,6 +7,7 @@
 /site/api/v1
 /site/files
 /site/icons
+/site/images/charts
 /site/screenshots
 
 .jekyll-cache

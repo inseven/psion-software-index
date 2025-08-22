@@ -220,6 +220,11 @@ header program-identifier {
     line-height: 1.4em;
 }
 
+.content img {
+    max-width: 100%;
+    height: auto;
+}
+
 .content.full {
     max-width: initial;
     padding: 0;
