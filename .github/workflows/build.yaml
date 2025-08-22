@@ -60,7 +60,6 @@ jobs:
     - name: Package and optionally release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # RELEASE: ${{ github.ref == 'refs/heads/main' }}
-        RELEASE: true
+        RELEASE: ${{ github.ref == 'refs/heads/main' }}
       run: |
         scripts/package.sh
