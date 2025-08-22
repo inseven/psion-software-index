@@ -27,21 +27,16 @@ ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
 export TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 export LOCAL_TOOLS_PATH="$ROOT_DIRECTORY/.local"
 
-export VENV="$LOCAL_TOOLS_PATH/venv"  # Used to bootstrap virtualenv.
-export PYTHONUSERBASE="$LOCAL_TOOLS_PATH/python"
-mkdir -p "$PYTHONUSERBASE"
-export PATH="$PYTHONUSERBASE/bin":$PATH
-export PYTHONPATH=$PYTHONUSERBASE
-
-export PIPENV_VENV_IN_PROJECT=1
-
-export GEM_HOME="${ROOT_DIRECTORY}/.local/ruby"
+export GEM_HOME="$ROOT_DIRECTORY/.local/ruby"
 mkdir -p "$GEM_HOME"
-export PATH="${GEM_HOME}/bin":$PATH
+export PATH="$GEM_HOME/bin":$PATH
 
 export BIN_DIRECTORY="$ROOT_DIRECTORY/.local/bin"
 export PATH=$BIN_DIRECTORY:$PATH
 
+export PYTHON_VENV="$LOCAL_TOOLS_PATH/python"  # Used to bootstrap virtualenv.
+export PIPENV_VENV_IN_PROJECT=1  # Forces pipenv to create the `.venv` directory in-tree.
+export PATH=$PYTHON_VENV:$PATH
 export PATH=$PATH:"$TOOLS_DIRECTORY"
 export PATH=$PATH:"$SCRIPTS_DIRECTORY/changes"
 export PATH=$PATH:"$SCRIPTS_DIRECTORY/build-tools"

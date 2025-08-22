@@ -50,9 +50,9 @@ fi
 # Source the local environment configuration; this ensures tools are installed in the .local directory we just created.
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
-# Install the Python dependencies, bootstrapping through `venv`.
-python -m venv "$VENV"
-"$VENV/bin/pip" install --target "$PYTHONUSERBASE" --upgrade pip pipenv wheel
+# Install the base Python dependencies into a venv (this is already on the path).
+python -m venv "$PYTHON_VENV"
+pip install --upgrade pip pipenv wheel certifi
 PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
 PIPENV_PIPFILE="$CHANGES_DIRECTORY/Pipfile" pipenv install
 PIPENV_PIPFILE="$BUILD_TOOLS_DIRECTORY/Pipfile" pipenv install
