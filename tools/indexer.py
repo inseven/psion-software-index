@@ -622,12 +622,6 @@ def group(library):
                 'bpp': icon['bpp'],
             }
 
-    # UIDs known to be reused across multiple applications.
-    UID_BLOCKLIST = set([
-        "0x415f524f",
-        "0x4558452e",
-    ])
-
     # Generate program groupings for every possible identifier to ensure there's always a landing page.
     program_groups_all = collections.defaultdict(list)
     for release in releases:
@@ -639,10 +633,11 @@ def group(library):
     # Group the programs by UID followed by hash.
     # This is used to generate the top-level listing and the standalone /programs API end-point.
     # We also generate the legacy redirects here to ensure old URLs aren't broken.
+    blocked_identifiers = set(library.blocked_identifiers)
     program_groups = collections.defaultdict(list)
     redirects = {}
     for release in releases:
-        if 'uid' in release and release['uid'] not in UID_BLOCKLIST:
+        if 'uid' in release and 'uid/' + release['uid'] not in blocked_identifiers:
             program_groups['uid/' + release['uid']].append(release)
             redirects['programs/' + release['uid']] = 'programs/uid/' + release['uid']
         else:
