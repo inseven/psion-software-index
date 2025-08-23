@@ -36,8 +36,6 @@ SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
 
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
-cp -R "$INDEX_DIRECTORY" "$SITE_DATA_DIRECTORY"
-
 # Build the API documentation.
 "$SCRIPTS_DIRECTORY/build-api-docs.sh"
 

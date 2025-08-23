@@ -40,6 +40,7 @@ function validate() {
     SCHEMA="$1"
     echo "Validating '$SCHEMA'..."
     pipenv run check-jsonschema \
+        --base-uri "$API_V1_DIRECTORY/" \
         --schemafile "$API_V1_DIRECTORY/$SCHEMA.schema.json" \
         "$API_V1_DIRECTORY/$SCHEMA/index.json"
 }
@@ -48,3 +49,6 @@ validate "groups"
 validate "programs"
 validate "sources"
 validate "summary"
+
+find "$API_V1_DIRECTORY/programs/uid" -name "index.json" -exec pipenv run check-jsonschema --verbose --base-uri "$API_V1_DIRECTORY/" --schemafile "$API_V1_DIRECTORY/program.schema.json" {} \+
+find "$API_V1_DIRECTORY/programs/sha" -name "index.json" -exec pipenv run check-jsonschema --verbose --base-uri "$API_V1_DIRECTORY/" --schemafile "$API_V1_DIRECTORY/program.schema.json" {} \+

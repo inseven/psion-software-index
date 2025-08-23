@@ -26,4 +26,8 @@
 
     <link rel="stylesheet" href="{{ "/css/style.css" | absolute_url }}">
 
+    {% if page.redirect %}
+        <meta http-equiv="refresh" content="0; url={{ page.redirect.destination | absolute_url }}" />
+    {% endif %}
+
 </head>
