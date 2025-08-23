@@ -29,6 +29,27 @@ paths:
             application/json:
               schema:
                 $ref: './programs.schema.json'
+  /api/v1/programs/{id}:
+    get:
+      summary: Single Program
+      description: |
+        Retrieve a single program.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Scoped identifier as returned by the `groups/` endpoint of the form `<scope>/<identifier>`
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A single program object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Program'
+        '404':
+          description: Program not found
   /api/v1/summary:
     get:
       summary: Summary
@@ -58,3 +79,5 @@ components:
       $ref: './sources.schema.json'
     Summary:
       $ref: './summary.schema.json'
+    Program:
+      $ref: './program.schema.json'
