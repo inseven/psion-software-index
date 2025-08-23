@@ -22,80 +22,7 @@
                                 "identifier": {"type": "string"},
                                 "items": {
                                     "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "filename": {"type": "string"},
-                                            "size": {"type": "integer"},
-                                            "reference": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "name": {"type": "string"},
-                                                        "url": {"type": ["string", "null"]}
-                                                    },
-                                                    "required": ["name", "url"],
-                                                    "additionalProperties": false
-                                                }
-                                            },
-                                            "kind": {
-                                                "enum": ["installer", "standalone"]
-                                            },
-                                            "sha256": {"type": "string"},
-                                            "id": {"type": "string"},
-                                            "uid": {"type": "string"},
-                                            "name": {"type": "string"},
-                                            "tags": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "version": {"type": "string"},
-                                            "icon": {
-                                                "type": "object",
-                                                "properties": {
-                                                    "path": {"type": "string"},
-                                                    "width": {"type": "number"},
-                                                    "height": {"type": "number"}
-                                                },
-                                                "required": ["path", "width", "height"],
-                                                "additionalProperties": false
-                                            },
-                                            "icons": {
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "path": {"type": "string"},
-                                                        "width": {"type": "number"},
-                                                        "height": {"type": "number"},
-                                                        "bpp": {"type": "integer"},
-                                                        "filename": {"type": "string"},
-                                                        "sha256": {"type": "string"}
-                                                    },
-                                                    "required": ["width", "height", "bpp", "filename", "sha256"],
-                                                    "additionalProperties": false
-                                                }
-                                            },
-                                            "fingerprint": {"type": "string"},
-                                            "platform": {"enum": ["epoc16", "epoc32"]}
-                                        },
-                                        "required": [
-                                            "filename",
-                                            "size",
-                                            "reference",
-                                            "kind",
-                                            "sha256",
-                                            "id",
-                                            "name",
-                                            "tags",
-                                            "version",
-                                            "platform"
-                                        ],
-                                        "additionalProperties": false
-                                    }
+                                    "items": {"$ref": "release.schema.json"}
                                 }
                             },
                             "required": ["identifier", "items"],
@@ -110,6 +37,10 @@
         "tags": {
             "type": "array",
             "items": {"type": "string"}
+        },
+        "runtimes": {
+            "type": "array",
+            "items": {"enum": ["native", "opl"]}
         },
         "kinds": {
             "type": "array",
@@ -191,6 +122,6 @@
             "items": {"type": "string"}
         }
     },
-    "required": ["id", "name", "tags", "kinds", "platforms"],
+    "required": ["id", "name", "tags", "runtimes", "kinds", "platforms"],
     "additionalProperties": false
 }

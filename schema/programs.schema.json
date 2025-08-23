@@ -4,7 +4,5 @@
   "title": "Programs",
   "description": "Hierarchical grouped listing of all programs.",
   "type": "array",
-  "items": {
-    "$ref": "program.schema.json"
-  }
+  "items": {"$ref": "program.schema.json"}
 }

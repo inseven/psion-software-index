@@ -1,0 +1,83 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://software.psion.info/api/v1/release.schema.json",
+    "title": "Release",
+    "description": "Individual instances of an installable program; either a .app, .opa, or .sis.",
+    "type": "object",
+    "properties": {
+        "filename": {"type": "string"},
+        "size": {"type": "integer"},
+        "reference": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "url": {"type": ["string", "null"]}
+                },
+                "required": ["name", "url"],
+                "additionalProperties": false
+            }
+        },
+        "kind": {
+            "enum": ["installer", "standalone"]
+        },
+        "sha256": {"type": "string"},
+        "id": {"type": "string"},
+        "uid": {"type": "string"},
+        "name": {"type": "string"},
+        "tags": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "runtimes": {
+            "type": "array",
+            "items": {"enum": ["native", "opl"]}
+        },
+        "version": {"type": "string"},
+        "icon": {
+            "type": "object",
+            "properties": {
+                "path": {"type": "string"},
+                "width": {"type": "number"},
+                "height": {"type": "number"}
+            },
+            "required": ["path", "width", "height"],
+            "additionalProperties": false
+        },
+        "icons": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string"},
+                    "width": {"type": "number"},
+                    "height": {"type": "number"},
+                    "bpp": {"type": "integer"},
+                    "filename": {"type": "string"},
+                    "sha256": {"type": "string"}
+                },
+                "required": ["width", "height", "bpp", "filename", "sha256"],
+                "additionalProperties": false
+            }
+        },
+        "fingerprint": {"type": "string"},
+        "platform": {"enum": ["epoc16", "epoc32"]}
+    },
+    "required": [
+        "filename",
+        "size",
+        "reference",
+        "kind",
+        "sha256",
+        "id",
+        "name",
+        "tags",
+        "runtimes",
+        "version",
+        "platform"
+    ],
+    "additionalProperties": false
+}

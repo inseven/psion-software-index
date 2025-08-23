@@ -33,9 +33,13 @@
             "kinds": {
                 "type": "array",
                 "items": {"enum": ["installer", "standalone"]}
+            },
+            "runtimes": {
+                "type": "array",
+                "items": {"enum": ["native", "opl"]}
             }
         },
-        "required": ["id", "name", "platforms", "kinds"],
+        "required": ["id", "name", "platforms", "kinds", "runtimes"],
         "additionalProperties": false
     }
 }

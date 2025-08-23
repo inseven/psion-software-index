@@ -28,10 +28,12 @@ import concurrent.futures
 import contextlib
 import copy
 import csv
+import functools
 import glob
 import hashlib
 import json
 import logging
+import operator
 import os
 import re
 import shutil
@@ -60,7 +62,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 16
+INDEXER_VERSION = 17
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", "ru_RU", ""]
@@ -115,11 +117,9 @@ class Program(object):
             versions[installer['version']].append(installer)
         # We use `natsort` to sort the versions to ensure, for example, 10.0 sorts _after_ 2.0.
         self.versions = natsort.natsorted([Version(installers=installers) for installers in versions.values()], key=lambda x: x.version)
-        tags = set()
-        for installer in installers:
-            for tag in installer['tags']:
-                tags.add(tag)
-        self.tags = tags
+        self.tags = set(functools.reduce(operator.iconcat, [installer['tags'] for installer in installers], []))
+        self.runtimes = set(functools.reduce(operator.iconcat, [installer['runtimes'] for installer in installers], []))
+        self.kinds = set([installer['kind'] for installer in installers])
         kinds = set()
         for installer in installers:
             kinds.add(installer['kind'])
@@ -144,7 +144,8 @@ class Program(object):
             'name': self.name,
             'versions': [version.as_dict() for version in self.versions],
             'tags': sorted(list(self.tags)),
-            'kinds': [kind for kind in self.kinds],
+            'runtimes': sorted(list(self.runtimes)),
+            'kinds': sorted(list(self.kinds)),
             'platforms': [self.platform],
         }
         icon = self.icon
@@ -186,6 +187,7 @@ class Release(object):
         self.icons = icons
         self.tags = tags
         self.platform = platform
+        self.runtimes = runtimes_from_tags(tags)
 
     def as_dict(self, relative_icons_path):
         dict = {
@@ -198,6 +200,7 @@ class Release(object):
             'name': self.name,
             'tags': sorted(list(self.tags)),
             'platform': self.platform,
+            'runtimes': sorted(list(self.runtimes)),
         }
         if self.uid is not None:
             dict['uid'] = self.uid
@@ -295,6 +298,15 @@ def discover_tags(path):
     if "unknown" in tags:
         tags.remove("unknown")
     return tags
+
+
+def runtimes_from_tags(tags):
+    runtimes = set([])
+    if "opl" in tags:
+        runtimes.add("opl")
+    if "nativebin" in tags:
+        runtimes.add("native")
+    return runtimes
 
 
 def find_files_recursive(path, extensions):
@@ -653,7 +665,8 @@ def group(library):
             'id': program.id,
             'name': program.name,
             'platforms': [program.platform],
-            'kinds': [kind for kind in program.kinds],
+            'kinds': sorted(list(program.kinds)),
+            'runtimes': sorted(list(program.runtimes)),
         }
         if program.icon is not None:
             entry['icon'] = program.icon
@@ -869,6 +882,7 @@ def overlay(library):
         "overlay-metadata.schema.json",
         "program.schema.json",
         "programs.schema.json",
+        "release.schema.json",
         "sources.schema.json",
         "summary.schema.json",
     ]
