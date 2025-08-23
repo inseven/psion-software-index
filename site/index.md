@@ -5,7 +5,8 @@ layout: full
 
 # Psion Software Index
 
-<div class="search-header">
+<!-- The search header is hidden by default so we don't show unnecessary UX to clients without JavaScript enabled. -->
+<div id="search-header" class="search-header" style="display: none;">
     <form id="search-form" class="search-form">
         <input type="text" id="search" name="search" class="search" placeholder="Filter" autocorrect="off" />
         <button type="reset" class="clear"><picture><source srcset="/images/x-dark.svg" media="(prefers-color-scheme: dark)" /><img src="/images/x-light.svg" /></picture></button>
@@ -16,8 +17,14 @@ layout: full
 
 <script type="module">
     const applicationsList = document.getElementById("applications");
+    const searchHeader = document.getElementById("search-header");
     const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("search");
+
+    // Show the search header.
+    searchHeader.style.display = 'block';
+
+    // Get the programs.
     const response = await fetch("/api/v1/groups");
     const groups = await response.json();
     var filteredGroups = groups;
@@ -101,3 +108,21 @@ layout: full
     window.addEventListener('resize', debounce(update, 100));
     update();
 </script>
+
+<noscript>
+    <h2>EPOC16</h2>
+    <ul>
+        {% assign programs = site.data.groups |  where_exp: "program", "program.platforms contains 'epoc16'" | sort: "name" %}
+        {% for program in programs %}
+            <li><a href="/programs/{{ program.id }}">{{ program.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>EPOC32</h2>
+    <ul>
+        {% assign programs = site.data.groups |  where_exp: "program", "program.platforms contains 'epoc32'" | sort: "name" %}
+        {% for program in programs %}
+            <li><a href="/programs/{{ program.id }}">{{ program.name }}</a></li>
+        {% endfor %}
+    </ul>
+</noscript>
