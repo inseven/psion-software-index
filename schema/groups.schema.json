@@ -29,9 +29,13 @@
             "platforms": {
                 "type": "array",
                 "items": {"enum": ["epoc16", "epoc32"]}
+            },
+            "kinds": {
+                "type": "array",
+                "items": {"enum": ["installer", "standalone"]}
             }
         },
-        "required": ["id", "name", "platforms"],
+        "required": ["id", "name", "platforms", "kinds"],
         "additionalProperties": false
     }
 }
