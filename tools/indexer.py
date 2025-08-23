@@ -658,6 +658,7 @@ def group(library):
             'id': program.id,
             'name': program.name,
             'platforms': [program.platform],
+            'kinds': [kind for kind in program.kinds],
         }
         if program.icon is not None:
             entry['icon'] = program.icon
