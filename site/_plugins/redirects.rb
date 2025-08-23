@@ -1,20 +1,20 @@
-module Programs
+module Redirects
   class ProgramPageGenerator < Jekyll::Generator
     safe true
 
     def generate(site)
-      site.data['programs_all'].each do |program|
-        site.pages << ProgramPage.new(site, program)
+      site.data['redirects'].each do |redirect|
+        site.pages << Redirect.new(site, redirect)
       end
     end
   end
 
   # Subclass of `Jekyll::Page` with custom method definitions.
-  class ProgramPage < Jekyll::Page
-    def initialize(site, program)
+  class Redirect < Jekyll::Page
+    def initialize(site, redirect)
       @site = site             # the current site instance.
       @base = site.source      # path to the source directory.
-      @dir  = "programs/" + program['id']         # the directory the page will reside in.
+      @dir  = redirect['path']  # the directory the page will reside in.
 
       # All pages have the same filename, so define attributes straight away.
       @basename = 'index'      # filename without the extension.
@@ -24,14 +24,12 @@ module Programs
       # Initialize data hash with a key pointing to all posts under current category.
       # This allows accessing the list in a template via `page.linked_docs`.
       @data = {
-        'linked_docs' => program,
-        'layout' => 'program',
-        'program' => program,
-        'title' => program['name'],
+        'linked_docs' => redirect,
+        'layout' => 'redirect',
+        'redirect' => redirect,
       }
 
-      @program = program
-      @title = program['name']
+      @redirect = redirect
       @content = ""
 
       # Look up front matter defaults scoped to type `categories`, if given key

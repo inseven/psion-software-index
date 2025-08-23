@@ -60,7 +60,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 15
+INDEXER_VERSION = 16
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", "ru_RU", ""]
@@ -141,9 +141,6 @@ class Program(object):
     def as_dict(self):
         dict = {
             'id': self.id,
-            # TODO: #154: Program UID should be optional in the programs API
-            #       https://github.com/inseven/psion-software-index/issues/154
-            'uid': self.id,
             'name': self.name,
             'versions': [version.as_dict() for version in self.versions],
             'tags': sorted(list(self.tags)),
@@ -164,7 +161,6 @@ class Program(object):
 
 class Release(object):
 
-    # TODO: Make the UID optional and don't attempt to synthesize other identifiers at this stage.
     def __init__(self,
                  filename,
                  size,
@@ -362,9 +358,7 @@ def import_application(source, output_directory, reference, path, error_handler)
     if not aif_path:
         aif_path = find_sibling(path, name + ".abw")
     id = utils.shasum(path)
-    # TODO: #154: Program UID should be optional in the programs API
-    #       https://github.com/inseven/psion-software-index/issues/154
-    uid = utils.shasum(path)
+    uid = None
     icons = []
     app_name = name
     has_aif = False
@@ -384,7 +378,6 @@ def import_application(source, output_directory, reference, path, error_handler)
         # TODO: Remove this check.
         try:
             info = opolua.dumpaif(aif_path)
-            id = ("0x%08x" % info["uid3"]).lower()
             uid = ("0x%08x" % info["uid3"]).lower()
             app_name = select_name(info["captions"])
             icons = opolua.get_icons(aif_path)
@@ -581,43 +574,40 @@ def index(library):
     logging.info("Indexing complete.")
 
 
-def group_releases(releases, key):
-
-    # Perform the basic grouping.
-    groups = collections.defaultdict(list)
-    for release in releases:
-        if key not in release:
-            continue
-        id = release[key]
-        groups[id].append(release)
-
-    # Generate the structured groups, sorted by name, and subsequently by version.
+def flatten_grouped_programs(groups):
     programs = []
     for id, group_releases in groups.items():
         program_releases = []
         for release in group_releases:
             program_releases.append(release)
         programs.append(Program(id, program_releases, []))
-
     return programs
 
 
+class IndexPaths(object):
+
+    def __init__(self, root_directory):
+        self.root_directory = os.path.abspath(root_directory);
+        self.files_directory = os.path.join(self.root_directory, "files")
+        self.icons_directory = os.path.join(self.root_directory, "icons")
+        self.programs_path = os.path.join(self.root_directory, "programs.json")  # Programs grouped by preferred identifier.
+        self.programs_all_path = os.path.join(self.root_directory, "programs_all.json")  # Programs grouped by very possible identifier.
+        self.sources_path = os.path.join(self.root_directory, "sources.json")
+        self.summary_path = os.path.join(self.root_directory, "summary.json")
+        self.groups_path = os.path.join(self.root_directory, "groups.json")  # Lightweight index of programs by preferred identifier.
+        self.redirects_path = os.path.join(self.root_directory, "redirects.json")
+
+
 def group(library):
-    # TODO: Surely this should be a property of the library!!
-    summary_path = os.path.join(library.index_directory, "summary.json")
-    sources_path = os.path.join(library.index_directory, "sources.json")
-    programs_path = os.path.join(library.index_directory, "programs.json")
-    group_index_path = os.path.join(library.index_directory, "groups.json")
-    files_path = os.path.join(library.index_directory, "files")
-    icons_path = os.path.join(library.index_directory, "icons")
+    index_paths = IndexPaths(library.index_directory)
 
     # TODO: Move into library.
-    releases_path = os.path.join(library.intermediates_directory, "releases.json")
+    intermediate_releases_path = os.path.join(library.intermediates_directory, "releases.json")
     intermediate_files_directory = os.path.join(library.intermediates_directory, "files")
     intermediate_icons_directory = os.path.join(library.intermediates_directory, "icons")
 
     # Load the releases.
-    with open(releases_path) as fh:
+    with open(intermediate_releases_path) as fh:
         releases = json.load(fh)
 
     # Fix-up the version to match the current API expectations. Ultimately we will want to expose this to the API.
@@ -632,8 +622,33 @@ def group(library):
                 'bpp': icon['bpp'],
             }
 
-    # Generate the top-level grouping.
-    programs = group_releases(releases, "id")
+    # UIDs known to be reused across multiple applications.
+    UID_BLOCKLIST = set([
+        "0x415f524f",
+        "0x4558452e",
+    ])
+
+    # Generate program groupings for every possible identifier to ensure there's always a landing page.
+    program_groups_all = collections.defaultdict(list)
+    for release in releases:
+        if 'uid' in release:
+            program_groups_all['uid/' + release['uid']].append(release)
+        program_groups_all['sha/' + release['sha256']].append(release)
+    programs_all = flatten_grouped_programs(program_groups_all)
+
+    # Group the programs by UID followed by hash.
+    # This is used to generate the top-level listing and the standalone /programs API end-point.
+    # We also generate the legacy redirects here to ensure old URLs aren't broken.
+    program_groups = collections.defaultdict(list)
+    redirects = {}
+    for release in releases:
+        if 'uid' in release and release['uid'] not in UID_BLOCKLIST:
+            program_groups['uid/' + release['uid']].append(release)
+            redirects['programs/' + release['uid']] = 'programs/uid/' + release['uid']
+        else:
+            program_groups['sha/' + release['sha256']].append(release)
+            redirects['programs/' + release['sha256']] = 'programs/sha/' + release['sha256']
+    programs = flatten_grouped_programs(program_groups)
 
     # Once we've generated our top-level set, we massage it into something suitable for the API.
     # Generate a minimal grouped index to use for search and filtering.
@@ -681,48 +696,46 @@ def group(library):
     # Create the output directory.
     os.makedirs(library.index_directory, exist_ok=True)
 
-    # Write the summary.
-    logging.info("Writing summary to '%s'...", summary_path)
-    with open(summary_path, "w") as fh:
+    logging.info("Writing summary to '%s'...", index_paths.summary_path)
+    with open(index_paths.summary_path, "w") as fh:
         json.dump(summary, fh)
 
-    # Write the sources.
-    logging.info("Writing sources to '%s'...", sources_path)
-    with open(sources_path, "w") as fh:
+    logging.info("Writing sources to '%s'...", index_paths.sources_path)
+    with open(index_paths.sources_path, "w") as fh:
         json.dump([source.as_dict() for source in library.sources], fh)
 
-    # Write the library.
-    logging.info("Writing library to '%s'...", programs_path)
-    with open(programs_path, "w", encoding="utf-8") as fh:
+    logging.info("Writing programs to '%s'...", index_paths.programs_path)
+    with open(index_paths.programs_path, "w", encoding="utf-8") as fh:
         json.dump([program.as_dict() for program in programs], fh)
 
-    # Write the group index.
-    logging.info("Writing group index to '%s'...", group_index_path)
-    with open(group_index_path, "w", encoding="utf-8") as fh:
+    logging.info("Writing programs (all) to '%s'...", index_paths.programs_all_path)
+    with open(index_paths.programs_all_path, "w", encoding="utf-8") as fh:
+        json.dump([program.as_dict() for program in programs_all], fh)
+
+    logging.info("Writing groups to '%s'...", index_paths.groups_path)
+    with open(index_paths.groups_path, "w", encoding="utf-8") as fh:
         json.dump(group_index, fh)
 
-    # Copy the files.
-    logging.info("Copying files to '%s'...", files_path)
-    if os.path.exists(files_path):
-        shutil.rmtree(files_path)
-    shutil.copytree(intermediate_files_directory, files_path)
+    logging.info("Writing redirects to '%s'...", index_paths.redirects_path)
+    with open(index_paths.redirects_path, "w", encoding="utf-8") as fh:
+        json.dump([{"path": path, "destination": destination} for (path, destination) in redirects.items()], fh)
+
+    logging.info("Copying files to '%s'...", index_paths.files_directory)
+    if os.path.exists(index_paths.files_directory):
+        shutil.rmtree(index_paths.files_directory)
+    shutil.copytree(intermediate_files_directory, index_paths.files_directory)
 
     # Copy the icons.
-    logging.info("Copying icons to '%s'...", icons_path)
-    if os.path.exists(icons_path):
-        shutil.rmtree(icons_path)
-    shutil.copytree(intermediate_icons_directory, icons_path)
+    logging.info("Copying icons to '%s'...", index_paths.icons_directory)
+    if os.path.exists(index_paths.icons_directory):
+        shutil.rmtree(index_paths.icons_directory)
+    shutil.copytree(intermediate_icons_directory, index_paths.icons_directory)
 
 
 def overlay(library):
     logging.info("Applying overlay...")
 
-    source_programs_path = os.path.join(library.index_directory, "programs.json")
-    source_sources_path = os.path.join(library.index_directory, "sources.json")
-    source_summary_path = os.path.join(library.index_directory, "summary.json")
-    source_group_index_path = os.path.join(library.index_directory, "groups.json")
-    files_path = os.path.join(library.index_directory, "files")
-    icons_path = os.path.join(library.index_directory, "icons")
+    index_paths = IndexPaths(library.index_directory)
 
     data_output_path = os.path.join(library.output_directory, "_data")
     screenshots_output_path = os.path.join(library.output_directory, "screenshots")
@@ -731,9 +744,11 @@ def overlay(library):
     api_v1_output_path = os.path.join(library.output_directory, "api", "v1")
 
     destination_programs_path = os.path.join(data_output_path, "programs.json")
+    destination_programs_all_path = os.path.join(data_output_path, "programs_all.json")
     destination_sources_path = os.path.join(data_output_path, "sources.json")
     destination_summary_path = os.path.join(data_output_path, "summary.json")
     destination_group_index_path = os.path.join(data_output_path, "groups.json")
+    destination_redirects_path = os.path.join(data_output_path, "redirects.json")
 
     # Load the overlay schema for validation.
     with open(os.path.join(SCHEMA_DIRECTORY, "overlay-metadata.schema.json")) as fh:
@@ -747,7 +762,7 @@ def overlay(library):
     overlay = collections.defaultdict(dict)
     for overlay_directory in library.overlay_directories:
         for overlay_basename in utils.listdir(overlay_directory, include_hidden=False):
-            identifier = overlay_basename.split(" ")[0]
+            identifier = overlay_basename.split(" ")[0].replace("_", "/")
             screenshots_path = os.path.join(overlay_directory, overlay_basename)
             overlay[identifier]["screenshots"] = [os.path.join(screenshots_path, screenshot)
                                                   for screenshot in os.listdir(screenshots_path)
@@ -761,10 +776,6 @@ def overlay(library):
                     logging.error("Failed to validate metadata for overlay '%s'", overlay_index_path)
                     raise
                 overlay[identifier]["index"] = overlay_index
-
-    # Load the index.
-    with open(source_programs_path) as fh:
-        index = json.load(fh)
 
     # Clean up the destination paths.
     if os.path.exists(screenshots_output_path):
@@ -782,9 +793,18 @@ def overlay(library):
     os.makedirs(data_output_path, exist_ok=True)
     os.makedirs(screenshots_output_path, exist_ok=True)
 
+    # Load the programs.
+    with open(index_paths.programs_path) as fh:
+        programs = json.load(fh)
+    with open(index_paths.programs_all_path) as fh:
+        programs_all = json.load(fh)
+
     # Merge the overlay into the index.
-    for application in index:
-        identifier = application['uid']
+    # This acts on both `programs` and `programs_all` to ensure we're merging the overlay into both data views. This is
+    # duplicate work and in the future it should be possible to drop `programs` when legacy clients have stopped using
+    # it for queries.
+    for application in programs_all + programs:
+        identifier = application['id']
         if identifier not in overlay:
             continue
 
@@ -799,7 +819,7 @@ def overlay(library):
 
         # Inject the screenshots.
         screenshots = overlay[identifier]["screenshots"] if "screenshots" in overlay[identifier] else []
-        os.makedirs(os.path.join(screenshots_output_path, identifier))
+        os.makedirs(os.path.join(screenshots_output_path, identifier), exist_ok=True)
         relative_paths = []
         for screenshot in sorted(screenshots):
             relative_path = os.path.join("screenshots", identifier, os.path.basename(screenshot))
@@ -816,19 +836,20 @@ def overlay(library):
         application['screenshots'] = relative_paths
 
     # Write the index.
-    shutil.copyfile(source_sources_path, destination_sources_path)
-    shutil.copyfile(source_summary_path, destination_summary_path)
-    shutil.copyfile(source_group_index_path, destination_group_index_path)
+    shutil.copyfile(index_paths.sources_path, destination_sources_path)
+    shutil.copyfile(index_paths.summary_path, destination_summary_path)
+    shutil.copyfile(index_paths.groups_path, destination_group_index_path)
     with open(destination_programs_path, "w") as fh:
-        json.dump(index, fh)
+        json.dump(programs, fh)
+    with open(destination_programs_all_path, "w") as fh:
+        json.dump(programs_all, fh)
+    shutil.copyfile(index_paths.redirects_path, destination_redirects_path)
 
-    # Copy the files.
-    shutil.copytree(files_path, files_output_path)
+    # Copy the files and icons.
+    shutil.copytree(index_paths.files_directory, files_output_path)
+    shutil.copytree(index_paths.icons_directory, icons_output_path)
 
-    # Copy the icons.
-    shutil.copytree(icons_path, icons_output_path)
-
-    # Copy the API.
+    # Write the API.
     os.makedirs(api_v1_output_path, exist_ok=True)
     shutil.copytree(icons_output_path, os.path.join(api_v1_output_path, "icons"))
     shutil.copytree(screenshots_output_path, os.path.join(api_v1_output_path, "screenshots"))
@@ -840,11 +861,17 @@ def overlay(library):
     shutil.copyfile(destination_summary_path, os.path.join(api_v1_output_path, "summary", "index.json"))
     os.makedirs(os.path.join(api_v1_output_path, "groups"), exist_ok=True)
     shutil.copyfile(destination_group_index_path, os.path.join(api_v1_output_path, "groups", "index.json"))
+    for program in programs_all:
+        program_path = os.path.join(api_v1_output_path, "programs", program['id'])
+        os.makedirs(program_path, exist_ok=True)
+        with open(os.path.join(program_path, "index.json"), "w") as fh:
+            json.dump(program, fh)
 
     # Copy the schema.
     schemas = [
         "groups.schema.json",
         "overlay-metadata.schema.json",
+        "program.schema.json",
         "programs.schema.json",
         "sources.schema.json",
         "summary.schema.json",
