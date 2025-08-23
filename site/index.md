@@ -10,9 +10,9 @@ layout: full
     <form id="search-form" class="search-form">
         <input type="text" id="search" name="search" class="search" placeholder="Filter" autocorrect="off" />
         <button type="reset" class="clear"><picture><source srcset="/images/x-dark.svg" media="(prefers-color-scheme: dark)" /><img src="/images/x-light.svg" /></picture></button>
-        <input type="checkbox" id="include-epoc16" name="include-epoc16" checked /> <label for="include-epoc16"> EPOC16</label>
-        <input type="checkbox" id="include-epoc32" name="include-epoc32" checked /> <label for="include-epoc32"> EPOC32</label>
     </form>
+    <input type="checkbox" id="include-epoc16" name="include-epoc16" checked /> <label for="include-epoc16"> EPOC16</label>
+    <input type="checkbox" id="include-epoc32" name="include-epoc32" checked /> <label for="include-epoc32"> EPOC32</label>
 </div>
 
 <ul id="applications" class="applications"></ul>
