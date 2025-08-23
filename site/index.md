@@ -10,6 +10,8 @@ layout: full
     <form id="search-form" class="search-form">
         <input type="text" id="search" name="search" class="search" placeholder="Filter" autocorrect="off" />
         <button type="reset" class="clear"><picture><source srcset="/images/x-dark.svg" media="(prefers-color-scheme: dark)" /><img src="/images/x-light.svg" /></picture></button>
+        <input type="checkbox" id="include-epoc16" name="include-epoc16" checked /> <label for="include-epoc16"> EPOC16</label>
+        <input type="checkbox" id="include-epoc32" name="include-epoc32" checked /> <label for="include-epoc32"> EPOC32</label>
     </form>
 </div>
 
@@ -20,6 +22,8 @@ layout: full
     const searchHeader = document.getElementById("search-header");
     const searchForm = document.getElementById("search-form");
     const searchInput = document.getElementById("search");
+    const epoc16Checkbox = document.getElementById("include-epoc16");
+    const epoc32Checkbox = document.getElementById("include-epoc32");
 
     // Show the search header.
     searchHeader.style.display = 'block';
@@ -68,11 +72,18 @@ layout: full
         applicationsList.appendChild(li);
     }
 
-    function filter(text) {
+    function filter(text, epoc16, epoc32) {
         index = 0;
+        const platforms = new Set()
+        if (epoc16) { platforms.add("epoc16"); }
+        if (epoc32) { platforms.add("epoc32"); }
         text = text.toLowerCase();
         applicationsList.innerHTML = "";
         filteredGroups = groups.filter(function(group) {
+            const groupPlatforms = new Set(group.platforms);
+            if (groupPlatforms.isDisjointFrom(platforms)) {
+                return false;
+            }
             return group.name.toLowerCase().includes(text);
         });
         update();
@@ -97,12 +108,18 @@ layout: full
     }
 
     searchForm.addEventListener('reset', function(event) {
-        filter("");
+        filter("", epoc16Checkbox.checked, epoc32Checkbox.checked);
         searchInput.focus();
     });
     searchInput.addEventListener('input', debounce(function(event) {
-        filter(searchInput.value);
+        filter(searchInput.value, epoc16Checkbox.checked, epoc32Checkbox.checked);
     }, 30));
+    epoc16Checkbox.addEventListener('change', function(event) {
+        filter(searchInput.value, epoc16Checkbox.checked, epoc32Checkbox.checked);
+    });
+    epoc32Checkbox.addEventListener('change', function(event) {
+        filter(searchInput.value, epoc16Checkbox.checked, epoc32Checkbox.checked);
+    });
 
     window.addEventListener('scroll', debounce(update, 100));
     window.addEventListener('resize', debounce(update, 100));
