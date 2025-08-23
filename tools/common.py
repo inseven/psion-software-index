@@ -93,6 +93,12 @@ class Library(object):
         for source in self.sources:
             source.sync()
 
+    @property
+    def blocked_identifiers(self):
+        if 'blocked_identifiers' not in self._configuration:
+            return []
+        return self._configuration['blocked_identifiers']
+
 
 class InternetArchiveSource(object):
 
