@@ -27,7 +27,7 @@ layout: default
     <program-identifier>{{ program.id }}</program-identifier>
 </header>
 
-{% if program.screenshots %}
+{% if program.screenshots and program.screenshots.size > 0 %}
     <div class="screenshots">
         {% for screenshot in program.screenshots %}
             <img width="{{ screenshot.width }}" height="{{ screenshot.height }}" class="screenshot" src="/{{ screenshot.path }}" />

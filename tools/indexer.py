@@ -94,12 +94,6 @@ class Version(object):
             'identifier': variant.identifier,
             'items': copy.deepcopy(variant.items),
         } for variant in self.variants]
-
-        for variant in variants:
-            for item in variant['items']:
-                if 'icon' in item and 'bpp' in item['icon']:
-                    del item['icon']['bpp']
-
         return {
             'version': self.version,
             'variants': variants,
@@ -149,14 +143,8 @@ class Program(object):
             'platforms': [self.platform],
         }
         icon = self.icon
-        if icon:
+        if icon is not None:
             dict['icon'] = icon
-            # TODO: Don't recreate the dict.
-            dict['icon'] = {
-                'path': icon['path'],
-                'width': icon['width'],
-                'height': icon['height'],
-            }
         return dict
 
 
@@ -606,7 +594,6 @@ class IndexPaths(object):
         self.programs_all_path = os.path.join(self.root_directory, "programs_all.json")  # Programs grouped by very possible identifier.
         self.sources_path = os.path.join(self.root_directory, "sources.json")
         self.summary_path = os.path.join(self.root_directory, "summary.json")
-        self.groups_path = os.path.join(self.root_directory, "groups.json")  # Lightweight index of programs by preferred identifier.
         self.redirects_path = os.path.join(self.root_directory, "redirects.json")
 
 
@@ -657,21 +644,6 @@ def group(library):
             redirects['programs/' + release['sha256']] = 'programs/sha/' + release['sha256']
     programs = flatten_grouped_programs(program_groups)
 
-    # Once we've generated our top-level set, we massage it into something suitable for the API.
-    # Generate a minimal grouped index to use for search and filtering.
-    group_index = []
-    for program in sorted(programs, key=lambda x: x.name.lower()):
-        entry = {
-            'id': program.id,
-            'name': program.name,
-            'platforms': [program.platform],
-            'kinds': sorted(list(program.kinds)),
-            'runtimes': sorted(list(program.runtimes)),
-        }
-        if program.icon is not None:
-            entry['icon'] = program.icon
-        group_index.append(entry)
-
     # Summary.
     unique_releases = {release['sha256']: release for release in releases}.values()
     summary = {
@@ -721,10 +693,6 @@ def group(library):
     with open(index_paths.programs_all_path, "w", encoding="utf-8") as fh:
         json.dump([program.as_dict() for program in programs_all], fh)
 
-    logging.info("Writing groups to '%s'...", index_paths.groups_path)
-    with open(index_paths.groups_path, "w", encoding="utf-8") as fh:
-        json.dump(group_index, fh)
-
     logging.info("Writing redirects to '%s'...", index_paths.redirects_path)
     with open(index_paths.redirects_path, "w", encoding="utf-8") as fh:
         json.dump([{"path": path, "destination": destination} for (path, destination) in redirects.items()], fh)
@@ -768,6 +736,7 @@ def overlay(library):
         _, ext = os.path.splitext(path)
         return ext in [".png", ".gif"]
 
+    # Load the overlay.
     overlay = collections.defaultdict(dict)
     for overlay_directory in library.overlay_directories:
         for overlay_basename in utils.listdir(overlay_directory, include_hidden=False):
@@ -808,6 +777,39 @@ def overlay(library):
     with open(index_paths.programs_all_path) as fh:
         programs_all = json.load(fh)
 
+    # Create the manually-curated programs entries.
+    # 1) Generate a lookup for the programs in `programs` to allow us to group them.
+    programs_by_uid = {program['id']: program for program in programs}
+    # 2) Iterate over all the overlays, ignoring everything but the 'name' namespace.
+    for overlay_id, overlay_instance in overlay.items():
+        if not overlay_id.startswith("id/"):
+            continue
+        # 3) Get all programs referenced by the overlay and remove them from `programs` (we're replacing them).
+        overlay_programs = []
+        for id in overlay_instance['index'].metadata['ids']:
+            if id not in programs_by_uid:
+                continue
+            overlay_programs.append(programs_by_uid[id])
+            del programs_by_uid[id]
+        if len(overlay_programs) < 1:
+            logging.warning("Failed to generate overlay '%s'...", overlay_id)
+            continue
+        overlay_releases = []
+        # 4) Extract their contained 'installers' (aka. releases).
+        for program in overlay_programs:
+            variants = functools.reduce(operator.iconcat, [version['variants'] for version in program['versions']], [])
+            releases = functools.reduce(operator.iconcat, [variant['items'] for variant in variants], [])
+            overlay_releases.extend(releases)
+        # 5) Generate a new program instance and add it to the set.
+        program_dict = Program(overlay_id, overlay_releases, []).as_dict()
+        programs_by_uid[overlay_id] = program_dict
+        programs_all.append(program_dict)
+        # 6) Drop 'ids' from the overlay once we've used it.
+        del overlay_instance['index'].metadata['ids']
+
+    # 6) Set programs.
+    programs = list(programs_by_uid.values())
+
     # Merge the overlay into the index.
     # This acts on both `programs` and `programs_all` to ensure we're merging the overlay into both data views. This is
     # duplicate work and in the future it should be possible to drop `programs` when legacy clients have stopped using
@@ -844,10 +846,33 @@ def overlay(library):
             })
         application['screenshots'] = relative_paths
 
+    # Once we've generated our top-level set, we massage it into something suitable for the API.
+    # Generate a minimal grouped index to use for search and filtering.
+    group_index = []
+    for program in sorted(programs, key=lambda x: x['name'].lower()):
+        entry = {
+            'id': program['id'],
+            'name': program['name'],
+            'platforms': program['platforms'],
+            'kinds': program['kinds'],
+            'runtimes': program['runtimes'],
+        }
+        if 'icon' in program:
+            entry['icon'] = program['icon']
+        group_index.append(entry)
+
+    # Update the summary.
+    with open(index_paths.summary_path) as fh:
+        summary = json.load(fh)
+    summary['programs']['epoc16'] = len([group for group in programs if "epoc16" in group['platforms']])
+    summary['programs']['epoc32'] = len([group for group in programs if "epoc32" in group['platforms']])
+
     # Write the index.
     shutil.copyfile(index_paths.sources_path, destination_sources_path)
-    shutil.copyfile(index_paths.summary_path, destination_summary_path)
-    shutil.copyfile(index_paths.groups_path, destination_group_index_path)
+    with open(destination_summary_path, "w") as fh:
+        json.dump(summary, fh)
+    with open(destination_group_index_path, "w") as fh:
+        json.dump(group_index, fh)
     with open(destination_programs_path, "w") as fh:
         json.dump(programs, fh)
     with open(destination_programs_all_path, "w") as fh:

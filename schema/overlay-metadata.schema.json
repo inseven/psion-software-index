@@ -5,6 +5,7 @@
     "description": "Schema for overlay Frontmatter",
     "type": "object",
     "properties": {
+        "name": {"type": "string"},
         "subtitle": {"type": "string"},
         "category": {"enum": [
             "connectivity/web",
@@ -51,8 +52,12 @@
         "links": {
             "type": "array",
             "items": {"type": "string"}
+        },
+        "ids": {
+            "type": "array",
+            "items": {"type": "string"}
         }
     },
-    "required": ["subtitle"],
+    "required": [],
     "additionalProperties": false
 }
