@@ -54,10 +54,11 @@
             "type": "object",
             "properties": {
                 "path": {"type": "string"},
-                "width": {"type": "number"},
-                "height": {"type": "number"}
+                "width": {"type": "integer"},
+                "height": {"type": "integer"},
+                "bpp": {"type": "integer"}
             },
-            "required": ["path", "width", "height"],
+            "required": ["path", "width", "height", "bpp"],
             "additionalProperties": false
         },
         "screenshots": {
