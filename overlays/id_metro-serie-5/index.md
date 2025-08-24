@@ -1,11 +1,17 @@
 ---
+name: Metro Serie 5
 subtitle: Find routes between any two Paris metro stations
 category: productivity/other
+ids:
+- uid/0x10000e7a
+- uid/0x10000e78
+- uid/0x00100000
 authors:
 - Gabriel Dardenne
 links: 
 - https://web.archive.org/web/20010224062559/http://dardennegabriel.free.fr/5metroF.htm
 ---
+
 
 This application allows users to search for routes connecting two metro stations in Paris for Psion Series 5. (Psion Revo version [here](https://software.psion.info/programs/0x10000e7e/)
 

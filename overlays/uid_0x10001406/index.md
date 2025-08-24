@@ -10,4 +10,5 @@ links:
 > There is good news for all Psion 5 users. As pilots we developped a VFR flightplanning program for the Psion Series 5. Offering all features you need including printing via cable or even via Infra-Red !
 
 > How it works..............
-The program is based on the principle that the you plot your flight in a map. Then measure each leg's distance and true track. Enter the data in the program, and all important data (windcorrection angle, magnetic heading, magnetic track, time per leg and accumulated, groundspeed, true airspeed) will be calculated for you.
+
+> The program is based on the principle that the you plot your flight in a map. Then measure each leg's distance and true track. Enter the data in the program, and all important data (windcorrection angle, magnetic heading, magnetic track, time per leg and accumulated, groundspeed, true airspeed) will be calculated for you.
