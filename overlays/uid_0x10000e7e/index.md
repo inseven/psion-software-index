@@ -7,7 +7,7 @@ links:
 - https://web.archive.org/web/20010224062559/http://dardennegabriel.free.fr/5metroF.htm
 ---
 
-This application allows users to search for routes connecting two metro stations in Paris for Psion Revo. (Series 5 version [here](https://software.psion.info/programs/0x10000e7a/)
+This application allows users to search for routes connecting two metro stations in Paris for Psion Revo. (Series 5 version [here](https://software.psion.info/programs/id/id_metro-serie-5/)
 
 Stations can be entered in several ways:
 
