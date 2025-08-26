@@ -2,7 +2,7 @@
 subtitle: Solitaire game
 category: games/board
 publishers:
-- Fatcatz
+- FatCatz
 links: 
 - https://web.archive.org/web/20011201024152/http://www.fatcatz.net/products/soldelux/index.php
 ---

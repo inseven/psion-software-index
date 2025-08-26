@@ -13,7 +13,7 @@ links:
 ---
 
 
-This application allows users to search for routes connecting two metro stations in Paris for Psion Series 5. (Psion Revo version [here](https://software.psion.info/programs/0x10000e7e/)
+This application allows users to search for routes connecting two metro stations in Paris for Psion Series 5. (Psion Revo version [here](/programs/0x10000e7e/))
 
 Stations can be entered in several ways:
 

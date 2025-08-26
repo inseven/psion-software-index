@@ -2,7 +2,7 @@
 subtitle: Transform your machine into a virtual rule
 category: productivity/other
 publishers:
-- Fatcatz
+- FatCatz
 links: 
 - https://web.archive.org/web/20000306180015/http://www.fatcatz.tm/products/vruler/index.shtml
 ---

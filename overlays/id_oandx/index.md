@@ -1,5 +1,5 @@
 ---
-name: oandx
+name: OandX
 subtitle: Naughts and crosses game
 category: games/puzzle
 ids:
