@@ -87,6 +87,13 @@ p, details {
     line-height: 1.7em;
 }
 
+blockquote {
+    border-left: 0.5em solid var(--secondary-foreground-color);
+    font-style: italic;
+    margin: 0 0 var(--vertical-spacing) 0;
+    padding: 0 1em 0 0.5em;
+}
+
 header nav {
     text-align: center;
     font-weight: 400;
@@ -226,6 +233,10 @@ header program-platform ul li:last-child::after {
     content: "";
 }
 
+ul.program-links li a {
+    word-break: break-all;
+}
+
 .content, footer {
     text-align: left;
     max-width: 720px;
@@ -241,6 +252,7 @@ header program-platform ul li:last-child::after {
 .content img {
     max-width: 100%;
     height: auto;
+    border: 1px solid var(--secondary-foreground-color);
 }
 
 .content.full {
