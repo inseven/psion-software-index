@@ -26,6 +26,8 @@ import os
 import fastcommand
 import yaml
 
+import common
+
 
 TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIRECTORY = os.path.dirname(TOOLS_DIRECTORY)
@@ -54,6 +56,30 @@ def command_add(options):
 
     with open(options.library, "w") as fh:
         yaml.dump(library, fh)
+
+
+@fastcommand.command("search", help="search all sources for a file", arguments=[
+    fastcommand.Argument("name", help="file name to search for (case insensitive)")
+])
+def command_search(options):
+    results = []
+    library = common.Library(options.library)
+    for source in library.sources:
+        for (file_path, reference) in source.assets:
+            basename = os.path.basename(file_path)
+            if basename.lower() != options.name.lower():
+                continue
+            results.append((file_path, reference))
+
+    print("")
+    print("Search Results")
+    print("==============")
+
+    if not results:
+        exit("No items found.")
+
+    for (file_path, reference) in results:
+        print(" -> ".join([item.name for item in reference] + [basename]))
 
 
 def main():
