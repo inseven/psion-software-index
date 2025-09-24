@@ -21,6 +21,7 @@ blocked_identifiers:
 - uid/0x58454854
 sources:
 - https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
+- https://archive.org/download/400-psion-programma/400%20psion%20programmas.zip
 - https://archive.org/download/backups_202508/backups.zip
 - https://archive.org/download/backups_202508/psion%20sis%20files.zip
 - https://archive.org/download/backups_202508/psion%20zip%20files-part2.zip
@@ -76,11 +77,13 @@ sources:
 - https://archive.org/download/palmtops-numerohs-05/Palmtops_numerohs05.iso
 - https://archive.org/download/palmtops-numerohs-06/Palmtops_numerohs06.iso
 - https://archive.org/download/pcdierct-numero-98/PCDierct_numero98.iso
+- https://archive.org/download/pda_20250822/pda.zip
 - https://archive.org/download/pdf125full/pdf%2B125full.zip
 - https://archive.org/download/pdfPrinter_full/pdfPrinter_full.zip
 - https://archive.org/download/pilowar/pilowar.iso
 - https://archive.org/download/pocketpda_numero05/pocketpda_numero05.iso
 - https://archive.org/download/pocketwarewoerterbuch/PocketWareTrueDic.iso
+- https://archive.org/download/prosoft/prosoft.zip
 - https://archive.org/download/psion-calligrapher/Calligrapher.zip
 - https://archive.org/download/psion-cdtextfiles.com/PSION_cdtextfiles.com.zip
 - https://archive.org/download/psion-convertpro/ConvertPro.zip
