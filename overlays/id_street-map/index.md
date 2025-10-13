@@ -1,0 +1,7433 @@
+---
+ids:
+- uid/0x10002cf2  # Street map 's graveland
+- uid/0x10006c62  # Street map 's Gravenbrakel
+- uid/0x10002d9b  # Street map 's gravenhage
+- uid/0x10002d9c  # Street map 's gravenzande
+- uid/0x10002cab  # Street map 's hertogenbosch
+- uid/0x100071c7  # Street map 's-Gravenhage
+- uid/0x100071c8  # Street map 's-Hertogenbosch
+- uid/0x100025ed  # Street map Aachen
+- uid/0x10006d64  # Street map Aachen
+- uid/0x10002cac  # Street map Aalburg
+- uid/0x10002953  # Street map Aalen
+- uid/0x10006d65  # Street map Aalen
+- uid/0x10002cf3  # Street map Aalsmeer
+- uid/0x10006c00  # Street map Aalst
+- uid/0x10002c03  # Street map Aalten
+- uid/0x10007136  # Street map Aalten
+- uid/0x100030ee  # Street map Aalter
+- uid/0x10002d9d  # Street map Aar ter
+- uid/0x10002ed6  # Street map Aarau
+- uid/0x1000725a  # Street map Aarau
+- uid/0x10002e96  # Street map Aarberg
+- uid/0x10006c01  # Street map Aarlen
+- uid/0x10003161  # Street map Aarschot
+- uid/0x10006c74  # Street map Aarschot
+- uid/0x10006c02  # Street map Aarschot
+- uid/0x1000305a  # Street map Aartselaar
+- uid/0x10006c03  # Street map Aat
+- uid/0x10001b8c  # Street map Abbots Langley
+- uid/0x10002d65  # Street map Abcoude
+- uid/0x10001a69  # Street map Aberaeron
+- uid/0x10001ccb  # Street map Aberdare
+- uid/0x100018e0  # Street map Aberdeen
+- uid/0x100018df  # Street map Aberdeenshire
+- uid/0x10001b2a  # Street map Aberdovey
+- uid/0x10001d65  # Street map Aberfeldy
+- uid/0x10001b18  # Street map Abergavenny
+- uid/0x10001999  # Street map Abergele
+- uid/0x10001928  # Street map Aberlour
+- uid/0x10001b19  # Street map Abertillery
+- uid/0x10001a6a  # Street map Aberystwyth
+- uid/0x10001d4c  # Street map Abingdon
+- uid/0x10002555  # Street map Ablon sur seine
+- uid/0x100018e1  # Street map Aboyne
+- uid/0x10002061  # Street map Absam
+- uid/0x10001c4e  # Street map Accrington
+- uid/0x100018f8  # Street map Acharacle
+- uid/0x10002599  # Street map Acheres
+- uid/0x10002a83  # Street map Achim
+- uid/0x10006d66  # Street map Achim
+- uid/0x10001d97  # Street map Achnasheen
+- uid/0x10002be4  # Street map Achtkarspelen
+- uid/0x10007137  # Street map Achtkarspelen
+- uid/0x10001e29  # Street map Addlestone
+- uid/0x10002858  # Street map Adendorf
+- uid/0x10002ebc  # Street map Adligenswil
+- uid/0x10002f5a  # Street map Adliswil
+- uid/0x1000205c  # Street map Adnet
+- uid/0x10002762  # Street map Aerzen
+- uid/0x10006d67  # Street map Aerzen
+- uid/0x10002ef1  # Street map Aesch (bl)
+- uid/0x10002ee0  # Street map Aeugst am albis
+- uid/0x1000283b  # Street map Affalterbach
+- uid/0x10003103  # Street map Affligem
+- uid/0x10002ee1  # Street map Affoltern am albis
+- uid/0x1000725b  # Street map Affoltern Am Albis
+- uid/0x10002fe9  # Street map Agno
+- uid/0x10002b05  # Street map Agrate brianza
+- uid/0x10007203  # Street map Aguilas
+- uid/0x10006d68  # Street map Ahaus
+- uid/0x10002a98  # Street map Ahlen
+- uid/0x10006d69  # Street map Ahlen
+- uid/0x10002a3b  # Street map Ahrensburg
+- uid/0x10006d6b  # Street map Ahrensburg
+- uid/0x10002962  # Street map Ahrensbök
+- uid/0x10006d6a  # Street map Ahrensbök
+- uid/0x10002609  # Street map Ahrensfelde
+- uid/0x100026e6  # Street map Aichtal
+- uid/0x10006d6c  # Street map Aichtal
+- uid/0x100026e7  # Street map Aichwald
+- uid/0x1000263d  # Street map Aidlingen
+- uid/0x1000259a  # Street map Aigremont
+- uid/0x1000261a  # Street map Ainring
+- uid/0x10001c3f  # Street map Airdrie
+- uid/0x100030b5  # Street map Aiseau presles
+- uid/0x100023b5  # Street map Aix en provence
+- uid/0x10006cef  # Street map Aix-En-Provence
+- uid/0x10002cf4  # Street map Akersloot
+- uid/0x10002e79  # Street map Alaquàs
+- uid/0x10002e7a  # Street map Albal
+- uid/0x10002477  # Street map Albigny sur saone
+- uid/0x10002b7a  # Street map Albisola marina
+- uid/0x10002b7b  # Street map Albisola superiore
+- uid/0x10002d9e  # Street map Alblasserdam
+- uid/0x10002e7b  # Street map Alboraya
+- uid/0x10002d9f  # Street map Albrandswaard
+- uid/0x10006d6d  # Street map Albstadt
+- uid/0x10002e54  # Street map Alcalá de henares
+- uid/0x10007204  # Street map Alcalá De Henares
+- uid/0x10002e64  # Street map Alcantarilla
+- uid/0x10001e7e  # Street map Alcester
+- uid/0x10002e55  # Street map Alcobendas
+- uid/0x10002e56  # Street map Alcorcón
+- uid/0x10002df9  # Street map Alcoy
+- uid/0x10007205  # Street map Alcoy
+- uid/0x10002e7c  # Street map Aldaia
+- uid/0x10001e15  # Street map Aldeburgh
+- uid/0x1000269b  # Street map Aldenhoven
+- uid/0x1000196f  # Street map Alderley Edge
+- uid/0x10001b5f  # Street map Aldershot
+- uid/0x10002ad2  # Street map Alessandria
+- uid/0x100070d8  # Street map Alessandria
+- uid/0x10001a63  # Street map Alexandria
+- uid/0x10002e7d  # Street map Alfafar
+- uid/0x10006d6e  # Street map Alfeld (Leine)
+- uid/0x100018e2  # Street map Alford (Aberdeenshire)
+- uid/0x10001c7e  # Street map Alford (Lincolnshire)
+- uid/0x10002556  # Street map Alfortville
+- uid/0x10001a04  # Street map Alfreton
+- uid/0x100029d1  # Street map Alfter
+- uid/0x10007206  # Street map Algeciras
+- uid/0x100027ab  # Street map Algermissen
+- uid/0x10002dfa  # Street map Alicante
+- uid/0x10007207  # Street map Alicante
+- uid/0x10002da0  # Street map Alkemade
+- uid/0x1000322e  # Street map Alken
+- uid/0x10002cf5  # Street map Alkmaar
+- uid/0x10007138  # Street map Alkmaar
+- uid/0x10002025  # Street map Alkoven
+- uid/0x10002001  # Street map Alland
+- uid/0x100023b6  # Street map Allauch
+- uid/0x10002083  # Street map Allhaming
+- uid/0x1000271b  # Street map Alling
+- uid/0x100029b6  # Street map Allmersbach im tal
+- uid/0x10001989  # Street map Alloa
+- uid/0x10002ef2  # Street map Allschwil
+- uid/0x10002b67  # Street map Allumiere
+- uid/0x10002e33  # Street map Almazora
+- uid/0x10002d38  # Street map Almelo
+- uid/0x10007139  # Street map Almelo
+- uid/0x10002bde  # Street map Almere
+- uid/0x1000713a  # Street map Almere
+- uid/0x10002e06  # Street map Almería
+- uid/0x10007208  # Street map Almería
+- uid/0x10002e7e  # Street map Almàssera
+- uid/0x10001d98  # Street map Alness
+- uid/0x10001d05  # Street map Alnwick
+- uid/0x10003050  # Street map Alost
+- uid/0x10006c75  # Street map Alost
+- uid/0x10002ab2  # Street map Alpen
+- uid/0x10006d6f  # Street map Alpen
+- uid/0x10002da1  # Street map Alphen aan den rijn
+- uid/0x1000713b  # Street map Alphen Aan Den Rijn
+- uid/0x10002cad  # Street map Alphen chaam
+- uid/0x1000713c  # Street map Alphen-Chaam
+- uid/0x10002b7f  # Street map Alpignano
+- uid/0x10001b60  # Street map Alresford
+- uid/0x100025ee  # Street map Alsdorf
+- uid/0x10006d70  # Street map Alsfeld
+- uid/0x100019df  # Street map Alston
+- uid/0x1000202c  # Street map Altach
+- uid/0x100026e8  # Street map Altbach
+- uid/0x10002dfb  # Street map Altea
+- uid/0x100028ba  # Street map Altena
+- uid/0x100020e0  # Street map Altenberg bei linz
+- uid/0x10002a34  # Street map Altenberge
+- uid/0x100025f9  # Street map Altenburg
+- uid/0x10006d71  # Street map Altenburg
+- uid/0x100029b7  # Street map Althütte
+- uid/0x100028b1  # Street map Altlandsberg
+- uid/0x100020bc  # Street map Altlengbach
+- uid/0x10006d72  # Street map Altmannstein
+- uid/0x10006d73  # Street map Altomünster
+- uid/0x10001b61  # Street map Alton
+- uid/0x10001970  # Street map Altrincham
+- uid/0x1000198a  # Street map Alva
+- uid/0x100030e9  # Street map Alveringem
+- uid/0x10006d74  # Street map Alzenau I Ufr
+- uid/0x10006d75  # Street map Alzey
+- uid/0x10006cf0  # Street map Alès
+- uid/0x10003138  # Street map Amay
+- uid/0x10006cf1  # Street map Ambarès-Et-Lagrave
+- uid/0x100019e0  # Street map Ambleside
+- uid/0x10003260  # Street map Ambleve
+- uid/0x10002d39  # Street map Ambt delden
+- uid/0x10002c72  # Street map Ambt montfort
+- uid/0x10002be5  # Street map Ameland
+- uid/0x1000713d  # Street map Ameland
+- uid/0x10002d66  # Street map Amerongen
+- uid/0x10002d67  # Street map Amersfoort
+- uid/0x1000713e  # Street map Amersfoort
+- uid/0x1000194e  # Street map Amersham
+- uid/0x10002e6a  # Street map Ametlla de mar (l')
+- uid/0x10007209  # Street map Ametlla De Mar (L')
+- uid/0x10006cf2  # Street map Amiens
+- uid/0x10001b2b  # Street map Amlwch
+- uid/0x10001a6b  # Street map Ammanford
+- uid/0x10002a3c  # Street map Ammersbek
+- uid/0x10002c04  # Street map Ammerzoden
+- uid/0x10006cf3  # Street map Amnéville
+- uid/0x10002062  # Street map Ampass
+- uid/0x10002e6b  # Street map Amposta
+- uid/0x1000720a  # Street map Amposta
+- uid/0x10002cf6  # Street map Amstelveen
+- uid/0x1000713f  # Street map Amstelveen
+- uid/0x10002cf7  # Street map Amsterdam
+- uid/0x10007140  # Street map Amsterdam
+- uid/0x10006d76  # Street map Amt Neuhaus
+- uid/0x10002ad3  # Street map Ancona
+- uid/0x100070d9  # Street map Ancona
+- uid/0x10002eeb  # Street map Andelfingen
+- uid/0x100031b1  # Street map Andenne
+- uid/0x10006c76  # Street map Andenne
+- uid/0x10006c04  # Street map Andenne
+- uid/0x100030a2  # Street map Anderlecht
+- uid/0x10003217  # Street map Anderlues
+- uid/0x10002882  # Street map Andernach
+- uid/0x10006d77  # Street map Andernach
+- uid/0x10002cf8  # Street map Andijk
+- uid/0x1000251b  # Street map Andilly
+- uid/0x10001b62  # Street map Andover
+- uid/0x1000259b  # Street map Andresy
+- uid/0x1000261b  # Street map Anger
+- uid/0x10002c05  # Street map Angerlo
+- uid/0x10006cf4  # Street map Angers
+- uid/0x10002b68  # Street map Anguillara sabazia
+- uid/0x100070da  # Street map Anguillara Sabazia
+- uid/0x100018ef  # Street map Angus
+- uid/0x100030cf  # Street map Anhee
+- uid/0x100020b0  # Street map Anif
+- uid/0x10002bbc  # Street map Anloo
+- uid/0x10002cf9  # Street map Anna paulowna
+- uid/0x10001a59  # Street map Annan
+- uid/0x10006cf5  # Street map Annecy
+- uid/0x10006cf6  # Street map Annemasse
+- uid/0x10006d78  # Street map Annweiler Am Trifels
+- uid/0x10002a17  # Street map Anröchte
+- uid/0x10003149  # Street map Ans
+- uid/0x10002084  # Street map Ansfelden
+- uid/0x10001aed  # Street map Anstruther
+- uid/0x100020b1  # Street map Anthering
+- uid/0x10003139  # Street map Anthisnes
+- uid/0x1000236f  # Street map Antibes
+- uid/0x10006cf7  # Street map Antibes
+- uid/0x1000323b  # Street map Antoing
+- uid/0x1000242a  # Street map Antony
+- uid/0x10006cf8  # Street map Antony
+- uid/0x10006c05  # Street map Antwerpen
+- uid/0x1000305b  # Street map Anvers
+- uid/0x10006c77  # Street map Anvers
+- uid/0x100030c3  # Street map Anzegem
+- uid/0x100026ab  # Street map Anzing
+- uid/0x10002ad6  # Street map Anzola dell'emilia
+- uid/0x10002ad4  # Street map Aosta
+- uid/0x100070db  # Street map Aosta
+- uid/0x10002c06  # Street map Apeldoorn
+- uid/0x10007141  # Street map Apeldoorn
+- uid/0x100025fa  # Street map Apen
+- uid/0x10006d79  # Street map Apolda
+- uid/0x10002978  # Street map Appen
+- uid/0x100018f9  # Street map Appin
+- uid/0x10002c59  # Street map Appingedam
+- uid/0x100019e1  # Street map Appleby In Westmorland
+- uid/0x10002e57  # Street map Aranjuez
+- uid/0x1000720b  # Street map Aranjuez
+- uid/0x10002eef  # Street map Arbon
+- uid/0x100018f0  # Street map Arbroath
+- uid/0x10002c73  # Street map Arcen en velden
+- uid/0x10002b06  # Street map Arcore
+- uid/0x10002557  # Street map Arcueil
+- uid/0x10002b69  # Street map Ardea
+- uid/0x10001e62  # Street map Ardgay
+- uid/0x10003225  # Street map Ardooie
+- uid/0x10001911  # Street map Ardrossan
+- uid/0x10003245  # Street map Arendonk
+- uid/0x10002e07  # Street map Arenys de mar
+- uid/0x10002b07  # Street map Arese
+- uid/0x1000251c  # Street map Argenteuil
+- uid/0x10006cf9  # Street map Argenteuil
+- uid/0x100018f7  # Street map Argyll
+- uid/0x10006ce8  # Street map Arhus
+- uid/0x10001bac  # Street map Arisaig
+- uid/0x10002f76  # Street map Arisdorf
+- uid/0x100023b7  # Street map Arles
+- uid/0x10006cfa  # Street map Arles
+- uid/0x1000192f  # Street map Arlesey
+- uid/0x10002ef3  # Street map Arlesheim
+- uid/0x10003078  # Street map Arlon
+- uid/0x10006c78  # Street map Arlon
+- uid/0x10006cfb  # Street map Armentières
+- uid/0x10002c07  # Street map Arnhem
+- uid/0x10007142  # Street map Arnhem
+- uid/0x1000251d  # Street map Arnouville les gonesse
+- uid/0x100027bb  # Street map Arnsberg
+- uid/0x10006d7a  # Street map Arnsberg
+- uid/0x100027cb  # Street map Arnsdorf bei radeberg
+- uid/0x10006d7b  # Street map Arnstadt
+- uid/0x100023da  # Street map Arpajon
+- uid/0x10001a64  # Street map Arrochar
+- uid/0x10001b2c  # Street map Arthog
+- uid/0x10001eac  # Street map Arundel
+- uid/0x10003126  # Street map As
+- uid/0x10006d7c  # Street map Asbach
+- uid/0x10002600  # Street map Aschaffenburg
+- uid/0x10006d7d  # Street map Aschaffenburg
+- uid/0x100029f3  # Street map Aschau im chiemgau
+- uid/0x10002655  # Street map Ascheberg
+- uid/0x10006d7e  # Street map Ascheberg
+- uid/0x100028cb  # Street map Aschheim
+- uid/0x10001939  # Street map Ascot
+- uid/0x10006d7f  # Street map Asendorf
+- uid/0x10001a05  # Street map Ashbourne
+- uid/0x10001c71  # Street map Ashby De La Zouch
+- uid/0x10001c00  # Street map Ashford (Kent)
+- uid/0x10001c9f  # Street map Ashford (Middlesex)
+- uid/0x10001d06  # Street map Ashington
+- uid/0x10001e2a  # Street map Ashtead
+- uid/0x10001c4f  # Street map Ashton Under Lyne
+- uid/0x100019e2  # Street map Askam In Furness
+- uid/0x1000242b  # Street map Asnieres sur seine
+- uid/0x100029b8  # Street map Aspach
+- uid/0x1000283c  # Street map Asperg
+- uid/0x100020bd  # Street map Asperhofen
+- uid/0x10002b08  # Street map Assago
+- uid/0x10003104  # Street map Asse
+- uid/0x10002bbd  # Street map Assen
+- uid/0x10007143  # Street map Assen
+- uid/0x100030e3  # Street map Assenede
+- uid/0x100031b2  # Street map Assesse
+- uid/0x10002cae  # Street map Asten
+- uid/0x10002085  # Street map Asten
+- uid/0x100070dc  # Street map Asti
+- uid/0x1000307d  # Street map Ath
+- uid/0x10006c79  # Street map Ath
+- uid/0x10001e7f  # Street map Atherstone
+- uid/0x100023db  # Street map Athis mons
+- uid/0x10006cfc  # Street map Athis-Mons
+- uid/0x1000203e  # Street map Attendorf
+- uid/0x10002945  # Street map Attendorn
+- uid/0x10006d81  # Street map Attendorn
+- uid/0x10003079  # Street map Attert
+- uid/0x10001ce5  # Street map Attleborough
+- uid/0x100020ef  # Street map Attnang puchheim
+- uid/0x10006d82  # Street map Au I D Hallertau
+- uid/0x100023b8  # Street map Aubagne
+- uid/0x10006cfd  # Street map Aubagne
+- uid/0x1000307a  # Street map Aubange
+- uid/0x10003261  # Street map Aubel
+- uid/0x100024f4  # Street map Aubervilliers
+- uid/0x10003006  # Street map Aubonne
+- uid/0x10001d66  # Street map Auchterarder
+- uid/0x10003085  # Street map Audenarde
+- uid/0x10006c7a  # Street map Audenarde
+- uid/0x100030a3  # Street map Auderghem
+- uid/0x100029b9  # Street map Auenwald
+- uid/0x10002602  # Street map Augsburg
+- uid/0x100024f5  # Street map Aulnay sous bois
+- uid/0x10006cfe  # Street map Aulnay-Sous-Bois
+- uid/0x100027a4  # Street map Aumühle
+- uid/0x100026d8  # Street map Aurachtal
+- uid/0x10002370  # Street map Auribeau sur siagne
+- uid/0x100023b9  # Street map Auriol
+- uid/0x1000251e  # Street map Auvers sur oise
+- uid/0x100030c4  # Street map Avelgem
+- uid/0x100070dd  # Street map Avellino
+- uid/0x10002d3a  # Street map Avereest
+- uid/0x10001bad  # Street map Aviemore
+- uid/0x10006cff  # Street map Avignon
+- uid/0x10001d99  # Street map Avoch
+- uid/0x10001908  # Street map Avon
+- uid/0x1000314a  # Street map Awans
+- uid/0x10001dc8  # Street map Axbridge
+- uid/0x10002d89  # Street map Axel
+- uid/0x10001a16  # Street map Axminster
+- uid/0x1000720c  # Street map Ayamonte
+- uid/0x10006d83  # Street map Aying
+- uid/0x1000194f  # Street map Aylesbury
+- uid/0x10001c01  # Street map Aylesford
+- uid/0x10001912  # Street map Ayr
+- uid/0x10001910  # Street map Ayrshire
+- uid/0x1000314b  # Street map Aywaille
+- uid/0x100027f9  # Street map Aßlar
+- uid/0x10006d80  # Street map Aßling
+- uid/0x10003041  # Street map Baar
+- uid/0x10002caf  # Street map Baarle nassau
+- uid/0x10007144  # Street map Baarle-Nassau
+- uid/0x10002d68  # Street map Baarn
+- uid/0x1000267c  # Street map Babenhausen
+- uid/0x10002f24  # Street map Bachenbülach
+- uid/0x100029ba  # Street map Backnang
+- uid/0x10006d84  # Street map Backnang
+- uid/0x10001c50  # Street map Bacup
+- uid/0x10006d85  # Street map Bad Arolsen
+- uid/0x10006d86  # Street map Bad Bentheim
+- uid/0x10006d87  # Street map Bad Bergzabern
+- uid/0x10006d88  # Street map Bad Berka
+- uid/0x10006d89  # Street map Bad Berleburg
+- uid/0x10006d8a  # Street map Bad Doberan
+- uid/0x10006d8b  # Street map Bad Driburg
+- uid/0x10006d8c  # Street map Bad Dürkheim
+- uid/0x10002a0a  # Street map Bad dürrheim
+- uid/0x100029f4  # Street map Bad endorf
+- uid/0x10006d8e  # Street map Bad Essen
+- uid/0x10002113  # Street map Bad fischau brunn
+- uid/0x10006d8f  # Street map Bad Frankenhausen
+- uid/0x100020cf  # Street map Bad hall
+- uid/0x10002738  # Street map Bad harzburg
+- uid/0x10006d90  # Street map Bad Hersfeld
+- uid/0x10006be6  # Street map Bad Hofgastein
+- uid/0x10006d91  # Street map Bad Homburg V D Höhe
+- uid/0x100027c0  # Street map Bad homburg vor der höhe
+- uid/0x100029d2  # Street map Bad honnef
+- uid/0x10006d92  # Street map Bad Kreuznach
+- uid/0x10006d93  # Street map Bad Laasphe
+- uid/0x10006d94  # Street map Bad Langensalza
+- uid/0x10006d95  # Street map Bad Lauterberg Im Harz
+- uid/0x10006d96  # Street map Bad Marienberg (Westerwald)
+- uid/0x10002763  # Street map Bad münder am deister
+- uid/0x10006d97  # Street map Bad Münder Am Deister
+- uid/0x10002701  # Street map Bad münstereifel
+- uid/0x10006d98  # Street map Bad Münstereifel
+- uid/0x100025f7  # Street map Bad neuenahr ahrweiler
+- uid/0x100028a6  # Street map Bad oeynhausen
+- uid/0x10006d99  # Street map Bad Oeynhausen
+- uid/0x1000278e  # Street map Bad rappenau
+- uid/0x1000261c  # Street map Bad reichenhall
+- uid/0x10006d9a  # Street map Bad Reichenhall
+- uid/0x100027ac  # Street map Bad salzdetfurth
+- uid/0x10002835  # Street map Bad salzuflen
+- uid/0x10006d9c  # Street map Bad Salzuflen
+- uid/0x10006d9b  # Street map Bad Salzungen
+- uid/0x10002a18  # Street map Bad sassendorf
+- uid/0x10002094  # Street map Bad sauerbrunn
+- uid/0x10006d9d  # Street map Bad Schwalbach
+- uid/0x10002963  # Street map Bad schwartau
+- uid/0x10006d9e  # Street map Bad Sobernheim
+- uid/0x10002863  # Street map Bad soden am taunus
+- uid/0x10006d9f  # Street map Bad Tennstedt
+- uid/0x10002ac4  # Street map Bad vilbel
+- uid/0x10006da0  # Street map Bad Vilbel
+- uid/0x10002002  # Street map Bad vöslau
+- uid/0x100028a1  # Street map Bad wiessee
+- uid/0x10006da1  # Street map Bad Wildbad Im Schwarzwald
+- uid/0x10006da2  # Street map Bad Wildungen
+- uid/0x100020f7  # Street map Bad wimsbach neydharting
+- uid/0x100025fb  # Street map Bad zwischenahn
+- uid/0x10006da3  # Street map Bad Zwischenahn
+- uid/0x10002e08  # Street map Badalona
+- uid/0x10002003  # Street map Baden
+- uid/0x10002efe  # Street map Baden
+- uid/0x1000725c  # Street map Baden
+- uid/0x10006be4  # Street map Baden
+- uid/0x10002606  # Street map Baden baden
+- uid/0x10006d8d  # Street map Baden-Baden
+- uid/0x10006be5  # Street map Badgastein
+- uid/0x10002e09  # Street map Badia del vallès
+- uid/0x10001909  # Street map Badminton
+- uid/0x10003262  # Street map Baelen
+- uid/0x10003246  # Street map Baerle duc
+- uid/0x100025ef  # Street map Baesweiler
+- uid/0x1000199a  # Street map Bagillt
+- uid/0x1000725d  # Street map Bagnes
+- uid/0x1000242c  # Street map Bagneux
+- uid/0x100024f6  # Street map Bagnolet
+- uid/0x10001e2b  # Street map Bagshot
+- uid/0x10006da4  # Street map Bahrdorf
+- uid/0x10002a4b  # Street map Bahretal
+- uid/0x100028cc  # Street map Baierbrunn
+- uid/0x100026d9  # Street map Baiersdorf
+- uid/0x10001a06  # Street map Bakewell
+- uid/0x10001b2d  # Street map Bala
+- uid/0x10002e4f  # Street map Balaguer
+- uid/0x1000720d  # Street map Balaguer
+- uid/0x10002b80  # Street map Baldissero torinese
+- uid/0x10001b8d  # Street map Baldock
+- uid/0x10003247  # Street map Balen
+- uid/0x10002ffc  # Street map Balerna
+- uid/0x10001cb9  # Street map Balerno
+- uid/0x100018fa  # Street map Ballachulish
+- uid/0x100023dc  # Street map Ballainvilliers
+- uid/0x100018e3  # Street map Ballater
+- uid/0x10001929  # Street map Ballindalloch
+- uid/0x10001bda  # Street map Ballygrant
+- uid/0x10006d00  # Street map Balma
+- uid/0x100026e9  # Street map Baltmannsweiler
+- uid/0x100028bb  # Street map Balve
+- uid/0x10002608  # Street map Bamberg
+- uid/0x10006da5  # Street map Bamberg
+- uid/0x10001d07  # Street map Bamburgh
+- uid/0x10001d4d  # Street map Bampton
+- uid/0x10001d4e  # Street map Banbury
+- uid/0x10001c35  # Street map Banchory
+- uid/0x10002584  # Street map Bandol
+- uid/0x1000192a  # Street map Banff
+- uid/0x10001927  # Street map Banffshire
+- uid/0x10001b2e  # Street map Bangor
+- uid/0x10006da6  # Street map Bannesdorf Auf Fehmarn
+- uid/0x10002aa5  # Street map Bannewitz
+- uid/0x10001e2c  # Street map Banstead
+- uid/0x100027ad  # Street map Banteln
+- uid/0x10002e39  # Street map Banyoles
+- uid/0x1000720e  # Street map Banyoles
+- uid/0x10002fea  # Street map Barbengo
+- uid/0x100023ba  # Street map Barbentane
+- uid/0x10002e0a  # Street map Barberà del vallès
+- uid/0x10002e0b  # Street map Barcelona
+- uid/0x1000720f  # Street map Barcelona
+- uid/0x10002fc8  # Street map Bardonnex
+- uid/0x10002859  # Street map Bardowick
+- uid/0x10002da2  # Street map Barendrecht
+- uid/0x10002a3d  # Street map Bargfeld stegen
+- uid/0x10001ccc  # Street map Bargoed
+- uid/0x10002a3e  # Street map Bargteheide
+- uid/0x10006da7  # Street map Bargteheide
+- uid/0x100070de  # Street map Bari
+- uid/0x10001abb  # Street map Barking
+- uid/0x10002b09  # Street map Barlassina
+- uid/0x10001b2f  # Street map Barmouth
+- uid/0x10002979  # Street map Barmstedt
+- uid/0x100019ce  # Street map Barnard Castle
+- uid/0x10001b8e  # Street map Barnet
+- uid/0x10001df0  # Street map Barnetby
+- uid/0x10002c08  # Street map Barneveld
+- uid/0x10007145  # Street map Barneveld
+- uid/0x10001dfa  # Street map Barnsley
+- uid/0x10001a17  # Street map Barnstaple
+- uid/0x100019e3  # Street map Barrow In Furness
+- uid/0x10001df1  # Street map Barrow Upon Humber
+- uid/0x10001de9  # Street map Barry
+- uid/0x10002a3f  # Street map Barsbüttel
+- uid/0x10002768  # Street map Barsinghausen
+- uid/0x10001df2  # Street map Barton Upon Humber
+- uid/0x10002652  # Street map Barßel
+- uid/0x1000260a  # Street map Basdorf
+- uid/0x1000303f  # Street map Basel
+- uid/0x1000725e  # Street map Basel
+- uid/0x10001abc  # Street map Basildon
+- uid/0x10001b63  # Street map Basingstoke
+- uid/0x1000314c  # Street map Bassenge
+- uid/0x10002f25  # Street map Bassersdorf
+- uid/0x10002694  # Street map Bassum
+- uid/0x10006da8  # Street map Bassum
+- uid/0x10006c06  # Street map Bastenaken
+- uid/0x10003090  # Street map Bastogne
+- uid/0x10006c7b  # Street map Bastogne
+- uid/0x1000190a  # Street map Bath
+- uid/0x10001e8d  # Street map Bathgate
+- uid/0x10002d3b  # Street map Bathmen
+- uid/0x10001ec1  # Street map Batley
+- uid/0x10001aa1  # Street map Battle
+- uid/0x100027e1  # Street map Baunatal
+- uid/0x10006da9  # Street map Baunatal
+- uid/0x10002616  # Street map Bautzen
+- uid/0x10006daa  # Street map Bautzen
+- uid/0x1000261d  # Street map Bayerisch gmain
+- uid/0x10002618  # Street map Bayreuth
+- uid/0x10006dab  # Street map Bayreuth
+- uid/0x10001950  # Street map Beaconsfield
+- uid/0x10001a44  # Street map Beaminster
+- uid/0x1000251f  # Street map Beauchamp
+- uid/0x10002371  # Street map Beaulieu sur mer
+- uid/0x10001bae  # Street map Beauly
+- uid/0x10001b30  # Street map Beaumaris
+- uid/0x10003218  # Street map Beaumont
+- uid/0x10006c7c  # Street map Beaumont
+- uid/0x10006c07  # Street map Beaumont
+- uid/0x100030d0  # Street map Beauraing
+- uid/0x10006c7d  # Street map Beauraing
+- uid/0x10006c08  # Street map Beauraing
+- uid/0x10002372  # Street map Beausoleil
+- uid/0x100031cd  # Street map Beauvechain
+- uid/0x10001a18  # Street map Beaworthy
+- uid/0x10006dac  # Street map Bebra
+- uid/0x10001e16  # Street map Beccles
+- uid/0x10001c02  # Street map Beckenham
+- uid/0x100019e4  # Street map Beckermet
+- uid/0x10002a99  # Street map Beckum
+- uid/0x10006dad  # Street map Beckum
+- uid/0x10001d29  # Street map Bedale
+- uid/0x100026cc  # Street map Bedburg
+- uid/0x10006dae  # Street map Bedburg
+- uid/0x100027e8  # Street map Bedburg hau
+- uid/0x10006daf  # Street map Bedburg-Hau
+- uid/0x10001930  # Street map Bedford
+- uid/0x1000192e  # Street map Bedfordshire
+- uid/0x10001d08  # Street map Bedlington
+- uid/0x10002c5a  # Street map Bedum
+- uid/0x10007146  # Street map Bedum
+- uid/0x10002c74  # Street map Beek
+- uid/0x10002a9a  # Street map Beelen
+- uid/0x10006db0  # Street map Beelen
+- uid/0x10002cfa  # Street map Beemster
+- uid/0x10006db1  # Street map Beerfelden
+- uid/0x10003098  # Street map Beernem
+- uid/0x10003248  # Street map Beerse
+- uid/0x10003105  # Street map Beersel
+- uid/0x10002c75  # Street map Beesel
+- uid/0x10003162  # Street map Begijnendijk
+- uid/0x10002bbe  # Street map Beilen
+- uid/0x10002b81  # Street map Beinasco
+- uid/0x10001913  # Street map Beith
+- uid/0x10003163  # Street map Bekkevoort
+- uid/0x10002c76  # Street map Belfeld
+- uid/0x10001d09  # Street map Belford
+- uid/0x100028ab  # Street map Belgershain
+- uid/0x10002f65  # Street map Bellach
+- uid/0x10002b61  # Street map Bellaria igea marina
+- uid/0x10002fc9  # Street map Bellevue
+- uid/0x10002c5b  # Street map Bellingwedde
+- uid/0x10007147  # Street map Bellingwedde
+- uid/0x10001c40  # Street map Bellshill
+- uid/0x1000294d  # Street map Belm
+- uid/0x1000300c  # Street map Belmont sur lausanne
+- uid/0x1000307e  # Street map Beloeil
+- uid/0x10002ecd  # Street map Belp
+- uid/0x10001a07  # Street map Belper
+- uid/0x10006db2  # Street map Beltheim
+- uid/0x10001c03  # Street map Belvedere
+- uid/0x10001bf3  # Street map Bembridge
+- uid/0x10002c09  # Street map Bemmel
+- uid/0x10007148  # Street map Bemmel
+- uid/0x10001abd  # Street map Benfleet
+- uid/0x10002dfc  # Street map Benidorm
+- uid/0x10007210  # Street map Benidorm
+- uid/0x10002e80  # Street map Beniparrell
+- uid/0x10002cfb  # Street map Bennebroek
+- uid/0x1000283d  # Street map Benningen am neckar
+- uid/0x10006db3  # Street map Bensheim
+- uid/0x100030a4  # Street map Berchem sainte agathe
+- uid/0x1000261e  # Street map Berchtesgaden
+- uid/0x10002a2d  # Street map Berg
+- uid/0x10002da3  # Street map Bergambacht
+- uid/0x10002ad5  # Street map Bergamo
+- uid/0x100070df  # Street map Bergamo
+- uid/0x10002eff  # Street map Bergdietikon
+- uid/0x10002a62  # Street map Bergen
+- uid/0x10006c09  # Street map Bergen
+- uid/0x10006db4  # Street map Bergen
+- uid/0x10007149  # Street map Bergen
+- uid/0x10002c77  # Street map Bergen (limburg)
+- uid/0x10002cfc  # Street map Bergen (noord-holland)
+- uid/0x10006db5  # Street map Bergen Auf Rügen
+- uid/0x10002cb0  # Street map Bergen op zoom
+- uid/0x1000714a  # Street map Bergen Op Zoom
+- uid/0x10002cb1  # Street map Bergeyk
+- uid/0x10002c0a  # Street map Bergh
+- uid/0x1000714b  # Street map Bergh
+- uid/0x100026cd  # Street map Bergheim
+- uid/0x100020b2  # Street map Bergheim
+- uid/0x10006db6  # Street map Bergheim
+- uid/0x10002994  # Street map Bergholz rehbrücke
+- uid/0x100029e9  # Street map Bergisch gladbach
+- uid/0x10002a79  # Street map Bergkamen
+- uid/0x10006db7  # Street map Bergkamen
+- uid/0x10002666  # Street map Bergkirchen
+- uid/0x100029bb  # Street map Berglen
+- uid/0x10002910  # Street map Bergneustadt
+- uid/0x10006db8  # Street map Bergneustadt
+- uid/0x10002da4  # Street map Bergschenhoek
+- uid/0x10002f13  # Street map Berikon
+- uid/0x10003127  # Street map Beringen
+- uid/0x10002f9f  # Street map Beringen
+- uid/0x10006c7e  # Street map Beringen
+- uid/0x10006c0a  # Street map Beringen
+- uid/0x10002da5  # Street map Berkel en rodenrijs
+- uid/0x10001afc  # Street map Berkeley
+- uid/0x10001b8f  # Street map Berkhamsted
+- uid/0x10001938  # Street map Berkshire
+- uid/0x1000318c  # Street map Berlaar
+- uid/0x1000320d  # Street map Berlare
+- uid/0x10006db9  # Street map Berlin
+- uid/0x10002628  # Street map Berlin (Center)
+- uid/0x10003287  # Street map Berloz
+- uid/0x10002e9e  # Street map Bern
+- uid/0x1000725f  # Street map Bern
+- uid/0x1000260b  # Street map Bernau
+- uid/0x10006dba  # Street map Bernau
+- uid/0x100029f5  # Street map Bernau am chiemsee
+- uid/0x10002004  # Street map Berndorf
+- uid/0x10002abf  # Street map Berne
+- uid/0x10002fca  # Street map Bernex
+- uid/0x10002cb2  # Street map Bernheeze
+- uid/0x1000307f  # Street map Bernissart
+- uid/0x10002da6  # Street map Bernisse
+- uid/0x100023bb  # Street map Berre l'etang
+- uid/0x1000195f  # Street map Berriedale
+- uid/0x10003164  # Street map Bertem
+- uid/0x10003091  # Street map Bertogne
+- uid/0x10006c7f  # Street map Bertogne
+- uid/0x10006c0b  # Street map Bertogne
+- uid/0x10002bb9  # Street map Bertrange
+- uid/0x100031c1  # Street map Bertrix
+- uid/0x10006c80  # Street map Bertrix
+- uid/0x10006c0c  # Street map Bertrix
+- uid/0x10001d0a  # Street map Berwick Upon Tweed
+- uid/0x10001945  # Street map Berwickshire
+- uid/0x10006d01  # Street map Besançon
+- uid/0x1000283e  # Street map Besigheim
+- uid/0x10002520  # Street map Bessancourt
+- uid/0x10002cb3  # Street map Best
+- uid/0x1000714c  # Street map Best
+- uid/0x10001e2d  # Street map Betchworth
+- uid/0x1000244f  # Street map Betheny
+- uid/0x10002bac  # Street map Bettembourg
+- uid/0x10006dbb  # Street map Bettenfeld
+- uid/0x10002f66  # Street map Bettlach
+- uid/0x10001b31  # Street map Betws Y Coed
+- uid/0x100028ac  # Street map Beucha
+- uid/0x10002c0b  # Street map Beuningen
+- uid/0x10003007  # Street map Bevaix
+- uid/0x100031fe  # Street map Beveren
+- uid/0x10006c81  # Street map Beveren
+- uid/0x10006c0d  # Street map Beveren
+- uid/0x10001d1d  # Street map Beverley
+- uid/0x10006dbc  # Street map Beverungen
+- uid/0x10002cfd  # Street map Beverwijk
+- uid/0x10001ef0  # Street map Bewdley
+- uid/0x10001aa2  # Street map Bexhill On Sea
+- uid/0x10001c04  # Street map Bexley
+- uid/0x10001c05  # Street map Bexleyheath
+- uid/0x1000314d  # Street map Beyne heusay
+- uid/0x10002521  # Street map Bezons
+- uid/0x10002b5a  # Street map Bibbiano
+- uid/0x10002fb6  # Street map Biberist
+- uid/0x10001d4f  # Street map Bicester
+- uid/0x10001a19  # Street map Bideford
+- uid/0x10006dbd  # Street map Biebergemünd
+- uid/0x10006dbe  # Street map Biedenkopf
+- uid/0x1000209c  # Street map Biedermannsdorf
+- uid/0x10002ea8  # Street map Biel (be)
+- uid/0x10007260  # Street map Biel (Be)
+- uid/0x10002ef4  # Street map Biel benken
+- uid/0x10002629  # Street map Bielefeld
+- uid/0x10006dbf  # Street map Bielefeld
+- uid/0x10006dc0  # Street map Bienenbüttel
+- uid/0x1000280f  # Street map Bienitz
+- uid/0x10003165  # Street map Bierbeek
+- uid/0x1000283f  # Street map Bietigheim bissingen
+- uid/0x10003106  # Street map Bievene
+- uid/0x100030d1  # Street map Bievre
+- uid/0x100023dd  # Street map Bievres
+- uid/0x10001c41  # Street map Biggar
+- uid/0x10001931  # Street map Biggleswade
+- uid/0x100024dc  # Street map Bihorel
+- uid/0x10007211  # Street map Bilbao
+- uid/0x10002be6  # Street map Bildt het
+- uid/0x1000714d  # Street map Bildt Het
+- uid/0x10002656  # Street map Billerbeck
+- uid/0x10001abe  # Street map Billericay
+- uid/0x10001990  # Street map Billingham
+- uid/0x10001ead  # Street map Billingshurst
+- uid/0x10001e96  # Street map Bilston
+- uid/0x10002d69  # Street map Bilt de
+- uid/0x1000322f  # Street map Bilzen
+- uid/0x10006c82  # Street map Bilzen
+- uid/0x10006c0e  # Street map Bilzen
+- uid/0x10003219  # Street map Binche
+- uid/0x10006dc1  # Street map Bingen Am Rhein
+- uid/0x10001ec2  # Street map Bingley
+- uid/0x10002da7  # Street map Binnenmaas
+- uid/0x1000714e  # Street map Binnenmaas
+- uid/0x10002ef5  # Street map Binningen
+- uid/0x10002feb  # Street map Bioggio
+- uid/0x10002373  # Street map Biot
+- uid/0x10001c06  # Street map Birchington
+- uid/0x100026ba  # Street map Birkenfeld
+- uid/0x10001c93  # Street map Birkenhead
+- uid/0x1000291e  # Street map Birkenwerder
+- uid/0x10002f3d  # Street map Birmensdorf (zh)
+- uid/0x10002f00  # Street map Birmenstorf (ag)
+- uid/0x10001e97  # Street map Birmingham
+- uid/0x10001e98  # Street map Birmingham Center
+- uid/0x10002f1e  # Street map Birr
+- uid/0x10002ef6  # Street map Birsfelden
+- uid/0x1000207e  # Street map Bisamberg
+- uid/0x100023a7  # Street map Bischheim
+- uid/0x10002741  # Street map Bischofsheim
+- uid/0x1000261f  # Street map Bischofswiesen
+- uid/0x100019cf  # Street map Bishop Auckland
+- uid/0x10001db6  # Street map Bishops Castle
+- uid/0x10001b90  # Street map Bishops Stortford
+- uid/0x10001d8a  # Street map Bishopton
+- uid/0x10006dc2  # Street map Bispingen
+- uid/0x1000294e  # Street map Bissendorf
+- uid/0x10006dc3  # Street map Bissendorf
+- uid/0x10006dc4  # Street map Bitburg
+- uid/0x10001c51  # Street map Blackburn
+- uid/0x10001c52  # Street map Blackpool
+- uid/0x10001b1a  # Street map Blackwood
+- uid/0x10002cb4  # Street map Bladel
+- uid/0x10001b32  # Street map Blaenau Ffestiniog
+- uid/0x10001b1b  # Street map Blaenavon
+- uid/0x10002900  # Street map Blaichach
+- uid/0x10001b1c  # Street map Blaina
+- uid/0x10001d67  # Street map Blairgowrie
+- uid/0x10001afd  # Street map Blakeney
+- uid/0x10001a45  # Street map Blandford Forum
+- uid/0x10002e3a  # Street map Blanes
+- uid/0x10003099  # Street map Blankenberge
+- uid/0x10002a5b  # Street map Blankenfelde
+- uid/0x10006dc5  # Street map Blankenheim
+- uid/0x10002cfe  # Street map Blaricum
+- uid/0x10001e6c  # Street map Blaydon On Tyne
+- uid/0x10006dc6  # Street map Bleckede
+- uid/0x1000314e  # Street map Blegny
+- uid/0x10002da8  # Street map Bleiswijk
+- uid/0x1000714f  # Street map Bleiswijk
+- uid/0x10002a84  # Street map Blender
+- uid/0x10006dc7  # Street map Blieskastel
+- uid/0x10002cff  # Street map Bloemendaal
+- uid/0x10003035  # Street map Blonay
+- uid/0x10002014  # Street map Bludesch
+- uid/0x1000260c  # Street map Blumberg
+- uid/0x10001d0b  # Street map Blyth
+- uid/0x10001e8e  # Street map Bo Ness
+- uid/0x10002be7  # Street map Boarnsterhim
+- uid/0x10007150  # Street map Boarnsterhim
+- uid/0x10001baf  # Street map Boat Of Garten
+- uid/0x100024f7  # Street map Bobigny
+- uid/0x1000317f  # Street map Bocholt
+- uid/0x1000262e  # Street map Bocholt
+- uid/0x10006dc9  # Street map Bocholt
+- uid/0x1000262a  # Street map Bochum
+- uid/0x10006dca  # Street map Bochum
+- uid/0x100027ae  # Street map Bockenem
+- uid/0x10006dcb  # Street map Bockenem
+- uid/0x10002da9  # Street map Bodegraven
+- uid/0x10002870  # Street map Bodenheim
+- uid/0x100019aa  # Street map Bodmin
+- uid/0x10002827  # Street map Bodolz
+- uid/0x10001b33  # Street map Bodorgan
+- uid/0x1000305c  # Street map Boechout
+- uid/0x10002cb5  # Street map Boekel
+- uid/0x10002c5c  # Street map Boer ten
+- uid/0x10007151  # Street map Boer Ten
+- uid/0x10001eae  # Street map Bognor Regis
+- uid/0x10006dcc  # Street map Bohmte
+- uid/0x1000242d  # Street map Bois colombes
+- uid/0x1000259c  # Street map Bois d'arcy
+- uid/0x100024dd  # Street map Bois guillaume
+- uid/0x10002558  # Street map Boissy saint leger
+- uid/0x100023de  # Street map Boissy sous saint yon
+- uid/0x1000297a  # Street map Bokholt hanredder
+- uid/0x10001e6d  # Street map Boldon Colliery
+- uid/0x10002b0a  # Street map Bollate
+- uid/0x10002e9f  # Street map Bolligen
+- uid/0x10002ad7  # Street map Bologna
+- uid/0x100070e0  # Street map Bologna
+- uid/0x10002be8  # Street map Bolsward
+- uid/0x10001c53  # Street map Bolton
+- uid/0x10002ae1  # Street map Bolzano
+- uid/0x100070e1  # Street map Bolzano
+- uid/0x10001a6c  # Street map Boncath
+- uid/0x100023df  # Street map Bondoufle
+- uid/0x100024f8  # Street map Bondy
+- uid/0x1000318d  # Street map Bonheiden
+- uid/0x1000262d  # Street map Bonn
+- uid/0x10006dce  # Street map Bonn
+- uid/0x10002559  # Street map Bonneuil sur marne
+- uid/0x10001e0e  # Street map Bonnybridge
+- uid/0x10001cba  # Street map Bonnyrigg
+- uid/0x100024de  # Street map Bonsecours
+- uid/0x10002ee2  # Street map Bonstetten
+- uid/0x1000305d  # Street map Boom
+- uid/0x10003166  # Street map Boortmeerbeek
+- uid/0x10001c94  # Street map Bootle
+- uid/0x10006dcf  # Street map Boppard
+- uid/0x1000296a  # Street map Borchen
+- uid/0x10002c0c  # Street map Borculo
+- uid/0x10007152  # Street map Borculo
+- uid/0x10006d04  # Street map Bordeaux
+- uid/0x10001b64  # Street map Bordon
+- uid/0x10001b91  # Street map Borehamwood
+- uid/0x10002b82  # Street map Borgaro torinese
+- uid/0x10006dd0  # Street map Borgentreich
+- uid/0x10002bbf  # Street map Borger
+- uid/0x10007153  # Street map Borger-Odoorn
+- uid/0x1000262f  # Street map Borken
+- uid/0x10006dd1  # Street map Borken
+- uid/0x10006dd2  # Street map Borken (Hessen)
+- uid/0x10006dd3  # Street map Borkum
+- uid/0x10002c78  # Street map Born
+- uid/0x10002d3c  # Street map Borne
+- uid/0x1000318e  # Street map Bornem
+- uid/0x100029d3  # Street map Bornheim
+- uid/0x10006dd4  # Street map Bornheim
+- uid/0x1000305e  # Street map Borsbeek
+- uid/0x10002810  # Street map Borsdorf
+- uid/0x10002d8a  # Street map Borsele
+- uid/0x1000297b  # Street map Borstel hohenraden
+- uid/0x10001a6d  # Street map Borth
+- uid/0x100019ab  # Street map Boscastle
+- uid/0x10002daa  # Street map Boskoop
+- uid/0x10001c7f  # Street map Boston
+- uid/0x10002ae2  # Street map Botticino
+- uid/0x10002ef7  # Street map Bottmingen
+- uid/0x10002637  # Street map Bottrop
+- uid/0x10006dd5  # Street map Bottrop
+- uid/0x100023bc  # Street map Bouc bel air
+- uid/0x10003008  # Street map Boudry
+- uid/0x10007261  # Street map Boudry
+- uid/0x10002522  # Street map Bouffemont
+- uid/0x1000259d  # Street map Bougival
+- uid/0x100031c2  # Street map Bouillon
+- uid/0x10006c83  # Street map Bouillon
+- uid/0x10006c0f  # Street map Bouillon
+- uid/0x1000242e  # Street map Boulogne billancourt
+- uid/0x10006d05  # Street map Boulogne-Sur-Mer
+- uid/0x1000242f  # Street map Bourg la reine
+- uid/0x10003128  # Street map Bourg leopold
+- uid/0x10006d06  # Street map Bourg-En-Bresse
+- uid/0x10001c80  # Street map Bourne
+- uid/0x10001951  # Street map Bourne End
+- uid/0x10001a46  # Street map Bournemouth
+- uid/0x1000712b  # Street map Bourscheid
+- uid/0x100031a2  # Street map Boussu
+- uid/0x100023e0  # Street map Boussy saint antoine
+- uid/0x10003167  # Street map Boutersem
+- uid/0x10002454  # Street map Bouxieres aux dames
+- uid/0x1000274f  # Street map Bovenden
+- uid/0x10002b0b  # Street map Bovisio masciago
+- uid/0x10001a6e  # Street map Bow Street
+- uid/0x10001bdb  # Street map Bowmore
+- uid/0x10002cb6  # Street map Boxmeer
+- uid/0x10007154  # Street map Boxmeer
+- uid/0x10002cb7  # Street map Boxtel
+- uid/0x10007155  # Street map Boxtel
+- uid/0x10001cfb  # Street map Brackley
+- uid/0x1000193a  # Street map Bracknell
+- uid/0x10001ec3  # Street map Bradford
+- uid/0x10001ee1  # Street map Bradford On Avon
+- uid/0x100031ce  # Street map Braine l'alleud
+- uid/0x100031cf  # Street map Braine le chateau
+- uid/0x10003205  # Street map Braine le comte
+- uid/0x10006c84  # Street map Braine-L'Alleud
+- uid/0x10006c85  # Street map Braine-Le-Comte
+- uid/0x10001abf  # Street map Braintree
+- uid/0x10003288  # Street map Braives
+- uid/0x10002ac0  # Street map Brake (unterweser)
+- uid/0x10003086  # Street map Brakel
+- uid/0x10002c0d  # Street map Brakel
+- uid/0x10006c86  # Street map Brakel
+- uid/0x10006c10  # Street map Brakel
+- uid/0x10006dd6  # Street map Brakel
+- uid/0x100019e5  # Street map Brampton
+- uid/0x10006dd7  # Street map Bramsche
+- uid/0x10002638  # Street map Brandenburg an der havel
+- uid/0x10006dd8  # Street map Brandenburg An Der Havel
+- uid/0x100028ad  # Street map Brandis
+- uid/0x10002b83  # Street map Brandizzo
+- uid/0x10001e17  # Street map Brandon
+- uid/0x1000305f  # Street map Brasschaat
+- uid/0x10002639  # Street map Braunschweig
+- uid/0x10006dd9  # Street map Braunschweig
+- uid/0x10001a1a  # Street map Braunton
+- uid/0x100018f1  # Street map Brechin
+- uid/0x10003060  # Street map Brecht
+- uid/0x100026b1  # Street map Breckerfeld
+- uid/0x10006dda  # Street map Breckerfeld
+- uid/0x10001d73  # Street map Brecon
+- uid/0x10002cb8  # Street map Breda
+- uid/0x10007156  # Street map Breda
+- uid/0x100031e8  # Street map Bredene
+- uid/0x10002d3d  # Street map Brederwiede
+- uid/0x10003180  # Street map Bree
+- uid/0x10002fec  # Street map Breganzona
+- uid/0x10002016  # Street map Bregenz
+- uid/0x10002ae7  # Street map Bregnano
+- uid/0x100029f6  # Street map Breitbrunn am chiemsee
+- uid/0x1000209d  # Street map Breitenfurt bei wien
+- uid/0x1000263b  # Street map Bremen
+- uid/0x10006ddb  # Street map Bremen
+- uid/0x1000263c  # Street map Bremerhaven
+- uid/0x10006ddc  # Street map Bremerhaven
+- uid/0x10006ddd  # Street map Bremervörde
+- uid/0x10002f14  # Street map Bremgarten (ag)
+- uid/0x10001ca0  # Street map Brentford
+- uid/0x10001ac0  # Street map Brentwood
+- uid/0x10002ae3  # Street map Brescia
+- uid/0x100070e2  # Street map Brescia
+- uid/0x10002b0c  # Street map Bresso
+- uid/0x10006d07  # Street map Brest
+- uid/0x100023e1  # Street map Bretigny sur orge
+- uid/0x100027cc  # Street map Bretnig hauswalde
+- uid/0x10006dde  # Street map Breuberg
+- uid/0x100023e2  # Street map Breuillet
+- uid/0x10002d6a  # Street map Breukelen
+- uid/0x100023e3  # Street map Breux jouy
+- uid/0x100018fb  # Street map Bridge Of Orchy
+- uid/0x10001d8b  # Street map Bridge Of Weir
+- uid/0x10001bdc  # Street map Bridgend (Isle Of Islay)
+- uid/0x10001ccd  # Street map Bridgend (Mid Glamorgan)
+- uid/0x10001db7  # Street map Bridgnorth
+- uid/0x10001dc9  # Street map Bridgwater
+- uid/0x10001d1e  # Street map Bridlington
+- uid/0x10001a47  # Street map Bridport
+- uid/0x10002dab  # Street map Brielle
+- uid/0x10001e99  # Street map Brierley Hill
+- uid/0x10002786  # Street map Brieselang
+- uid/0x10001df3  # Street map Brigg
+- uid/0x10001ec4  # Street map Brighouse
+- uid/0x10001aa3  # Street map Brighton
+- uid/0x10006ddf  # Street map Brilon
+- uid/0x100027ff  # Street map Brinkum
+- uid/0x1000190b  # Street map Bristol
+- uid/0x1000190c  # Street map Bristol Center
+- uid/0x10001a1b  # Street map Brixham
+- uid/0x10001c07  # Street map Broadstairs
+- uid/0x10001a48  # Street map Broadstone
+- uid/0x10001ef1  # Street map Broadway
+- uid/0x10001b65  # Street map Brockenhurst
+- uid/0x10001bc1  # Street map Brodick
+- uid/0x10002c79  # Street map Broekhuizen
+- uid/0x10001c08  # Street map Bromley
+- uid/0x10001ef2  # Street map Bromsgrove
+- uid/0x10001b85  # Street map Bromyard
+- uid/0x10002478  # Street map Bron
+- uid/0x10001e63  # Street map Brora
+- uid/0x10001db8  # Street map Broseley
+- uid/0x100024ae  # Street map Brou sur chantereine
+- uid/0x10001d1f  # Street map Brough
+- uid/0x100019e6  # Street map Broughton In Furness
+- uid/0x10001b92  # Street map Broxbourne
+- uid/0x10001e8f  # Street map Broxburn
+- uid/0x10006de0  # Street map Bruchhausen-Vilsen
+- uid/0x1000285c  # Street map Bruchköbel
+- uid/0x10006de1  # Street map Bruchsal
+- uid/0x10006de2  # Street map Bruckmühl
+- uid/0x10003080  # Street map Brugelette
+- uid/0x1000309a  # Street map Bruges
+- uid/0x10006c87  # Street map Bruges
+- uid/0x10002f1f  # Street map Brugg
+- uid/0x10006c11  # Street map Brugge
+- uid/0x10002b0d  # Street map Brugherio
+- uid/0x10001bdd  # Street map Bruichladdich
+- uid/0x10002c0e  # Street map Brummen
+- uid/0x1000323c  # Street map Brunehaut
+- uid/0x1000209e  # Street map Brunn am gebirge
+- uid/0x100028cd  # Street map Brunnthal
+- uid/0x100023e4  # Street map Brunoy
+- uid/0x10002c7a  # Street map Brunssum
+- uid/0x10006c12  # Street map Brussel
+- uid/0x10001dca  # Street map Bruton
+- uid/0x100030a5  # Street map Bruxelles
+- uid/0x10006c88  # Street map Bruxelles
+- uid/0x100023e5  # Street map Bruyeres le chatel
+- uid/0x1000255a  # Street map Bry sur marne
+- uid/0x10001b1d  # Street map Brynmawr
+- uid/0x10001b34  # Street map Brynteg
+- uid/0x10002ec6  # Street map Brügg
+- uid/0x10002a8f  # Street map Brüggen
+- uid/0x100026ce  # Street map Brühl
+- uid/0x10006de3  # Street map Brühl
+- uid/0x10002fbb  # Street map Brütten
+- uid/0x10002f77  # Street map Bubendorf
+- uid/0x100026da  # Street map Bubenreuth
+- uid/0x10002f53  # Street map Bubikon
+- uid/0x1000259e  # Street map Buc
+- uid/0x10002b0e  # Street map Buccinasco
+- uid/0x1000259f  # Street map Buchelay
+- uid/0x1000277d  # Street map Buchholz in der nordheide
+- uid/0x10006de4  # Street map Buchholz In Der Nordheide
+- uid/0x100020f8  # Street map Buchkirchen
+- uid/0x10002ebd  # Street map Buchrain
+- uid/0x10002f32  # Street map Buchs
+- uid/0x10002ed7  # Street map Buchs (ag)
+- uid/0x10001a1c  # Street map Buckfastleigh
+- uid/0x10001ac1  # Street map Buckhurst Hill
+- uid/0x1000192b  # Street map Buckie
+- uid/0x10001952  # Street map Buckingham
+- uid/0x1000194d  # Street map Buckinghamshire
+- uid/0x1000199b  # Street map Buckley
+- uid/0x10001db9  # Street map Bucknell
+- uid/0x100019ac  # Street map Bude
+- uid/0x10002cb9  # Street map Budel
+- uid/0x10002871  # Street map Budenheim
+- uid/0x10001a1d  # Street map Budleigh Salterton
+- uid/0x1000320e  # Street map Buggenhout
+- uid/0x10001d74  # Street map Builth Wells
+- uid/0x10003263  # Street map Bullange
+- uid/0x10006c89  # Street map Bullange
+- uid/0x10006c13  # Street map Bullingen
+- uid/0x10002800  # Street map Bunde
+- uid/0x10001e18  # Street map Bungay
+- uid/0x10002d6b  # Street map Bunnik
+- uid/0x10002d6c  # Street map Bunschoten
+- uid/0x10001b93  # Street map Buntingford
+- uid/0x10002b0f  # Street map Burago di molgora
+- uid/0x10006de8  # Street map Burbach
+- uid/0x1000313a  # Street map Burdinne
+- uid/0x10002c0f  # Street map Buren
+- uid/0x10007157  # Street map Buren
+- uid/0x10001e19  # Street map Bures
+- uid/0x100023e6  # Street map Bures sur yvette
+- uid/0x10001d50  # Street map Burford
+- uid/0x10003264  # Street map Burg reuland
+- uid/0x10002901  # Street map Burgberg im allgäu
+- uid/0x10002769  # Street map Burgdorf
+- uid/0x10002eaa  # Street map Burgdorf
+- uid/0x10001eaf  # Street map Burgess Hill
+- uid/0x100029bc  # Street map Burgstetten
+- uid/0x1000276a  # Street map Burgwedel
+- uid/0x10006dea  # Street map Burgwedel
+- uid/0x10002e81  # Street map Burjassot
+- uid/0x10001ac2  # Street map Burnham On Crouch
+- uid/0x10001dcb  # Street map Burnham On Sea
+- uid/0x10001c54  # Street map Burnley
+- uid/0x10001aee  # Street map Burntisland
+- uid/0x10001e01  # Street map Burntwood
+- uid/0x10001a6f  # Street map Burry Port
+- uid/0x100029ea  # Street map Burscheid
+- uid/0x10001e02  # Street map Burton Upon Trent
+- uid/0x10001c55  # Street map Bury
+- uid/0x10001e1a  # Street map Bury St Edmunds
+- uid/0x10002734  # Street map Buseck
+- uid/0x10003023  # Street map Bussigny près lausanne
+- uid/0x10002d00  # Street map Bussum
+- uid/0x100024af  # Street map Bussy saint georges
+- uid/0x100024b0  # Street map Bussy saint martin
+- uid/0x100070e3  # Street map Busto Arsizio
+- uid/0x10003265  # Street map Butgenbach
+- uid/0x10002523  # Street map Butry sur oise
+- uid/0x10006deb  # Street map Butzbach
+- uid/0x10002a27  # Street map Buxtehude
+- uid/0x10006dec  # Street map Buxtehude
+- uid/0x10001a08  # Street map Buxton
+- uid/0x10002eaf  # Street map Bätterkinden
+- uid/0x10006d02  # Street map Béthune
+- uid/0x10006d03  # Street map Béziers
+- uid/0x1000263e  # Street map Böblingen
+- uid/0x10006dc8  # Street map Böblingen
+- uid/0x100020be  # Street map Böheimkirchen
+- uid/0x10002811  # Street map Böhlen
+- uid/0x10002812  # Street map Böhlitz ehrenberg
+- uid/0x10002a7a  # Street map Bönen
+- uid/0x10006dcd  # Street map Bönen
+- uid/0x1000297c  # Street map Bönningstedt
+- uid/0x100027a5  # Street map Börnsen
+- uid/0x1000291f  # Street map Bötzow
+- uid/0x10006de5  # Street map Bückeburg
+- uid/0x10006de6  # Street map Büdingen
+- uid/0x100029a5  # Street map Bühl
+- uid/0x10002f26  # Street map Bülach
+- uid/0x10007262  # Street map Bülach
+- uid/0x10006de7  # Street map Bünde
+- uid/0x10006de9  # Street map Büren
+- uid/0x10002eac  # Street map Büren an der aare
+- uid/0x10002742  # Street map Büttelborn
+- uid/0x10002ae8  # Street map Cabiate
+- uid/0x100023bd  # Street map Cabries
+- uid/0x10002374  # Street map Cabris
+- uid/0x1000255b  # Street map Cachan
+- uid/0x10002e3b  # Street map Cadaqués
+- uid/0x100023be  # Street map Cadolive
+- uid/0x10002724  # Street map Cadolzburg
+- uid/0x10002ae9  # Street map Cadorago
+- uid/0x10002fed  # Street map Cadro
+- uid/0x10006d08  # Street map Caen
+- uid/0x10001b35  # Street map Caernarfon
+- uid/0x10001cce  # Street map Caerphilly
+- uid/0x10001d75  # Street map Caersws
+- uid/0x10002ae5  # Street map Cagliari
+- uid/0x100070e4  # Street map Cagliari
+- uid/0x10002375  # Street map Cagnes sur mer
+- uid/0x10002479  # Street map Cailloux sur fontaines
+- uid/0x100018fc  # Street map Cairndow
+- uid/0x1000195e  # Street map Caithness
+- uid/0x10002e6c  # Street map Calafell
+- uid/0x10006d09  # Street map Calais
+- uid/0x10002ad8  # Street map Calderara di reno
+- uid/0x10002e0c  # Street map Calella
+- uid/0x10002afc  # Street map Calenzano
+- uid/0x10001d68  # Street map Callander
+- uid/0x100019ad  # Street map Callington
+- uid/0x10001ee2  # Street map Calne
+- uid/0x10002dfd  # Street map Calpe
+- uid/0x100019ae  # Street map Calstock
+- uid/0x1000247a  # Street map Caluire et cuire
+- uid/0x10001e2e  # Street map Camberley
+- uid/0x10002b84  # Street map Cambiano
+- uid/0x100019af  # Street map Camborne
+- uid/0x10001967  # Street map Cambridge
+- uid/0x10001966  # Street map Cambridgeshire
+- uid/0x10002e6d  # Street map Cambrils
+- uid/0x100019b0  # Street map Camelford
+- uid/0x100018fd  # Street map Campbeltown
+- uid/0x10002afd  # Street map Campi bisenzio
+- uid/0x10002b85  # Street map Candiolo
+- uid/0x10002b10  # Street map Canegrate
+- uid/0x10002e0d  # Street map Canet de mar
+- uid/0x10002376  # Street map Cannes
+- uid/0x10001e03  # Street map Cannock
+- uid/0x10001a5a  # Street map Canonbie
+- uid/0x10002377  # Street map Cantaron
+- uid/0x100024df  # Street map Canteleu
+- uid/0x10001c09  # Street map Canterbury
+- uid/0x10002aea  # Street map Cantu
+- uid/0x10001ac3  # Street map Canvey Island
+- uid/0x10002378  # Street map Cap d'ail
+- uid/0x10002dac  # Street map Capelle aan den ijssel
+- uid/0x10007158  # Street map Capelle Aan Den IJssel
+- uid/0x10002aeb  # Street map Capiago intimiano
+- uid/0x10002b11  # Street map Caponago
+- uid/0x10002995  # Street map Caputh
+- uid/0x10007212  # Street map Caravaca De La Cruz
+- uid/0x10001dea  # Street map Cardiff
+- uid/0x10001a70  # Street map Cardigan
+- uid/0x10002b86  # Street map Carignano
+- uid/0x100070e5  # Street map Carignano
+- uid/0x10002aec  # Street map Carimate
+- uid/0x100019e7  # Street map Carlisle
+- uid/0x10001c42  # Street map Carluke
+- uid/0x10001a71  # Street map Carmarthen
+- uid/0x10001c56  # Street map Carnforth
+- uid/0x100018f2  # Street map Carnoustie
+- uid/0x10002fcb  # Street map Carouge (ge)
+- uid/0x100070e6  # Street map Carpi
+- uid/0x10002b12  # Street map Carpiano
+- uid/0x10002585  # Street map Carqueiranne
+- uid/0x10001bb0  # Street map Carrbridge
+- uid/0x100025a0  # Street map Carrieres sous poissy
+- uid/0x100025a1  # Street map Carrieres sur seine
+- uid/0x10002379  # Street map Carros
+- uid/0x10001e2f  # Street map Carshalton
+- uid/0x10002e65  # Street map Cartagena
+- uid/0x10007213  # Street map Cartagena
+- uid/0x10001d51  # Street map Carterton
+- uid/0x10002b13  # Street map Carugate
+- uid/0x10002ad9  # Street map Casalecchio di reno
+- uid/0x10002b87  # Street map Caselle torinese
+- uid/0x10002fee  # Street map Caslano
+- uid/0x10002aed  # Street map Casnate con bernate
+- uid/0x10002ada  # Street map Castel maggiore
+- uid/0x10002ffd  # Street map Castel san pietro
+- uid/0x10002e3c  # Street map Castell platja d'aro
+- uid/0x10007215  # Street map Castell-Platja D'Aro
+- uid/0x1000237a  # Street map Castellar
+- uid/0x10002e0e  # Street map Castelldefels
+- uid/0x10002e34  # Street map Castellón de la plana
+- uid/0x10007214  # Street map Castellón De La Plana
+- uid/0x10002adb  # Street map Castenaso
+- uid/0x10002b88  # Street map Castiglione torinese
+- uid/0x10001dcc  # Street map Castle Cary
+- uid/0x10001c3b  # Street map Castle Douglas
+- uid/0x10001bc3  # Street map Castlebay
+- uid/0x10001ec5  # Street map Castleford
+- uid/0x10002d01  # Street map Castricum
+- uid/0x100029a9  # Street map Castrop rauxel
+- uid/0x10006ded  # Street map Castrop-Rauxel
+- uid/0x10002e82  # Street map Catarroja
+- uid/0x10001e30  # Street map Caterham
+- uid/0x10001d2a  # Street map Catterick Garrison
+- uid/0x10002b62  # Street map Cattolica
+- uid/0x10002b5b  # Street map Cavriago
+- uid/0x10002f7d  # Street map Celerina
+- uid/0x10002650  # Street map Celle
+- uid/0x10006dee  # Street map Celle
+- uid/0x10002b7c  # Street map Celle ligure
+- uid/0x1000323d  # Street map Celles
+- uid/0x10001b36  # Street map Cemaes Bay
+- uid/0x10002e0f  # Street map Cerdanyola del vallès
+- uid/0x100031ef  # Street map Cerfontaine
+- uid/0x10002524  # Street map Cergy
+- uid/0x10006d0a  # Street map Cergy
+- uid/0x10002b14  # Street map Ceriano laghetto
+- uid/0x10002aee  # Street map Cermenate
+- uid/0x10002b15  # Street map Cernusco sul navigli
+- uid/0x10002b16  # Street map Cerro maggiore
+- uid/0x10002b6a  # Street map Cerveteri
+- uid/0x100070e7  # Street map Cerveteri
+- uid/0x100070e8  # Street map Cervia
+- uid/0x10002b17  # Street map Cesano boscone
+- uid/0x10002b18  # Street map Cesano maderno
+- uid/0x10002b19  # Street map Cesate
+- uid/0x100070e9  # Street map Cesena
+- uid/0x100024b1  # Street map Cesson
+- uid/0x10001953  # Street map Chalfont St Giles
+- uid/0x10002455  # Street map Chaligny
+- uid/0x10003042  # Street map Cham
+- uid/0x100025a2  # Street map Chambourcy
+- uid/0x10006d0b  # Street map Chambéry
+- uid/0x1000247b  # Street map Champagne au mont d'or
+- uid/0x10002525  # Street map Champagne sur oise
+- uid/0x10002456  # Street map Champigneulles
+- uid/0x1000255c  # Street map Champigny sur marne
+- uid/0x10006d0c  # Street map Champigny-Sur-Marne
+- uid/0x100023e7  # Street map Champlan
+- uid/0x100024b2  # Street map Champs sur marne
+- uid/0x100024b3  # Street map Chanteloup en brie
+- uid/0x100025a3  # Street map Chanteloup les vignes
+- uid/0x100030b6  # Street map Chapelle lez herlaimont
+- uid/0x100025a4  # Street map Chapet
+- uid/0x1000247c  # Street map Charbonnieres les bains
+- uid/0x10001dcd  # Street map Chard
+- uid/0x10003036  # Street map Chardonne
+- uid/0x1000255d  # Street map Charenton le pont
+- uid/0x100030b7  # Street map Charleroi
+- uid/0x10006c8a  # Street map Charleroi
+- uid/0x10006c14  # Street map Charleroi
+- uid/0x1000247d  # Street map Charly
+- uid/0x1000247e  # Street map Chassieu
+- uid/0x100031d0  # Street map Chastre
+- uid/0x100025a5  # Street map Chateaufort
+- uid/0x1000237b  # Street map Chateauneuf grasse
+- uid/0x100023bf  # Street map Chateauneuf les martigues
+- uid/0x100023c0  # Street map Chateaurenard
+- uid/0x100030b8  # Street map Chatelet
+- uid/0x10002430  # Street map Chatenay malabry
+- uid/0x10001c0a  # Street map Chatham
+- uid/0x10001d0c  # Street map Chathill
+- uid/0x10002431  # Street map Chatillon
+- uid/0x100025a6  # Street map Chatou
+- uid/0x10001968  # Street map Chatteris
+- uid/0x1000314f  # Street map Chaudfontaine
+- uid/0x100031d1  # Street map Chaumont gistoux
+- uid/0x10002fe1  # Street map Chavannes de bogis
+- uid/0x10002457  # Street map Chavigny
+- uid/0x10002432  # Street map Chaville
+- uid/0x10001971  # Street map Cheadle
+- uid/0x10001dce  # Street map Cheddar
+- uid/0x100024b4  # Street map Chelles
+- uid/0x10006d0d  # Street map Chelles
+- uid/0x10001ac4  # Street map Chelmsford
+- uid/0x10001afe  # Street map Cheltenham
+- uid/0x10002651  # Street map Chemnitz
+- uid/0x10006def  # Street map Chemnitz
+- uid/0x1000255e  # Street map Chennevieres sur marne
+- uid/0x10001b1e  # Street map Chepstow
+- uid/0x10001e31  # Street map Chertsey
+- uid/0x10001954  # Street map Chesham
+- uid/0x1000196e  # Street map Cheshire
+- uid/0x10001e32  # Street map Chessington
+- uid/0x100024b5  # Street map Chessy
+- uid/0x10001972  # Street map Chester
+- uid/0x100019d0  # Street map Chester Le Street
+- uid/0x10001a09  # Street map Chesterfield
+- uid/0x1000255f  # Street map Chevilly larue
+- uid/0x100025a7  # Street map Chevreuse
+- uid/0x10003015  # Street map Chexbres
+- uid/0x10007263  # Street map Cheyres
+- uid/0x10002ffe  # Street map Chiasso
+- uid/0x10007264  # Street map Chiasso
+- uid/0x10001eb0  # Street map Chichester
+- uid/0x10002a63  # Street map Chieming
+- uid/0x10002b89  # Street map Chieri
+- uid/0x100070ea  # Street map Chieri
+- uid/0x10003081  # Street map Chievres
+- uid/0x10001ac5  # Street map Chigwell
+- uid/0x100023e8  # Street map Chilly mazarin
+- uid/0x1000321a  # Street map Chimay
+- uid/0x10006c8b  # Street map Chimay
+- uid/0x10006c15  # Street map Chimay
+- uid/0x10001d52  # Street map Chinnor
+- uid/0x1000327d  # Street map Chiny
+- uid/0x100070eb  # Street map Chioggia
+- uid/0x10001ee3  # Street map Chippenham
+- uid/0x10001aff  # Street map Chipping Campden
+- uid/0x10001d53  # Street map Chipping Norton
+- uid/0x10001c0b  # Street map Chislehurst
+- uid/0x10002b8a  # Street map Chivasso
+- uid/0x100070ec  # Street map Chivasso
+- uid/0x10002560  # Street map Choisy le roi
+- uid/0x10001d0d  # Street map Choppington
+- uid/0x10001c57  # Street map Chorley
+- uid/0x10001a49  # Street map Christchurch
+- uid/0x10001a1e  # Street map Chulmleigh
+- uid/0x10002f98  # Street map Chur
+- uid/0x10007265  # Street map Chur
+- uid/0x10001dba  # Street map Church Stretton
+- uid/0x10007284  # Street map Château-D'Oex
+- uid/0x10002fcc  # Street map Chêne bougeries
+- uid/0x10002fcd  # Street map Chêne bourg
+- uid/0x10002b6b  # Street map Ciampino
+- uid/0x10001b00  # Street map Cinderford
+- uid/0x100030d2  # Street map Ciney
+- uid/0x10006c8c  # Street map Ciney
+- uid/0x10006c16  # Street map Ciney
+- uid/0x10002b1a  # Street map Cinisello balsamo
+- uid/0x10001b01  # Street map Cirencester
+- uid/0x10002b6c  # Street map Civitavecchia
+- uid/0x100070ed  # Street map Civitavecchia
+- uid/0x1000198b  # Street map Clackmannan
+- uid/0x10001988  # Street map Clackmannanshire
+- uid/0x10001ac6  # Street map Clacton On Sea
+- uid/0x10002433  # Street map Clamart
+- uid/0x10001a72  # Street map Clarbeston Road
+- uid/0x1000313b  # Street map Clavier
+- uid/0x10006c8d  # Street map Clavier
+- uid/0x10006c17  # Street map Clavier
+- uid/0x100019e8  # Street map Cleator
+- uid/0x100019e9  # Street map Cleator Moor
+- uid/0x10001ec6  # Street map Cleckheaton
+- uid/0x10001df4  # Street map Cleethorpes
+- uid/0x10006df0  # Street map Clenze
+- uid/0x10006d0e  # Street map Clermont-Ferrand
+- uid/0x1000190d  # Street map Clevedon
+- uid/0x1000198f  # Street map Cleveland
+- uid/0x10002434  # Street map Clichy
+- uid/0x100024f9  # Street map Clichy sous bois
+- uid/0x10001c58  # Street map Clitheroe
+- uid/0x10006df1  # Street map Cloppenburg
+- uid/0x10001998  # Street map Clwyd
+- uid/0x10001a65  # Street map Clydebank
+- uid/0x10001a73  # Street map Clynderwen
+- uid/0x10001c72  # Street map Coalville
+- uid/0x10001c43  # Street map Coatbridge
+- uid/0x10001e33  # Street map Cobham
+- uid/0x10006df2  # Street map Coburg
+- uid/0x10001946  # Street map Cockburnspath
+- uid/0x100019ea  # Street map Cockermouth
+- uid/0x10002657  # Street map Coesfeld
+- uid/0x10006df3  # Street map Coesfeld
+- uid/0x10007159  # Street map Coevoorden
+- uid/0x10002bc0  # Street map Coevorden
+- uid/0x10002b1b  # Street map Cogliate
+- uid/0x100025a8  # Street map Coignieres
+- uid/0x10001ac7  # Street map Colchester
+- uid/0x10002fff  # Street map Coldrerio
+- uid/0x10001947  # Street map Coldstream
+- uid/0x10001b02  # Street map Coleford
+- uid/0x100031a3  # Street map Colfontaine
+- uid/0x100018fe  # Street map Colintraive
+- uid/0x100024b6  # Street map Collegien
+- uid/0x10002b8b  # Street map Collegno
+- uid/0x10002b03  # Street map Collesalvetti
+- uid/0x10002fce  # Street map Collonge bellerive
+- uid/0x1000247f  # Street map Collonges au mont d'or
+- uid/0x10006d0f  # Street map Colmar
+- uid/0x10002e58  # Street map Colmenar viejo
+- uid/0x10001c59  # Street map Colne
+- uid/0x10002b1c  # Street map Cologno monzese
+- uid/0x10002fcf  # Street map Cologny
+- uid/0x1000237c  # Street map Colomars
+- uid/0x10002435  # Street map Colombes
+- uid/0x10003009  # Street map Colombier (ne)
+- uid/0x10006d10  # Street map Colomiers
+- uid/0x1000199c  # Street map Colwyn Bay
+- uid/0x10001a1f  # Street map Colyton
+- uid/0x10002fef  # Street map Comano
+- uid/0x10003150  # Street map Comblain au pont
+- uid/0x100024b7  # Street map Combs la ville
+- uid/0x10006d11  # Street map Combs-La-Ville
+- uid/0x100031af  # Street map Comines
+- uid/0x10002fe2  # Street map Commugny
+- uid/0x10002aef  # Street map Como
+- uid/0x100070ee  # Street map Como
+- uid/0x10002b1d  # Street map Concorezzo
+- uid/0x10002fd0  # Street map Confignon
+- uid/0x100025a9  # Street map Conflans sainte honorine
+- uid/0x10001973  # Street map Congleton
+- uid/0x100019eb  # Street map Coniston
+- uid/0x100019d1  # Street map Consett
+- uid/0x1000237d  # Street map Contes
+- uid/0x10001b37  # Street map Conwy
+- uid/0x10002480  # Street map Corbas
+- uid/0x10006d12  # Street map Corbas
+- uid/0x100023e9  # Street map Corbeil essonnes
+- uid/0x10001d0e  # Street map Corbridge
+- uid/0x10001cfc  # Street map Corby
+- uid/0x1000300a  # Street map Corcelles cormondrèche
+- uid/0x10002b1e  # Street map Cormano
+- uid/0x10002526  # Street map Cormeilles en parisis
+- uid/0x10002450  # Street map Cormontreuil
+- uid/0x10002e10  # Street map Cornellà de llobregat
+- uid/0x10001d0f  # Street map Cornhill On Tweed
+- uid/0x100019a9  # Street map Cornwall
+- uid/0x10002b5c  # Street map Correggio
+- uid/0x10003037  # Street map Corseaux
+- uid/0x10001ee4  # Street map Corsham
+- uid/0x10002b1f  # Street map Corsico
+- uid/0x10003038  # Street map Corsier sur vevey
+- uid/0x1000300b  # Street map Cortaillod
+- uid/0x1000199d  # Street map Corwen
+- uid/0x10002e59  # Street map Coslada
+- uid/0x10002883  # Street map Cossebaude
+- uid/0x10002884  # Street map Coswig
+- uid/0x10002660  # Street map Cottbus
+- uid/0x10006df4  # Street map Cottbus
+- uid/0x10001d20  # Street map Cottingham
+- uid/0x100024fa  # Street map Coubron
+- uid/0x10001e34  # Street map Coulsdon
+- uid/0x100019cd  # Street map County Durham
+- uid/0x10002436  # Street map Courbevoie
+- uid/0x100030b9  # Street map Courcelles
+- uid/0x100023ea  # Street map Courcouronnes
+- uid/0x100031d2  # Street map Court saint etienne
+- uid/0x100030c5  # Street map Courtrai
+- uid/0x10006c8e  # Street map Courtrai
+- uid/0x100024b8  # Street map Courtry
+- uid/0x100031f0  # Street map Couvin
+- uid/0x10006c8f  # Street map Couvin
+- uid/0x10006c18  # Street map Couvin
+- uid/0x10002481  # Street map Couzon au mont d'or
+- uid/0x10001e9a  # Street map Coventry
+- uid/0x10001deb  # Street map Cowbridge
+- uid/0x10001aef  # Street map Cowdenbeath
+- uid/0x10001bf4  # Street map Cowes
+- uid/0x10001e9b  # Street map Cradley Heath
+- uid/0x10001be3  # Street map Craighouse
+- uid/0x10001d10  # Street map Cramlington
+- uid/0x10001c0c  # Street map Cranbrook
+- uid/0x1000715a  # Street map Cranendonck
+- uid/0x10001e35  # Street map Cranleigh
+- uid/0x10002fe3  # Street map Crans près céligny
+- uid/0x10002482  # Street map Craponne
+- uid/0x10001dbb  # Street map Craven Arms
+- uid/0x10001eb1  # Street map Crawley
+- uid/0x10001a20  # Street map Crediton
+- uid/0x100024b9  # Street map Cregy les meaux
+- uid/0x10002acb  # Street map Cremlingen
+- uid/0x10006df5  # Street map Cremlingen
+- uid/0x10002afb  # Street map Cremona
+- uid/0x100070ef  # Street map Cremona
+- uid/0x1000302c  # Street map Cressier (ne)
+- uid/0x10002561  # Street map Creteil
+- uid/0x10001974  # Street map Crewe
+- uid/0x10001dcf  # Street map Crewkerne
+- uid/0x10001d69  # Street map Crianlarich
+- uid/0x10001b38  # Street map Criccieth
+- uid/0x10001d76  # Street map Crickhowell
+- uid/0x10001d6a  # Street map Crieff
+- uid/0x10003289  # Street map Crisnee
+- uid/0x1000300d  # Street map Crissier
+- uid/0x100024ba  # Street map Croissy beaubourg
+- uid/0x100025aa  # Street map Croissy sur seine
+- uid/0x10001d9a  # Street map Cromarty
+- uid/0x10001ce6  # Street map Cromer
+- uid/0x10002dad  # Street map Cromstrijen
+- uid/0x1000715b  # Street map Cromstrijen
+- uid/0x100019d2  # Street map Crook
+- uid/0x100023eb  # Street map Crosne
+- uid/0x10001aa4  # Street map Crowborough
+- uid/0x1000193b  # Street map Crowthorne
+- uid/0x10001e36  # Street map Croydon
+- uid/0x10001a74  # Street map Crymych
+- uid/0x10002af0  # Street map Cucciago
+- uid/0x10002cba  # Street map Cuijk
+- uid/0x1000715c  # Street map Cuijk
+- uid/0x10002c10  # Street map Culemborg
+- uid/0x10001a21  # Street map Cullompton
+- uid/0x10003016  # Street map Cully
+- uid/0x100019de  # Street map Cumbria
+- uid/0x10001914  # Street map Cumnock
+- uid/0x100070f0  # Street map Cuneo
+- uid/0x10001af0  # Street map Cupar
+- uid/0x10002483  # Street map Curis au mont d'or
+- uid/0x10001cbb  # Street map Currie
+- uid/0x10002b20  # Street map Cusago
+- uid/0x10002b21  # Street map Cusano milanino
+- uid/0x10002458  # Street map Custines
+- uid/0x10002661  # Street map Cuxhaven
+- uid/0x10006df6  # Street map Cuxhaven
+- uid/0x10001b1f  # Street map Cwmbran
+- uid/0x10002e36  # Street map Cádiz
+- uid/0x10002e38  # Street map Córdoba
+- uid/0x10007216  # Street map Córdoba
+- uid/0x1000287c  # Street map Cölbe
+- uid/0x10002667  # Street map Dachau
+- uid/0x10006df7  # Street map Dachau
+- uid/0x10001ac8  # Street map Dagenham
+- uid/0x10006df8  # Street map Dahlenburg
+- uid/0x10002a5c  # Street map Dahlewitz
+- uid/0x100028b2  # Street map Dahlwitz hoppegarten
+- uid/0x10002b22  # Street map Dairago
+- uid/0x10001c3c  # Street map Dalbeattie
+- uid/0x10002bc1  # Street map Dalen
+- uid/0x10002d3e  # Street map Dalfsen
+- uid/0x10003151  # Street map Dalhem
+- uid/0x10001cbc  # Street map Dalkeith
+- uid/0x10002787  # Street map Dallgow döberitz
+- uid/0x100018ff  # Street map Dalmally
+- uid/0x10001915  # Street map Dalry
+- uid/0x100019ec  # Street map Dalton In Furness
+- uid/0x10001bb1  # Street map Dalwhinnie
+- uid/0x100024bb  # Street map Dammarie les lys
+- uid/0x1000309b  # Street map Damme
+- uid/0x100024bc  # Street map Dampmart
+- uid/0x10006df9  # Street map Dannenberg (Elbe)
+- uid/0x10002be9  # Street map Dantumadeel
+- uid/0x10002484  # Street map Dardilly
+- uid/0x100019d3  # Street map Darlington
+- uid/0x1000267b  # Street map Darmstadt
+- uid/0x10006dfa  # Street map Darmstadt
+- uid/0x100024e0  # Street map Darnetal
+- uid/0x10001c0d  # Street map Dartford
+- uid/0x10001a22  # Street map Dartmouth
+- uid/0x10001916  # Street map Darvel
+- uid/0x10001c5a  # Street map Darwen
+- uid/0x10006dfb  # Street map Dassel
+- uid/0x100029aa  # Street map Datteln
+- uid/0x10006dfc  # Street map Datteln
+- uid/0x10002a0b  # Street map Dauchingen
+- uid/0x10006dfd  # Street map Daun
+- uid/0x10001cfd  # Street map Daventry
+- uid/0x100031c3  # Street map Daverdisse
+- uid/0x10001a23  # Street map Dawlish
+- uid/0x100031e9  # Street map De haan
+- uid/0x100030ef  # Street map De pinte
+- uid/0x10001c0e  # Street map Deal
+- uid/0x10002485  # Street map Decines charpieu
+- uid/0x100030c6  # Street map Deerlijk
+- uid/0x1000199e  # Street map Deeside
+- uid/0x10002faa  # Street map Degersheim
+- uid/0x100030f0  # Street map Deinze
+- uid/0x10006c90  # Street map Deinze
+- uid/0x10006c19  # Street map Deinze
+- uid/0x100026ea  # Street map Deizisau
+- uid/0x10002a03  # Street map Deißlingen
+- uid/0x100019b1  # Street map Delabole
+- uid/0x1000296b  # Street map Delbrück
+- uid/0x10006dfe  # Street map Delbrück
+- uid/0x10002dae  # Street map Delft
+- uid/0x1000715d  # Street map Delft
+- uid/0x10002c5d  # Street map Delfzijl
+- uid/0x1000715e  # Street map Delfzijl
+- uid/0x1000268a  # Street map Delitzsch
+- uid/0x10006dff  # Street map Delitzsch
+- uid/0x10002692  # Street map Delmenhorst
+- uid/0x10006e00  # Street map Delmenhorst
+- uid/0x10006d13  # Street map Denain
+- uid/0x1000199f  # Street map Denbigh
+- uid/0x10003051  # Street map Denderleeuw
+- uid/0x10006c91  # Street map Denderleeuw
+- uid/0x10006c1a  # Street map Denderleeuw
+- uid/0x10002d3f  # Street map Denekamp
+- uid/0x1000715f  # Street map Denekamp
+- uid/0x100026eb  # Street map Denkendorf
+- uid/0x10001e0f  # Street map Denny
+- uid/0x10003226  # Street map Dentergem
+- uid/0x10001a0a  # Street map Derby
+- uid/0x10001a03  # Street map Derbyshire
+- uid/0x10001ce7  # Street map Dereham
+- uid/0x10002fb7  # Street map Derendingen
+- uid/0x10002b23  # Street map Desio
+- uid/0x100027af  # Street map Despetal
+- uid/0x10002693  # Street map Dessau
+- uid/0x10006e01  # Street map Dessau
+- uid/0x10003249  # Street map Dessel
+- uid/0x100020f0  # Street map Desselbrunn
+- uid/0x100030f1  # Street map Destelbergen
+- uid/0x10002801  # Street map Detern
+- uid/0x10002836  # Street map Detmold
+- uid/0x10006e02  # Street map Detmold
+- uid/0x10002a73  # Street map Dettenhausen
+- uid/0x100026ec  # Street map Dettingen unter teck
+- uid/0x10002527  # Street map Deuil la barre
+- uid/0x10002cbb  # Street map Deurne
+- uid/0x1000205a  # Street map Deutsch wagram
+- uid/0x10002d40  # Street map Deventer
+- uid/0x10007160  # Street map Deventer
+- uid/0x100024e1  # Street map Deville les rouen
+- uid/0x10001ee5  # Street map Devizes
+- uid/0x10001a15  # Street map Devon
+- uid/0x10001ec7  # Street map Dewsbury
+- uid/0x10002c11  # Street map Didam
+- uid/0x10001d54  # Street map Didcot
+- uid/0x1000267d  # Street map Dieburg
+- uid/0x100027b0  # Street map Diekholzen
+- uid/0x10002f33  # Street map Dielsdorf
+- uid/0x10002d02  # Street map Diemen
+- uid/0x10003129  # Street map Diepenbeek
+- uid/0x10002d41  # Street map Diepenheim
+- uid/0x10002d42  # Street map Diepenveen
+- uid/0x10006e03  # Street map Diepholz
+- uid/0x10006e04  # Street map Dierdorf
+- uid/0x10003168  # Street map Diest
+- uid/0x100020d0  # Street map Dietach
+- uid/0x10002f3e  # Street map Dietikon
+- uid/0x10007266  # Street map Dietikon
+- uid/0x10002f27  # Street map Dietlikon
+- uid/0x10006e06  # Street map Dietramszell
+- uid/0x10002932  # Street map Dietzenbach
+- uid/0x10002bc2  # Street map Diever
+- uid/0x10006e05  # Street map Dießen A Ammersee
+- uid/0x10002bad  # Street map Differdange
+- uid/0x1000712c  # Street map Differdange
+- uid/0x10006d14  # Street map Dijon
+- uid/0x10003107  # Street map Dilbeek
+- uid/0x10006c92  # Street map Dilbeek
+- uid/0x10006c1b  # Street map Dilbeek
+- uid/0x10006e07  # Street map Dillenburg
+- uid/0x10003181  # Street map Dilsen
+- uid/0x100030d3  # Street map Dinant
+- uid/0x10006c93  # Street map Dinant
+- uid/0x10006c1c  # Street map Dinant
+- uid/0x10001dec  # Street map Dinas Powys
+- uid/0x10001d9b  # Street map Dingwall
+- uid/0x10002ab3  # Street map Dinslaken
+- uid/0x10006e08  # Street map Dinslaken
+- uid/0x10002f69  # Street map Dintikon
+- uid/0x10002c12  # Street map Dinxperlo
+- uid/0x10002bab  # Street map Dippach
+- uid/0x10002aa6  # Street map Dippoldiswalde
+- uid/0x10006e09  # Street map Dippoldiswalde
+- uid/0x10002daf  # Street map Dirksland
+- uid/0x10003266  # Street map Dison
+- uid/0x10001ce8  # Street map Diss
+- uid/0x10002840  # Street map Ditzingen
+- uid/0x10006e0a  # Street map Ditzingen
+- uid/0x100030de  # Street map Dixmude
+- uid/0x1000268b  # Street map Doberschütz
+- uid/0x1000203f  # Street map Dobl
+- uid/0x10002c13  # Street map Dodewaard
+- uid/0x10002c14  # Street map Doesburg
+- uid/0x10002c15  # Street map Doetinchem
+- uid/0x10007161  # Street map Doetinchem
+- uid/0x10002a4c  # Street map Dohna
+- uid/0x100031f1  # Street map Doische
+- uid/0x10001b39  # Street map Dolgelley
+- uid/0x1000198c  # Street map Dollar
+- uid/0x10001b3a  # Street map Dolwyddelan
+- uid/0x10002f64  # Street map Domat
+- uid/0x10002459  # Street map Dombasle sur meurthe
+- uid/0x10002528  # Street map Domont
+- uid/0x10001dfb  # Street map Doncaster
+- uid/0x1000328a  # Street map Donceel
+- uid/0x10002cbc  # Street map Dongen
+- uid/0x10002bea  # Street map Dongeradeel
+- uid/0x10007162  # Street map Dongeradeel
+- uid/0x10002d6d  # Street map Doorn
+- uid/0x10006c1d  # Street map Doornik
+- uid/0x10001a4a  # Street map Dorchester
+- uid/0x10002db0  # Street map Dordrecht
+- uid/0x10007163  # Street map Dordrecht
+- uid/0x10006e0b  # Street map Dorfen
+- uid/0x10001e37  # Street map Dorking
+- uid/0x100028ed  # Street map Dormagen
+- uid/0x10006e0c  # Street map Dormagen
+- uid/0x10002f47  # Street map Dornach
+- uid/0x10002022  # Street map Dornbirn
+- uid/0x10006be7  # Street map Dornbirn
+- uid/0x10001e64  # Street map Dornoch
+- uid/0x10001a43  # Street map Dorset
+- uid/0x100029ab  # Street map Dorsten
+- uid/0x10006e0e  # Street map Dorsten
+- uid/0x10002698  # Street map Dortmund
+- uid/0x10006e0f  # Street map Dortmund
+- uid/0x10002f15  # Street map Dottikon
+- uid/0x10006d15  # Street map Douai
+- uid/0x10001d6b  # Street map Doune
+- uid/0x100031a4  # Street map Dour
+- uid/0x10001c0f  # Street map Dover
+- uid/0x10001ce9  # Street map Downham Market
+- uid/0x1000277e  # Street map Drage
+- uid/0x100024fb  # Street map Drancy
+- uid/0x1000237e  # Street map Drap
+- uid/0x100023ec  # Street map Draveil
+- uid/0x10006d16  # Street map Draveil
+- uid/0x10002d03  # Street map Drechterland
+- uid/0x10002933  # Street map Dreieich
+- uid/0x10006e11  # Street map Dreieich
+- uid/0x10002a9b  # Street map Drensteinfurt
+- uid/0x10006e12  # Street map Drensteinfurt
+- uid/0x10002699  # Street map Dresden
+- uid/0x10006e13  # Street map Dresden
+- uid/0x10002d6e  # Street map Driebergen rijsenburg
+- uid/0x10001d21  # Street map Driffield
+- uid/0x10006e14  # Street map Drochtersen
+- uid/0x10003108  # Street map Drogenbos
+- uid/0x10001ef3  # Street map Droitwich
+- uid/0x10002946  # Street map Drolshagen
+- uid/0x10006e15  # Street map Drolshagen
+- uid/0x10001a0b  # Street map Dronfield
+- uid/0x10002bdf  # Street map Dronten
+- uid/0x10002b8c  # Street map Druento
+- uid/0x10002c16  # Street map Druten
+- uid/0x10001b03  # Street map Drybrook
+- uid/0x10002bae  # Street map Dudelange
+- uid/0x10006e16  # Street map Duderstadt
+- uid/0x10001e9c  # Street map Dudley
+- uid/0x1000318f  # Street map Duffel
+- uid/0x100024fc  # Street map Dugny
+- uid/0x1000269a  # Street map Duisburg
+- uid/0x10006e17  # Street map Duisburg
+- uid/0x10002c17  # Street map Duiven
+- uid/0x10001975  # Street map Dukinfield
+- uid/0x10001b3b  # Street map Dulas
+- uid/0x10002f8d  # Street map Dulliken
+- uid/0x10001dd0  # Street map Dulverton
+- uid/0x10001a66  # Street map Dumbarton
+- uid/0x10001a5b  # Street map Dumfries
+- uid/0x10001a58  # Street map Dumfriesshire
+- uid/0x10001a97  # Street map Dunbar
+- uid/0x10001a62  # Street map Dunbartonshire
+- uid/0x10001960  # Street map Dunbeath
+- uid/0x10001d6c  # Street map Dunblane
+- uid/0x100018f3  # Street map Dundee
+- uid/0x10001af1  # Street map Dunfermline
+- uid/0x10001d6d  # Street map Dunkeld
+- uid/0x10006d17  # Street map Dunkerque
+- uid/0x10001ac9  # Street map Dunmow
+- uid/0x10001900  # Street map Dunoon
+- uid/0x10001948  # Street map Duns
+- uid/0x10001932  # Street map Dunstable
+- uid/0x10002902  # Street map Durach
+- uid/0x10003199  # Street map Durbuy
+- uid/0x10006c94  # Street map Durbuy
+- uid/0x10006c1e  # Street map Durbuy
+- uid/0x100019d4  # Street map Durham
+- uid/0x10001b04  # Street map Dursley
+- uid/0x10002bc3  # Street map Dwingeloo
+- uid/0x10001a68  # Street map Dyfed
+- uid/0x10001b3c  # Street map Dyffryn Ardudwy
+- uid/0x10001b05  # Street map Dymock
+- uid/0x10002f8e  # Street map Däniken
+- uid/0x10002dfe  # Street map Dénia
+- uid/0x10007217  # Street map Dénia
+- uid/0x1000268c  # Street map Döbernitz
+- uid/0x10006e0d  # Street map Dörpen
+- uid/0x10002a85  # Street map Dörverden
+- uid/0x10006e10  # Street map Dötlingen
+- uid/0x10002fac  # Street map Dübendorf
+- uid/0x10007267  # Street map Dübendorf
+- uid/0x10002fa2  # Street map Düdingen
+- uid/0x10002658  # Street map Dülmen
+- uid/0x10006e18  # Street map Dülmen
+- uid/0x1000269c  # Street map Düren
+- uid/0x10006e19  # Street map Düren
+- uid/0x10002f54  # Street map Dürnten
+- uid/0x10002a4d  # Street map Dürrröhrsdorf dittersbach
+- uid/0x100026aa  # Street map Düsseldorf
+- uid/0x10001949  # Street map Earlston
+- uid/0x10001e6e  # Street map East Boldon
+- uid/0x10001bf5  # Street map East Cowes
+- uid/0x10001eb2  # Street map East Grinstead
+- uid/0x10001a98  # Street map East Linton
+- uid/0x10001a96  # Street map East Lothian
+- uid/0x10001e38  # Street map East Molesey
+- uid/0x10001aa0  # Street map East Sussex
+- uid/0x10001aa5  # Street map Eastbourne
+- uid/0x10001b66  # Street map Eastleigh
+- uid/0x10002529  # Street map Eaubonne
+- uid/0x10001b20  # Street map Ebbw Vale
+- uid/0x10002114  # Street map Ebenfurth
+- uid/0x10002071  # Street map Ebental
+- uid/0x10002841  # Street map Eberdingen
+- uid/0x10002103  # Street map Ebergassing
+- uid/0x100029f1  # Street map Ebersbach
+- uid/0x1000274c  # Street map Ebersbach an der fils
+- uid/0x1000260d  # Street map Eberswalde
+- uid/0x10006e1a  # Street map Eberswalde
+- uid/0x10002ebe  # Street map Ebikon
+- uid/0x10002005  # Street map Ebreichsdorf
+- uid/0x1000287d  # Street map Ebsdorfergrund
+- uid/0x10006e1b  # Street map Ebsdorfergrund
+- uid/0x10003206  # Street map Ecaussines
+- uid/0x10003024  # Street map Echandens
+- uid/0x10002710  # Street map Eching
+- uid/0x10002c7b  # Street map Echt
+- uid/0x10002c18  # Street map Echteld
+- uid/0x1000712d  # Street map Echternach
+- uid/0x100023a8  # Street map Eckbolsheim
+- uid/0x100026db  # Street map Eckental
+- uid/0x1000252a  # Street map Ecouen
+- uid/0x10003025  # Street map Ecublens (vd)
+- uid/0x10002486  # Street map Ecully
+- uid/0x10006d18  # Street map Ecully
+- uid/0x10002d04  # Street map Edam volendam
+- uid/0x10002c19  # Street map Ede
+- uid/0x10007164  # Street map Ede
+- uid/0x10003061  # Street map Edegem
+- uid/0x10002970  # Street map Edemissen
+- uid/0x10006e1c  # Street map Edemissen
+- uid/0x10001c10  # Street map Edenbridge
+- uid/0x10006e1d  # Street map Edenkoben
+- uid/0x10006e1e  # Street map Edertal
+- uid/0x100025fc  # Street map Edewecht
+- uid/0x10006e1f  # Street map Edewecht
+- uid/0x10001ca1  # Street map Edgware
+- uid/0x10001cbd  # Street map Edinburgh
+- uid/0x100020f9  # Street map Edt bei lambach
+- uid/0x100030e4  # Street map Eeklo
+- uid/0x10002bc4  # Street map Eelde
+- uid/0x10002d6f  # Street map Eemnes
+- uid/0x10002c5e  # Street map Eemsmond
+- uid/0x10007165  # Street map Eemsmond
+- uid/0x10002cbd  # Street map Eersel
+- uid/0x10002934  # Street map Egelsbach
+- uid/0x10002fad  # Street map Egg
+- uid/0x10002115  # Street map Eggendorf
+- uid/0x10001e39  # Street map Egham
+- uid/0x100031b3  # Street map Eghezee
+- uid/0x10006c95  # Street map Eghezée
+- uid/0x10006c1f  # Street map Eghezée
+- uid/0x10002607  # Street map Egling
+- uid/0x10002f28  # Street map Eglisau
+- uid/0x10002f6a  # Street map Egliswil
+- uid/0x100023ed  # Street map Egly
+- uid/0x10002d05  # Street map Egmond
+- uid/0x100019ed  # Street map Egremont
+- uid/0x1000263f  # Street map Ehningen
+- uid/0x10002c1a  # Street map Eibergen
+- uid/0x10007166  # Street map Eibergen
+- uid/0x1000260e  # Street map Eiche
+- uid/0x1000271c  # Street map Eichenau
+- uid/0x100020bf  # Street map Eichgraben
+- uid/0x10006e20  # Street map Eichstätt
+- uid/0x1000266e  # Street map Eichwalde
+- uid/0x10006c20  # Street map Eigenbrakel
+- uid/0x10002c7c  # Street map Eijsden
+- uid/0x1000268d  # Street map Eilenburg
+- uid/0x10006e21  # Street map Eilenburg
+- uid/0x100027b1  # Street map Eime
+- uid/0x10006e22  # Street map Einbeck
+- uid/0x10002cbe  # Street map Eindhoven
+- uid/0x10007167  # Street map Eindhoven
+- uid/0x10002f48  # Street map Einsiedeln
+- uid/0x10007268  # Street map Einsiedeln
+- uid/0x10002040  # Street map Eisbach
+- uid/0x10006e23  # Street map Eisenach
+- uid/0x10002955  # Street map Eisenberg
+- uid/0x10006e24  # Street map Eisenberg
+- uid/0x1000292d  # Street map Eisenhüttenstadt
+- uid/0x10006e25  # Street map Eisenhüttenstadt
+- uid/0x10002026  # Street map Eisenstadt
+- uid/0x10006e26  # Street map Eiterfeld
+- uid/0x100029d4  # Street map Eitorf
+- uid/0x10006e27  # Street map Eitorf
+- uid/0x1000724e  # Street map Ekerö
+- uid/0x100025ab  # Street map Elancourt
+- uid/0x10006d19  # Street map Elancourt
+- uid/0x10002c1b  # Street map Elburg
+- uid/0x10002dff  # Street map Elche
+- uid/0x10001cdd  # Street map Elgin
+- uid/0x100020b3  # Street map Elixhausen
+- uid/0x10001ec8  # Street map Elland
+- uid/0x10002a0f  # Street map Ellerau
+- uid/0x1000297d  # Street map Ellerbek
+- uid/0x1000297e  # Street map Ellerhoop
+- uid/0x10001dbc  # Street map Ellesmere
+- uid/0x10003082  # Street map Ellezelles
+- uid/0x100018e4  # Street map Ellon
+- uid/0x1000297f  # Street map Elmshorn
+- uid/0x10006e28  # Street map Elmshorn
+- uid/0x10006e29  # Street map Elmstein
+- uid/0x10002fbc  # Street map Elsau
+- uid/0x100020b4  # Street map Elsbethen
+- uid/0x100026cf  # Street map Elsdorf
+- uid/0x10002ac1  # Street map Elsfleth
+- uid/0x10002c1c  # Street map Elst
+- uid/0x100029e4  # Street map Eltville am rhein
+- uid/0x10001969  # Street map Ely
+- uid/0x100027b2  # Street map Elze
+- uid/0x10002f29  # Street map Embrach
+- uid/0x100026ad  # Street map Emden
+- uid/0x10006e2a  # Street map Emden
+- uid/0x100024bd  # Street map Emerainville
+- uid/0x10006e2b  # Street map Emlichheim
+- uid/0x10002bc5  # Street map Emmen
+- uid/0x10002eb5  # Street map Emmen
+- uid/0x10007168  # Street map Emmen
+- uid/0x10006e2c  # Street map Emmerich
+- uid/0x1000271d  # Street map Emmering
+- uid/0x10002764  # Street map Emmerthal
+- uid/0x10006e2d  # Street map Emsbüren
+- uid/0x10006e2e  # Street map Emsdetten
+- uid/0x10006e2f  # Street map Emstek
+- uid/0x10001b67  # Street map Emsworth
+- uid/0x10002a86  # Street map Emtinghausen
+- uid/0x10001ca2  # Street map Enfield
+- uid/0x10002813  # Street map Engelsdorf
+- uid/0x10002911  # Street map Engelskirchen
+- uid/0x10006e30  # Street map Engelskirchen
+- uid/0x1000279d  # Street map Enger
+- uid/0x10006e31  # Street map Enger
+- uid/0x100020e1  # Street map Engerwitzdorf
+- uid/0x10003207  # Street map Enghien
+- uid/0x1000252b  # Street map Enghien les bains
+- uid/0x1000313c  # Street map Engis
+- uid/0x10002d06  # Street map Enkhuizen
+- uid/0x10006e32  # Street map Enkirch
+- uid/0x100026b2  # Street map Ennepetal
+- uid/0x10002a9c  # Street map Ennigerloh
+- uid/0x10006e33  # Street map Ennigerloh
+- uid/0x10002086  # Street map Enns
+- uid/0x10002d43  # Street map Enschede
+- uid/0x10007169  # Street map Enschede
+- uid/0x10002a19  # Street map Ense
+- uid/0x10006e34  # Street map Ense
+- uid/0x10002020  # Street map Enzersdorf an der fischa
+- uid/0x10002006  # Street map Enzesfeld lindabrunn
+- uid/0x1000300e  # Street map Epalinges
+- uid/0x10002c1d  # Street map Epe
+- uid/0x1000716a  # Street map Epe
+- uid/0x100023ee  # Street map Epinay sous senart
+- uid/0x100023ef  # Street map Epinay sur orge
+- uid/0x100024fd  # Street map Epinay sur seine
+- uid/0x10006e35  # Street map Eppelborn
+- uid/0x1000267e  # Street map Eppertshausen
+- uid/0x10001aca  # Street map Epping
+- uid/0x10002864  # Street map Eppstein
+- uid/0x10001e3a  # Street map Epsom
+- uid/0x1000252c  # Street map Eragny
+- uid/0x10006e36  # Street map Erding
+- uid/0x10002842  # Street map Erdmannhausen
+- uid/0x1000319a  # Street map Erezee
+- uid/0x100026d0  # Street map Erftstadt
+- uid/0x10006e37  # Street map Erftstadt
+- uid/0x100026d6  # Street map Erfurt
+- uid/0x10006e38  # Street map Erfurt
+- uid/0x100027fd  # Street map Ergolding
+- uid/0x10001c11  # Street map Erith
+- uid/0x10002792  # Street map Erkelenz
+- uid/0x10006e39  # Street map Erkelenz
+- uid/0x1000292e  # Street map Erkner
+- uid/0x10006e3a  # Street map Erkner
+- uid/0x10002897  # Street map Erkrath
+- uid/0x10006e3b  # Street map Erkrath
+- uid/0x10002116  # Street map Erlach
+- uid/0x100026d7  # Street map Erlangen
+- uid/0x10006e3c  # Street map Erlangen
+- uid/0x100026dc  # Street map Erlangen höchstadt
+- uid/0x10002f7f  # Street map Erlenbach (zh)
+- uid/0x1000285d  # Street map Erlensee
+- uid/0x10002ed8  # Street map Erlinsbach
+- uid/0x10002c1e  # Street map Ermelo
+- uid/0x1000252d  # Street map Ermont
+- uid/0x10006e3d  # Street map Erndtebrück
+- uid/0x10003052  # Street map Erpe mere
+- uid/0x1000321b  # Street map Erquelinnes
+- uid/0x10006c96  # Street map Erquelinnes
+- uid/0x10006c21  # Street map Erquelinnes
+- uid/0x10001d8c  # Street map Erskine
+- uid/0x10002a1a  # Street map Erwitte
+- uid/0x10006e3e  # Street map Erwitte
+- uid/0x1000267f  # Street map Erzhausen
+- uid/0x10002e3e  # Street map Escala (l')
+- uid/0x10007218  # Street map Escala (L')
+- uid/0x10002baf  # Street map Esch sur alzette
+- uid/0x1000712e  # Street map Esch-Sur-Alzette
+- uid/0x10002865  # Street map Eschborn
+- uid/0x100027a6  # Street map Escheburg
+- uid/0x10006e3f  # Street map Eschwege
+- uid/0x100025f0  # Street map Eschweiler
+- uid/0x10006e40  # Street map Eschweiler
+- uid/0x10002e5a  # Street map Escorial (el)
+- uid/0x10007219  # Street map Escorial (El)
+- uid/0x10006e41  # Street map Esens
+- uid/0x10001e3b  # Street map Esher
+- uid/0x100027bc  # Street map Eslohe (sauerland)
+- uid/0x10006e42  # Street map Eslohe (Sauerland)
+- uid/0x10003152  # Street map Esneux
+- uid/0x10006e43  # Street map Espelkamp
+- uid/0x100030c7  # Street map Espierres helchin
+- uid/0x10002e6e  # Street map Espluga de francolí (l')
+- uid/0x10002e11  # Street map Esplugues de llobregat
+- uid/0x10003062  # Street map Essen
+- uid/0x100026e5  # Street map Essen
+- uid/0x10006c97  # Street map Essen
+- uid/0x10006c22  # Street map Essen
+- uid/0x10006e44  # Street map Essen
+- uid/0x10006e45  # Street map Essen (Oldenburg)
+- uid/0x10002872  # Street map Essenheim
+- uid/0x10001aba  # Street map Essex
+- uid/0x1000245a  # Street map Essey les nancy
+- uid/0x100026ed  # Street map Esslingen am neckar
+- uid/0x10006e46  # Street map Esslingen Am Neckar
+- uid/0x1000323e  # Street map Estaimpuis
+- uid/0x10007269  # Street map Estavayer-Le-Lac
+- uid/0x1000721a  # Street map Estepona
+- uid/0x1000321c  # Street map Estinnes
+- uid/0x1000327e  # Street map Etalle
+- uid/0x10001aa6  # Street map Etchingham
+- uid/0x100023f0  # Street map Etiolles
+- uid/0x10003026  # Street map Etoy
+- uid/0x10002cbf  # Street map Etten leur
+- uid/0x1000716b  # Street map Etten-Leur
+- uid/0x100030a6  # Street map Etterbeek
+- uid/0x10002ef8  # Street map Ettingen
+- uid/0x100027dd  # Street map Ettlingen
+- uid/0x10006e47  # Street map Ettlingen
+- uid/0x100020b5  # Street map Eugendorf
+- uid/0x1000245b  # Street map Eulmont
+- uid/0x10003267  # Street map Eupen
+- uid/0x10006c98  # Street map Eupen
+- uid/0x10006c23  # Street map Eupen
+- uid/0x10002702  # Street map Euskirchen
+- uid/0x10006e48  # Street map Euskirchen
+- uid/0x10006e49  # Street map Eutin
+- uid/0x100025ac  # Street map Evecquemont
+- uid/0x100030a7  # Street map Evere
+- uid/0x100030f2  # Street map Evergem
+- uid/0x10006c99  # Street map Evergem
+- uid/0x10006c24  # Street map Evergem
+- uid/0x10002a9d  # Street map Everswinkel
+- uid/0x10006e4a  # Street map Everswinkel
+- uid/0x10001ef4  # Street map Evesham
+- uid/0x10002ea9  # Street map Evilard
+- uid/0x100023f1  # Street map Evry
+- uid/0x10006d1a  # Street map Evry
+- uid/0x10001a24  # Street map Exeter
+- uid/0x10001a25  # Street map Exmouth
+- uid/0x10006e4b  # Street map Extertal
+- uid/0x10001e1b  # Street map Eye
+- uid/0x1000194a  # Street map Eyemouth
+- uid/0x1000252e  # Street map Ezanville
+- uid/0x1000237f  # Street map Eze
+- uid/0x100070f1  # Street map Faenza
+- uid/0x10002711  # Street map Fahrenzhausen
+- uid/0x10002996  # Street map Fahrland
+- uid/0x1000328b  # Street map Faimes
+- uid/0x10001b3d  # Street map Fairbourne
+- uid/0x10001b06  # Street map Fairford
+- uid/0x10001cea  # Street map Fakenham
+- uid/0x10002380  # Street map Falicon
+- uid/0x10002788  # Street map Falkensee
+- uid/0x10006e4c  # Street map Falkensee
+- uid/0x10001e10  # Street map Falkirk
+- uid/0x100019b2  # Street map Falmouth
+- uid/0x1000272d  # Street map Farchant
+- uid/0x100030ba  # Street map Farciennes
+- uid/0x10001b68  # Street map Fareham
+- uid/0x10001d55  # Street map Faringdon
+- uid/0x10001b69  # Street map Farnborough
+- uid/0x10001e3c  # Street map Farnham
+- uid/0x10003092  # Street map Fauvillers
+- uid/0x10001c12  # Street map Faversham
+- uid/0x10002f92  # Street map Fehraltorf
+- uid/0x10006e4d  # Street map Feilbingert
+- uid/0x1000202d  # Street map Feldkirch
+- uid/0x100028ce  # Street map Feldkirchen
+- uid/0x10002041  # Street map Feldkirchen bei graz
+- uid/0x1000203b  # Street map Feldkirchen in kärnten
+- uid/0x10002117  # Street map Felixdorf
+- uid/0x10001e1c  # Street map Felixstowe
+- uid/0x100029bd  # Street map Fellbach
+- uid/0x10006e4e  # Street map Fellbach
+- uid/0x10001ca3  # Street map Feltham
+- uid/0x10002997  # Street map Ferch
+- uid/0x10001ccf  # Street map Ferndale
+- uid/0x10001a4b  # Street map Ferndown
+- uid/0x100031b4  # Street map Fernelmont
+- uid/0x10002042  # Street map Fernitz
+- uid/0x100070f2  # Street map Ferrara
+- uid/0x1000313d  # Street map Ferrieres
+- uid/0x100019d5  # Street map Ferryhill
+- uid/0x10001a75  # Street map Ferryside
+- uid/0x10002beb  # Street map Ferwerderadeel
+- uid/0x1000716c  # Street map Ferwerderadeel
+- uid/0x100028f9  # Street map Feucht
+- uid/0x10002eec  # Street map Feuerthalen
+- uid/0x1000328c  # Street map Fexhe le haut clocher
+- uid/0x10002487  # Street map Feyzin
+- uid/0x10001aec  # Street map Fife
+- uid/0x10002af1  # Street map Figino serenza
+- uid/0x10002e3f  # Street map Figueres
+- uid/0x100026ee  # Street map Filderstadt
+- uid/0x10001d2b  # Street map Filey
+- uid/0x10002802  # Street map Filsum
+- uid/0x100020e9  # Street map Finkenstein
+- uid/0x10006be8  # Street map Finkenstein
+- uid/0x10002947  # Street map Finnentrop
+- uid/0x10006e4f  # Street map Finnentrop
+- uid/0x10002af2  # Street map Fino mornasco
+- uid/0x10002afe  # Street map Firenze
+- uid/0x100070f3  # Street map Firenze
+- uid/0x10002104  # Street map Fischamend
+- uid/0x10002903  # Street map Fischen im allgäu
+- uid/0x10001a76  # Street map Fishguard
+- uid/0x10002f01  # Street map Fislisbach
+- uid/0x10002b6d  # Street map Fiumcino
+- uid/0x100070f4  # Street map Fiumicino
+- uid/0x10006be9  # Street map Flachau
+- uid/0x10002fab  # Street map Flawil
+- uid/0x10001b6a  # Street map Fleet
+- uid/0x10001c5b  # Street map Fleetwood
+- uid/0x10003153  # Street map Flemalle
+- uid/0x1000270a  # Street map Flensburg
+- uid/0x10006e50  # Street map Flensburg
+- uid/0x10003154  # Street map Fleron
+- uid/0x10002488  # Street map Fleurieu sur saone
+- uid/0x100030bb  # Street map Fleurus
+- uid/0x100023f2  # Street map Fleury merogis
+- uid/0x1000245c  # Street map Fleville devant nancy
+- uid/0x100019a0  # Street map Flint
+- uid/0x10003083  # Street map Flobecq
+- uid/0x100031b5  # Street map Floreffe
+- uid/0x100031f2  # Street map Florennes
+- uid/0x1000327f  # Street map Florenville
+- uid/0x10006c9b  # Street map Florenville
+- uid/0x10006c26  # Street map Florenville
+- uid/0x10006c9a  # Street map Flémalle
+- uid/0x10006c25  # Street map Flémalle
+- uid/0x10002866  # Street map Flörsheim am main
+- uid/0x10001cde  # Street map Fochabers
+- uid/0x10001c13  # Street map Folkestone
+- uid/0x100025ad  # Street map Follainville dennemont
+- uid/0x100030bc  # Street map Fontaine l'eveque
+- uid/0x10002489  # Street map Fontaines saint martin
+- uid/0x1000248a  # Street map Fontaines sur saone
+- uid/0x10002437  # Street map Fontenay aux roses
+- uid/0x100025ae  # Street map Fontenay le fleury
+- uid/0x10002562  # Street map Fontenay sous bois
+- uid/0x10006d1b  # Street map Forbach
+- uid/0x10002095  # Street map Forchtenstein
+- uid/0x10001b6b  # Street map Fordingbridge
+- uid/0x10003017  # Street map Forel (lavaux)
+- uid/0x100030a8  # Street map Forest
+- uid/0x10001aa7  # Street map Forest Row
+- uid/0x100018f4  # Street map Forfar
+- uid/0x100070f5  # Street map Forlì
+- uid/0x10002b6e  # Street map Formello
+- uid/0x10001cdf  # Street map Forres
+- uid/0x10001e65  # Street map Forsinard
+- uid/0x10001bb2  # Street map Fort Augustus
+- uid/0x10001bb3  # Street map Fort William
+- uid/0x10001d9c  # Street map Fortrose
+- uid/0x100031b6  # Street map Fosses la ville
+- uid/0x10006c9c  # Street map Fosses-La-Ville
+- uid/0x10006c27  # Street map Fosses-La-Ville
+- uid/0x10002fe4  # Street map Founex
+- uid/0x10003230  # Street map Fourons
+- uid/0x100025af  # Street map Fourqueux
+- uid/0x100019b3  # Street map Fowey
+- uid/0x100031a5  # Street map Frameries
+- uid/0x10006c9d  # Street map Frameries
+- uid/0x10006c28  # Street map Frameries
+- uid/0x1000248b  # Street map Francheville
+- uid/0x1000252f  # Street map Franconville
+- uid/0x10006d1c  # Street map Franconville
+- uid/0x10002bec  # Street map Franekeradeel
+- uid/0x1000716d  # Street map Franekeradeel
+- uid/0x10006e51  # Street map Frankenberg (Eder)
+- uid/0x1000270b  # Street map Frankenthal (pfalz)
+- uid/0x10006e52  # Street map Frankenthal (Pfalz)
+- uid/0x1000270c  # Street map Frankfurt
+- uid/0x10006e54  # Street map Frankfurt (Oder)
+- uid/0x1000270d  # Street map Frankfurt am main
+- uid/0x10006e53  # Street map Frankfurt Am Main
+- uid/0x100024e2  # Street map Franqueville saint pierre
+- uid/0x10002b6f  # Street map Frascati
+- uid/0x100029f7  # Street map Frasdorf
+- uid/0x100018e5  # Street map Fraserburgh
+- uid/0x10003084  # Street map Frasnes lez anvaing
+- uid/0x10006c9e  # Street map Frasnes-Lez-Anvaing
+- uid/0x10006c29  # Street map Frasnes-Lez-Anvaing
+- uid/0x1000202e  # Street map Frastanz
+- uid/0x100020c8  # Street map Frauenstein
+- uid/0x100026d1  # Street map Frechen
+- uid/0x100028b3  # Street map Fredersdorf vogelsdorf
+- uid/0x1000270e  # Street map Freiberg
+- uid/0x10006e55  # Street map Freiberg
+- uid/0x10002843  # Street map Freiberg am neckar
+- uid/0x1000270f  # Street map Freiburg im breisgau
+- uid/0x10006e56  # Street map Freiburg Im Breisgau
+- uid/0x10002f63  # Street map Freienbach
+- uid/0x10002620  # Street map Freilassing
+- uid/0x10006e57  # Street map Freisen
+- uid/0x10002712  # Street map Freising
+- uid/0x10006e58  # Street map Freising
+- uid/0x10002aa7  # Street map Freital
+- uid/0x10002586  # Street map Frejus
+- uid/0x10002f78  # Street map Frenkendorf
+- uid/0x10002530  # Street map Frepillon
+- uid/0x10001bf6  # Street map Freshwater
+- uid/0x10002563  # Street map Fresnes
+- uid/0x10002a12  # Street map Freudenberg
+- uid/0x1000301e  # Street map Fribourg
+- uid/0x1000726a  # Street map Fribourg
+- uid/0x100026ef  # Street map Frickenhausen
+- uid/0x100025f8  # Street map Friedberg
+- uid/0x10006e59  # Street map Friedberg (Hessen)
+- uid/0x10006e5a  # Street map Friedeburg
+- uid/0x10002750  # Street map Friedland
+- uid/0x10006e5b  # Street map Friedland
+- uid/0x100027c1  # Street map Friedrichsdorf
+- uid/0x1000262b  # Street map Friedrichshafen
+- uid/0x10006e5c  # Street map Friedrichshafen
+- uid/0x10006e5d  # Street map Frielendorf
+- uid/0x10002653  # Street map Friesoythe
+- uid/0x10006e5e  # Street map Friesoythe
+- uid/0x10001acb  # Street map Frinton On Sea
+- uid/0x100026bb  # Street map Friolzheim
+- uid/0x10002063  # Street map Fritzens
+- uid/0x10006e5f  # Street map Fritzlar
+- uid/0x100019ee  # Street map Frizington
+- uid/0x1000321d  # Street map Froidchapelle
+- uid/0x10001dd1  # Street map Frome
+- uid/0x100070f6  # Street map Frosinone
+- uid/0x1000245d  # Street map Frouard
+- uid/0x10006d1d  # Street map Fréjus
+- uid/0x10002a7b  # Street map Fröndenberg
+- uid/0x10006e60  # Street map Fröndenberg
+- uid/0x100024be  # Street map Fublaines
+- uid/0x1000721b  # Street map Fuengirola
+- uid/0x10002e5b  # Street map Fuenlabrada
+- uid/0x10002716  # Street map Fulda
+- uid/0x10006e61  # Street map Fulda
+- uid/0x100027e2  # Street map Fuldatal
+- uid/0x10006bea  # Street map Fulpmes
+- uid/0x100030ea  # Street map Furnes
+- uid/0x10002017  # Street map Fußach
+- uid/0x10002fae  # Street map Fällanden
+- uid/0x10002f79  # Street map Füllinsdorf
+- uid/0x10006e62  # Street map Fürstenau
+- uid/0x1000271e  # Street map Fürstenfeldbruck
+- uid/0x10002725  # Street map Fürth
+- uid/0x10002956  # Street map Füssen
+- uid/0x10006e63  # Street map Füssen
+- uid/0x10002bed  # Street map Gaasterlan sleat
+- uid/0x1000716e  # Street map Gaasterlan-Sleat
+- uid/0x10002105  # Street map Gablitz
+- uid/0x10001b3e  # Street map Gaerwen
+- uid/0x100024fe  # Street map Gagny
+- uid/0x10006d1e  # Street map Gagny
+- uid/0x10006e64  # Street map Gaimersheim
+- uid/0x10001c81  # Street map Gainsborough
+- uid/0x10001d9d  # Street map Gairloch
+- uid/0x10002f49  # Street map Gaiserwald
+- uid/0x10001db0  # Street map Galashiels
+- uid/0x10001917  # Street map Galston
+- uid/0x10003109  # Street map Gammerages
+- uid/0x100030f3  # Street map Gand
+- uid/0x10006c9f  # Street map Gand
+- uid/0x10002940  # Street map Ganderkesee
+- uid/0x10006e65  # Street map Ganderkesee
+- uid/0x10002e83  # Street map Gandia
+- uid/0x1000721c  # Street map Gandia
+- uid/0x10002793  # Street map Gangelt
+- uid/0x100030a9  # Street map Ganshoren
+- uid/0x10002b24  # Street map Garbagnate milanese
+- uid/0x1000276b  # Street map Garbsen
+- uid/0x10006e66  # Street map Garbsen
+- uid/0x10002438  # Street map Garches
+- uid/0x100028cf  # Street map Garching bei münchen
+- uid/0x100023c1  # Street map Gardanne
+- uid/0x100025b0  # Street map Gargenville
+- uid/0x10002531  # Street map Garges les gonesse
+- uid/0x1000272e  # Street map Garmisch partenkirchen
+- uid/0x10001b3f  # Street map Garndolbenmaen
+- uid/0x100020d1  # Street map Garsten
+- uid/0x10001d9e  # Street map Garve
+- uid/0x10002bc6  # Street map Gasselte
+- uid/0x10002b8d  # Street map Gassino torinese
+- uid/0x10001e6f  # Street map Gateshead
+- uid/0x10002381  # Street map Gattieres
+- uid/0x10001eb3  # Street map Gatwick
+- uid/0x10002873  # Street map Gau bischofsheim
+- uid/0x10006e67  # Street map Gau-Odernheim
+- uid/0x10002a2e  # Street map Gauting
+- uid/0x10006e68  # Street map Gauting
+- uid/0x100030f4  # Street map Gavere
+- uid/0x10002e12  # Street map Gavà
+- uid/0x10002f02  # Street map Gebenstorf
+- uid/0x10006e69  # Street map Gebesee
+- uid/0x100030d4  # Street map Gedinne
+- uid/0x10006ca0  # Street map Gedinne
+- uid/0x10006c2a  # Street map Gedinne
+- uid/0x1000324a  # Street map Geel
+- uid/0x10006ca1  # Street map Geel
+- uid/0x10006c2b  # Street map Geel
+- uid/0x1000328d  # Street map Geer
+- uid/0x10002cc0  # Street map Geertruidenberg
+- uid/0x10006e6a  # Street map Geeste
+- uid/0x100027a7  # Street map Geesthacht
+- uid/0x10006e6b  # Street map Geesthacht
+- uid/0x10003169  # Street map Geetbets
+- uid/0x1000276c  # Street map Gehrden
+- uid/0x10002794  # Street map Geilenkirchen
+- uid/0x10006e6c  # Street map Geilenkirchen
+- uid/0x10006c2c  # Street map Geldenaken
+- uid/0x10002c1f  # Street map Geldermalsen
+- uid/0x1000716f  # Street map Geldermalsen
+- uid/0x100027e9  # Street map Geldern
+- uid/0x10006e6d  # Street map Geldern
+- uid/0x10002cc1  # Street map Geldrop
+- uid/0x10002c7d  # Street map Geleen
+- uid/0x10006e6e  # Street map Gelnhausen
+- uid/0x10002732  # Street map Gelsenkirchen
+- uid/0x10006e6f  # Street map Gelsenkirchen
+- uid/0x10002fa3  # Street map Gelterkinden
+- uid/0x10002998  # Street map Geltow
+- uid/0x100031b7  # Street map Gembloux
+- uid/0x100023c2  # Street map Gemenos
+- uid/0x10002cc2  # Street map Gemert bakel
+- uid/0x10007170  # Street map Gemert-Bakel
+- uid/0x100031d3  # Street map Genappe
+- uid/0x10006ca2  # Street map Genappe
+- uid/0x1000248c  # Street map Genay
+- uid/0x10002c20  # Street map Gendringen
+- uid/0x10007171  # Street map Gendringen
+- uid/0x10002c21  # Street map Gendt
+- uid/0x10002d44  # Street map Genemuiden
+- uid/0x10006c2d  # Street map Genepien
+- uid/0x1000312a  # Street map Genk
+- uid/0x10006ca3  # Street map Genk
+- uid/0x10006c2e  # Street map Genk
+- uid/0x10002c7e  # Street map Gennep
+- uid/0x10002439  # Street map Gennevilliers
+- uid/0x100070f7  # Street map Genova
+- uid/0x10006c2f  # Street map Gent
+- uid/0x10002564  # Street map Gentilly
+- uid/0x10002fd1  # Street map Genève
+- uid/0x1000726b  # Street map Genève
+- uid/0x1000294f  # Street map Georgsmarienhütte
+- uid/0x10006e70  # Street map Georgsmarienhütte
+- uid/0x10002733  # Street map Gera
+- uid/0x10006e71  # Street map Gera
+- uid/0x10002106  # Street map Gerasdorf bei wien
+- uid/0x10002fb8  # Street map Gerlafingen
+- uid/0x10002844  # Street map Gerlingen
+- uid/0x10002920  # Street map Germendorf
+- uid/0x1000271f  # Street map Germering
+- uid/0x10006e72  # Street map Germersheim
+- uid/0x10002f3f  # Street map Geroldswil
+- uid/0x10006e73  # Street map Gerolstein
+- uid/0x100030bd  # Street map Gerpinnes
+- uid/0x10001955  # Street map Gerrards Cross
+- uid/0x10006e74  # Street map Gersfeld (Rhön)
+- uid/0x10002603  # Street map Gersthofen
+- uid/0x10002630  # Street map Gescher
+- uid/0x10006e75  # Street map Gescher
+- uid/0x10002a1b  # Street map Geseke
+- uid/0x100031b8  # Street map Gesves
+- uid/0x10002e5c  # Street map Getafe
+- uid/0x1000721d  # Street map Getafe
+- uid/0x100026b3  # Street map Gevelsberg
+- uid/0x100027b3  # Street map Giesen
+- uid/0x10002db1  # Street map Giessenlanden
+- uid/0x10007172  # Street map Giessenlanden
+- uid/0x10002bc7  # Street map Gieten
+- uid/0x10002735  # Street map Gießen
+- uid/0x10006e76  # Street map Gießen
+- uid/0x1000209f  # Street map Gießhübl
+- uid/0x100023f3  # Street map Gif sur yvette
+- uid/0x10006d1f  # Street map Gif-Sur-Yvette
+- uid/0x10006e77  # Street map Gifhorn
+- uid/0x100023c3  # Street map Gignac la nerthe
+- uid/0x10002a2f  # Street map Gilching
+- uid/0x10001a4c  # Street map Gillingham (Dorset)
+- uid/0x10001c14  # Street map Gillingham (Kent)
+- uid/0x10003032  # Street map Gilly
+- uid/0x10002cc3  # Street map Gilze en rijen
+- uid/0x1000312b  # Street map Gingelom
+- uid/0x10002743  # Street map Ginsheim gustavsburg
+- uid/0x10002e40  # Street map Girona
+- uid/0x1000721e  # Street map Girona
+- uid/0x10001918  # Street map Girvan
+- uid/0x100031ea  # Street map Gistel
+- uid/0x10002b4d  # Street map Giugliano in campania
+- uid/0x1000301f  # Street map Givisiez
+- uid/0x1000316a  # Street map Glabbeek
+- uid/0x100029ac  # Street map Gladbeck
+- uid/0x10006e78  # Street map Gladenbach
+- uid/0x10002fe5  # Street map Gland
+- uid/0x1000726c  # Street map Gland
+- uid/0x10001c44  # Street map Glasgow
+- uid/0x10001c45  # Street map Glasgow Center
+- uid/0x10002aa8  # Street map Glashütte
+- uid/0x10001dd2  # Street map Glastonbury
+- uid/0x10002f2a  # Street map Glattfelden
+- uid/0x10002751  # Street map Gleichen
+- uid/0x10006e79  # Street map Gleichen
+- uid/0x10001bb4  # Street map Glenfinnan
+- uid/0x10001af2  # Street map Glenrothes
+- uid/0x10007285  # Street map Gletterens
+- uid/0x10002921  # Street map Glienicke
+- uid/0x10002a40  # Street map Glinde
+- uid/0x10002999  # Street map Glindow
+- uid/0x10001a77  # Street map Glogue
+- uid/0x10001a0c  # Street map Glossop
+- uid/0x10001b07  # Street map Gloucester
+- uid/0x10001afb  # Street map Gloucestershire
+- uid/0x100028a2  # Street map Gmund am tegernsee
+- uid/0x10006e7a  # Street map Gnarrenburg
+- uid/0x100027ea  # Street map Goch
+- uid/0x10006e7b  # Street map Goch
+- uid/0x10001e3d  # Street map Godalming
+- uid/0x10002e84  # Street map Godella
+- uid/0x10001e3e  # Street map Godstone
+- uid/0x10002db2  # Street map Goedereede
+- uid/0x10007173  # Street map Goedereede
+- uid/0x10002d8b  # Street map Goes
+- uid/0x10007174  # Street map Goes
+- uid/0x10002a4e  # Street map Gohrisch
+- uid/0x10002cc4  # Street map Goirle
+- uid/0x10007175  # Street map Goirle
+- uid/0x10002f9a  # Street map Goldach
+- uid/0x10001e66  # Street map Golspie
+- uid/0x100023f4  # Street map Gometz le chatel
+- uid/0x10002885  # Street map Gompitz
+- uid/0x10002532  # Street map Gonesse
+- uid/0x10006d20  # Street map Gonesse
+- uid/0x10001a78  # Street map Goodwick
+- uid/0x1000310a  # Street map Gooik
+- uid/0x10006ca4  # Street map Gooik
+- uid/0x10006c30  # Street map Gooik
+- uid/0x10001d22  # Street map Goole
+- uid/0x10002d45  # Street map Goor
+- uid/0x10002382  # Street map Gorbio
+- uid/0x1000194b  # Street map Gordon
+- uid/0x10001cbe  # Street map Gorebridge
+- uid/0x10002db3  # Street map Gorinchem
+- uid/0x10002b00  # Street map Gorizia
+- uid/0x100070f8  # Street map Gorizia
+- uid/0x10002c22  # Street map Gorssel
+- uid/0x10007176  # Street map Gorssel
+- uid/0x10002739  # Street map Goslar
+- uid/0x10006e7e  # Street map Goslar
+- uid/0x10001b6c  # Street map Gosport
+- uid/0x10002f4a  # Street map Gossau (sg)
+- uid/0x10002f55  # Street map Gossau (zh)
+- uid/0x1000273e  # Street map Gotha
+- uid/0x10006e7f  # Street map Gotha
+- uid/0x10002db4  # Street map Gouda
+- uid/0x10007177  # Street map Gouda
+- uid/0x100024ff  # Street map Gournay sur marne
+- uid/0x10001d8d  # Street map Gourock
+- uid/0x100024bf  # Street map Gouvernes
+- uid/0x10003093  # Street map Gouvy
+- uid/0x10006ca5  # Street map Gouvy
+- uid/0x10006c31  # Street map Gouvy
+- uid/0x10002db5  # Street map Graafstroom
+- uid/0x10007178  # Street map Graafstroom
+- uid/0x10002a64  # Street map Grabenstätt
+- uid/0x10003155  # Street map Grace hollogne
+- uid/0x10002640  # Street map Grafenau
+- uid/0x10002072  # Street map Grafenstein
+- uid/0x10002d07  # Street map Graft de rijp
+- uid/0x1000272f  # Street map Grainau
+- uid/0x100020e2  # Street map Gramastetten
+- uid/0x10002107  # Street map Gramatneusiedl
+- uid/0x10003053  # Street map Grammont
+- uid/0x10002d46  # Street map Gramsbergen
+- uid/0x10002e4c  # Street map Granada
+- uid/0x1000721f  # Street map Granada
+- uid/0x10002adc  # Street map Granarolo dell'emilia
+- uid/0x100024e3  # Street map Grand couronne
+- uid/0x10003018  # Street map Grandvaux
+- uid/0x100019ef  # Street map Grange Over Sands
+- uid/0x10001e11  # Street map Grangemouth
+- uid/0x10002e13  # Street map Granollers
+- uid/0x10007220  # Street map Granollers
+- uid/0x10001c82  # Street map Grantham
+- uid/0x10001ce0  # Street map Grantown On Spey
+- uid/0x1000295b  # Street map Grasberg
+- uid/0x100028d0  # Street map Grasbrunn
+- uid/0x10002a65  # Street map Grassau
+- uid/0x10002383  # Street map Grasse
+- uid/0x10006d21  # Street map Grasse
+- uid/0x10002043  # Street map Gratkorn
+- uid/0x10002044  # Street map Gratwein
+- uid/0x10002a4f  # Street map Graupa
+- uid/0x10002cc5  # Street map Grave
+- uid/0x10001c15  # Street map Gravesend
+- uid/0x10001acc  # Street map Grays
+- uid/0x1000203d  # Street map Graz
+- uid/0x10006beb  # Street map Graz
+- uid/0x100023c4  # Street map Greasque
+- uid/0x10001956  # Street map Great Missenden
+- uid/0x10001ceb  # Street map Great Yarmouth
+- uid/0x10006e81  # Street map Grebenhain
+- uid/0x10001ca4  # Street map Greenford
+- uid/0x10001c16  # Street map Greenhithe
+- uid/0x10001d8e  # Street map Greenock
+- uid/0x10002a90  # Street map Grefrath
+- uid/0x10006e82  # Street map Greifenstein
+- uid/0x10002740  # Street map Greifswald
+- uid/0x10006e83  # Street map Greifswald
+- uid/0x10006e84  # Street map Greiz
+- uid/0x10002f67  # Street map Grenchen
+- uid/0x10006d22  # Street map Grenoble
+- uid/0x10001a5c  # Street map Gretna
+- uid/0x10002f8f  # Street map Gretzenbach
+- uid/0x10006ce9  # Street map Greve
+- uid/0x10002a35  # Street map Greven
+- uid/0x10006e85  # Street map Greven
+- uid/0x100028ee  # Street map Grevenbroich
+- uid/0x10006e86  # Street map Grevenbroich
+- uid/0x100031d4  # Street map Grez doiceau
+- uid/0x10002680  # Street map Griesheim
+- uid/0x100023f5  # Street map Grigny
+- uid/0x1000310b  # Street map Grimbergen
+- uid/0x10001df5  # Street map Grimsby
+- uid/0x1000324b  # Street map Grobbendonk
+- uid/0x10002c23  # Street map Groenlo
+- uid/0x10002c24  # Street map Groesbeek
+- uid/0x100027b4  # Street map Gronau (leine)
+- uid/0x10006e88  # Street map Gronau (Westf )
+- uid/0x10002c5f  # Street map Groningen
+- uid/0x10007179  # Street map Groningen
+- uid/0x10002c60  # Street map Grootegast
+- uid/0x10002533  # Street map Groslay
+- uid/0x10002e97  # Street map Grossaffoltern
+- uid/0x1000205b  # Street map Groß enzersdorf
+- uid/0x10002744  # Street map Groß gerau
+- uid/0x1000299a  # Street map Groß glienicke
+- uid/0x100027a8  # Street map Groß grönau
+- uid/0x10002a5d  # Street map Groß machnow
+- uid/0x10002681  # Street map Groß umstadt
+- uid/0x10002682  # Street map Groß zimmern
+- uid/0x10006e8a  # Street map Groß-Gerau
+- uid/0x10006e8d  # Street map Groß-Umstadt
+- uid/0x10002a5e  # Street map Großbeeren
+- uid/0x100026f0  # Street map Großbettlingen
+- uid/0x10002604  # Street map Großefehn
+- uid/0x10006e89  # Street map Großenkneten
+- uid/0x10002717  # Street map Großenlüder
+- uid/0x100027cd  # Street map Großerkmannsdorf
+- uid/0x10002a41  # Street map Großhansdorf
+- uid/0x10002027  # Street map Großhöflein
+- uid/0x1000285e  # Street map Großkrotzenburg
+- uid/0x10002814  # Street map Großlehna
+- uid/0x10006e8b  # Street map Großmonra
+- uid/0x10002815  # Street map Großpösna
+- uid/0x10006e8c  # Street map Großpösna
+- uid/0x100027ce  # Street map Großröhrsdorf
+- uid/0x1000266f  # Street map Großziethen
+- uid/0x10002c7f  # Street map Grubbenvorst
+- uid/0x10002b8e  # Street map Grugliasco
+- uid/0x10002aa9  # Street map Grumbach
+- uid/0x100028d1  # Street map Gräfelfing
+- uid/0x10002ed9  # Street map Gränichen
+- uid/0x10002720  # Street map Gröbenzell
+- uid/0x100020b6  # Street map Grödig
+- uid/0x10006e87  # Street map Grömitz
+- uid/0x10006e8e  # Street map Grünberg
+- uid/0x10002828  # Street map Grünenbach
+- uid/0x1000292f  # Street map Grünheide
+- uid/0x10002f56  # Street map Grüningen
+- uid/0x100028d2  # Street map Grünwald
+- uid/0x100029f8  # Street map Gstadt am chiemsee
+- uid/0x100024c0  # Street map Guermantes
+- uid/0x10002b70  # Street map Guidonia montecelio
+- uid/0x100070f9  # Street map Guidonia Montecelio
+- uid/0x10001e3f  # Street map Guildford
+- uid/0x10001991  # Street map Guisborough
+- uid/0x10001a99  # Street map Gullane
+- uid/0x10002c80  # Street map Gulpen
+- uid/0x10002912  # Street map Gummersbach
+- uid/0x10006e8f  # Street map Gummersbach
+- uid/0x100020a0  # Street map Gumpoldskirchen
+- uid/0x100019b4  # Street map Gunnislake
+- uid/0x100020fa  # Street map Gunskirchen
+- uid/0x100020a1  # Street map Guntramsdorf
+- uid/0x10006e91  # Street map Gutsbezirk Spessart
+- uid/0x100025b1  # Street map Guyancourt
+- uid/0x10006d23  # Street map Guyancourt
+- uid/0x10001b17  # Street map Gwent
+- uid/0x10001b29  # Street map Gwynedd
+- uid/0x10006e92  # Street map Gyhum
+- uid/0x10002641  # Street map Gärtringen
+- uid/0x1000202f  # Street map Göfis
+- uid/0x1000274d  # Street map Göppingen
+- uid/0x10006e7c  # Street map Göppingen
+- uid/0x1000274e  # Street map Görlitz
+- uid/0x10006e7d  # Street map Görlitz
+- uid/0x10002045  # Street map Gössendorf
+- uid/0x1000724f  # Street map Göteborg
+- uid/0x10002752  # Street map Göttingen
+- uid/0x10006e80  # Street map Göttingen
+- uid/0x10002021  # Street map Götzendorf an der leitha
+- uid/0x10002030  # Street map Götzis
+- uid/0x10002007  # Street map Günselsdorf
+- uid/0x1000299b  # Street map Güterfelde
+- uid/0x10002754  # Street map Gütersloh
+- uid/0x10006e90  # Street map Gütersloh
+- uid/0x1000316b  # Street map Haacht
+- uid/0x10002d47  # Street map Haaksbergen
+- uid/0x10003054  # Street map Haaltert
+- uid/0x10002898  # Street map Haan
+- uid/0x100028d3  # Street map Haar
+- uid/0x10002cc6  # Street map Haaren
+- uid/0x10002d08  # Street map Haarlem
+- uid/0x1000717a  # Street map Haarlem
+- uid/0x10002d09  # Street map Haarlemmerliede en spaarnwoude
+- uid/0x10002d0a  # Street map Haarlemmermeer
+- uid/0x1000717b  # Street map Haarlemmermeer
+- uid/0x10003280  # Street map Habay
+- uid/0x10006ca6  # Street map Habay
+- uid/0x10006c32  # Street map Habay
+- uid/0x10001a9a  # Street map Haddington
+- uid/0x10002c81  # Street map Haelen
+- uid/0x10006e93  # Street map Hage
+- uid/0x1000275f  # Street map Hagen
+- uid/0x10006e94  # Street map Hagen
+- uid/0x1000207f  # Street map Hagenbrunn
+- uid/0x10001aa8  # Street map Hailsham
+- uid/0x10002668  # Street map Haimhausen
+- uid/0x10002935  # Street map Hainburg
+- uid/0x1000310c  # Street map Hal
+- uid/0x10002957  # Street map Halblech
+- uid/0x10002cc7  # Street map Halderberge
+- uid/0x1000312c  # Street map Halen
+- uid/0x10001e9d  # Street map Halesowen
+- uid/0x10001e1d  # Street map Halesworth
+- uid/0x10001ec9  # Street map Halifax
+- uid/0x10001961  # Street map Halkirk
+- uid/0x10002064  # Street map Hall in tirol
+- uid/0x10002760  # Street map Halle
+- uid/0x10006e95  # Street map Halle (Saale)
+- uid/0x10006e96  # Street map Halle (Westf )
+- uid/0x10002755  # Street map Halle (westfalen)
+- uid/0x1000205d  # Street map Hallein
+- uid/0x100020b7  # Street map Hallwang
+- uid/0x10002f6b  # Street map Hallwil
+- uid/0x10001acd  # Street map Halstead
+- uid/0x10002980  # Street map Halstenbek
+- uid/0x100029ad  # Street map Haltern
+- uid/0x10006e97  # Street map Haltern
+- uid/0x10001d11  # Street map Haltwhistle
+- uid/0x100028bc  # Street map Halver
+- uid/0x10006e98  # Street map Halver
+- uid/0x1000312d  # Street map Ham
+- uid/0x10002d48  # Street map Ham den
+- uid/0x1000321e  # Street map Ham sur heure nalinnes
+- uid/0x1000295c  # Street map Hambergen
+- uid/0x10002761  # Street map Hamburg
+- uid/0x10002765  # Street map Hameln
+- uid/0x10006e99  # Street map Hameln
+- uid/0x10001c46  # Street map Hamilton
+- uid/0x10002767  # Street map Hamm
+- uid/0x10006e9a  # Street map Hamm
+- uid/0x10006e9b  # Street map Hammah
+- uid/0x1000320f  # Street map Hamme
+- uid/0x10002ab4  # Street map Hamminkeln
+- uid/0x10006e9c  # Street map Hamminkeln
+- uid/0x1000313e  # Street map Hamoir
+- uid/0x100030d5  # Street map Hamois
+- uid/0x10003182  # Street map Hamont achel
+- uid/0x10006ca7  # Street map Hamont-Achel
+- uid/0x10006c33  # Street map Hamont-Achel
+- uid/0x10001b5e  # Street map Hampshire
+- uid/0x10001ca5  # Street map Hampton
+- uid/0x1000285f  # Street map Hanau
+- uid/0x10006e9d  # Street map Hanau
+- uid/0x10007250  # Street map Haninge
+- uid/0x10006e9e  # Street map Hankensbüttel
+- uid/0x10006e9f  # Street map Hann Münden
+- uid/0x1000276d  # Street map Hannover
+- uid/0x10006ea0  # Street map Hannover
+- uid/0x1000328e  # Street map Hannut
+- uid/0x10006ca8  # Street map Hannut
+- uid/0x10006c34  # Street map Hannut
+- uid/0x10002018  # Street map Hard
+- uid/0x10006ea1  # Street map Hardegsen
+- uid/0x10002d49  # Street map Hardenberg
+- uid/0x1000717c  # Street map Hardenberg
+- uid/0x10002c25  # Street map Harderwijk
+- uid/0x1000717d  # Street map Harderwijk
+- uid/0x10002db6  # Street map Hardinxveld giessendam
+- uid/0x100025b2  # Street map Hardricourt
+- uid/0x100030c8  # Street map Harelbeke
+- uid/0x10002c61  # Street map Haren
+- uid/0x10006ea2  # Street map Haren (Ems)
+- uid/0x10002d0b  # Street map Harenkarspel
+- uid/0x10001b40  # Street map Harlech
+- uid/0x10001cec  # Street map Harleston
+- uid/0x10002bee  # Street map Harlingen
+- uid/0x10001ace  # Street map Harlow
+- uid/0x10002d70  # Street map Harmelen
+- uid/0x10001b94  # Street map Harpenden
+- uid/0x10001bd5  # Street map Harris
+- uid/0x10001d2c  # Street map Harrogate
+- uid/0x10001ca6  # Street map Harrow
+- uid/0x10006ea3  # Street map Harsefeld
+- uid/0x10002756  # Street map Harsewinkel
+- uid/0x10006ea4  # Street map Harsewinkel
+- uid/0x100027b5  # Street map Harsum
+- uid/0x10002046  # Street map Hart bei graz
+- uid/0x10001aa9  # Street map Hartfield
+- uid/0x10001992  # Street map Hartlepool
+- uid/0x10001acf  # Street map Harwich
+- uid/0x1000273a  # Street map Harz (landkreis goslar)
+- uid/0x10006ea5  # Street map Harz (Landkreis Goslar)
+- uid/0x10006ea6  # Street map Harz (Ldkr Osterode Am Harz) Gemfr Geb
+- uid/0x10002950  # Street map Hasbergen
+- uid/0x10006ea7  # Street map Haselünne
+- uid/0x10001e40  # Street map Haslemere
+- uid/0x10002981  # Street map Hasloh
+- uid/0x1000312e  # Street map Hasselt
+- uid/0x10002d4a  # Street map Hasselt
+- uid/0x10006ca9  # Street map Hasselt
+- uid/0x10006c35  # Street map Hasselt
+- uid/0x10001eb4  # Street map Hassocks
+- uid/0x100030d6  # Street map Hastiere
+- uid/0x10001aaa  # Street map Hastings
+- uid/0x10001b95  # Street map Hatfield
+- uid/0x10002c26  # Street map Hattem
+- uid/0x10002941  # Street map Hatten
+- uid/0x10002867  # Street map Hattersheim am main
+- uid/0x100026b4  # Street map Hattingen
+- uid/0x10006ea8  # Street map Hattingen
+- uid/0x10002ee3  # Street map Hausen am albis
+- uid/0x10002f20  # Street map Hausen bei brugg
+- uid/0x10002047  # Street map Hausmannstätten
+- uid/0x10001b6d  # Street map Havant
+- uid/0x100030d7  # Street map Havelange
+- uid/0x10006caa  # Street map Havelange
+- uid/0x10006c36  # Street map Havelange
+- uid/0x10002bc8  # Street map Havelte
+- uid/0x10001a79  # Street map Haverfordwest
+- uid/0x10001e1e  # Street map Haverhill
+- uid/0x10002659  # Street map Havixbeck
+- uid/0x10006d24  # Street map Havre (Le)
+- uid/0x10001d2d  # Street map Hawes
+- uid/0x10001daa  # Street map Hawick
+- uid/0x10001ca7  # Street map Hayes
+- uid/0x100019b5  # Street map Hayle
+- uid/0x10001b6e  # Street map Hayling Island
+- uid/0x10001eb5  # Street map Haywards Heath
+- uid/0x10001a0d  # Street map Heanor
+- uid/0x10001aab  # Street map Heathfield
+- uid/0x10001e70  # Street map Hebburn
+- uid/0x10001eca  # Street map Hebden Bridge
+- uid/0x10002669  # Street map Hebertshausen
+- uid/0x10003183  # Street map Hechtel eksel
+- uid/0x10001ecb  # Street map Heckmondwike
+- uid/0x10002c27  # Street map Hedel
+- uid/0x10002ee4  # Street map Hedingen
+- uid/0x10002c82  # Street map Heel
+- uid/0x10002d0c  # Street map Heemskerk
+- uid/0x10002d0d  # Street map Heemstede
+- uid/0x10002c28  # Street map Heerde
+- uid/0x10002bef  # Street map Heerenveen
+- uid/0x10002c29  # Street map Heerewaarden
+- uid/0x10002d0e  # Street map Heerhugowaard
+- uid/0x10002db7  # Street map Heerjansdam
+- uid/0x10002c83  # Street map Heerlen
+- uid/0x10003231  # Street map Heers
+- uid/0x10002cc8  # Street map Heeze leende
+- uid/0x1000717e  # Street map Heeze-Leende
+- uid/0x1000278c  # Street map Heidelberg
+- uid/0x10006ea9  # Street map Heidelberg
+- uid/0x10002631  # Street map Heiden
+- uid/0x10002fb5  # Street map Heiden
+- uid/0x10002a50  # Street map Heidenau
+- uid/0x1000278d  # Street map Heidenheim an der brenz
+- uid/0x10006eaa  # Street map Heidenheim An Der Brenz
+- uid/0x10006eab  # Street map Heidenrod
+- uid/0x10002874  # Street map Heidesheim am rhein
+- uid/0x10002982  # Street map Heidgraben
+- uid/0x10006eac  # Street map Heilbad Heiligenstadt
+- uid/0x1000278f  # Street map Heilbronn
+- uid/0x10006ead  # Street map Heilbronn
+- uid/0x10002899  # Street map Heiligenhaus
+- uid/0x10002008  # Street map Heiligenkreuz
+- uid/0x1000245e  # Street map Heillecourt
+- uid/0x10002d0f  # Street map Heiloo
+- uid/0x1000269d  # Street map Heimbach
+- uid/0x10002ed0  # Street map Heimberg
+- uid/0x10002829  # Street map Heimenkirch
+- uid/0x100026bc  # Street map Heimsheim
+- uid/0x10002d4b  # Street map Heino
+- uid/0x10002795  # Street map Heinsberg
+- uid/0x10006eae  # Street map Heinsberg
+- uid/0x10002983  # Street map Heist
+- uid/0x10003190  # Street map Heist op den berg
+- uid/0x10006cab  # Street map Heist-Op-Den-Berg
+- uid/0x10006c37  # Street map Heist-Op-Den-Berg
+- uid/0x10002c84  # Street map Helden
+- uid/0x10002d10  # Street map Helder den
+- uid/0x1000717f  # Street map Helder Den
+- uid/0x100031d5  # Street map Helecine
+- uid/0x10001a67  # Street map Helensburgh
+- uid/0x10002d4c  # Street map Hellendoorn
+- uid/0x10007180  # Street map Hellendoorn
+- uid/0x10002703  # Street map Hellenthal
+- uid/0x10006eaf  # Street map Hellenthal
+- uid/0x10002db8  # Street map Hellevoetsluis
+- uid/0x10007181  # Street map Hellevoetsluis
+- uid/0x10002cc9  # Street map Helmond
+- uid/0x10007182  # Street map Helmond
+- uid/0x10001e67  # Street map Helmsdale
+- uid/0x10006eb0  # Street map Helmstedt
+- uid/0x10006cea  # Street map Helsingor
+- uid/0x100019b6  # Street map Helston
+- uid/0x10002984  # Street map Hemdingen
+- uid/0x10001b96  # Street map Hemel Hempstead
+- uid/0x100028bd  # Street map Hemer
+- uid/0x10006eb1  # Street map Hemer
+- uid/0x10003063  # Street map Hemiksem
+- uid/0x1000276e  # Street map Hemmingen (hannover)
+- uid/0x10002845  # Street map Hemmingen (ludwigsburg)
+- uid/0x10006eb2  # Street map Hemmoor
+- uid/0x10002db9  # Street map Hendrik ido ambacht
+- uid/0x10001eb6  # Street map Henfield
+- uid/0x10002c2a  # Street map Hengelo (gelderland)
+- uid/0x10002d4d  # Street map Hengelo (overijssel)
+- uid/0x10007184  # Street map Hengelo <Gelderland>
+- uid/0x10007183  # Street map Hengelo <Overijssel>
+- uid/0x10001cd0  # Street map Hengoed
+- uid/0x10001d56  # Street map Henley On Thames
+- uid/0x10001933  # Street map Henlow
+- uid/0x100029d5  # Street map Hennef (sieg)
+- uid/0x10006eb3  # Street map Hennef (Sieg)
+- uid/0x100028b4  # Street map Hennickendorf
+- uid/0x10002922  # Street map Hennigsdorf
+- uid/0x100031a6  # Street map Hensies
+- uid/0x10002a10  # Street map Henstedt ulzburg
+- uid/0x10006eb4  # Street map Henstedt-Ulzburg
+- uid/0x10006eb5  # Street map Heppenheim (Bergstraße)
+- uid/0x100031c4  # Street map Herbeumont
+- uid/0x10002534  # Street map Herblay
+- uid/0x10006d26  # Street map Herblay
+- uid/0x1000312f  # Street map Hercle la ville
+- uid/0x100026b5  # Street map Herdecke
+- uid/0x10006eb6  # Street map Herdecke
+- uid/0x10001b86  # Street map Hereford
+- uid/0x10001b84  # Street map Herefordshire
+- uid/0x1000316c  # Street map Herent
+- uid/0x10006cac  # Street map Herent
+- uid/0x10006c38  # Street map Herent
+- uid/0x1000324c  # Street map Herentals
+- uid/0x1000324d  # Street map Herenthout
+- uid/0x1000279e  # Street map Herford
+- uid/0x10006eb7  # Street map Herford
+- uid/0x1000282a  # Street map Hergensweiler
+- uid/0x10006eb8  # Street map Heringen (Werra)
+- uid/0x10001cbf  # Street map Heriot
+- uid/0x10002f52  # Street map Herisau
+- uid/0x10006bec  # Street map Hermagor-Pressegger See
+- uid/0x10006eb9  # Street map Hermeskeil
+- uid/0x100027cf  # Street map Hermsdorf
+- uid/0x1000310d  # Street map Herne
+- uid/0x100027a3  # Street map Herne
+- uid/0x10006eba  # Street map Herne
+- uid/0x10001c17  # Street map Herne Bay
+- uid/0x10002009  # Street map Hernstein
+- uid/0x100026dd  # Street map Heroldsberg
+- uid/0x1000313f  # Street map Heron
+- uid/0x10002642  # Street map Herrenberg
+- uid/0x10002f80  # Street map Herrliberg
+- uid/0x100028be  # Street map Herscheid
+- uid/0x1000324e  # Street map Herselt
+- uid/0x10003156  # Street map Herstal
+- uid/0x10003232  # Street map Herstappe
+- uid/0x100029ae  # Street map Herten
+- uid/0x10006ebb  # Street map Herten
+- uid/0x10001b97  # Street map Hertford
+- uid/0x10001b8b  # Street map Hertfordshire
+- uid/0x10003268  # Street map Herve
+- uid/0x10006cad  # Street map Herve
+- uid/0x10006c39  # Street map Herve
+- uid/0x10006ebc  # Street map Herxheim Bei Landau
+- uid/0x10002757  # Street map Herzebrock clarholz
+- uid/0x10006ebd  # Street map Herzebrock-Clarholz
+- uid/0x10003055  # Street map Herzele
+- uid/0x10006cae  # Street map Herzele
+- uid/0x10006c3a  # Street map Herzele
+- uid/0x100026de  # Street map Herzogenaurach
+- uid/0x10002ed5  # Street map Herzogenbuchsee
+- uid/0x1000726d  # Street map Herzogenbuchsee
+- uid/0x100020c0  # Street map Herzogenburg
+- uid/0x100025f1  # Street map Herzogenrath
+- uid/0x10006ebe  # Street map Herzogenrath
+- uid/0x10002803  # Street map Hesel
+- uid/0x10006ec0  # Street map Hessisch Lichtenau
+- uid/0x10002766  # Street map Hessisch oldendorf
+- uid/0x10006ebf  # Street map Hessisch Oldendorf
+- uid/0x10001d23  # Street map Hessle
+- uid/0x10002c2b  # Street map Heteren
+- uid/0x10002fbd  # Street map Hettlingen
+- uid/0x10002c2c  # Street map Heumen
+- uid/0x10002cca  # Street map Heusden
+- uid/0x10003130  # Street map Heusden zolder
+- uid/0x10002936  # Street map Heusenstamm
+- uid/0x10003295  # Street map Heuvelland
+- uid/0x10006caf  # Street map Heuvelland
+- uid/0x10006c3b  # Street map Heuvelland
+- uid/0x10001d12  # Street map Hexham
+- uid/0x10002c85  # Street map Heythuysen
+- uid/0x10001c5c  # Street map Heywood
+- uid/0x100026df  # Street map Heßdorf
+- uid/0x1000279f  # Street map Hiddenhausen
+- uid/0x10001a0e  # Street map High Peak East
+- uid/0x10001a0f  # Street map High Peak West
+- uid/0x10001957  # Street map High Wycombe
+- uid/0x10001dd3  # Street map Highbridge
+- uid/0x10006ec1  # Street map Hildburghausen
+- uid/0x1000289a  # Street map Hilden
+- uid/0x10006ec2  # Street map Hilders
+- uid/0x100027b6  # Street map Hildesheim
+- uid/0x10006ec3  # Street map Hildesheim
+- uid/0x100028a7  # Street map Hille
+- uid/0x10006ec4  # Street map Hille
+- uid/0x10002dba  # Street map Hillegom
+- uid/0x10006ec5  # Street map Hilter Am Teutoburger Wald
+- uid/0x10002ccb  # Street map Hilvarenbeek
+- uid/0x10007185  # Street map Hilvarenbeek
+- uid/0x10002d11  # Street map Hilversum
+- uid/0x10007186  # Street map Hilversum
+- uid/0x10002108  # Street map Himberg
+- uid/0x10001c73  # Street map Hinckley
+- uid/0x10002904  # Street map Hindelang
+- uid/0x10001e41  # Street map Hindhead
+- uid/0x100020a2  # Street map Hinterbrühl
+- uid/0x10001dd4  # Street map Hinton St George
+- uid/0x10002f57  # Street map Hinwil
+- uid/0x10001b98  # Street map Hitchin
+- uid/0x10002f93  # Street map Hittnau
+- uid/0x100026f1  # Street map Hochdorf
+- uid/0x10002868  # Street map Hochheim am main
+- uid/0x10006ec6  # Street map Hockenheim
+- uid/0x10001ad0  # Street map Hockley
+- uid/0x10001b99  # Street map Hoddesdon
+- uid/0x1000316d  # Street map Hoegaarden
+- uid/0x1000310e  # Street map Hoeilaart
+- uid/0x100023a9  # Street map Hoenheim
+- uid/0x10003233  # Street map Hoeselt
+- uid/0x10002c2d  # Street map Hoevelaken
+- uid/0x100027c6  # Street map Hof
+- uid/0x10006ec7  # Street map Hof
+- uid/0x10006ec8  # Street map Hofgeismar
+- uid/0x10002869  # Street map Hofheim am taunus
+- uid/0x10006ec9  # Street map Hofheim Am Taunus
+- uid/0x10002923  # Street map Hohen neuendorf
+- uid/0x100028d4  # Street map Hohenbrunn
+- uid/0x10002023  # Street map Hohenems
+- uid/0x10002971  # Street map Hohenhameln
+- uid/0x10006eca  # Street map Hohenwart
+- uid/0x10002a51  # Street map Hohnstein
+- uid/0x10002a42  # Street map Hoisdorf
+- uid/0x10002985  # Street map Holm
+- uid/0x100019f0  # Street map Holmrook
+- uid/0x1000316e  # Street map Holsbeek
+- uid/0x10001a26  # Street map Holsworthy
+- uid/0x10001ced  # Street map Holt
+- uid/0x10002d4e  # Street map Holten
+- uid/0x10007187  # Street map Holten
+- uid/0x10002804  # Street map Holtland
+- uid/0x10001b41  # Street map Holyhead
+- uid/0x100019a1  # Street map Holywell
+- uid/0x10002816  # Street map Holzhausen
+- uid/0x10006ecb  # Street map Holzminden
+- uid/0x10002a7c  # Street map Holzwickede
+- uid/0x10006ecc  # Street map Homberg (Efze)
+- uid/0x10002f81  # Street map Hombrechtikon
+- uid/0x10006ecd  # Street map Homburg
+- uid/0x10001a27  # Street map Honiton
+- uid/0x100031a7  # Street map Honnelles
+- uid/0x10006cb0  # Street map Honnelles
+- uid/0x10006c3c  # Street map Honnelles
+- uid/0x10002d8c  # Street map Hontenisse
+- uid/0x10002bc9  # Street map Hoogeveen
+- uid/0x10007188  # Street map Hoogeveen
+- uid/0x10002c62  # Street map Hoogezand sappemeer
+- uid/0x100031f6  # Street map Hooglede
+- uid/0x1000324f  # Street map Hoogstraten
+- uid/0x10001b6f  # Street map Hook
+- uid/0x10002d12  # Street map Hoorn
+- uid/0x10007189  # Street map Hoorn
+- uid/0x10001a10  # Street map Hope Valley
+- uid/0x10006ece  # Street map Hopsten
+- uid/0x10003087  # Street map Horebeke
+- uid/0x10002f5b  # Street map Horgen
+- uid/0x10001e42  # Street map Horley
+- uid/0x10002837  # Street map Horn bad meinberg
+- uid/0x10006ecf  # Street map Horn-Bad Meinberg
+- uid/0x10001c83  # Street map Horncastle
+- uid/0x10001ad1  # Street map Hornchurch
+- uid/0x10001d24  # Street map Hornsea
+- uid/0x10002028  # Street map Hornstein
+- uid/0x10001eb7  # Street map Horsham
+- uid/0x10002c86  # Street map Horst
+- uid/0x10002ebf  # Street map Horw
+- uid/0x10002e14  # Street map Hospitalet de llobregat (l')
+- uid/0x1000319b  # Street map Hotton
+- uid/0x1000245f  # Street map Houdemont
+- uid/0x10003094  # Street map Houffalize
+- uid/0x10006cb1  # Street map Houffalize
+- uid/0x10006c3d  # Street map Houffalize
+- uid/0x10001e71  # Street map Houghton Le Spring
+- uid/0x100025b3  # Street map Houilles
+- uid/0x10001ca8  # Street map Hounslow
+- uid/0x10002d71  # Street map Houten
+- uid/0x10003184  # Street map Houthalen helchteren
+- uid/0x100030df  # Street map Houthulst
+- uid/0x100030d8  # Street map Houyet
+- uid/0x10001aac  # Street map Hove
+- uid/0x10003064  # Street map Hove
+- uid/0x100027c7  # Street map Hoyerswerda
+- uid/0x10006ed3  # Street map Hoyerswerda
+- uid/0x10001ecc  # Street map Huddersfield
+- uid/0x10002942  # Street map Hude (oldenburg)
+- uid/0x10006ed4  # Street map Hude (Oldenburg)
+- uid/0x10002e4d  # Street map Huelva
+- uid/0x10007221  # Street map Huelva
+- uid/0x10002c2e  # Street map Huissen
+- uid/0x10002d13  # Street map Huizen
+- uid/0x1000316f  # Street map Huldenberg
+- uid/0x10006cb2  # Street map Huldenberg
+- uid/0x10006c3e  # Street map Huldenberg
+- uid/0x10003250  # Street map Hulshout
+- uid/0x10002d8d  # Street map Hulst
+- uid/0x10001a9b  # Street map Humbie
+- uid/0x10002c2f  # Street map Hummelo en keppel
+- uid/0x1000718a  # Street map Hummelo En Keppel
+- uid/0x1000193c  # Street map Hungerford
+- uid/0x10002c87  # Street map Hunsel
+- uid/0x10001cee  # Street map Hunstanton
+- uid/0x1000196a  # Street map Huntingdon
+- uid/0x100018e6  # Street map Huntly
+- uid/0x10002f6c  # Street map Hunzenschwil
+- uid/0x10003140  # Street map Huy
+- uid/0x10001976  # Street map Hyde
+- uid/0x10002587  # Street map Hyeres
+- uid/0x10001c18  # Street map Hythe
+- uid/0x10002f16  # Street map Hägglingen
+- uid/0x10007251  # Street map Härryda
+- uid/0x10006d25  # Street map Hénin-Beaumont
+- uid/0x10002019  # Street map Höchst
+- uid/0x100026e0  # Street map Höchstadt an der aisch
+- uid/0x100028d5  # Street map Höhenkirchen siegertsbrunn
+- uid/0x100028b5  # Street map Hönow
+- uid/0x1000201a  # Street map Hörbranz
+- uid/0x10002f2b  # Street map Höri
+- uid/0x10002087  # Street map Hörsching
+- uid/0x10002a36  # Street map Hörstel
+- uid/0x10006ed0  # Street map Hörstel
+- uid/0x10002601  # Street map Hösbach
+- uid/0x10006ed1  # Street map Hövelhof
+- uid/0x10006ed2  # Street map Höxter
+- uid/0x10002796  # Street map Hückelhoven
+- uid/0x10002913  # Street map Hückeswagen
+- uid/0x10006ed5  # Street map Hüllhorst
+- uid/0x10003043  # Street map Hünenberg
+- uid/0x10006ed6  # Street map Hünfeld
+- uid/0x10006ed7  # Street map Hünfelden
+- uid/0x10002ab5  # Street map Hünxe
+- uid/0x10006ed8  # Street map Hünxe
+- uid/0x1000269e  # Street map Hürtgenwald
+- uid/0x100026d2  # Street map Hürth
+- uid/0x100027fa  # Street map Hüttenberg
+- uid/0x10002a37  # Street map Ibbenbüren
+- uid/0x10006ed9  # Street map Ibbenbüren
+- uid/0x10001c74  # Street map Ibstock
+- uid/0x100031eb  # Street map Ichtegem
+- uid/0x10006eda  # Street map Idar-Oberstein
+- uid/0x100029e5  # Street map Idstein
+- uid/0x10006edb  # Street map Idstein
+- uid/0x10006c3f  # Street map Ieper
+- uid/0x100023f6  # Street map Igny
+- uid/0x10002e15  # Street map Igualada
+- uid/0x10007222  # Street map Igualada
+- uid/0x10006edc  # Street map Ihlow
+- uid/0x10002d4f  # Street map Ijsselham
+- uid/0x10002d50  # Street map Ijsselmuiden
+- uid/0x10002d72  # Street map Ijsselstein
+- uid/0x10001ad2  # Street map Ilford
+- uid/0x10001a28  # Street map Ilfracombe
+- uid/0x10001a11  # Street map Ilkeston
+- uid/0x10001ecd  # Street map Ilkley
+- uid/0x100026bd  # Street map Illingen
+- uid/0x100023aa  # Street map Illkirch graffenstaden
+- uid/0x10002f94  # Street map Illnau effretikon
+- uid/0x10006edd  # Street map Ilmenau
+- uid/0x10001dd5  # Street map Ilminster
+- uid/0x10006ede  # Street map Immenhausen
+- uid/0x10002905  # Street map Immenstadt im allgäu
+- uid/0x10001df6  # Street map Immingham
+- uid/0x10002b01  # Street map Imperia
+- uid/0x100070fa  # Street map Imperia
+- uid/0x100031d6  # Street map Incourt
+- uid/0x1000269f  # Street map Inden
+- uid/0x10001ad3  # Street map Ingatestone
+- uid/0x10006edf  # Street map Ingelheim Am Rhein
+- uid/0x100031f7  # Street map Ingelmunster
+- uid/0x10002846  # Street map Ingersheim
+- uid/0x100027c8  # Street map Ingolstadt
+- uid/0x10001d60  # Street map Innerleithen
+- uid/0x1000206e  # Street map Innsbruck
+- uid/0x10006bed  # Street map Innsbruck
+- uid/0x100018e7  # Street map Insch
+- uid/0x10001901  # Street map Inveraray
+- uid/0x10001bb5  # Street map Invergarry
+- uid/0x10001d9f  # Street map Invergordon
+- uid/0x10001af3  # Street map Inverkeithing
+- uid/0x10001bb6  # Street map Inverness
+- uid/0x10001bab  # Street map Inverness Shire
+- uid/0x100018e8  # Street map Inverurie
+- uid/0x10001e1f  # Street map Ipswich
+- uid/0x1000248d  # Street map Irigny
+- uid/0x10001919  # Street map Irvine
+- uid/0x10006ee0  # Street map Isen
+- uid/0x100028bf  # Street map Iserlohn
+- uid/0x10006ee1  # Street map Iserlohn
+- uid/0x1000276f  # Street map Isernhagen
+- uid/0x10001bc0  # Street map Isle Of Arran
+- uid/0x10001bc2  # Street map Isle Of Barra
+- uid/0x10001bc5  # Street map Isle Of Benbecula
+- uid/0x10001bc4  # Street map Isle Of Benbecula
+- uid/0x10001bc6  # Street map Isle Of Bute
+- uid/0x10001bc9  # Street map Isle Of Canna
+- uid/0x10001bc8  # Street map Isle Of Canna
+- uid/0x10001bcb  # Street map Isle Of Coll
+- uid/0x10001bca  # Street map Isle Of Coll
+- uid/0x10001bcd  # Street map Isle Of Colonsay
+- uid/0x10001bcc  # Street map Isle Of Colonsay
+- uid/0x10001bce  # Street map Isle Of Cumbrae
+- uid/0x10001bd1  # Street map Isle Of Eigg
+- uid/0x10001bd0  # Street map Isle Of Eigg
+- uid/0x10001bd3  # Street map Isle Of Gigha
+- uid/0x10001bd2  # Street map Isle Of Gigha
+- uid/0x10001bd4  # Street map Isle Of Harris
+- uid/0x10001bd8  # Street map Isle Of Iona
+- uid/0x10001bd7  # Street map Isle Of Iona
+- uid/0x10001bd9  # Street map Isle Of Islay
+- uid/0x10001be2  # Street map Isle Of Jura
+- uid/0x10001be5  # Street map Isle Of Lewis
+- uid/0x10001be4  # Street map Isle Of Lewis
+- uid/0x10001be8  # Street map Isle Of Mull
+- uid/0x10001be7  # Street map Isle Of Mull
+- uid/0x10001be9  # Street map Isle Of North Uist
+- uid/0x10001bec  # Street map Isle Of Skye
+- uid/0x10001beb  # Street map Isle Of Skye
+- uid/0x10001bee  # Street map Isle Of South Uist
+- uid/0x10001bf0  # Street map Isle Of Tiree
+- uid/0x10001bf2  # Street map Isle Of Wight
+- uid/0x10001bbe  # Street map Isles Of Scilly
+- uid/0x10001ca9  # Street map Isleworth
+- uid/0x100028d6  # Street map Ismaning
+- uid/0x100026be  # Street map Ispringen
+- uid/0x10002632  # Street map Isselburg
+- uid/0x100025b4  # Street map Issou
+- uid/0x100027eb  # Street map Issum
+- uid/0x1000243a  # Street map Issy les moulineaux
+- uid/0x10002fa4  # Street map Itingen
+- uid/0x10002ea0  # Street map Ittigen
+- uid/0x100031d7  # Street map Ittre
+- uid/0x10001958  # Street map Iver
+- uid/0x10002565  # Street map Ivry sur seine
+- uid/0x10001a29  # Street map Ivybridge
+- uid/0x100030aa  # Street map Ixelles
+- uid/0x100031f8  # Street map Izegem
+- uid/0x1000309c  # Street map Jabbeke
+- uid/0x10002dbb  # Street map Jacobswoude
+- uid/0x10003269  # Street map Jalhay
+- uid/0x10001e72  # Street map Jarrow
+- uid/0x10002460  # Street map Jarville la malgrange
+- uid/0x10002e4e  # Street map Jaén
+- uid/0x10007223  # Street map Jaén
+- uid/0x10001dab  # Street map Jedburgh
+- uid/0x10002eb0  # Street map Jegenstorf
+- uid/0x100031b9  # Street map Jemeppe sur sambre
+- uid/0x10002805  # Street map Jemgum
+- uid/0x100027c9  # Street map Jena
+- uid/0x10006ee2  # Street map Jena
+- uid/0x10002e37  # Street map Jerez de la frontera
+- uid/0x10007224  # Street map Jerez De La Frontera
+- uid/0x1000268e  # Street map Jesewitz
+- uid/0x10006ee3  # Street map Jesteburg
+- uid/0x100030ab  # Street map Jette
+- uid/0x100031d8  # Street map Jodoigne
+- uid/0x10006cb3  # Street map Jodoigne
+- uid/0x10001d8f  # Street map Johnstone
+- uid/0x10002566  # Street map Joinville le pont
+- uid/0x1000248e  # Street map Jonage
+- uid/0x10003039  # Street map Jongny
+- uid/0x10002a28  # Street map Jork
+- uid/0x100025b5  # Street map Jouars pontchartrain
+- uid/0x100025b6  # Street map Jouy en josas
+- uid/0x10002535  # Street map Jouy le moutier
+- uid/0x100020d6  # Street map Judenau baumgarten
+- uid/0x10002048  # Street map Judendorf straßengel
+- uid/0x10001cc0  # Street map Juniper Green
+- uid/0x10003157  # Street map Juprelle
+- uid/0x100031a8  # Street map Jurbise
+- uid/0x10002fd2  # Street map Jussy
+- uid/0x100023f7  # Street map Juvisy sur orge
+- uid/0x100025b7  # Street map Juziers
+- uid/0x10002e00  # Street map Jávea
+- uid/0x100028ef  # Street map Jüchen
+- uid/0x100026a0  # Street map Jülich
+- uid/0x10006ee4  # Street map Jülich
+- uid/0x100028f0  # Street map Kaarst
+- uid/0x10006ee5  # Street map Kaarst
+- uid/0x10006ee6  # Street map Kahla
+- uid/0x10002049  # Street map Kainbach
+- uid/0x10003049  # Street map Kaiseraugst
+- uid/0x100027ca  # Street map Kaiserslautern
+- uid/0x10006ee7  # Street map Kaiserslautern
+- uid/0x100026e1  # Street map Kalchreuth
+- uid/0x10006ee8  # Street map Kalefeld
+- uid/0x100027ec  # Street map Kalkar
+- uid/0x10006ee9  # Street map Kalkar
+- uid/0x10002704  # Street map Kall
+- uid/0x10006eea  # Street map Kall
+- uid/0x10006eeb  # Street map Kalletal
+- uid/0x10003065  # Street map Kalmthout
+- uid/0x1000204a  # Street map Kalsdorf bei graz
+- uid/0x100020a3  # Street map Kaltenleutgeben
+- uid/0x10002a7d  # Street map Kamen
+- uid/0x10006eec  # Street map Kamen
+- uid/0x10002ab6  # Street map Kamp lintfort
+- uid/0x10006eed  # Street map Kamp-Lintfort
+- uid/0x10002d51  # Street map Kampen
+- uid/0x1000310f  # Street map Kampenhout
+- uid/0x10002d8e  # Street map Kapelle
+- uid/0x10003110  # Street map Kapelle op den bos
+- uid/0x10003066  # Street map Kapellen
+- uid/0x10002e98  # Street map Kappelen
+- uid/0x100030e5  # Street map Kaprijke
+- uid/0x10006bee  # Street map Kaprun
+- uid/0x10002ac5  # Street map Karben
+- uid/0x1000266a  # Street map Karlsfeld
+- uid/0x100027de  # Street map Karlsruhe
+- uid/0x10006eee  # Street map Karlsruhe
+- uid/0x100027e3  # Street map Kassel
+- uid/0x10006eef  # Street map Kassel
+- uid/0x10003251  # Street map Kasterlee
+- uid/0x10006cb4  # Street map Kasterlee
+- uid/0x10006c40  # Street map Kasterlee
+- uid/0x10002dbc  # Street map Katwijk
+- uid/0x10002118  # Street map Katzelsdorf
+- uid/0x10002bb0  # Street map Kayl
+- uid/0x10003170  # Street map Keerbergen
+- uid/0x1000712f  # Street map Kehlen
+- uid/0x10002ece  # Street map Kehrsatz
+- uid/0x10001ece  # Street map Keighley
+- uid/0x1000192c  # Street map Keith
+- uid/0x10006ef0  # Street map Kelberg
+- uid/0x1000286a  # Street map Kelkheim (taunus)
+- uid/0x10001dac  # Street map Kelso
+- uid/0x10002745  # Street map Kelsterbach
+- uid/0x10001af4  # Street map Kelty
+- uid/0x10002088  # Street map Kematen an der krems
+- uid/0x10002065  # Street map Kematen in tirol
+- uid/0x10002a91  # Street map Kempen
+- uid/0x10006ef1  # Street map Kempen
+- uid/0x100027e6  # Street map Kempten (allgäu)
+- uid/0x10006ef2  # Street map Kempten (Allgäu)
+- uid/0x100019f1  # Street map Kendal
+- uid/0x10001e80  # Street map Kenilworth
+- uid/0x10001e43  # Street map Kenley
+- uid/0x1000201b  # Street map Kennelbach
+- uid/0x10001bff  # Street map Kent
+- uid/0x100027ed  # Street map Kerken
+- uid/0x10002c88  # Street map Kerkrade
+- uid/0x1000718b  # Street map Kerkrade
+- uid/0x10002c30  # Street map Kerkwijk
+- uid/0x100029be  # Street map Kernen im remstal
+- uid/0x100026d3  # Street map Kerpen
+- uid/0x10006ef3  # Street map Kerpen
+- uid/0x10002c89  # Street map Kessel
+- uid/0x10002aaa  # Street map Kesselsdorf
+- uid/0x10002c31  # Street map Kesteren
+- uid/0x10001c19  # Street map Keston
+- uid/0x100019f2  # Street map Keswick
+- uid/0x10001cfe  # Street map Kettering
+- uid/0x100027ee  # Street map Kevelaer
+- uid/0x10006ef4  # Street map Kevelaer
+- uid/0x10001ef5  # Street map Kidderminster
+- uid/0x10001d57  # Street map Kidlington
+- uid/0x10001a7a  # Street map Kidwelly
+- uid/0x100029e6  # Street map Kiedrich
+- uid/0x100027e7  # Street map Kiel
+- uid/0x10006ef5  # Street map Kiel
+- uid/0x100028c0  # Street map Kierspe
+- uid/0x100026bf  # Street map Kieselbronn
+- uid/0x1000191a  # Street map Kilbirnie
+- uid/0x10002f5c  # Street map Kilchberg (zh)
+- uid/0x10001a7b  # Street map Kilgetty
+- uid/0x10001d6e  # Street map Killin
+- uid/0x10001d90  # Street map Kilmacolm
+- uid/0x1000191b  # Street map Kilmarnock
+- uid/0x1000191c  # Street map Kilwinning
+- uid/0x10001e68  # Street map Kinbrace
+- uid/0x10001c34  # Street map Kincardineshire
+- uid/0x10001b9a  # Street map Kings Langley
+- uid/0x10001cef  # Street map Kings Lynn
+- uid/0x10001a2a  # Street map Kingsbridge
+- uid/0x10001d25  # Street map Kingston Upon Hull
+- uid/0x10001e44  # Street map Kingston Upon Thames
+- uid/0x10001e9e  # Street map Kingswinford
+- uid/0x10001b87  # Street map Kington
+- uid/0x10001bb7  # Street map Kingussie
+- uid/0x10001902  # Street map Kinlochleven
+- uid/0x10003185  # Street map Kinrooi
+- uid/0x10001c39  # Street map Kinross
+- uid/0x10001c38  # Street map Kinross Shire
+- uid/0x10002eab  # Street map Kirchberg (be)
+- uid/0x10006ef6  # Street map Kirchberg (Hunsrück)
+- uid/0x100029bf  # Street map Kirchberg an der murr
+- uid/0x10006bef  # Street map Kirchberg In Tirol
+- uid/0x10002089  # Street map Kirchberg thening
+- uid/0x10006ef7  # Street map Kirchen (Sieg)
+- uid/0x1000287e  # Street map Kirchhain
+- uid/0x10006ef8  # Street map Kirchhain
+- uid/0x100028d7  # Street map Kirchheim bei münchen
+- uid/0x100026f2  # Street map Kirchheim unter teck
+- uid/0x10006efa  # Street map Kirchheim Unter Teck
+- uid/0x10006ef9  # Street map Kirchheimbolanden
+- uid/0x10002948  # Street map Kirchhundem
+- uid/0x10006efb  # Street map Kirchhundem
+- uid/0x10002ea1  # Street map Kirchlindach
+- uid/0x10002a87  # Street map Kirchlinteln
+- uid/0x100019f3  # Street map Kirkby In Furness
+- uid/0x100019f4  # Street map Kirkby Stephen
+- uid/0x10001af5  # Street map Kirkcaldy
+- uid/0x10001c3d  # Street map Kirkcudbright
+- uid/0x10001c3a  # Street map Kirkcudbrightshire
+- uid/0x10002a04  # Street map Kirkel
+- uid/0x10001e90  # Street map Kirkliston
+- uid/0x10001cc1  # Street map Kirknewton
+- uid/0x10001d48  # Street map Kirkwall
+- uid/0x100018f5  # Street map Kirriemuir
+- uid/0x10006bf0  # Street map Kitzbühel
+- uid/0x10002070  # Street map Klagenfurt
+- uid/0x10006bf1  # Street map Klagenfurt
+- uid/0x10002031  # Street map Klaus
+- uid/0x10002986  # Street map Klein nordende
+- uid/0x10002987  # Street map Klein offenseth sparrieshoop
+- uid/0x10002875  # Street map Klein winternheim
+- uid/0x10002eed  # Street map Kleinandelfingen
+- uid/0x1000299c  # Street map Kleinmachnow
+- uid/0x10002886  # Street map Klipphausen
+- uid/0x10002109  # Street map Klosterneuburg
+- uid/0x10002f2c  # Street map Kloten
+- uid/0x10003088  # Street map Kluisbergen
+- uid/0x10001d2e  # Street map Knaresborough
+- uid/0x10001b9b  # Street map Knebworth
+- uid/0x100030f5  # Street map Knesselare
+- uid/0x10001d77  # Street map Knighton
+- uid/0x1000309d  # Street map Knokke heist
+- uid/0x10002ee5  # Street map Knonau
+- uid/0x10001ecf  # Street map Knottingley
+- uid/0x10001977  # Street map Knutsford
+- uid/0x10006ceb  # Street map Kobenhavn
+- uid/0x10002032  # Street map Koblach
+- uid/0x100027f5  # Street map Koblenz
+- uid/0x10006efc  # Street map Koblenz
+- uid/0x100030e0  # Street map Koekelare
+- uid/0x100030ac  # Street map Koekelberg
+- uid/0x10006cec  # Street map Koge
+- uid/0x100030eb  # Street map Koksijde
+- uid/0x10006cb5  # Street map Koksijde
+- uid/0x10006c41  # Street map Koksijde
+- uid/0x10002a26  # Street map Kolkwitz
+- uid/0x10002bf0  # Street map Kollumerland en nieuwkruisland
+- uid/0x1000718c  # Street map Kollumerland En Nieuwkruisland
+- uid/0x10002eb7  # Street map Konolfingen
+- uid/0x100027f6  # Street map Konstanz
+- uid/0x10006f01  # Street map Konstanz
+- uid/0x10003067  # Street map Kontich
+- uid/0x10006f02  # Street map Konz
+- uid/0x100020b8  # Street map Koppl
+- uid/0x100029c0  # Street map Korb
+- uid/0x10006f03  # Street map Korbach
+- uid/0x10002dbd  # Street map Korendijk
+- uid/0x1000718d  # Street map Korendijk
+- uid/0x10002080  # Street map Korneuburg
+- uid/0x10002847  # Street map Korntal münchingen
+- uid/0x10002848  # Street map Kornwestheim
+- uid/0x100028f1  # Street map Korschenbroich
+- uid/0x100030e1  # Street map Kortemark
+- uid/0x10006cb6  # Street map Kortemark
+- uid/0x10006c42  # Street map Kortemark
+- uid/0x10003171  # Street map Kortenaken
+- uid/0x10003172  # Street map Kortenberg
+- uid/0x10003234  # Street map Kortessem
+- uid/0x10006c43  # Street map Kortrijk
+- uid/0x1000200a  # Street map Kottingbrunn
+- uid/0x10003111  # Street map Kraainem
+- uid/0x10002a30  # Street map Krailling
+- uid/0x100027f7  # Street map Krefeld
+- uid/0x10006f04  # Street map Krefeld
+- uid/0x10002aab  # Street map Kreischa
+- uid/0x1000206f  # Street map Kremsmünster
+- uid/0x100028a3  # Street map Kreuth
+- uid/0x100026a1  # Street map Kreuzau
+- uid/0x10006f05  # Street map Kreuzau
+- uid/0x10002a13  # Street map Kreuztal
+- uid/0x10006f06  # Street map Kreuztal
+- uid/0x10002ec0  # Street map Kriens
+- uid/0x1000286b  # Street map Kriftel
+- uid/0x10002dbe  # Street map Krimpen aan den ijssel
+- uid/0x10007252  # Street map Kristianstad
+- uid/0x100027c2  # Street map Kronberg im taunus
+- uid/0x1000208a  # Street map Kronstorf
+- uid/0x100031ff  # Street map Kruibeke
+- uid/0x10003089  # Street map Kruishoutem
+- uid/0x10002605  # Street map Krummhörn
+- uid/0x10006f08  # Street map Krummhörn
+- uid/0x10002073  # Street map Krumpendorf am wörther see
+- uid/0x10006f07  # Street map Krölpa
+- uid/0x10002730  # Street map Krün
+- uid/0x10002617  # Street map Kubschütz
+- uid/0x10002817  # Street map Kulkwitz
+- uid/0x1000204b  # Street map Kumberg
+- uid/0x10007253  # Street map Kungälv
+- uid/0x100029a6  # Street map Kuppenheim
+- uid/0x10002a74  # Street map Kusterdingen
+- uid/0x10006f0a  # Street map Kutenholz
+- uid/0x100030c9  # Street map Kuurne
+- uid/0x10001da0  # Street map Kyle
+- uid/0x10002887  # Street map Käbschütztal
+- uid/0x10002fc5  # Street map Kölliken
+- uid/0x10002988  # Street map Kölln reisiek
+- uid/0x100027f8  # Street map Köln
+- uid/0x10006efd  # Street map Köln
+- uid/0x100026f3  # Street map Köngen
+- uid/0x10002670  # Street map Königs wusterhausen
+- uid/0x100027d0  # Street map Königsbrück
+- uid/0x10006efe  # Street map Königsbrück
+- uid/0x10006eff  # Street map Königsee
+- uid/0x10002a52  # Street map Königstein
+- uid/0x100027c3  # Street map Königstein im taunus
+- uid/0x100020d7  # Street map Königstetten
+- uid/0x100029d6  # Street map Königswinter
+- uid/0x10006f00  # Street map Königswinter
+- uid/0x10002ea2  # Street map Köniz
+- uid/0x10007286  # Street map Köniz
+- uid/0x10002074  # Street map Köttmannsdorf
+- uid/0x10002f03  # Street map Künten
+- uid/0x10002718  # Street map Künzell
+- uid/0x100029eb  # Street map Kürten
+- uid/0x10006f09  # Street map Kürten
+- uid/0x10002f82  # Street map Küsnacht (zh)
+- uid/0x10002eda  # Street map Küttigen
+- uid/0x100025b8  # Street map L'etang la ville
+- uid/0x10002567  # Street map L'hay les roses
+- uid/0x10002536  # Street map L'isle adam
+- uid/0x100023c5  # Street map La bouilladisse
+- uid/0x100031ba  # Street map La bruyere
+- uid/0x1000326a  # Street map La calamine
+- uid/0x100025b9  # Street map La celle saint cloud
+- uid/0x1000301c  # Street map La chaux de fonds
+- uid/0x1000726f  # Street map La Chaux-De-Fonds
+- uid/0x10002384  # Street map La colle sur loup
+- uid/0x10002500  # Street map La courneuve
+- uid/0x10002588  # Street map La crau
+- uid/0x100023c6  # Street map La destrousse
+- uid/0x10002589  # Street map La farlede
+- uid/0x10002537  # Street map La frette sur seine
+- uid/0x1000258a  # Street map La garde
+- uid/0x1000243b  # Street map La garenne colombes
+- uid/0x10002385  # Street map La gaude
+- uid/0x100031d9  # Street map La hulpe
+- uid/0x10002b8f  # Street map La loggia
+- uid/0x10003208  # Street map La louviere
+- uid/0x10006cb7  # Street map La Louvière
+- uid/0x10006c44  # Street map La Louvière
+- uid/0x1000248f  # Street map La mulatiere
+- uid/0x1000301d  # Street map La neuveville
+- uid/0x100023f8  # Street map La norville
+- uid/0x100030ec  # Street map La panne
+- uid/0x100023c7  # Street map La penne sur huveaune
+- uid/0x10002568  # Street map La queue en brie
+- uid/0x1000319c  # Street map La roche en ardenne
+- uid/0x10006cb8  # Street map La Roche-En-Ardenne
+- uid/0x10006c45  # Street map La Roche-En-Ardenne
+- uid/0x100024c1  # Street map La rochette
+- uid/0x10002386  # Street map La roquette sur siagne
+- uid/0x1000258b  # Street map La seyne sur mer
+- uid/0x10002b02  # Street map La spezia
+- uid/0x100070fb  # Street map La Spezia
+- uid/0x1000303a  # Street map La tour de peilz
+- uid/0x10002490  # Street map La tour de salvagny
+- uid/0x10002387  # Street map La trinite
+- uid/0x10002388  # Street map La turbie
+- uid/0x1000258c  # Street map La valette du var
+- uid/0x100024e4  # Street map La vaupaliere
+- uid/0x100025ba  # Street map La verriere
+- uid/0x100023f9  # Street map La ville du bois
+- uid/0x10003252  # Street map Laakdal
+- uid/0x10002ccc  # Street map Laarbeek
+- uid/0x10003210  # Street map Laarne
+- uid/0x10002770  # Street map Laatzen
+- uid/0x10006f0b  # Street map Laatzen
+- uid/0x10006f0c  # Street map Ladbergen
+- uid/0x10002b71  # Street map Ladispoli
+- uid/0x10002838  # Street map Lage
+- uid/0x10006f0d  # Street map Lage
+- uid/0x100024c2  # Street map Lagny sur marne
+- uid/0x100027fb  # Street map Lahnau
+- uid/0x100029ce  # Street map Lahnstein
+- uid/0x10006f0e  # Street map Lahnstein
+- uid/0x1000287f  # Street map Lahntal
+- uid/0x10002b25  # Street map Lainate
+- uid/0x10001e69  # Street map Lairg
+- uid/0x100020fb  # Street map Lambach
+- uid/0x10002ff0  # Street map Lamone
+- uid/0x100023ab  # Street map Lampertheim
+- uid/0x10002627  # Street map Lampertheim
+- uid/0x10006f0f  # Street map Lampertheim
+- uid/0x10001a7c  # Street map Lampeter
+- uid/0x10006f10  # Street map Lamstedt
+- uid/0x10003235  # Street map Lanaken
+- uid/0x10001c47  # Street map Lanark
+- uid/0x10001c3e  # Street map Lanarkshire
+- uid/0x10001c4d  # Street map Lancashire
+- uid/0x10001c5d  # Street map Lancaster
+- uid/0x10001eb8  # Street map Lancing
+- uid/0x10002fd3  # Street map Lancy
+- uid/0x10006f11  # Street map Landau In Der Pfalz
+- uid/0x10003173  # Street map Landen
+- uid/0x10002ccd  # Street map Landerd
+- uid/0x10002c8a  # Street map Landgraaf
+- uid/0x100027fe  # Street map Landshut
+- uid/0x10006f12  # Street map Landshut
+- uid/0x10002d14  # Street map Landsmeer
+- uid/0x10006f13  # Street map Landstuhl
+- uid/0x10002461  # Street map Laneuveville devant nancy
+- uid/0x100027d1  # Street map Langebrück
+- uid/0x10002d15  # Street map Langedijk
+- uid/0x1000273b  # Street map Langelsheim
+- uid/0x10003296  # Street map Langemark poelkapelle
+- uid/0x10002662  # Street map Langen (cuxhaven)
+- uid/0x10002937  # Street map Langen (offenbach)
+- uid/0x10002758  # Street map Langenberg
+- uid/0x10006f14  # Street map Langenberg
+- uid/0x1000289b  # Street map Langenfeld (rheinland)
+- uid/0x10006f15  # Street map Langenfeld (Rheinland)
+- uid/0x10002771  # Street map Langenhagen
+- uid/0x10006f16  # Street map Langenhagen
+- uid/0x100020d8  # Street map Langenrohr
+- uid/0x100020ac  # Street map Langenstein
+- uid/0x10002081  # Street map Langenzersdorf
+- uid/0x10006f17  # Street map Langeoog
+- uid/0x100026a2  # Street map Langerwehe
+- uid/0x1000299d  # Street map Langerwisch
+- uid/0x10006f18  # Street map Langgöns
+- uid/0x10001a5d  # Street map Langholm
+- uid/0x10002f5d  # Street map Langnau am albis
+- uid/0x10001dd6  # Street map Langport
+- uid/0x10002a88  # Street map Langwedel
+- uid/0x10002119  # Street map Lanzenkirchen
+- uid/0x10001e12  # Street map Larbert
+- uid/0x10002d16  # Street map Laren
+- uid/0x1000191d  # Street map Largs
+- uid/0x10001c48  # Street map Larkhall
+- uid/0x100031da  # Street map Lasne
+- uid/0x10006cb9  # Street map Lasne
+- uid/0x10006c46  # Street map Lasne
+- uid/0x10001cc2  # Street map Lasswade
+- uid/0x10006f19  # Street map Lastrup
+- uid/0x10001962  # Street map Latheron
+- uid/0x100070fc  # Street map Latina
+- uid/0x10006f1a  # Street map Laubach
+- uid/0x1000194c  # Street map Lauder
+- uid/0x100028fa  # Street map Lauf an der pegnitz
+- uid/0x10002621  # Street map Laufen
+- uid/0x100019b7  # Street map Launceston
+- uid/0x10001c36  # Street map Laurencekirk
+- uid/0x1000300f  # Street map Lausanne
+- uid/0x10007270  # Street map Lausanne
+- uid/0x10002f7a  # Street map Lausen
+- uid/0x1000201c  # Street map Lauterach
+- uid/0x10006f1b  # Street map Lauterbach (Hessen)
+- uid/0x100027d2  # Street map Laußnitz
+- uid/0x100070fd  # Street map Lavagna
+- uid/0x100020a4  # Street map Laxenburg
+- uid/0x10002462  # Street map Laxou
+- uid/0x10002463  # Street map Lay saint christophe
+- uid/0x10002b26  # Street map Lazzate
+- uid/0x1000204c  # Street map Laßnitzhöhe
+- uid/0x10002389  # Street map Le bar sur loup
+- uid/0x10002501  # Street map Le blanc mesnil
+- uid/0x10002502  # Street map Le bourget
+- uid/0x1000238a  # Street map Le cannet
+- uid/0x100025bb  # Street map Le chesnay
+- uid/0x100023fa  # Street map Le coudray montceaux
+- uid/0x100024e5  # Street map Le grand quevilly
+- uid/0x10002fd4  # Street map Le grand saconnex
+- uid/0x100024e6  # Street map Le houlme
+- uid/0x10002569  # Street map Le kremlin bicetre
+- uid/0x1000302d  # Street map Le landeron
+- uid/0x1000303e  # Street map Le locle
+- uid/0x10007271  # Street map Le Locle
+- uid/0x100024c3  # Street map Le mee sur seine
+- uid/0x100024e7  # Street map Le mesnil esnard
+- uid/0x100025bc  # Street map Le mesnil le roi
+- uid/0x100025bd  # Street map Le mesnil saint denis
+- uid/0x10003010  # Street map Le mont sur lausanne
+- uid/0x100025be  # Street map Le pecq
+- uid/0x1000256a  # Street map Le perreux sur marne
+- uid/0x100024e8  # Street map Le petit quevilly
+- uid/0x10002538  # Street map Le plessis bouchard
+- uid/0x100023fb  # Street map Le plessis pate
+- uid/0x1000243c  # Street map Le plessis robinson
+- uid/0x1000256b  # Street map Le plessis trevise
+- uid/0x100025bf  # Street map Le port marly
+- uid/0x1000258d  # Street map Le pradet
+- uid/0x10002503  # Street map Le pre saint gervais
+- uid/0x10002504  # Street map Le raincy
+- uid/0x1000258e  # Street map Le revest les eaux
+- uid/0x10003209  # Street map Le roeulx
+- uid/0x1000238b  # Street map Le rouret
+- uid/0x1000238c  # Street map Le tignet
+- uid/0x100025c0  # Street map Le vesinet
+- uid/0x10001e81  # Street map Leamington Spa
+- uid/0x10001e45  # Street map Leatherhead
+- uid/0x10003174  # Street map Leau
+- uid/0x10006f1c  # Street map Lebach
+- uid/0x10003211  # Street map Lebbeke
+- uid/0x10001b08  # Street map Lechlade
+- uid/0x10001b88  # Street map Ledbury
+- uid/0x10003056  # Street map Lede
+- uid/0x100031f9  # Street map Ledegem
+- uid/0x10001b70  # Street map Lee On The Solent
+- uid/0x10001ed0  # Street map Leeds
+- uid/0x10001ed1  # Street map Leeds Center
+- uid/0x10002924  # Street map Leegebruch
+- uid/0x10001e04  # Street map Leek
+- uid/0x10002c63  # Street map Leek
+- uid/0x1000718e  # Street map Leek
+- uid/0x10002806  # Street map Leer (ostfriesland)
+- uid/0x10006f1d  # Street map Leer (Ostfriesland)
+- uid/0x10002dbf  # Street map Leerdam
+- uid/0x1000718f  # Street map Leerdam
+- uid/0x10002d73  # Street map Leersum
+- uid/0x10002bf1  # Street map Leeuwarden
+- uid/0x10007190  # Street map Leeuwarden
+- uid/0x10002bf2  # Street map Leeuwarderadeel
+- uid/0x10007191  # Street map Leeuwarderadeel
+- uid/0x10002e5d  # Street map Leganés
+- uid/0x100031c5  # Street map Leglise
+- uid/0x10002b27  # Street map Legnano
+- uid/0x100070fe  # Street map Legnano
+- uid/0x10002b50  # Street map Legnaro
+- uid/0x10002925  # Street map Lehnitz
+- uid/0x1000279c  # Street map Lehre
+- uid/0x10002772  # Street map Lehrte
+- uid/0x10006f1e  # Street map Lehrte
+- uid/0x10001c75  # Street map Leicester
+- uid/0x10001c70  # Street map Leicestershire
+- uid/0x100029ec  # Street map Leichlingen (rheinland)
+- uid/0x10002dc0  # Street map Leiden
+- uid/0x10007192  # Street map Leiden
+- uid/0x10002dc1  # Street map Leiderdorp
+- uid/0x10002dc2  # Street map Leidschendam
+- uid/0x10001c5e  # Street map Leigh
+- uid/0x10001ad4  # Street map Leigh On Sea
+- uid/0x10001934  # Street map Leighton Buzzard
+- uid/0x100029cf  # Street map Leimen
+- uid/0x10006f1f  # Street map Leinefelde
+- uid/0x100026f4  # Street map Leinfelden echterdingen
+- uid/0x10002b90  # Street map Leini
+- uid/0x1000280e  # Street map Leipzig
+- uid/0x10006f20  # Street map Leipzig
+- uid/0x10001e20  # Street map Leiston
+- uid/0x10002be0  # Street map Lelystad
+- uid/0x10007193  # Street map Lelystad
+- uid/0x10006f21  # Street map Lemberg
+- uid/0x10002839  # Street map Lemgo
+- uid/0x10006f22  # Street map Lemgo
+- uid/0x10002bf3  # Street map Lemsterland
+- uid/0x10007194  # Street map Lemsterland
+- uid/0x10002ac2  # Street map Lemwerder
+- uid/0x100030ca  # Street map Lendelede
+- uid/0x10002972  # Street map Lengede
+- uid/0x10006f23  # Street map Lengerich
+- uid/0x10006f24  # Street map Lenggries
+- uid/0x10002fc6  # Street map Lengnau (ag)
+- uid/0x10002ead  # Street map Lengnau (be)
+- uid/0x10002949  # Street map Lennestadt
+- uid/0x10006f25  # Street map Lennestadt
+- uid/0x10003112  # Street map Lennik
+- uid/0x100031a9  # Street map Lens
+- uid/0x10006d27  # Street map Lens
+- uid/0x10002b28  # Street map Lentate sul seveso
+- uid/0x100070ff  # Street map Lentate Sul Seveso
+- uid/0x10002f6d  # Street map Lenzburg
+- uid/0x1000200b  # Street map Leobersdorf
+- uid/0x10001b89  # Street map Leominster
+- uid/0x10002643  # Street map Leonberg
+- uid/0x1000208b  # Street map Leonding
+- uid/0x1000210a  # Street map Leopoldsdorf
+- uid/0x1000283a  # Street map Leopoldshöhe
+- uid/0x10006f26  # Street map Leopoldshöhe
+- uid/0x10001db3  # Street map Lerwick
+- uid/0x100030be  # Street map Les bons villers
+- uid/0x100025c1  # Street map Les clayes sous bois
+- uid/0x10002505  # Street map Les lilas
+- uid/0x100025c2  # Street map Les loges en josas
+- uid/0x100025c3  # Street map Les mureaux
+- uid/0x10002506  # Street map Les pavillons sous bois
+- uid/0x100023c8  # Street map Les pennes mirabeau
+- uid/0x100023fc  # Street map Les ulis
+- uid/0x100024c4  # Street map Lesigny
+- uid/0x1000320a  # Street map Lessines
+- uid/0x10001b9c  # Street map Letchworth
+- uid/0x10002bb1  # Street map Leudelange
+- uid/0x10002d74  # Street map Leusden
+- uid/0x10007195  # Street map Leusden
+- uid/0x100029c1  # Street map Leutenbach
+- uid/0x10006c47  # Street map Leuven
+- uid/0x100023fd  # Street map Leuville sur orge
+- uid/0x1000323f  # Street map Leuze en hainaut
+- uid/0x1000243d  # Street map Levallois perret
+- uid/0x10001af6  # Street map Leven
+- uid/0x10001bd6  # Street map Leverburgh
+- uid/0x10002826  # Street map Leverkusen
+- uid/0x10006f27  # Street map Leverkusen
+- uid/0x10001aad  # Street map Lewes
+- uid/0x10001d2f  # Street map Leyburn
+- uid/0x10007272  # Street map Leysin
+- uid/0x100031c6  # Street map Libin
+- uid/0x10006cba  # Street map Libin
+- uid/0x10006c48  # Street map Libin
+- uid/0x100031c7  # Street map Libramont chevigny
+- uid/0x10006cbb  # Street map Libramont-Chevigny
+- uid/0x10006c49  # Street map Libramont-Chevigny
+- uid/0x10006f28  # Street map Lich
+- uid/0x10001e05  # Street map Lichfield
+- uid/0x1000296c  # Street map Lichtenau
+- uid/0x10006f29  # Street map Lichtenau
+- uid/0x100027d3  # Street map Lichtenberg
+- uid/0x100020e3  # Street map Lichtenberg
+- uid/0x10002c32  # Street map Lichtenvoorde
+- uid/0x10007196  # Street map Lichtenvoorde
+- uid/0x100026f5  # Street map Lichtenwald
+- uid/0x1000211a  # Street map Lichtenwörth
+- uid/0x100031fa  # Street map Lichtervelde
+- uid/0x1000273c  # Street map Liebenburg
+- uid/0x10002818  # Street map Liebertwolkwitz
+- uid/0x1000204d  # Street map Lieboch
+- uid/0x10003113  # Street map Liedekerke
+- uid/0x1000286c  # Street map Liederbach am taunus
+- uid/0x10003158  # Street map Liege
+- uid/0x10002dc3  # Street map Liemeer
+- uid/0x10002c33  # Street map Lienden
+- uid/0x10006c4a  # Street map Lier
+- uid/0x10002dc4  # Street map Lier de
+- uid/0x1000308a  # Street map Lierde
+- uid/0x1000326b  # Street map Lierneux
+- uid/0x10003191  # Street map Lierre
+- uid/0x10002f7b  # Street map Liestal
+- uid/0x10002dc5  # Street map Liesveld
+- uid/0x10001a2b  # Street map Lifton
+- uid/0x10001e46  # Street map Lightwater
+- uid/0x1000302e  # Street map Lignières
+- uid/0x1000295d  # Street map Lilienthal
+- uid/0x10006f2a  # Street map Lilienthal
+- uid/0x10003253  # Street map Lille
+- uid/0x10006d29  # Street map Lille
+- uid/0x100025c4  # Street map Limay
+- uid/0x10002b29  # Street map Limbiate
+- uid/0x1000326c  # Street map Limbourg
+- uid/0x10006f2b  # Street map Limburg A D Lahn
+- uid/0x1000256c  # Street map Limeil brevannes
+- uid/0x10002d17  # Street map Limmen
+- uid/0x10006d2a  # Street map Limoges
+- uid/0x10002491  # Street map Limonest
+- uid/0x10007225  # Street map Linares
+- uid/0x100023fe  # Street map Linas
+- uid/0x1000328f  # Street map Lincent
+- uid/0x10001c84  # Street map Lincoln
+- uid/0x10001c7d  # Street map Lincolnshire
+- uid/0x10002f95  # Street map Lindau
+- uid/0x1000282b  # Street map Lindau (bodensee)
+- uid/0x10006f2c  # Street map Lindau (Bodensee)
+- uid/0x10002736  # Street map Linden
+- uid/0x1000260f  # Street map Lindenberg
+- uid/0x1000282c  # Street map Lindenberg im allgäu
+- uid/0x10002819  # Street map Lindenthal
+- uid/0x10002914  # Street map Lindlar
+- uid/0x10006f2d  # Street map Lindlar
+- uid/0x100026ae  # Street map Lingen (ems)
+- uid/0x10006f2e  # Street map Lingen (Ems)
+- uid/0x10002c34  # Street map Lingewaal
+- uid/0x10007197  # Street map Lingewaal
+- uid/0x10001e47  # Street map Lingfield
+- uid/0x100023ac  # Street map Lingolsheim
+- uid/0x10003114  # Street map Linkebeek
+- uid/0x10001e91  # Street map Linlithgow
+- uid/0x100026a3  # Street map Linnich
+- uid/0x10006f2f  # Street map Linnich
+- uid/0x10003068  # Street map Lint
+- uid/0x10003175  # Street map Linter
+- uid/0x10002082  # Street map Linz
+- uid/0x10006bf2  # Street map Linz
+- uid/0x10001b71  # Street map Liphook
+- uid/0x10002af3  # Street map Lipomo
+- uid/0x10002a1c  # Street map Lippetal
+- uid/0x10006f30  # Street map Lippetal
+- uid/0x10002a1d  # Street map Lippstadt
+- uid/0x10006f31  # Street map Lippstadt
+- uid/0x10007281  # Street map Lisboa
+- uid/0x100019b8  # Street map Liskeard
+- uid/0x10001b72  # Street map Liss
+- uid/0x10002dc6  # Street map Lisse
+- uid/0x100023ff  # Street map Lisses
+- uid/0x10002b2a  # Street map Lissone
+- uid/0x10002cce  # Street map Lith
+- uid/0x10002ec1  # Street map Littau
+- uid/0x10002bf4  # Street map Littenseradiel
+- uid/0x10007198  # Street map Littenseradiel
+- uid/0x10001c5f  # Street map Littleborough
+- uid/0x10001eb9  # Street map Littlehampton
+- uid/0x10002464  # Street map Liverdun
+- uid/0x10001c95  # Street map Liverpool
+- uid/0x10001c96  # Street map Liverpool Center
+- uid/0x10001ed2  # Street map Liversedge
+- uid/0x10001e92  # Street map Livingston
+- uid/0x10002b04  # Street map Livorno
+- uid/0x10007100  # Street map Livorno
+- uid/0x10002507  # Street map Livry gargan
+- uid/0x100024c5  # Street map Livry sur seine
+- uid/0x10006cbc  # Street map Liège
+- uid/0x10006cbd  # Street map Lièrre
+- uid/0x10006d28  # Street map Liévin
+- uid/0x10001a7d  # Street map Llanarth
+- uid/0x10001b42  # Street map Llanbedr
+- uid/0x10001b43  # Street map Llanbedrgoch
+- uid/0x10001d78  # Street map Llanbrynmair
+- uid/0x10001a7e  # Street map Llandeilo
+- uid/0x10001d79  # Street map Llandinam
+- uid/0x10001a7f  # Street map Llandovery
+- uid/0x10001d7a  # Street map Llandrindod Wells
+- uid/0x10001b44  # Street map Llandudno
+- uid/0x10001b45  # Street map Llandudno Junction
+- uid/0x10001a80  # Street map Llandysul
+- uid/0x10001a81  # Street map Llanelli
+- uid/0x10001b46  # Street map Llanerchymedd
+- uid/0x10001b47  # Street map Llanfairfechan
+- uid/0x10001b48  # Street map Llanfairpwllgwyngyll
+- uid/0x10001d7b  # Street map Llanfechain
+- uid/0x10001d7c  # Street map Llanfyllin
+- uid/0x10001a82  # Street map Llanfyrnach
+- uid/0x10001a83  # Street map Llangadog
+- uid/0x10001d7d  # Street map Llangammarch Wells
+- uid/0x10001b49  # Street map Llangefni
+- uid/0x100019a2  # Street map Llangollen
+- uid/0x10001d7e  # Street map Llanidloes
+- uid/0x10001a84  # Street map Llannon
+- uid/0x10001a85  # Street map Llanrhystud
+- uid/0x10001b4a  # Street map Llanrwst
+- uid/0x10001d7f  # Street map Llansantffraid
+- uid/0x10001ded  # Street map Llantwit Major
+- uid/0x10001a86  # Street map Llanwrda
+- uid/0x10001d80  # Street map Llanwrtyd Wells
+- uid/0x10001a87  # Street map Llanybydder
+- uid/0x10001d81  # Street map Llanymynech
+- uid/0x10002e50  # Street map Lleida
+- uid/0x10007226  # Street map Lleida
+- uid/0x10002e41  # Street map Lloret de mar
+- uid/0x10007227  # Street map Lloret De Mar
+- uid/0x10001b4b  # Street map Llwyngwril
+- uid/0x100030e2  # Street map Lo reninge
+- uid/0x10001cc3  # Street map Loanhead
+- uid/0x1000321f  # Street map Lobbes
+- uid/0x10006f33  # Street map Lobenstein
+- uid/0x10007273  # Street map Locarno
+- uid/0x10002b2b  # Street map Locate di triulzi
+- uid/0x10001bb8  # Street map Lochailort
+- uid/0x1000201d  # Street map Lochau
+- uid/0x10001bef  # Street map Lochboisdale
+- uid/0x10001d6f  # Street map Lochearnhead
+- uid/0x10002c35  # Street map Lochem
+- uid/0x10007199  # Street map Lochem
+- uid/0x10001af7  # Street map Lochgelly
+- uid/0x10001903  # Street map Lochgilphead
+- uid/0x10001bea  # Street map Lochmaddy
+- uid/0x100030f6  # Street map Lochristi
+- uid/0x10001d91  # Street map Lochwinnoch
+- uid/0x10001a5e  # Street map Lockerbie
+- uid/0x10002d75  # Street map Loenen
+- uid/0x100024c6  # Street map Lognes
+- uid/0x100027e4  # Street map Lohfelden
+- uid/0x100029d7  # Street map Lohmar
+- uid/0x10006f34  # Street map Lohmar
+- uid/0x10002a53  # Street map Lohmen
+- uid/0x10006f35  # Street map Lohne (Oldenburg)
+- uid/0x10003200  # Street map Lokeren
+- uid/0x10006cbe  # Street map Lokeren
+- uid/0x10006c4b  # Street map Lokeren
+- uid/0x10002af4  # Street map Lomazzo
+- uid/0x10006f36  # Street map Lommatzsch
+- uid/0x10006d2b  # Street map Lomme
+- uid/0x10003186  # Street map Lommel
+- uid/0x10003027  # Street map Lonay
+- uid/0x10003115  # Street map Londerzeel
+- uid/0x10006cbf  # Street map Londerzeel
+- uid/0x10006c4c  # Street map Londerzeel
+- uid/0x10001c8f  # Street map London
+- uid/0x10001c8e  # Street map London
+- uid/0x10001c90  # Street map London Center
+- uid/0x10001c91  # Street map London City
+- uid/0x10001c1a  # Street map Longfield
+- uid/0x10001b09  # Street map Longhope
+- uid/0x10002400  # Street map Longjumeau
+- uid/0x10001a9c  # Street map Longniddry
+- uid/0x10002401  # Street map Longpont sur orge
+- uid/0x1000326d  # Street map Lontzen
+- uid/0x100019b9  # Street map Looe
+- uid/0x10002ccf  # Street map Loon op zand
+- uid/0x10002d76  # Street map Loosdrecht
+- uid/0x10003236  # Street map Looz
+- uid/0x10002d77  # Street map Lopik
+- uid/0x10002c64  # Street map Loppersum
+- uid/0x1000719a  # Street map Loppersum
+- uid/0x10006f38  # Street map Losheim Am See
+- uid/0x10002d52  # Street map Losser
+- uid/0x1000719b  # Street map Losser
+- uid/0x10001ce1  # Street map Lossiemouth
+- uid/0x10002f4b  # Street map Lostorf
+- uid/0x100019ba  # Street map Lostwithiel
+- uid/0x10001c76  # Street map Loughborough
+- uid/0x10001ad5  # Street map Loughton
+- uid/0x10001c85  # Street map Louth
+- uid/0x10003176  # Street map Louvain
+- uid/0x10006cc0  # Street map Louvain
+- uid/0x100025c5  # Street map Louveciennes
+- uid/0x100030f7  # Street map Lovendegem
+- uid/0x10001e21  # Street map Lowestoft
+- uid/0x10002663  # Street map Loxstedt
+- uid/0x10006f39  # Street map Loxstedt
+- uid/0x10003177  # Street map Lubbeek
+- uid/0x10001dbd  # Street map Ludlow
+- uid/0x10002465  # Street map Ludres
+- uid/0x10002849  # Street map Ludwigsburg
+- uid/0x10002a5f  # Street map Ludwigsfelde
+- uid/0x10006f3f  # Street map Ludwigsfelde
+- uid/0x10002856  # Street map Ludwigshafen am rhein
+- uid/0x10006f40  # Street map Ludwigshafen Am Rhein
+- uid/0x100020ad  # Street map Luftenberg an der donau
+- uid/0x10002ff1  # Street map Lugano
+- uid/0x10007274  # Street map Lugano
+- uid/0x10006c4d  # Street map Luik
+- uid/0x10003131  # Street map Lummen
+- uid/0x10002f21  # Street map Lupfig
+- uid/0x10002024  # Street map Lustenau
+- uid/0x10002fb9  # Street map Luterbach
+- uid/0x10001935  # Street map Luton
+- uid/0x10003019  # Street map Lutry
+- uid/0x10001c77  # Street map Lutterworth
+- uid/0x10002bb8  # Street map Luxembourg
+- uid/0x10007130  # Street map Luxembourg
+- uid/0x10002ec2  # Street map Luzern
+- uid/0x10007275  # Street map Luzern
+- uid/0x10001963  # Street map Lybster
+- uid/0x10001b0a  # Street map Lydbrook
+- uid/0x10001dbe  # Street map Lydbury North
+- uid/0x10001b0b  # Street map Lydney
+- uid/0x10001a4d  # Street map Lyme Regis
+- uid/0x10001b73  # Street map Lymington
+- uid/0x10001978  # Street map Lymm
+- uid/0x10001b74  # Street map Lyndhurst
+- uid/0x10001a2c  # Street map Lynmouth
+- uid/0x10001a2d  # Street map Lynton
+- uid/0x10002492  # Street map Lyon
+- uid/0x10006d2c  # Street map Lyon
+- uid/0x10002e99  # Street map Lyss
+- uid/0x10001c60  # Street map Lytham St Annes
+- uid/0x10006f32  # Street map Löbejün
+- uid/0x100027a0  # Street map Löhne
+- uid/0x10006f37  # Street map Löningen
+- uid/0x10006f3a  # Street map Lübbecke
+- uid/0x10002857  # Street map Lübeck
+- uid/0x10006f3b  # Street map Lübeck
+- uid/0x10006f3c  # Street map Lüchow (Wendland)
+- uid/0x100028c1  # Street map Lüdenscheid
+- uid/0x10006f3d  # Street map Lüdenscheid
+- uid/0x1000265a  # Street map Lüdinghausen
+- uid/0x10006f3e  # Street map Lüdinghausen
+- uid/0x10006f41  # Street map Lügde
+- uid/0x1000285a  # Street map Lüneburg
+- uid/0x10006f42  # Street map Lüneburg
+- uid/0x10002a7e  # Street map Lünen
+- uid/0x10006f43  # Street map Lünen
+- uid/0x10002ed4  # Street map Lützelflüh
+- uid/0x1000281a  # Street map Lützschena stahmeln
+- uid/0x1000308b  # Street map Maarkedal
+- uid/0x10002d78  # Street map Maarn
+- uid/0x10002d79  # Street map Maarssen
+- uid/0x1000719c  # Street map Maarssen
+- uid/0x10002d7a  # Street map Maartensdijk
+- uid/0x1000719d  # Street map Maartensdijk
+- uid/0x10002c8b  # Street map Maasbracht
+- uid/0x10002c8c  # Street map Maasbree
+- uid/0x10002cd0  # Street map Maasdonk
+- uid/0x10002c36  # Street map Maasdriel
+- uid/0x1000719e  # Street map Maasdriel
+- uid/0x10003187  # Street map Maaseik
+- uid/0x10002dc7  # Street map Maasland
+- uid/0x10003237  # Street map Maasmechelen
+- uid/0x10006cc1  # Street map Maasmechelen
+- uid/0x10006c4e  # Street map Maasmechelen
+- uid/0x10002dc8  # Street map Maassluis
+- uid/0x10002c8d  # Street map Maastricht
+- uid/0x1000719f  # Street map Maastricht
+- uid/0x10001c86  # Street map Mablethorpe
+- uid/0x10001979  # Street map Macclesfield
+- uid/0x1000192d  # Street map Macduff
+- uid/0x10003116  # Street map Machelen
+- uid/0x100028ae  # Street map Machern
+- uid/0x10001d82  # Street map Machynlleth
+- uid/0x10002cd1  # Street map Made
+- uid/0x10007228  # Street map Madrid
+- uid/0x10002e5e  # Street map Madrid (Center)
+- uid/0x10001cd1  # Street map Maesteg
+- uid/0x10002075  # Street map Magdalensberg
+- uid/0x1000285b  # Street map Magdeburg
+- uid/0x10006f44  # Street map Magdeburg
+- uid/0x1000304a  # Street map Magden
+- uid/0x10002b2c  # Street map Magnago
+- uid/0x100025c6  # Street map Magnanville
+- uid/0x100025c7  # Street map Magny les hameaux
+- uid/0x10002644  # Street map Magstadt
+- uid/0x10002a60  # Street map Mahlow
+- uid/0x1000193d  # Street map Maidenhead
+- uid/0x10001c1b  # Street map Maidstone
+- uid/0x10002938  # Street map Mainhausen
+- uid/0x10002860  # Street map Maintal
+- uid/0x1000286f  # Street map Mainz
+- uid/0x10006f45  # Street map Mainz
+- uid/0x10002721  # Street map Maisach
+- uid/0x10006f46  # Street map Maisach
+- uid/0x1000256d  # Street map Maisons alfort
+- uid/0x100025c8  # Street map Maisons laffitte
+- uid/0x10002e5f  # Street map Majadahonda
+- uid/0x10007229  # Street map Majadahonda
+- uid/0x1000243e  # Street map Malakoff
+- uid/0x100024e9  # Street map Malaunay
+- uid/0x100030e6  # Street map Maldegem
+- uid/0x10006cc2  # Street map Maldegem
+- uid/0x10006c4f  # Street map Maldegem
+- uid/0x10001ad6  # Street map Maldon
+- uid/0x10002e16  # Street map Malgrat de mar
+- uid/0x10003192  # Street map Malines
+- uid/0x10006cc3  # Street map Malines
+- uid/0x10001bb9  # Street map Mallaig
+- uid/0x10003069  # Street map Malle
+- uid/0x1000326e  # Street map Malmedy
+- uid/0x10006cc4  # Street map Malmedy
+- uid/0x10006c50  # Street map Malmedy
+- uid/0x10001ee6  # Street map Malmesbury
+- uid/0x10007254  # Street map Malmö
+- uid/0x1000197a  # Street map Malpas
+- uid/0x10002aac  # Street map Malter
+- uid/0x10002ec3  # Street map Malters
+- uid/0x10001d30  # Street map Malton
+- uid/0x10001ef6  # Street map Malvern
+- uid/0x10002466  # Street map Malzeville
+- uid/0x100030bf  # Street map Manage
+- uid/0x10001c61  # Street map Manchester
+- uid/0x10001c62  # Street map Manchester Center
+- uid/0x10002976  # Street map Manching
+- uid/0x10006f47  # Street map Mandelbachtal
+- uid/0x1000238d  # Street map Mandelieu la napoule
+- uid/0x1000256e  # Street map Mandres les roses
+- uid/0x1000319d  # Street map Manhay
+- uid/0x10002e17  # Street map Manlleu
+- uid/0x1000722b  # Street map Manlleu
+- uid/0x1000287b  # Street map Mannheim
+- uid/0x10006f48  # Street map Mannheim
+- uid/0x10001ad7  # Street map Manningtree
+- uid/0x10002ff2  # Street map Manno
+- uid/0x10002e18  # Street map Manresa
+- uid/0x1000722c  # Street map Manresa
+- uid/0x10006d2d  # Street map Mans (Le)
+- uid/0x10001d3f  # Street map Mansfield
+- uid/0x100025c9  # Street map Mantes la jolie
+- uid/0x100025ca  # Street map Mantes la ville
+- uid/0x10006d2e  # Street map Mantes-La-Jolie
+- uid/0x10007101  # Street map Mantova
+- uid/0x100019bb  # Street map Marazion
+- uid/0x1000284a  # Street map Marbach am neckar
+- uid/0x1000722d  # Street map Marbella
+- uid/0x10002880  # Street map Marburg
+- uid/0x10006f49  # Street map Marburg
+- uid/0x1000196b  # Street map March
+- uid/0x1000319e  # Street map Marche en famenne
+- uid/0x10006cc5  # Street map Marche-En-Famenne
+- uid/0x10006c51  # Street map Marche-En-Famenne
+- uid/0x10003141  # Street map Marchin
+- uid/0x100020fc  # Street map Marchtrenk
+- uid/0x10002402  # Street map Marcoussis
+- uid/0x10002493  # Street map Marcy l'etoile
+- uid/0x100025cb  # Street map Mareil marly
+- uid/0x10001c1c  # Street map Margate
+- uid/0x10002539  # Street map Margency
+- uid/0x10002c8e  # Street map Margraten
+- uid/0x100020c1  # Street map Maria anzbach
+- uid/0x100020a5  # Street map Maria enzersdorf am gebirge
+- uid/0x10002076  # Street map Maria rain
+- uid/0x10002077  # Street map Maria saal
+- uid/0x10002078  # Street map Maria wörth
+- uid/0x10001b4c  # Street map Marianglas
+- uid/0x10002af5  # Street map Mariano comense
+- uid/0x10002915  # Street map Marienheide
+- uid/0x10006f4a  # Street map Marienheide
+- uid/0x100023c9  # Street map Marignane
+- uid/0x1000302f  # Street map Marin epagnier
+- uid/0x10002d53  # Street map Markelo
+- uid/0x100071a0  # Street map Markelo
+- uid/0x10001dbf  # Street map Market Drayton
+- uid/0x10001c78  # Street map Market Harborough
+- uid/0x10001c87  # Street map Market Rasen
+- uid/0x10001c79  # Street map Markfield
+- uid/0x1000284b  # Street map Markgröningen
+- uid/0x1000281b  # Street map Markkleeberg
+- uid/0x10006f4b  # Street map Markkleeberg
+- uid/0x1000281c  # Street map Markranstädt
+- uid/0x1000266b  # Street map Markt indersdorf
+- uid/0x1000211b  # Street map Markt piesting
+- uid/0x1000208c  # Street map Markt sankt florian
+- uid/0x100029af  # Street map Marl
+- uid/0x10006f4c  # Street map Marl
+- uid/0x10001ee7  # Street map Marlborough
+- uid/0x100026e2  # Street map Marloffstein
+- uid/0x10001959  # Street map Marlow
+- uid/0x10003020  # Street map Marly
+- uid/0x100025cc  # Street map Marly le roi
+- uid/0x10002c65  # Street map Marne de
+- uid/0x100071a1  # Street map Marne De
+- uid/0x1000243f  # Street map Marnes la coquette
+- uid/0x1000256f  # Street map Marolles en brie
+- uid/0x100024ea  # Street map Maromme
+- uid/0x10002a66  # Street map Marquartstein
+- uid/0x10006f4d  # Street map Marsberg
+- uid/0x1000277f  # Street map Marschacht
+- uid/0x100023ca  # Street map Marseille
+- uid/0x10006d2f  # Street map Marseille
+- uid/0x1000307b  # Street map Martelange
+- uid/0x10002eee  # Street map Marthalen
+- uid/0x100023cb  # Street map Martigues
+- uid/0x10006d30  # Street map Martigues
+- uid/0x10001dd7  # Street map Martock
+- uid/0x10002e19  # Street map Martorell
+- uid/0x10002c66  # Street map Marum
+- uid/0x100071a2  # Street map Marum
+- uid/0x100019f5  # Street map Maryport
+- uid/0x10002e1a  # Street map Masnou (el)
+- uid/0x1000722e  # Street map Masnou (El)
+- uid/0x10002ff3  # Street map Massagno
+- uid/0x10002e85  # Street map Massanassa
+- uid/0x10002403  # Street map Massy
+- uid/0x10006d31  # Street map Massy
+- uid/0x10002e1b  # Street map Mataró
+- uid/0x10001a12  # Street map Matlock
+- uid/0x10003021  # Street map Matran
+- uid/0x10002096  # Street map Mattersburg
+- uid/0x1000211c  # Street map Matzendorf hölles
+- uid/0x1000191e  # Street map Mauchline
+- uid/0x1000210b  # Street map Mauerbach
+- uid/0x100026c0  # Street map Maulbronn
+- uid/0x10002faf  # Street map Maur
+- uid/0x100025cd  # Street map Maurecourt
+- uid/0x100025ce  # Street map Maurepas
+- uid/0x10002c37  # Street map Maurik
+- uid/0x10002467  # Street map Maxeville
+- uid/0x1000191f  # Street map Maybole
+- uid/0x10006f4e  # Street map Mayen
+- uid/0x10001aae  # Street map Mayfield
+- uid/0x100024c7  # Street map Meaux
+- uid/0x10006d32  # Street map Meaux
+- uid/0x10006c52  # Street map Mechelen
+- uid/0x10002705  # Street map Mechernich
+- uid/0x10006f4f  # Street map Mechernich
+- uid/0x100029d8  # Street map Meckenheim
+- uid/0x10002b2d  # Street map Meda
+- uid/0x100025cf  # Street map Medan
+- uid/0x10006f50  # Street map Medebach
+- uid/0x10002d18  # Street map Medemblik
+- uid/0x100027d4  # Street map Medingen
+- uid/0x100028f2  # Street map Meerbusch
+- uid/0x10006f51  # Street map Meerbusch
+- uid/0x10003254  # Street map Meerhout
+- uid/0x10002c8f  # Street map Meerlo wanssum
+- uid/0x10002c90  # Street map Meerssen
+- uid/0x10003188  # Street map Meeuwen gruitrode
+- uid/0x10002ec4  # Street map Meggen
+- uid/0x10001d83  # Street map Meifod
+- uid/0x10002c91  # Street map Meijel
+- uid/0x10002e9a  # Street map Meikirch
+- uid/0x10002f83  # Street map Meilen
+- uid/0x10006f52  # Street map Meinersen
+- uid/0x100028c2  # Street map Meinerzhagen
+- uid/0x10006f53  # Street map Meinerzhagen
+- uid/0x10002fd5  # Street map Meinier
+- uid/0x10002033  # Street map Meiningen
+- uid/0x10006f54  # Street map Meiningen
+- uid/0x10003117  # Street map Meise
+- uid/0x10003281  # Street map Meix devant virton
+- uid/0x10002888  # Street map Meißen
+- uid/0x10006f55  # Street map Meißen
+- uid/0x10001ee8  # Street map Melksham
+- uid/0x1000204e  # Street map Mellach
+- uid/0x100030f8  # Street map Melle
+- uid/0x10006f56  # Street map Melle
+- uid/0x10002f04  # Street map Mellingen
+- uid/0x10001dad  # Street map Melrose
+- uid/0x10001cf0  # Street map Melton Constable
+- uid/0x10001c7a  # Street map Melton Mowbray
+- uid/0x100024c8  # Street map Melun
+- uid/0x10006d33  # Street map Melun
+- uid/0x10001b4d  # Street map Menai Bridge
+- uid/0x10002bf5  # Street map Menaldumadeel
+- uid/0x100071a3  # Street map Menaldumadeel
+- uid/0x100028c3  # Street map Menden (sauerland)
+- uid/0x10006f57  # Street map Menden (Sauerland)
+- uid/0x10006f58  # Street map Mendig
+- uid/0x10003000  # Street map Mendrisio
+- uid/0x100030cb  # Street map Menin
+- uid/0x10002404  # Street map Mennecy
+- uid/0x1000198d  # Street map Menstrie
+- uid/0x10002b72  # Street map Mentana
+- uid/0x10002c67  # Street map Menterwolde
+- uid/0x100071a4  # Street map Menterwolde
+- uid/0x1000238e  # Street map Menton
+- uid/0x10006d34  # Street map Menton
+- uid/0x10003044  # Street map Menzingen
+- uid/0x10002bca  # Street map Meppel
+- uid/0x10006f59  # Street map Meppen
+- uid/0x10007102  # Street map Merano
+- uid/0x10003220  # Street map Merbes le chateau
+- uid/0x10003118  # Street map Merchtem
+- uid/0x100030f9  # Street map Merelbeke
+- uid/0x1000253a  # Street map Meriel
+- uid/0x10003255  # Street map Merksplas
+- uid/0x10001dd8  # Street map Merriott
+- uid/0x10007131  # Street map Mersch
+- uid/0x10006f5a  # Street map Merseburg
+- uid/0x10002896  # Street map Merseburg(saale)
+- uid/0x10001c92  # Street map Merseyside
+- uid/0x10001cd2  # Street map Merthyr Tydfil
+- uid/0x1000253b  # Street map Mery sur oise
+- uid/0x10006f5b  # Street map Merzen
+- uid/0x100026a4  # Street map Merzenich
+- uid/0x10006f5c  # Street map Merzig
+- uid/0x100027bd  # Street map Meschede
+- uid/0x10006f5d  # Street map Meschede
+- uid/0x1000307c  # Street map Messancy
+- uid/0x10002468  # Street map Messein
+- uid/0x10003297  # Street map Messines
+- uid/0x100031bb  # Street map Mettet
+- uid/0x10006f5e  # Street map Mettlach
+- uid/0x1000289c  # Street map Mettmann
+- uid/0x10006f5f  # Street map Mettmann
+- uid/0x10002ee6  # Street map Mettmenstetten
+- uid/0x10006d35  # Street map Metz
+- uid/0x10002440  # Street map Meudon
+- uid/0x100025d0  # Street map Meulan
+- uid/0x10003227  # Street map Meulebeke
+- uid/0x10006f60  # Street map Meuselwitz
+- uid/0x10001dfc  # Street map Mexborough
+- uid/0x100023cc  # Street map Meyreuil
+- uid/0x10002fd6  # Street map Meyrin
+- uid/0x10002494  # Street map Meyzieu
+- uid/0x10006d36  # Street map Meyzieu
+- uid/0x100025d1  # Street map Mezy sur seine
+- uid/0x100020d9  # Street map Michelhausen
+- uid/0x10006f61  # Street map Michelstadt
+- uid/0x1000299e  # Street map Michendorf
+- uid/0x10001cca  # Street map Mid Glamorgan
+- uid/0x10002d8f  # Street map Middelburg
+- uid/0x100071a5  # Street map Middelburg
+- uid/0x10002dc9  # Street map Middelharnis
+- uid/0x100031ec  # Street map Middelkerke
+- uid/0x100071a6  # Street map Middenveld
+- uid/0x10001993  # Street map Middlesbrough
+- uid/0x10001c9e  # Street map Middlesex
+- uid/0x1000197b  # Street map Middlewich
+- uid/0x10001eba  # Street map Midhurst
+- uid/0x10001cb8  # Street map Midlothian
+- uid/0x10002cd2  # Street map Mierlo
+- uid/0x10002fe6  # Street map Mies
+- uid/0x10006f62  # Street map Miesbach
+- uid/0x10002b2e  # Street map Milano
+- uid/0x10007283  # Street map Milano
+- uid/0x10001a88  # Street map Milford Haven
+- uid/0x10002cd3  # Street map Mill en sint hubert
+- uid/0x10002c38  # Street map Millingen aan de rijn
+- uid/0x100019f6  # Street map Millom
+- uid/0x10001bcf  # Street map Millport
+- uid/0x100018e9  # Street map Milltimber
+- uid/0x100019f7  # Street map Milnthorpe
+- uid/0x10002066  # Street map Mils
+- uid/0x1000195a  # Street map Milton Keynes
+- uid/0x100023cd  # Street map Mimet
+- uid/0x100028a8  # Street map Minden
+- uid/0x10006f63  # Street map Minden
+- uid/0x10001d13  # Street map Mindrum
+- uid/0x10001dd9  # Street map Minehead
+- uid/0x10002495  # Street map Mions
+- uid/0x10007103  # Street map Mira
+- uid/0x10001ed3  # Street map Mirfield
+- uid/0x10002b63  # Street map Misano adriatico
+- uid/0x10007104  # Street map Misano Adriatico
+- uid/0x10002b2f  # Street map Misinto
+- uid/0x10002e86  # Street map Mislata
+- uid/0x10001e48  # Street map Mitcham
+- uid/0x10001b0c  # Street map Mitcheldean
+- uid/0x100024c9  # Street map Mitry mory
+- uid/0x10002731  # Street map Mittenwald
+- uid/0x10006f64  # Street map Mittenwald
+- uid/0x10002889  # Street map Mobschatz
+- uid/0x10003142  # Street map Modave
+- uid/0x10007105  # Street map Modena
+- uid/0x10001b4e  # Street map Moelfre
+- uid/0x100030fa  # Street map Moerbeke
+- uid/0x100071a7  # Street map Moerdijk
+- uid/0x10002ab7  # Street map Moers
+- uid/0x10006f65  # Street map Moers
+- uid/0x10001a5f  # Street map Moffat
+- uid/0x10003256  # Street map Mol
+- uid/0x10006cc6  # Street map Mol
+- uid/0x10006c53  # Street map Mol
+- uid/0x100019a3  # Street map Mold
+- uid/0x100030ad  # Street map Molenbeek saint jean
+- uid/0x10002e66  # Street map Molina de segura
+- uid/0x10003221  # Street map Momignies
+- uid/0x10002876  # Street map Mommenheim
+- uid/0x1000238f  # Street map Monaco
+- uid/0x10002e87  # Street map Moncada
+- uid/0x10002b91  # Street map Moncalieri
+- uid/0x10002bb2  # Street map Mondercange
+- uid/0x1000289d  # Street map Monheim am rhein
+- uid/0x10001b21  # Street map Monmouth
+- uid/0x10002b57  # Street map Monreale
+- uid/0x100031aa  # Street map Mons
+- uid/0x10006cc7  # Street map Mons
+- uid/0x100025f2  # Street map Monschau
+- uid/0x10002ae6  # Street map Monserrato
+- uid/0x10002dca  # Street map Monster
+- uid/0x10003240  # Street map Mont de l'enclus
+- uid/0x100024eb  # Street map Mont saint aignan
+- uid/0x100031db  # Street map Mont saint guibert
+- uid/0x10003033  # Street map Mont sur rolle
+- uid/0x10006f68  # Street map Montabaur
+- uid/0x10001dda  # Street map Montacute
+- uid/0x10002ff4  # Street map Montagnola
+- uid/0x10003178  # Street map Montaigu zichem
+- uid/0x10002496  # Street map Montanay
+- uid/0x10002e6f  # Street map Montblanc
+- uid/0x10002e1c  # Street map Montcada i reixac
+- uid/0x10002b5d  # Street map Montecchio emilia
+- uid/0x10002b73  # Street map Montecompatri
+- uid/0x100025d2  # Street map Montesson
+- uid/0x100024ca  # Street map Montevrain
+- uid/0x10002508  # Street map Montfermeil
+- uid/0x10002d7b  # Street map Montfoort
+- uid/0x10002e1d  # Street map Montgat
+- uid/0x10002405  # Street map Montgeron
+- uid/0x10001d84  # Street map Montgomery
+- uid/0x100025d3  # Street map Montigny le bretonneux
+- uid/0x100030c0  # Street map Montigny le tilleul
+- uid/0x1000253c  # Street map Montigny les cormeilles
+- uid/0x10006d37  # Street map Montigny-Le-Bretonneux
+- uid/0x10002406  # Street map Montlhery
+- uid/0x1000253d  # Street map Montlignon
+- uid/0x1000253e  # Street map Montmagny
+- uid/0x1000253f  # Street map Montmorency
+- uid/0x10006d38  # Street map Montpellier
+- uid/0x10002509  # Street map Montreuil
+- uid/0x1000303b  # Street map Montreux
+- uid/0x100018f6  # Street map Montrose
+- uid/0x10002441  # Street map Montrouge
+- uid/0x100024ec  # Street map Montville
+- uid/0x10002b30  # Street map Monza
+- uid/0x10007106  # Street map Monza
+- uid/0x10002c92  # Street map Mook en middelaar
+- uid/0x100019f8  # Street map Moor Row
+- uid/0x10002dcb  # Street map Moordrecht
+- uid/0x10006f69  # Street map Moorenweis
+- uid/0x10002807  # Street map Moormerland
+- uid/0x10002989  # Street map Moorrege
+- uid/0x100031fb  # Street map Moorslede
+- uid/0x10002079  # Street map Moosburg
+- uid/0x10006f6a  # Street map Moosburg A D Isar
+- uid/0x10002eb1  # Street map Moosseedorf
+- uid/0x10002407  # Street map Morangis
+- uid/0x10001cdc  # Street map Morayshire
+- uid/0x10006f6b  # Street map Morbach
+- uid/0x10003001  # Street map Morbio inferiore
+- uid/0x10002ff5  # Street map Morcote
+- uid/0x10001e49  # Street map Morden
+- uid/0x10001c63  # Street map Morecambe
+- uid/0x10001b0d  # Street map Moreton In Marsh
+- uid/0x10003028  # Street map Morges
+- uid/0x1000288a  # Street map Moritzburg
+- uid/0x10003222  # Street map Morlanwelz
+- uid/0x10001d14  # Street map Morpeth
+- uid/0x10002408  # Street map Morsang sur orge
+- uid/0x10002916  # Street map Morsbach
+- uid/0x10006f6c  # Street map Morsbach
+- uid/0x10002a89  # Street map Morsum
+- uid/0x1000306a  # Street map Mortsel
+- uid/0x10001c49  # Street map Motherwell
+- uid/0x1000722f  # Street map Motril
+- uid/0x10002390  # Street map Mouans sartoux
+- uid/0x10002391  # Street map Mougins
+- uid/0x10001cd3  # Street map Mountain Ash
+- uid/0x100031b0  # Street map Mouscron
+- uid/0x100029d9  # Street map Much
+- uid/0x10006f6d  # Street map Much
+- uid/0x10001b9d  # Street map Much Hadham
+- uid/0x10001dc0  # Street map Much Wenlock
+- uid/0x10002b31  # Street map Muggio
+- uid/0x10002edb  # Street map Muhen
+- uid/0x10002d19  # Street map Muiden
+- uid/0x100071a8  # Street map Muiden
+- uid/0x10001da1  # Street map Muir Of Ord
+- uid/0x10006d39  # Street map Mulhouse
+- uid/0x100023ad  # Street map Mundolsheim
+- uid/0x10001da2  # Street map Munlochy
+- uid/0x10006f73  # Street map Munster
+- uid/0x10002e67  # Street map Murcia
+- uid/0x10007230  # Street map Murcia
+- uid/0x10006d3a  # Street map Muret
+- uid/0x10002ea3  # Street map Muri bei bern
+- uid/0x10001cc4  # Street map Musselburgh
+- uid/0x10003282  # Street map Musson
+- uid/0x10002ef9  # Street map Muttenz
+- uid/0x10002e68  # Street map Málaga
+- uid/0x1000722a  # Street map Málaga
+- uid/0x10002034  # Street map Mäder
+- uid/0x10002f05  # Street map Mägenwil
+- uid/0x10002f84  # Street map Männedorf
+- uid/0x10002e60  # Street map Móstoles
+- uid/0x100020a6  # Street map Mödling
+- uid/0x1000284c  # Street map Möglingen
+- uid/0x1000304b  # Street map Möhlin
+- uid/0x10002a1e  # Street map Möhnesee
+- uid/0x10006f66  # Street map Möhnesee
+- uid/0x100026e3  # Street map Möhrendorf
+- uid/0x1000281d  # Street map Mölkau
+- uid/0x10002fb0  # Street map Mönchaltorf
+- uid/0x100028c9  # Street map Mönchengladbach
+- uid/0x10006f67  # Street map Mönchengladbach
+- uid/0x100026c1  # Street map Mönsheim
+- uid/0x10002746  # Street map Mörfelden walldorf
+- uid/0x10002f6e  # Street map Möriken wildegg
+- uid/0x10002f9b  # Street map Mörschwil
+- uid/0x10006f6e  # Street map Mücke
+- uid/0x10002a54  # Street map Müglitztal
+- uid/0x100026c2  # Street map Mühlacker
+- uid/0x10006f6f  # Street map Mühlacker
+- uid/0x10002926  # Street map Mühlenbeck
+- uid/0x10006f70  # Street map Mühlhausen
+- uid/0x10002939  # Street map Mühlheim am main
+- uid/0x10002683  # Street map Mühltal
+- uid/0x100028ca  # Street map Mülheim an der ruhr
+- uid/0x10002029  # Street map Müllendorf
+- uid/0x100028d8  # Street map München
+- uid/0x10006f71  # Street map München
+- uid/0x10002eb2  # Street map Münchenbuchsee
+- uid/0x100020a7  # Street map Münchendorf
+- uid/0x10002efa  # Street map Münchenstein
+- uid/0x10002eb8  # Street map Münsingen
+- uid/0x10006f72  # Street map Münster
+- uid/0x10002684  # Street map Münster (darmstadt dieburg)
+- uid/0x100028e6  # Street map Münster (münster)
+- uid/0x10006f74  # Street map Münstermaifeld
+- uid/0x10002dcc  # Street map Naaldwijk
+- uid/0x100071a9  # Street map Naaldwijk
+- uid/0x10002d1a  # Street map Naarden
+- uid/0x100028c4  # Street map Nachrodt wiblingwerde
+- uid/0x10002877  # Street map Nackenheim
+- uid/0x10001ce3  # Street map Nairn
+- uid/0x10001ce2  # Street map Nairnshire
+- uid/0x10006c54  # Street map Namen
+- uid/0x100031bc  # Street map Namur
+- uid/0x10006cc8  # Street map Namur
+- uid/0x10002469  # Street map Nancy
+- uid/0x10006d3b  # Street map Nancy
+- uid/0x1000246a  # Street map Nancy area
+- uid/0x10003143  # Street map Nandrin
+- uid/0x10002442  # Street map Nanterre
+- uid/0x100024cb  # Street map Nanteuil les meaux
+- uid/0x1000197c  # Street map Nantwich
+- uid/0x10002b4e  # Street map Napoli
+- uid/0x10007107  # Street map Napoli
+- uid/0x10001a89  # Street map Narberth
+- uid/0x1000319f  # Street map Nassogne
+- uid/0x10002067  # Street map Natters
+- uid/0x10002789  # Street map Nauen
+- uid/0x10002747  # Street map Nauheim
+- uid/0x100028af  # Street map Naunhof
+- uid/0x100030fb  # Street map Nazareth
+- uid/0x10001e89  # Street map Neath
+- uid/0x100025d4  # Street map Neauphle le chateau
+- uid/0x100025d5  # Street map Neauphle le vieux
+- uid/0x10002790  # Street map Neckarsulm
+- uid/0x10002d1b  # Street map Nederhorst den berg
+- uid/0x10002dcd  # Street map Nederlek
+- uid/0x10002c93  # Street map Nederweert
+- uid/0x100071aa  # Street map Nederweert
+- uid/0x10002c39  # Street map Neede
+- uid/0x10002f34  # Street map Neerach
+- uid/0x10002c3a  # Street map Neerijnen
+- uid/0x10003189  # Street map Neerpelt
+- uid/0x10002fbe  # Street map Neftenbach
+- uid/0x10001c64  # Street map Nelson
+- uid/0x10007276  # Street map Nendaz
+- uid/0x10002540  # Street map Nesles la vallee
+- uid/0x10002958  # Street map Nesselwang
+- uid/0x10001bba  # Street map Nethy Bridge
+- uid/0x10002a14  # Street map Netphen
+- uid/0x10006f75  # Street map Netphen
+- uid/0x10002706  # Street map Nettersheim
+- uid/0x10002a92  # Street map Nettetal
+- uid/0x10006f76  # Street map Nettetal
+- uid/0x1000293a  # Street map Neu isenburg
+- uid/0x100028e7  # Street map Neu ulm
+- uid/0x10002780  # Street map Neu wulmstorf
+- uid/0x10006f83  # Street map Neu-Ulm
+- uid/0x100028d9  # Street map Neubiberg
+- uid/0x100028e8  # Street map Neubrandenburg
+- uid/0x10006f77  # Street map Neubrandenburg
+- uid/0x10003030  # Street map Neuchâtel
+- uid/0x10007277  # Street map Neuchâtel
+- uid/0x10002097  # Street map Neudörfl
+- uid/0x10002ebb  # Street map Neuenegg
+- uid/0x100028b6  # Street map Neuenhagen bei berlin
+- uid/0x10006f78  # Street map Neuenhagen Bei Berlin
+- uid/0x10002f06  # Street map Neuenhof
+- uid/0x10002ecf  # Street map Neuenkirch
+- uid/0x10006f79  # Street map Neuenkirchen-Vörden
+- uid/0x100028c5  # Street map Neuenrade
+- uid/0x10006f7a  # Street map Neuenstein
+- uid/0x10002713  # Street map Neufahrn bei freising
+- uid/0x100031c8  # Street map Neufchateau
+- uid/0x10006cc9  # Street map Neufchâteau
+- uid/0x10006c55  # Street map Neufchâteau
+- uid/0x1000202a  # Street map Neufeld an der leitha
+- uid/0x100026c3  # Street map Neuhausen
+- uid/0x10006f7b  # Street map Neuhausen
+- uid/0x10002fa0  # Street map Neuhausen am rheinfall
+- uid/0x100026f6  # Street map Neuhausen auf den fildern
+- uid/0x10002719  # Street map Neuhof
+- uid/0x10006f7c  # Street map Neuhof
+- uid/0x1000208d  # Street map Neuhofen an der krems
+- uid/0x1000250a  # Street map Neuilly plaisance
+- uid/0x1000250b  # Street map Neuilly sur marne
+- uid/0x10002443  # Street map Neuilly sur seine
+- uid/0x1000281e  # Street map Neukieritzsch
+- uid/0x100027d5  # Street map Neukirch
+- uid/0x100020fd  # Street map Neukirchen bei lambach
+- uid/0x10002ab8  # Street map Neukirchen vluyn
+- uid/0x1000268f  # Street map Neukyhna
+- uid/0x100020c2  # Street map Neulengbach
+- uid/0x100026c4  # Street map Neulingen
+- uid/0x100020b9  # Street map Neumarkt am wallersee
+- uid/0x100028e9  # Street map Neumünster
+- uid/0x10006f7d  # Street map Neumünster
+- uid/0x100028ea  # Street map Neunkirchen
+- uid/0x100029da  # Street map Neunkirchen seelscheid
+- uid/0x10006f7e  # Street map Neunkirchen-Seelscheid
+- uid/0x10003159  # Street map Neupre
+- uid/0x100028da  # Street map Neuried
+- uid/0x100028f3  # Street map Neuss
+- uid/0x10006f80  # Street map Neuss
+- uid/0x10002773  # Street map Neustadt am rübenberge
+- uid/0x10006f82  # Street map Neustadt Am Rübenberge
+- uid/0x100028f5  # Street map Neustadt an der weinstrasse
+- uid/0x10006f81  # Street map Neustadt An Der Weinstraße
+- uid/0x100020c3  # Street map Neustift innermanzing
+- uid/0x10006f7f  # Street map Neusäß
+- uid/0x1000246b  # Street map Neuves maisons
+- uid/0x10002541  # Street map Neuville sur oise
+- uid/0x10002497  # Street map Neuville sur saone
+- uid/0x100028f6  # Street map Neuwied
+- uid/0x10006f84  # Street map Neuwied
+- uid/0x100030fc  # Street map Nevele
+- uid/0x10001e4a  # Street map New Malden
+- uid/0x10001b75  # Street map New Milton
+- uid/0x10001a8c  # Street map New Quay
+- uid/0x10001c1d  # Street map New Romney
+- uid/0x10001b23  # Street map New Tredegar
+- uid/0x10001d40  # Street map Newark
+- uid/0x10001d15  # Street map Newbiggin By The Sea
+- uid/0x10001cc5  # Street map Newbridge
+- uid/0x1000193e  # Street map Newbury
+- uid/0x10001e06  # Street map Newcastle
+- uid/0x10001a8a  # Street map Newcastle Emlyn
+- uid/0x10001e73  # Street map Newcastle Upon Tyne
+- uid/0x10001e74  # Street map Newcastle Upon Tyne Center
+- uid/0x10001dae  # Street map Newcastleton
+- uid/0x10001b0e  # Street map Newent
+- uid/0x10001aaf  # Street map Newhaven
+- uid/0x10001e22  # Street map Newmarket
+- uid/0x10001920  # Street map Newmilns
+- uid/0x10001b0f  # Street map Newnham
+- uid/0x10001a8b  # Street map Newport (Dyfed)
+- uid/0x10001b22  # Street map Newport (Gwent)
+- uid/0x10001bf7  # Street map Newport (Isle Of Wight)
+- uid/0x10001dc1  # Street map Newport (Shropshire)
+- uid/0x10001af8  # Street map Newport On Tay
+- uid/0x1000195b  # Street map Newport Pagnell
+- uid/0x100019bc  # Street map Newquay
+- uid/0x10001a2e  # Street map Newton Abbot
+- uid/0x100019d6  # Street map Newton Aycliffe
+- uid/0x10001c97  # Street map Newton Le Willows
+- uid/0x10001ede  # Street map Newton Stewart
+- uid/0x10001bbb  # Street map Newtonmore
+- uid/0x10001d85  # Street map Newtown
+- uid/0x10002392  # Street map Nice
+- uid/0x10006d3c  # Street map Nice
+- uid/0x10002b92  # Street map Nichelino
+- uid/0x10002ec7  # Street map Nidau
+- uid/0x10006f85  # Street map Nidda
+- uid/0x100026a5  # Street map Nideggen
+- uid/0x10006f86  # Street map Nideggen
+- uid/0x1000288b  # Street map Niederau
+- uid/0x10002861  # Street map Niederdorfelden
+- uid/0x10002f4c  # Street map Niedererlinsbach
+- uid/0x10002f35  # Street map Niederglatt
+- uid/0x10002f4d  # Street map Niedergösgen
+- uid/0x10002f36  # Street map Niederhasli
+- uid/0x100029db  # Street map Niederkassel
+- uid/0x10002a93  # Street map Niederkrüchten
+- uid/0x10002671  # Street map Niederlehme
+- uid/0x10002f6f  # Street map Niederlenz
+- uid/0x100029e7  # Street map Niedernhausen
+- uid/0x10002f07  # Street map Niederrohrdorf
+- uid/0x10002f37  # Street map Niederweningen
+- uid/0x10002f17  # Street map Niederwil (ag)
+- uid/0x100026a6  # Street map Niederzier
+- uid/0x10002d1c  # Street map Niedorp
+- uid/0x100026c5  # Street map Niefern öschelbronn
+- uid/0x1000306b  # Street map Niel
+- uid/0x10006f87  # Street map Nienburg (Weser)
+- uid/0x10002878  # Street map Nierstein
+- uid/0x100030ed  # Street map Nieuport
+- uid/0x10002dce  # Street map Nieuw lekkerland
+- uid/0x10002d7c  # Street map Nieuwegein
+- uid/0x100071ab  # Street map Nieuwegein
+- uid/0x10002dcf  # Street map Nieuwerkerk aan den ijssel
+- uid/0x10003132  # Street map Nieuwerkerken
+- uid/0x10002dd0  # Street map Nieuwkoop
+- uid/0x10002d54  # Street map Nieuwleusen
+- uid/0x10002bf6  # Street map Nijefurd
+- uid/0x100071ac  # Street map Nijefurd
+- uid/0x10002bcb  # Street map Nijeveen
+- uid/0x10002c3b  # Street map Nijkerk
+- uid/0x100071ad  # Street map Nijkerk
+- uid/0x10003193  # Street map Nijlen
+- uid/0x10002c3c  # Street map Nijmegen
+- uid/0x100071ae  # Street map Nijmegen
+- uid/0x10003057  # Street map Ninove
+- uid/0x100031dc  # Street map Nivelles
+- uid/0x10002c94  # Street map No valid name
+- uid/0x10002570  # Street map Nogent sur marne
+- uid/0x10006f88  # Street map Nohfelden
+- uid/0x10002571  # Street map Noiseau
+- uid/0x100024cc  # Street map Noisiel
+- uid/0x1000250c  # Street map Noisy le grand
+- uid/0x1000250d  # Street map Noisy le sec
+- uid/0x10002d90  # Street map Noord beveland
+- uid/0x100071af  # Street map Noordenveld
+- uid/0x10002d1d  # Street map Noorder koggenland
+- uid/0x10002be1  # Street map Noordoostpolder
+- uid/0x100071b0  # Street map Noordoostpolder
+- uid/0x10002dd1  # Street map Noordwijk
+- uid/0x100071b1  # Street map Noordwijk
+- uid/0x10002dd2  # Street map Noordwijkerhout
+- uid/0x10002dd3  # Street map Nootdorp
+- uid/0x10006f89  # Street map Norden
+- uid/0x10006f8a  # Street map Nordenham
+- uid/0x10002a11  # Street map Norderstedt
+- uid/0x10006f8b  # Street map Norderstedt
+- uid/0x100028f7  # Street map Nordhausen
+- uid/0x10006f8c  # Street map Nordhausen
+- uid/0x1000273f  # Street map Nordhorn
+- uid/0x10006f8d  # Street map Nordhorn
+- uid/0x1000265b  # Street map Nordkirchen
+- uid/0x100027b7  # Street map Nordstemmen
+- uid/0x10006f8e  # Street map Nordstemmen
+- uid/0x10001ce4  # Street map Norfolk
+- uid/0x10002bcc  # Street map Norg
+- uid/0x10001ed4  # Street map Normanton
+- uid/0x10001a9d  # Street map North Berwick
+- uid/0x10001d26  # Street map North Ferriby
+- uid/0x10001d1c  # Street map North Humberside
+- uid/0x10001e75  # Street map North Shields
+- uid/0x10001a2f  # Street map North Tawton
+- uid/0x10001cf1  # Street map North Walsham
+- uid/0x10001d28  # Street map North Yorkshire
+- uid/0x10001d31  # Street map Northallerton
+- uid/0x10001cff  # Street map Northampton
+- uid/0x10001d00  # Street map Northampton North
+- uid/0x10001cfa  # Street map Northamptonshire
+- uid/0x10006f8f  # Street map Northeim
+- uid/0x10001caa  # Street map Northolt
+- uid/0x10001d04  # Street map Northumberland
+- uid/0x1000197d  # Street map Northwich
+- uid/0x10001cab  # Street map Northwood
+- uid/0x10002808  # Street map Nortmoor
+- uid/0x10001cf2  # Street map Norwich
+- uid/0x100024ed  # Street map Notre dame de bondeville
+- uid/0x10001d41  # Street map Nottingham
+- uid/0x10001d42  # Street map Nottingham Center
+- uid/0x10001d3e  # Street map Nottinghamshire
+- uid/0x1000265c  # Street map Nottuln
+- uid/0x10006f90  # Street map Nottuln
+- uid/0x100026f7  # Street map Notzingen
+- uid/0x10002b32  # Street map Nova milanese
+- uid/0x10002b4f  # Street map Novara
+- uid/0x10007108  # Street map Novara
+- uid/0x10002b33  # Street map Novate milanese
+- uid/0x10003002  # Street map Novazzano
+- uid/0x10002af6  # Street map Novedrate
+- uid/0x10002b51  # Street map Noventa padovana
+- uid/0x10002409  # Street map Nozay
+- uid/0x10002cd4  # Street map Nuenen gerwen en nederwetten
+- uid/0x100071b2  # Street map Nuenen Gerwen En Nederwetten
+- uid/0x10002645  # Street map Nufringen
+- uid/0x10001e82  # Street map Nuneaton
+- uid/0x10002c3d  # Street map Nunspeet
+- uid/0x10002c95  # Street map Nuth
+- uid/0x10002a67  # Street map Nußdorf
+- uid/0x10002fe7  # Street map Nyon
+- uid/0x10006d3d  # Street map Nîmes
+- uid/0x100026a7  # Street map Nörvenich
+- uid/0x10002917  # Street map Nümbrecht
+- uid/0x10006f91  # Street map Nümbrecht
+- uid/0x10002f2d  # Street map Nürensdorf
+- uid/0x100028f8  # Street map Nürnberg
+- uid/0x10006f92  # Street map Nürnberg
+- uid/0x100028fb  # Street map Nürnberger land
+- uid/0x100026f8  # Street map Nürtingen
+- uid/0x10006f93  # Street map Nürtingen
+- uid/0x10001c7b  # Street map Oakham
+- uid/0x10001904  # Street map Oban
+- uid/0x10002d1e  # Street map Obdam
+- uid/0x10002879  # Street map Ober olm
+- uid/0x10002685  # Street map Ober ramstadt
+- uid/0x10006f96  # Street map Ober-Ramstadt
+- uid/0x1000205e  # Street map Oberalm
+- uid/0x10002726  # Street map Oberasbach
+- uid/0x10006f94  # Street map Oberaudorf
+- uid/0x100026f9  # Street map Oberboihingen
+- uid/0x10006f95  # Street map Oberding
+- uid/0x10002f2e  # Street map Oberembrach
+- uid/0x10002f40  # Street map Oberengstringen
+- uid/0x10002edc  # Street map Oberentfelden
+- uid/0x10002f38  # Street map Oberglatt
+- uid/0x10002f4e  # Street map Obergösgen
+- uid/0x100028db  # Street map Oberhaching
+- uid/0x100023ae  # Street map Oberhausbergen
+- uid/0x1000291d  # Street map Oberhausen
+- uid/0x10002906  # Street map Obermaiselstein
+- uid/0x10002727  # Street map Obermichelbach
+- uid/0x1000282d  # Street map Oberreute
+- uid/0x10002f5e  # Street map Oberrieden
+- uid/0x1000284d  # Street map Oberriexingen
+- uid/0x10002f08  # Street map Oberrohrdorf
+- uid/0x10002f8a  # Street map Oberrüti
+- uid/0x100028dc  # Street map Oberschleißheim
+- uid/0x10002f09  # Street map Obersiggenthal
+- uid/0x10002907  # Street map Oberstaufen
+- uid/0x10002908  # Street map Oberstdorf
+- uid/0x10006f97  # Street map Oberstdorf
+- uid/0x1000293b  # Street map Obertshausen
+- uid/0x100027c4  # Street map Oberursel (taunus)
+- uid/0x10006f98  # Street map Oberursel (Taunus)
+- uid/0x1000200c  # Street map Oberwaltersdorf
+- uid/0x10006f99  # Street map Oberwesel
+- uid/0x10002efb  # Street map Oberwil (bl)
+- uid/0x10002f18  # Street map Oberwil lieli
+- uid/0x10003045  # Street map Oberägeri
+- uid/0x10002ee7  # Street map Obfelden
+- uid/0x100020c4  # Street map Obritzberg rust
+- uid/0x10006f9a  # Street map Ochtrup
+- uid/0x10006ced  # Street map Odense
+- uid/0x100029ed  # Street map Odenthal
+- uid/0x10002bcd  # Street map Odoorn
+- uid/0x10002dd4  # Street map Oegstgeest
+- uid/0x10002a9e  # Street map Oelde
+- uid/0x10006f9b  # Street map Oelde
+- uid/0x100029b0  # Street map Oer erkenschwick
+- uid/0x10006f9c  # Street map Oer-Erkenschwick
+- uid/0x10006f9d  # Street map Oestrich-Winkel
+- uid/0x10002f85  # Street map Oetwil am see
+- uid/0x10002f41  # Street map Oetwil an der limmat
+- uid/0x1000293f  # Street map Offenbach am main
+- uid/0x1000294b  # Street map Offenburg
+- uid/0x10006f9e  # Street map Offenburg
+- uid/0x10002909  # Street map Ofterschwang
+- uid/0x100031bd  # Street map Ohey
+- uid/0x100027d6  # Street map Ohorn
+- uid/0x10002cd5  # Street map Oirschot
+- uid/0x100024ee  # Street map Oissel
+- uid/0x10002cd6  # Street map Oisterwijk
+- uid/0x10001a30  # Street map Okehampton
+- uid/0x10002722  # Street map Olching
+- uid/0x10001e9f  # Street map Oldbury
+- uid/0x10002c3e  # Street map Oldebroek
+- uid/0x10002943  # Street map Oldenburg (oldenburg)
+- uid/0x10006f9f  # Street map Oldenburg (Oldenburg)
+- uid/0x10002d55  # Street map Oldenzaal
+- uid/0x10001c65  # Street map Oldham
+- uid/0x10003257  # Street map Olen
+- uid/0x1000265d  # Street map Olfen
+- uid/0x1000240a  # Street map Ollainville
+- uid/0x1000258f  # Street map Ollioules
+- uid/0x1000326f  # Street map Olne
+- uid/0x1000195c  # Street map Olney
+- uid/0x10002e42  # Street map Olot
+- uid/0x10007231  # Street map Olot
+- uid/0x1000294a  # Street map Olpe
+- uid/0x10006fa0  # Street map Olpe
+- uid/0x10006fa1  # Street map Olsberg
+- uid/0x10002d56  # Street map Olst
+- uid/0x100071b3  # Street map Olst
+- uid/0x10002f90  # Street map Olten
+- uid/0x10002d57  # Street map Ommen
+- uid/0x100071b4  # Street map Ommen
+- uid/0x10002c96  # Street map Onderbanken
+- uid/0x10002fd7  # Street map Onex
+- uid/0x10001ad8  # Street map Ongar
+- uid/0x100030d9  # Street map Onhaye
+- uid/0x10002d91  # Street map Oostburg
+- uid/0x10006c56  # Street map Oostende
+- uid/0x10002bce  # Street map Oosterhesselen
+- uid/0x10002cd7  # Street map Oosterhout
+- uid/0x100071b5  # Street map Oosterhout
+- uid/0x100030fd  # Street map Oosterzele
+- uid/0x10002dd5  # Street map Oostflakkee
+- uid/0x100071b6  # Street map Oostflakkee
+- uid/0x1000309e  # Street map Oostkamp
+- uid/0x10003228  # Street map Oostrozebeke
+- uid/0x10002bf7  # Street map Ooststellingwerf
+- uid/0x100071b7  # Street map Ooststellingwerf
+- uid/0x10002d1f  # Street map Oostzaan
+- uid/0x10002d58  # Street map Ootmarsum
+- uid/0x10002b34  # Street map Opera
+- uid/0x1000282e  # Street map Opfenbach
+- uid/0x10002f2f  # Street map Opfikon
+- uid/0x10003133  # Street map Opglabbeek
+- uid/0x10002393  # Street map Opio
+- uid/0x10002d20  # Street map Opmeer
+- uid/0x1000287a  # Street map Oppenheim
+- uid/0x100029c2  # Street map Oppenweiler
+- uid/0x10002bf8  # Street map Opsterland
+- uid/0x10003119  # Street map Opwijk
+- uid/0x10002927  # Street map Oranienburg
+- uid/0x10006fa2  # Street map Oranienburg
+- uid/0x10002b93  # Street map Orbassano
+- uid/0x10003290  # Street map Oreye
+- uid/0x100025d6  # Street map Orgeval
+- uid/0x10002e01  # Street map Orihuela
+- uid/0x10001d49  # Street map Orkney
+- uid/0x10001d47  # Street map Orkney
+- uid/0x10002572  # Street map Orly
+- uid/0x10006d3e  # Street map Orléans
+- uid/0x10002573  # Street map Ormesson sur marne
+- uid/0x10001c66  # Street map Ormskirk
+- uid/0x100031dd  # Street map Orp jauche
+- uid/0x10001c1e  # Street map Orpington
+- uid/0x10002ec8  # Street map Orpund
+- uid/0x1000240b  # Street map Orsay
+- uid/0x10006fa3  # Street map Ortenberg
+- uid/0x10006d3f  # Street map Orvault
+- uid/0x10002951  # Street map Osnabrück
+- uid/0x10006fa4  # Street map Osnabrück
+- uid/0x10002542  # Street map Osny
+- uid/0x10002cd8  # Street map Oss
+- uid/0x100071b8  # Street map Oss
+- uid/0x10001ed5  # Street map Ossett
+- uid/0x10006fa5  # Street map Ostbevern
+- uid/0x100031ed  # Street map Ostende
+- uid/0x10006cca  # Street map Ostende
+- uid/0x10006fa6  # Street map Ostercappeln
+- uid/0x10006fa7  # Street map Osterheide
+- uid/0x1000295e  # Street map Osterholz scharmbeck
+- uid/0x10006fa8  # Street map Osterholz-Scharmbeck
+- uid/0x10002ea4  # Street map Ostermundigen
+- uid/0x10006fa9  # Street map Osterode Am Harz
+- uid/0x100026fa  # Street map Ostfildern
+- uid/0x10002809  # Street map Ostrhauderfehn
+- uid/0x10002a43  # Street map Oststeinbek
+- uid/0x100023af  # Street map Ostwald
+- uid/0x10001dc2  # Street map Oswestry
+- uid/0x10002f39  # Street map Otelfingen
+- uid/0x10002f70  # Street map Othmarsingen
+- uid/0x10001ed6  # Street map Otley
+- uid/0x10002ee8  # Street map Ottenbach
+- uid/0x100027d7  # Street map Ottendorf okrilla
+- uid/0x100020e4  # Street map Ottensheim
+- uid/0x10006faa  # Street map Otterberg
+- uid/0x10006fab  # Street map Otterndorf
+- uid/0x10002a8a  # Street map Ottersberg
+- uid/0x10001a31  # Street map Ottery St Mary
+- uid/0x100031de  # Street map Ottignies louvain la neuve
+- uid/0x100028dd  # Street map Ottobrunn
+- uid/0x100028eb  # Street map Ottweiler
+- uid/0x10002dd6  # Street map Oud beijerland
+- uid/0x10003179  # Street map Oud heverlee
+- uid/0x10003258  # Street map Oud turnhout
+- uid/0x10006c57  # Street map Oudenaarde
+- uid/0x100031ee  # Street map Oudenburg
+- uid/0x10002d21  # Street map Ouder amstel
+- uid/0x10002dd7  # Street map Ouderkerk
+- uid/0x10002d7d  # Street map Oudewater
+- uid/0x10003144  # Street map Ouffet
+- uid/0x10002498  # Street map Oullins
+- uid/0x1000315a  # Street map Oupeye
+- uid/0x10002ac3  # Street map Ovelgönne
+- uid/0x10006fac  # Street map Ovelgönne
+- uid/0x100029ee  # Street map Overath
+- uid/0x10006fad  # Street map Overath
+- uid/0x1000311a  # Street map Overijse
+- uid/0x1000318a  # Street map Overpelt
+- uid/0x10001d58  # Street map Oxford
+- uid/0x10001d4b  # Street map Oxfordshire
+- uid/0x10001e4b  # Street map Oxted
+- uid/0x1000290a  # Street map Oy mittelberg
+- uid/0x10002a8b  # Street map Oyten
+- uid/0x1000296d  # Street map Paderborn
+- uid/0x10006fae  # Street map Paderborn
+- uid/0x10002b35  # Street map Paderno dugnano
+- uid/0x10007109  # Street map Paderno Dugnano
+- uid/0x10002b52  # Street map Padova
+- uid/0x1000710a  # Street map Padova
+- uid/0x100019bd  # Street map Padstow
+- uid/0x10001a32  # Street map Paignton
+- uid/0x10002e88  # Street map Paiporta
+- uid/0x10001d92  # Street map Paisley
+- uid/0x10002e43  # Street map Palafrugell
+- uid/0x1000240c  # Street map Palaiseau
+- uid/0x10002e44  # Street map Palamós
+- uid/0x10002b58  # Street map Palermo
+- uid/0x1000710b  # Street map Palermo
+- uid/0x100031c9  # Street map Paliseul
+- uid/0x1000281f  # Street map Panitzsch
+- uid/0x1000250e  # Street map Pantin
+- uid/0x100026af  # Street map Papenburg
+- uid/0x10002dd8  # Street map Papendrecht
+- uid/0x100019be  # Street map Par
+- uid/0x1000240d  # Street map Paray vieille poste
+- uid/0x10002476  # Street map Paris
+- uid/0x10006d40  # Street map Paris Area
+- uid/0x10006d41  # Street map Paris City
+- uid/0x10006d42  # Street map Paris Surroundings
+- uid/0x1000710c  # Street map Parma
+- uid/0x10002543  # Street map Parmain
+- uid/0x1000208e  # Street map Pasching
+- uid/0x1000296f  # Street map Passau
+- uid/0x10006faf  # Street map Passau
+- uid/0x10002e89  # Street map Paterna
+- uid/0x10001cc6  # Street map Pathhead
+- uid/0x10002774  # Street map Pattensen
+- uid/0x10002b94  # Street map Pavarolo
+- uid/0x1000710d  # Street map Pavia
+- uid/0x10002ff6  # Street map Pazzallo
+- uid/0x10001ab0  # Street map Peacehaven
+- uid/0x10002b95  # Street map Pecetto torinese
+- uid/0x10003241  # Street map Pecq
+- uid/0x10001d61  # Street map Peebles
+- uid/0x10001d5f  # Street map Peeblesshire
+- uid/0x1000318b  # Street map Peer
+- uid/0x10002394  # Street map Pegomas
+- uid/0x10002973  # Street map Peine
+- uid/0x10006fb0  # Street map Peine
+- uid/0x10002bcf  # Street map Peize
+- uid/0x10002c68  # Street map Pekela
+- uid/0x100071b9  # Street map Pekela
+- uid/0x10001a8d  # Street map Pembroke
+- uid/0x10001a8e  # Street map Pembroke Dock
+- uid/0x10001dee  # Street map Penarth
+- uid/0x10001a8f  # Street map Pencader
+- uid/0x10001cc7  # Street map Penicuik
+- uid/0x10001b4f  # Street map Penmaenmawr
+- uid/0x10001b50  # Street map Penrhyndeudraeth
+- uid/0x100019f9  # Street map Penrith
+- uid/0x100019bf  # Street map Penryn
+- uid/0x100029b3  # Street map Pentling
+- uid/0x10001b51  # Street map Pentraeth
+- uid/0x10001cd4  # Street map Pentre
+- uid/0x10001b52  # Street map Penysarn
+- uid/0x100019c0  # Street map Penzance
+- uid/0x1000311b  # Street map Pepingen
+- uid/0x10003270  # Street map Pepinster
+- uid/0x100020a8  # Street map Perchtoldsdorf
+- uid/0x10002574  # Street map Perigny
+- uid/0x10002b36  # Street map Pero
+- uid/0x10006d43  # Street map Perpignan
+- uid/0x100019c1  # Street map Perranporth
+- uid/0x10001ef7  # Street map Pershore
+- uid/0x10001d70  # Street map Perth
+- uid/0x10001d64  # Street map Perthshire
+- uid/0x10003242  # Street map Peruwelz
+- uid/0x100031df  # Street map Perwez
+- uid/0x1000710e  # Street map Pescara
+- uid/0x10002b37  # Street map Peschiera borromeo
+- uid/0x10002aad  # Street map Pesterwitz
+- uid/0x1000196c  # Street map Peterborough
+- uid/0x100018ea  # Street map Peterculter
+- uid/0x100018eb  # Street map Peterhead
+- uid/0x100019d7  # Street map Peterlee
+- uid/0x1000271a  # Street map Petersberg
+- uid/0x10001b76  # Street map Petersfield
+- uid/0x100028a9  # Street map Petershagen (minden lübbecke)
+- uid/0x100028b7  # Street map Petershagen (märkisch oderland)
+- uid/0x10006fb3  # Street map Petershagen <Minden-Lübbecke>
+- uid/0x10006fb1  # Street map Petershagen <Märkisch-Oderland>
+- uid/0x10006fb2  # Street map Petershausen
+- uid/0x100024ef  # Street map Petit couronne
+- uid/0x10001ebb  # Street map Petworth
+- uid/0x10001ab1  # Street map Pevensey
+- uid/0x10001ee9  # Street map Pewsey
+- uid/0x10002395  # Street map Peymeinade
+- uid/0x100023ce  # Street map Peypin
+- uid/0x10002e35  # Street map Peñíscola
+- uid/0x10007232  # Street map Peñíscola
+- uid/0x1000200d  # Street map Pfaffstätten
+- uid/0x100027df  # Street map Pfinztal
+- uid/0x10006fb4  # Street map Pfinztal
+- uid/0x10002977  # Street map Pforzheim
+- uid/0x10006fb6  # Street map Pforzheim
+- uid/0x10002959  # Street map Pfronten
+- uid/0x10002fbf  # Street map Pfungen
+- uid/0x10002686  # Street map Pfungstadt
+- uid/0x10002f96  # Street map Pfäffikon
+- uid/0x10006fb5  # Street map Pförring
+- uid/0x100031f3  # Street map Philippeville
+- uid/0x10006ccc  # Street map Philippeville
+- uid/0x10006c59  # Street map Philippeville
+- uid/0x1000710f  # Street map Piacenza
+- uid/0x10002b96  # Street map Pianezza
+- uid/0x10002add  # Street map Pianoro
+- uid/0x1000208f  # Street map Piberbach
+- uid/0x10002e8a  # Street map Picanya
+- uid/0x10002e8b  # Street map Picassent
+- uid/0x10001d32  # Street map Pickering
+- uid/0x10002622  # Street map Piding
+- uid/0x10002499  # Street map Pierre benite
+- uid/0x1000250f  # Street map Pierrefitte sur seine
+- uid/0x10002544  # Street map Pierrelaye
+- uid/0x10006fb7  # Street map Piesport
+- uid/0x10002eae  # Street map Pieterlen
+- uid/0x10002b38  # Street map Pieve emanuele
+- uid/0x10002dd9  # Street map Pijnacker
+- uid/0x100071ba  # Street map Pijnacker
+- uid/0x10002e1e  # Street map Pineda de mar
+- uid/0x1000298a  # Street map Pinneberg
+- uid/0x10001cac  # Street map Pinner
+- uid/0x10002b97  # Street map Pino torinese
+- uid/0x10002b98  # Street map Piobesi torinese
+- uid/0x10002b39  # Street map Pioltello
+- uid/0x1000204f  # Street map Pirka
+- uid/0x10006fb8  # Street map Pirmasens
+- uid/0x10002a55  # Street map Pirna
+- uid/0x10006fb9  # Street map Pirna
+- uid/0x10002545  # Street map Piscop
+- uid/0x10001d71  # Street map Pitlochry
+- uid/0x10003229  # Street map Pittem
+- uid/0x100025d7  # Street map Plaisir
+- uid/0x100023cf  # Street map Plan de cuques
+- uid/0x10002fd8  # Street map Plan les ouates
+- uid/0x100028de  # Street map Planegg
+- uid/0x10002992  # Street map Plauen
+- uid/0x10006fba  # Street map Plauen
+- uid/0x1000284e  # Street map Pleidelsheim
+- uid/0x10006fbb  # Street map Pleidelsheim
+- uid/0x100028c6  # Street map Plettenberg
+- uid/0x10006fbc  # Street map Plettenberg
+- uid/0x100026fb  # Street map Plochingen
+- uid/0x10001da3  # Street map Plockton
+- uid/0x10003271  # Street map Plombieres
+- uid/0x10001a33  # Street map Plymouth
+- uid/0x1000207a  # Street map Poggersdorf
+- uid/0x100024cd  # Street map Poincy
+- uid/0x100025d8  # Street map Poissy
+- uid/0x10001ab2  # Street map Polegate
+- uid/0x1000249a  # Street map Poleymieux au mont d'or
+- uid/0x10002b74  # Street map Pomezia
+- uid/0x10007110  # Street map Pomezia
+- uid/0x1000246c  # Street map Pompey
+- uid/0x100024ce  # Street map Pomponne
+- uid/0x100030c1  # Street map Pont a celles
+- uid/0x100024cf  # Street map Pontault combault
+- uid/0x10006d44  # Street map Pontault-Combault
+- uid/0x10002b53  # Street map Ponte san nicolo
+- uid/0x10001ed7  # Street map Pontefract
+- uid/0x10002546  # Street map Pontoise
+- uid/0x10001cd5  # Street map Pontyclun
+- uid/0x10001b24  # Street map Pontypool
+- uid/0x10001cd6  # Street map Pontypridd
+- uid/0x10001a4e  # Street map Poole
+- uid/0x10003298  # Street map Poperinge
+- uid/0x10006ccd  # Street map Poperinge
+- uid/0x10006c5a  # Street map Poperinge
+- uid/0x100025d9  # Street map Porcheville
+- uid/0x10002b59  # Street map Pordenone
+- uid/0x10007111  # Street map Pordenone
+- uid/0x10002ec9  # Street map Port
+- uid/0x10001bdf  # Street map Port Askaig
+- uid/0x10001be0  # Street map Port Charlotte
+- uid/0x100023d0  # Street map Port de bouc
+- uid/0x10001be1  # Street map Port Ellen
+- uid/0x10001d93  # Street map Port Glasgow
+- uid/0x100019c2  # Street map Port Isaac
+- uid/0x10001e8a  # Street map Port Talbot
+- uid/0x100028aa  # Street map Porta westfalica
+- uid/0x10006fbd  # Street map Porta Westfalica
+- uid/0x10007233  # Street map Portbou
+- uid/0x10001cd7  # Street map Porth
+- uid/0x10001cd8  # Street map Porthcawl
+- uid/0x10001b53  # Street map Porthmadog
+- uid/0x10001a4f  # Street map Portland
+- uid/0x10001bde  # Street map Portnahaven
+- uid/0x10007282  # Street map Porto
+- uid/0x10001bed  # Street map Portree
+- uid/0x10001b77  # Street map Portsmouth
+- uid/0x10002aae  # Street map Possendorf
+- uid/0x10002993  # Street map Potsdam
+- uid/0x10006fbe  # Street map Potsdam
+- uid/0x1000200e  # Street map Pottendorf
+- uid/0x1000200f  # Street map Pottenstein
+- uid/0x10001b9e  # Street map Potters Bar
+- uid/0x10001c67  # Street map Poulton Le Fylde
+- uid/0x10001d72  # Street map Powys
+- uid/0x10002e61  # Street map Pozuelo de alarcón
+- uid/0x10002fe8  # Street map Prangins
+- uid/0x10002e1f  # Street map Prat de llobregat (el)
+- uid/0x10007112  # Street map Prato
+- uid/0x10002f7c  # Street map Pratteln
+- uid/0x10002ff7  # Street map Pregassona
+- uid/0x10002fd9  # Street map Pregny chambésy
+- uid/0x10002e20  # Street map Premià de mar
+- uid/0x10001c98  # Street map Prescot
+- uid/0x1000210c  # Street map Pressbaum
+- uid/0x100019a4  # Street map Prestatyn
+- uid/0x10001d86  # Street map Presteigne
+- uid/0x10001c68  # Street map Preston
+- uid/0x10001a9e  # Street map Prestonpans
+- uid/0x10001921  # Street map Prestwick
+- uid/0x100029f9  # Street map Prien am chiemsee
+- uid/0x100029f2  # Street map Priestewitz
+- uid/0x10003011  # Street map Prilly
+- uid/0x1000195d  # Street map Princes Risborough
+- uid/0x1000298b  # Street map Prisdorf
+- uid/0x100031be  # Street map Profondeville
+- uid/0x10006cce  # Street map Profondeville
+- uid/0x10006c5b  # Street map Profondeville
+- uid/0x1000288c  # Street map Promnitztal
+- uid/0x10001d16  # Street map Prudhoe
+- uid/0x10003029  # Street map Préverenges
+- uid/0x10006d45  # Street map Prévessin-Moëns
+- uid/0x10006fbf  # Street map Prüm
+- uid/0x1000205f  # Street map Puch bei hallein
+- uid/0x100020e5  # Street map Puchenau
+- uid/0x10002723  # Street map Puchheim
+- uid/0x10002090  # Street map Pucking
+- uid/0x10001ed8  # Street map Pudsey
+- uid/0x10007234  # Street map Puerto De Santa María (El)
+- uid/0x10002590  # Street map Puget sur argens
+- uid/0x1000301a  # Street map Puidoux
+- uid/0x10002e45  # Street map Puigcerdà
+- uid/0x10007235  # Street map Puigcerdà
+- uid/0x10002547  # Street map Puiseux pontoise
+- uid/0x10001ebc  # Street map Pulborough
+- uid/0x100026d4  # Street map Pulheim
+- uid/0x10006fc0  # Street map Pulheim
+- uid/0x100028df  # Street map Pullach im isartal
+- uid/0x10003012  # Street map Pully
+- uid/0x1000246d  # Street map Pulnoy
+- uid/0x100027d8  # Street map Pulsnitz
+- uid/0x10001ad9  # Street map Purfleet
+- uid/0x10002050  # Street map Purgstall bei eggersdorf
+- uid/0x1000210d  # Street map Purkersdorf
+- uid/0x10001e4c  # Street map Purley
+- uid/0x10002d22  # Street map Purmerend
+- uid/0x100071bb  # Street map Purmerend
+- uid/0x10002444  # Street map Puteaux
+- uid/0x10003194  # Street map Putte
+- uid/0x10002c3f  # Street map Putten
+- uid/0x100071bc  # Street map Putten
+- uid/0x100028e0  # Street map Putzbrunn
+- uid/0x10003195  # Street map Puurs
+- uid/0x10001b54  # Street map Pwllheli
+- uid/0x100020c5  # Street map Pyhra
+- uid/0x10006ccb  # Street map Péruwelz
+- uid/0x10006c58  # Street map Péruwelz
+- uid/0x10002a31  # Street map Pöcking
+- uid/0x1000207b  # Street map Pörtschach am wörther see
+- uid/0x10002098  # Street map Pöttsching
+- uid/0x100031ab  # Street map Quaregnon
+- uid/0x10002e8c  # Street map Quart de poblet
+- uid/0x10001c1f  # Street map Queenborough
+- uid/0x100031ac  # Street map Quevy
+- uid/0x1000298c  # Street map Quickborn
+- uid/0x10002a29  # Street map Quierschied
+- uid/0x100031ad  # Street map Quievrain
+- uid/0x1000240e  # Street map Quincy sous senart
+- uid/0x10002051  # Street map Raaba
+- uid/0x10002d59  # Street map Raalte
+- uid/0x100071bd  # Street map Raalte
+- uid/0x10002aaf  # Street map Rabenau
+- uid/0x100027d9  # Street map Radeberg
+- uid/0x1000288d  # Street map Radebeul
+- uid/0x10006fc1  # Street map Radebeul
+- uid/0x1000288e  # Street map Radeburg
+- uid/0x10002690  # Street map Radefeld
+- uid/0x10002918  # Street map Radevormwald
+- uid/0x10006fc2  # Street map Radevormwald
+- uid/0x10001b9f  # Street map Radlett
+- uid/0x10006fc3  # Street map Radolfzell Am Bodensee
+- uid/0x10003272  # Street map Raeren
+- uid/0x10002633  # Street map Raesfeld
+- uid/0x10001b25  # Street map Raglan
+- uid/0x10006fc4  # Street map Rahden
+- uid/0x10001ada  # Street map Rainham
+- uid/0x10006fc5  # Street map Ralingen
+- uid/0x10007132  # Street map Rambrouch
+- uid/0x100031e0  # Street map Ramillies
+- uid/0x10006bf3  # Street map Ramsau Am Dachstein
+- uid/0x10001c20  # Street map Ramsgate
+- uid/0x10006fc6  # Street map Ramstein-Miesenbach
+- uid/0x10002a61  # Street map Rangsdorf
+- uid/0x10006fc7  # Street map Rangsdorf
+- uid/0x10002035  # Street map Rankweil
+- uid/0x1000306c  # Street map Ranst
+- uid/0x10002e9b  # Street map Rapperswil (be)
+- uid/0x100029a7  # Street map Rastatt
+- uid/0x10006fc8  # Street map Rastatt
+- uid/0x100025fd  # Street map Rastede
+- uid/0x10006fc9  # Street map Rastede
+- uid/0x10006fca  # Street map Rastenberg
+- uid/0x10002964  # Street map Ratekau
+- uid/0x1000289e  # Street map Ratingen
+- uid/0x10006fcb  # Street map Ratingen
+- uid/0x10006fcc  # Street map Ratzeburg
+- uid/0x100029fa  # Street map Raubling
+- uid/0x10002748  # Street map Raunheim
+- uid/0x10003259  # Street map Ravels
+- uid/0x10006ccf  # Street map Ravels
+- uid/0x10006c5c  # Street map Ravels
+- uid/0x100019fa  # Street map Ravenglass
+- uid/0x10007113  # Street map Ravenna
+- uid/0x10006fcd  # Street map Ravensburg
+- uid/0x10002cd9  # Street map Ravenstein
+- uid/0x10001adb  # Street map Rayleigh
+- uid/0x1000193f  # Street map Reading
+- uid/0x100031e1  # Street map Rebecq
+- uid/0x10002bb3  # Street map Reckange sur mess
+- uid/0x100029b1  # Street map Recklinghausen
+- uid/0x10006fce  # Street map Recklinghausen
+- uid/0x10007133  # Street map Redange-Sur-Attert
+- uid/0x10001994  # Street map Redcar
+- uid/0x10001ef8  # Street map Redditch
+- uid/0x10001e4d  # Street map Redhill
+- uid/0x100020f1  # Street map Redlham
+- uid/0x100019c3  # Street map Redruth
+- uid/0x100027ef  # Street map Rees
+- uid/0x10006fcf  # Street map Rees
+- uid/0x10002dda  # Street map Reeuwijk
+- uid/0x100020f2  # Street map Regau
+- uid/0x100029b4  # Street map Regensburg
+- uid/0x10006fd0  # Street map Regensburg
+- uid/0x10002f3a  # Street map Regensdorf
+- uid/0x10007114  # Street map Reggio Di Calabria
+- uid/0x10002b5e  # Street map Reggio nell'emilia
+- uid/0x10007115  # Street map Reggio Nell'Emilia
+- uid/0x10006fd1  # Street map Rehburg-Loccum
+- uid/0x10006fd2  # Street map Reichelsheim (Odenwald)
+- uid/0x100026fc  # Street map Reichenbach an der fils
+- uid/0x1000288f  # Street map Reichenberg
+- uid/0x10002919  # Street map Reichshof
+- uid/0x10006fd3  # Street map Reichshof
+- uid/0x100023b0  # Street map Reichstett
+- uid/0x10002c69  # Street map Reiderland
+- uid/0x100071be  # Street map Reiderland
+- uid/0x10001e4e  # Street map Reigate
+- uid/0x10002d92  # Street map Reimerswaal
+- uid/0x100071bf  # Street map Reimerswaal
+- uid/0x10002451  # Street map Reims
+- uid/0x10006d46  # Street map Reims
+- uid/0x10002efc  # Street map Reinach (bl)
+- uid/0x10002a44  # Street map Reinbek
+- uid/0x10006fd4  # Street map Reinbek
+- uid/0x10002a45  # Street map Reinfeld (holstein)
+- uid/0x10002ab0  # Street map Reinhardtsgrimma
+- uid/0x10002010  # Street map Reisenberg
+- uid/0x10002634  # Street map Reken
+- uid/0x10006fd5  # Street map Reken
+- uid/0x1000298d  # Street map Rellingen
+- uid/0x10002f0a  # Street map Remetschwil
+- uid/0x10003291  # Street map Remicourt
+- uid/0x100029cc  # Street map Remscheid
+- uid/0x10006fd6  # Street map Remscheid
+- uid/0x1000284f  # Street map Remseck am neckar
+- uid/0x100029c3  # Street map Remshalden
+- uid/0x1000308c  # Street map Renaix
+- uid/0x100031a0  # Street map Rendeux
+- uid/0x10003013  # Street map Renens (vd)
+- uid/0x10001d94  # Street map Renfrew
+- uid/0x10001d89  # Street map Renfrewshire
+- uid/0x10002c40  # Street map Renkum
+- uid/0x100071c0  # Street map Renkum
+- uid/0x1000244e  # Street map Rennes
+- uid/0x10006d47  # Street map Rennes
+- uid/0x10002646  # Street map Renningen
+- uid/0x10006fd7  # Street map Renningen
+- uid/0x10002d7e  # Street map Renswoude
+- uid/0x10002b3a  # Street map Rescaldina
+- uid/0x10001d43  # Street map Retford
+- uid/0x1000325a  # Street map Retie
+- uid/0x10006cd0  # Street map Retie
+- uid/0x10006c5d  # Street map Retie
+- uid/0x1000290b  # Street map Rettenberg
+- uid/0x10002e70  # Street map Reus
+- uid/0x10002cda  # Street map Reusel de mierden
+- uid/0x100071c1  # Street map Reusel-De Mierden
+- uid/0x100029cd  # Street map Reutlingen
+- uid/0x10006fd8  # Street map Reutlingen
+- uid/0x10002ae4  # Street map Rezzato
+- uid/0x1000280a  # Street map Rhauderfehn
+- uid/0x10006fd9  # Street map Rhauderfehn
+- uid/0x10006fda  # Street map Rhaunen
+- uid/0x10001d87  # Street map Rhayader
+- uid/0x10002759  # Street map Rheda wiedenbrück
+- uid/0x10006fdb  # Street map Rheda-Wiedenbrück
+- uid/0x10002635  # Street map Rhede
+- uid/0x10006fdc  # Street map Rhede
+- uid/0x100026b0  # Street map Rhede (ems)
+- uid/0x10006fdd  # Street map Rhede (Ems)
+- uid/0x10002c41  # Street map Rheden
+- uid/0x100071c2  # Street map Rheden
+- uid/0x100029dc  # Street map Rheinbach
+- uid/0x10006fde  # Street map Rheinbach
+- uid/0x10002ab9  # Street map Rheinberg
+- uid/0x10002a38  # Street map Rheine
+- uid/0x10006fdf  # Street map Rheine
+- uid/0x1000304c  # Street map Rheinfelden
+- uid/0x100027e0  # Street map Rheinstetten
+- uid/0x10002d7f  # Street map Rhenen
+- uid/0x100027f0  # Street map Rheurdt
+- uid/0x10002b3b  # Street map Rho
+- uid/0x1000311c  # Street map Rhode saint genese
+- uid/0x10001b55  # Street map Rhosgoch
+- uid/0x10001b56  # Street map Rhosneigr
+- uid/0x100019a5  # Street map Rhyl
+- uid/0x10001b26  # Street map Rhymney
+- uid/0x10002b64  # Street map Riccione
+- uid/0x10001d33  # Street map Richmond (North Yorkshire)
+- uid/0x10001e4f  # Street map Richmond (Surrey)
+- uid/0x10002f5f  # Street map Richterswil
+- uid/0x10002fc0  # Street map Rickenbach (zh)
+- uid/0x10001ba0  # Street map Rickmansworth
+- uid/0x10002ddb  # Street map Ridderkerk
+- uid/0x10001d17  # Street map Riding Mill
+- uid/0x10002a8c  # Street map Riede
+- uid/0x100029fb  # Street map Riedering
+- uid/0x10002749  # Street map Riedstadt
+- uid/0x10006fe0  # Street map Riedstadt
+- uid/0x10003040  # Street map Riehen
+- uid/0x10003238  # Street map Riemst
+- uid/0x1000275a  # Street map Rietberg
+- uid/0x10006fe1  # Street map Rietberg
+- uid/0x10007116  # Street map Rieti
+- uid/0x1000325b  # Street map Rijkevorsel
+- uid/0x10002ddc  # Street map Rijnsburg
+- uid/0x10002c42  # Street map Rijnwaarden
+- uid/0x10002ddd  # Street map Rijnwoude
+- uid/0x10002d5a  # Street map Rijssen
+- uid/0x10002dde  # Street map Rijswijk
+- uid/0x1000249b  # Street map Rillieux la pape
+- uid/0x10002b65  # Street map Rimini
+- uid/0x10007117  # Street map Rimini
+- uid/0x100029fc  # Street map Rimsting
+- uid/0x10006fe2  # Street map Ringgau
+- uid/0x10001b78  # Street map Ringwood
+- uid/0x10002f22  # Street map Riniken
+- uid/0x10006fe3  # Street map Rinteln
+- uid/0x10001a13  # Street map Ripley
+- uid/0x10002e46  # Street map Ripoll
+- uid/0x10002e21  # Street map Ripollet
+- uid/0x10001d34  # Street map Ripon
+- uid/0x1000240f  # Street map Ris orangis
+- uid/0x10003046  # Street map Risch
+- uid/0x1000295f  # Street map Ritterhude
+- uid/0x10002b99  # Street map Rivalta di torino
+- uid/0x10002b9a  # Street map Rivoli
+- uid/0x10007118  # Street map Rivoli
+- uid/0x100031e2  # Street map Rixensart
+- uid/0x10001ab3  # Street map Robertsbridge
+- uid/0x10002e22  # Street map Roca del vallès (la)
+- uid/0x10002e8d  # Street map Rocafort
+- uid/0x10001c69  # Street map Rochdale
+- uid/0x100030da  # Street map Rochefort
+- uid/0x10006cd1  # Street map Rochefort
+- uid/0x10006c5e  # Street map Rochefort
+- uid/0x10001c21  # Street map Rochester
+- uid/0x1000249c  # Street map Rochetaillee sur saone
+- uid/0x10001adc  # Street map Rochford
+- uid/0x100025da  # Street map Rocquencourt
+- uid/0x10006fe4  # Street map Rodalben
+- uid/0x10002bd0  # Street map Roden
+- uid/0x1000293c  # Street map Rodgau
+- uid/0x10002c97  # Street map Roerdalen
+- uid/0x10002c98  # Street map Roermond
+- uid/0x10006c5f  # Street map Roeselare
+- uid/0x10002bb4  # Street map Roeser
+- uid/0x100025f3  # Street map Roetgen
+- uid/0x10001e6a  # Street map Rogart
+- uid/0x10002c99  # Street map Roggel en neer
+- uid/0x10002ef0  # Street map Roggwil (tg)
+- uid/0x100023d1  # Street map Rognac
+- uid/0x100023d2  # Street map Rognonas
+- uid/0x10002edd  # Street map Rohr (ag)
+- uid/0x100020d2  # Street map Rohr im kremstal
+- uid/0x100029fd  # Street map Rohrdorf
+- uid/0x10006fe6  # Street map Rohrdorf
+- uid/0x100024d0  # Street map Roissy en brie
+- uid/0x10002bd1  # Street map Rolde
+- uid/0x10003034  # Street map Rolle
+- uid/0x10002b75  # Street map Roma (Center)
+- uid/0x10007119  # Street map Roma Area
+- uid/0x1000711a  # Street map Roma City
+- uid/0x1000711b  # Street map Roma Surroundings
+- uid/0x10002510  # Street map Romainville
+- uid/0x10003014  # Street map Romanel sur lausanne
+- uid/0x10001add  # Street map Romford
+- uid/0x100028f4  # Street map Rommerskirchen
+- uid/0x10006fe7  # Street map Rommerskirchen
+- uid/0x10001c22  # Street map Romney Marsh
+- uid/0x10001b79  # Street map Romsey
+- uid/0x10007236  # Street map Ronda
+- uid/0x10002d80  # Street map Ronde venen de
+- uid/0x10002775  # Street map Ronnenberg
+- uid/0x1000311d  # Street map Roosdaal
+- uid/0x10002cdb  # Street map Roosendaal
+- uid/0x10002ec5  # Street map Root
+- uid/0x10002396  # Street map Roquebrune cap martin
+- uid/0x10002397  # Street map Roquefort les pins
+- uid/0x100023d3  # Street map Roquevaire
+- uid/0x10002f9c  # Street map Rorschach
+- uid/0x10002f9d  # Street map Rorschacherberg
+- uid/0x10002ac6  # Street map Rosbach vor der höhe
+- uid/0x10006fe8  # Street map Rosche
+- uid/0x10002753  # Street map Rosdorf
+- uid/0x100020ea  # Street map Rosegg
+- uid/0x1000265e  # Street map Rosendahl
+- uid/0x10006fe9  # Street map Rosendahl
+- uid/0x10002781  # Street map Rosengarten
+- uid/0x100029fe  # Street map Rosenheim
+- uid/0x10006fea  # Street map Rosenheim
+- uid/0x10002e47  # Street map Roses
+- uid/0x10007237  # Street map Roses
+- uid/0x10001cc8  # Street map Rosewell
+- uid/0x10006cee  # Street map Roskilde
+- uid/0x10001cc9  # Street map Roslin
+- uid/0x10002511  # Street map Rosny sous bois
+- uid/0x10001b8a  # Street map Ross On Wye
+- uid/0x10001d96  # Street map Ross Shire
+- uid/0x10001c6a  # Street map Rossendale
+- uid/0x10002c43  # Street map Rossum
+- uid/0x10002a00  # Street map Rostock
+- uid/0x10006fec  # Street map Rostock
+- uid/0x10006fee  # Street map Rotenburg (Wümme)
+- uid/0x10006fed  # Street map Rotenburg A D Fulda
+- uid/0x10002a01  # Street map Roth
+- uid/0x10002eb6  # Street map Rothenburg
+- uid/0x10001dfd  # Street map Rotherham
+- uid/0x10001bc7  # Street map Rothesay
+- uid/0x1000317a  # Street map Rotselaar
+- uid/0x100028a4  # Street map Rottach egern
+- uid/0x10002a75  # Street map Rottenburg am neckar
+- uid/0x10002ddf  # Street map Rotterdam
+- uid/0x100071c3  # Street map Rotterdam
+- uid/0x10006d48  # Street map Roubaix
+- uid/0x100024f0  # Street map Rouen
+- uid/0x10006d49  # Street map Rouen
+- uid/0x100031fc  # Street map Roulers
+- uid/0x10006cd2  # Street map Roulers
+- uid/0x10003283  # Street map Rouvroy
+- uid/0x10002af7  # Street map Rovellasca
+- uid/0x10002af8  # Street map Rovello porro
+- uid/0x10002b79  # Street map Rovigo
+- uid/0x1000711c  # Street map Rovigo
+- uid/0x10001b7a  # Street map Rowlands Castle
+- uid/0x10001e76  # Street map Rowlands Gill
+- uid/0x10001ea0  # Street map Rowley Regis
+- uid/0x10001da9  # Street map Roxburghshire
+- uid/0x10001bbc  # Street map Roy Bridge
+- uid/0x10001c23  # Street map Royal Tunbridge Wells
+- uid/0x10001ba1  # Street map Royston
+- uid/0x10002de0  # Street map Rozenburg
+- uid/0x10002c44  # Street map Rozendaal
+- uid/0x10002b3c  # Street map Rozzano
+- uid/0x1000711d  # Street map Rozzano
+- uid/0x10002687  # Street map Roßdorf
+- uid/0x10006feb  # Street map Roßleben
+- uid/0x10002728  # Street map Roßtal
+- uid/0x10001b10  # Street map Ruardean
+- uid/0x100024d1  # Street map Rubelles
+- uid/0x10002b5f  # Street map Rubiera
+- uid/0x10002eb9  # Street map Rubigen
+- uid/0x10002e23  # Street map Rubí
+- uid/0x10002cdc  # Street map Rucphen
+- uid/0x100029c4  # Street map Rudersberg
+- uid/0x10002f19  # Street map Rudolfstetten friedlisberg
+- uid/0x10006fef  # Street map Rudolstadt
+- uid/0x10002445  # Street map Rueil malmaison
+- uid/0x10001e83  # Street map Rugby
+- uid/0x10001e07  # Street map Rugeley
+- uid/0x10002a68  # Street map Ruhpolding
+- uid/0x10002bd2  # Street map Ruinen
+- uid/0x10002bd3  # Street map Ruinerwold
+- uid/0x1000322a  # Street map Ruiselede
+- uid/0x10001cad  # Street map Ruislip
+- uid/0x10002068  # Street map Rum
+- uid/0x10002bb5  # Street map Rumelange
+- uid/0x10003243  # Street map Rumes
+- uid/0x1000306d  # Street map Rumst
+- uid/0x1000197e  # Street map Runcorn
+- uid/0x10002575  # Street map Rungis
+- uid/0x10006d4a  # Street map Rungis
+- uid/0x10006ff1  # Street map Runkel
+- uid/0x10002f71  # Street map Rupperswil
+- uid/0x100029dd  # Street map Ruppichteroth
+- uid/0x10006ff2  # Street map Ruppichteroth
+- uid/0x10001d01  # Street map Rushden
+- uid/0x10002f97  # Street map Russikon
+- uid/0x10002647  # Street map Rutesheim
+- uid/0x100019a6  # Street map Ruthin
+- uid/0x10002c45  # Street map Ruurlo
+- uid/0x100071c4  # Street map Ruurlo
+- uid/0x10001bf8  # Street map Ryde
+- uid/0x10001ab4  # Street map Rye
+- uid/0x10001e77  # Street map Ryton
+- uid/0x1000293d  # Street map Rödermark
+- uid/0x10006fe5  # Street map Rödermark
+- uid/0x1000266c  # Street map Röhrmoos
+- uid/0x10002a56  # Street map Röhrsdorf
+- uid/0x100029ef  # Street map Rösrath
+- uid/0x10002820  # Street map Rötha
+- uid/0x100028fc  # Street map Röthenbach an der pegnitz
+- uid/0x100028fd  # Street map Rückersdorf
+- uid/0x100028b8  # Street map Rüdersdorf bei berlin
+- uid/0x10006ff0  # Street map Rühen
+- uid/0x10002f3b  # Street map Rümlang
+- uid/0x10002f60  # Street map Rüschlikon
+- uid/0x1000274a  # Street map Rüsselsheim
+- uid/0x10006ff3  # Street map Rüsselsheim
+- uid/0x100020f3  # Street map Rüstorf
+- uid/0x10006ff4  # Street map Rüthen
+- uid/0x10002f58  # Street map Rüti (zh)
+- uid/0x10006bf4  # Street map Saalbach-Hinterglemm
+- uid/0x10002623  # Street map Saaldorf surheim
+- uid/0x10006ff5  # Street map Saalfeld
+- uid/0x10002ecc  # Street map Saanen
+- uid/0x10002a2a  # Street map Saarbrücken
+- uid/0x10006ff6  # Street map Saarbrücken
+- uid/0x10006ff7  # Street map Saarlouis
+- uid/0x10002e24  # Street map Sabadell
+- uid/0x10002850  # Street map Sachsenheim
+- uid/0x10002410  # Street map Saclay
+- uid/0x10001ade  # Street map Saffron Walden
+- uid/0x10002e8e  # Street map Sagunto
+- uid/0x10007238  # Street map Sagunto
+- uid/0x10002398  # Street map Saint andre
+- uid/0x10002411  # Street map Saint aubin
+- uid/0x10003031  # Street map Saint blaise
+- uid/0x10002452  # Street map Saint brice courcelles
+- uid/0x10002548  # Street map Saint brice sous foret
+- uid/0x10002446  # Street map Saint cloud
+- uid/0x1000249d  # Street map Saint cyr au mont d'or
+- uid/0x100025db  # Street map Saint cyr l'ecole
+- uid/0x10002512  # Street map Saint denis
+- uid/0x1000249e  # Street map Saint didier au mont d'or
+- uid/0x100024f1  # Street map Saint etienne du rouvray
+- uid/0x1000249f  # Street map Saint fons
+- uid/0x100024a0  # Street map Saint genis laval
+- uid/0x100024a1  # Street map Saint genis les ollieres
+- uid/0x10003292  # Street map Saint georges sur meuse
+- uid/0x100024a2  # Street map Saint germain au mont d'or
+- uid/0x100025dc  # Street map Saint germain de la grange
+- uid/0x100025dd  # Street map Saint germain en laye
+- uid/0x10002412  # Street map Saint germain les arpajon
+- uid/0x10002413  # Street map Saint germain les corbeil
+- uid/0x100031ae  # Street map Saint ghislain
+- uid/0x100030ae  # Street map Saint gilles
+- uid/0x10002549  # Street map Saint gratien
+- uid/0x100031ca  # Street map Saint hubert
+- uid/0x10002399  # Street map Saint jean cap ferrat
+- uid/0x1000239a  # Street map Saint jeannet
+- uid/0x100030af  # Street map Saint josse ten noode
+- uid/0x1000239b  # Street map Saint laurent du var
+- uid/0x10003284  # Street map Saint leger
+- uid/0x100024f2  # Street map Saint leger du bourg denis
+- uid/0x1000254a  # Street map Saint leu la foret
+- uid/0x1000303c  # Street map Saint légier la chiésaz
+- uid/0x10002576  # Street map Saint mande
+- uid/0x10002591  # Street map Saint mandrier sur mer
+- uid/0x10002577  # Street map Saint maur des fosses
+- uid/0x10002578  # Street map Saint maurice
+- uid/0x1000246e  # Street map Saint max
+- uid/0x10002414  # Street map Saint michel sur orge
+- uid/0x1000315b  # Street map Saint nicolas (liege)
+- uid/0x10003201  # Street map Saint nicolas (saint-nicolas)
+- uid/0x1000246f  # Street map Saint nicolas de port
+- uid/0x10002513  # Street map Saint ouen
+- uid/0x1000254b  # Street map Saint ouen l'aumone
+- uid/0x1000239c  # Street map Saint paul
+- uid/0x10002415  # Street map Saint pierre du perray
+- uid/0x1000302a  # Street map Saint prex
+- uid/0x100024a3  # Street map Saint priest
+- uid/0x1000254c  # Street map Saint prix
+- uid/0x10002592  # Street map Saint raphael
+- uid/0x100025de  # Street map Saint remy les chevreuse
+- uid/0x100024a4  # Street map Saint romain au mont d'or
+- uid/0x100023d4  # Street map Saint savournin
+- uid/0x1000302b  # Street map Saint sulpice (vd)
+- uid/0x100024d2  # Street map Saint thibault des vignes
+- uid/0x10003134  # Street map Saint trond
+- uid/0x100023d5  # Street map Saint victoret
+- uid/0x10003273  # Street map Saint vith
+- uid/0x10002416  # Street map Saint yon
+- uid/0x10006d4b  # Street map Saint-Denis
+- uid/0x10006cd3  # Street map Saint-Hubert
+- uid/0x10006c60  # Street map Saint-Hubert
+- uid/0x10006d4d  # Street map Saint-Julien-En-Genevois
+- uid/0x10006d4e  # Street map Saint-Maur-Des-Fossés
+- uid/0x10006cd4  # Street map Saint-Nicolas
+- uid/0x10006d4f  # Street map Saint-Orens-De-Gameville
+- uid/0x10006cd5  # Street map Saint-Vith
+- uid/0x1000239d  # Street map Sainte agnes
+- uid/0x100024a5  # Street map Sainte foy les lyon
+- uid/0x10002417  # Street map Sainte genevieve des bois
+- uid/0x10003095  # Street map Sainte ode
+- uid/0x10006d4c  # Street map Sainte-Geneviève-Des-Bois
+- uid/0x10002418  # Street map Saintry sur seine
+- uid/0x10001a34  # Street map Salcombe
+- uid/0x1000197f  # Street map Sale
+- uid/0x10001c6b  # Street map Salford
+- uid/0x10001eea  # Street map Salisbury
+- uid/0x10002e71  # Street map Salou
+- uid/0x10002e48  # Street map Salt
+- uid/0x100019c4  # Street map Saltash
+- uid/0x10001995  # Street map Saltburn By The Sea
+- uid/0x10001922  # Street map Saltcoats
+- uid/0x100020af  # Street map Salzburg
+- uid/0x10006bf5  # Street map Salzburg
+- uid/0x10002a06  # Street map Salzgitter
+- uid/0x10006ff8  # Street map Salzgitter
+- uid/0x10006ff9  # Street map Salzhausen
+- uid/0x10006ffa  # Street map Salzhemmendorf
+- uid/0x1000296e  # Street map Salzkotten
+- uid/0x10006ffb  # Street map Salzkotten
+- uid/0x100031bf  # Street map Sambreville
+- uid/0x100029ff  # Street map Samerberg
+- uid/0x10002b3d  # Street map San donato milanese
+- uid/0x10002b3e  # Street map San giuliano milanese
+- uid/0x10002e02  # Street map San juan de alicante
+- uid/0x10002ade  # Street map San lazzaro di savena
+- uid/0x10002e62  # Street map San lorenzo de el escorial
+- uid/0x10002b60  # Street map San martino in rio
+- uid/0x10002b9b  # Street map San mauro torinese
+- uid/0x10002b9c  # Street map San raffaele cimena
+- uid/0x1000723a  # Street map San Sebastián
+- uid/0x10002e63  # Street map San sebastián de los reyes
+- uid/0x10002e03  # Street map San vicente del raspeig
+- uid/0x10002b3f  # Street map San vittore olona
+- uid/0x10002593  # Street map Sanary sur mer
+- uid/0x10001980  # Street map Sandbach
+- uid/0x10001940  # Street map Sandhurst
+- uid/0x10001bf9  # Street map Sandown
+- uid/0x10001cf3  # Street map Sandringham
+- uid/0x10001c24  # Street map Sandwich
+- uid/0x10001936  # Street map Sandy
+- uid/0x10002bb6  # Street map Sanem
+- uid/0x100020da  # Street map Sankt andrä wördern
+- uid/0x100029de  # Street map Sankt augustin
+- uid/0x10002fa8  # Street map Sankt gallen
+- uid/0x100020c9  # Street map Sankt georgen am längsee
+- uid/0x100020ae  # Street map Sankt georgen an der gusen
+- uid/0x10006ffc  # Street map Sankt Goar
+- uid/0x10002a05  # Street map Sankt ingbert
+- uid/0x10006ffd  # Street map Sankt Ingbert
+- uid/0x10006bf6  # Street map Sankt Johann Im Pongau
+- uid/0x10002091  # Street map Sankt marien
+- uid/0x10002f7e  # Street map Sankt moritz
+- uid/0x10006ffe  # Street map Sankt Peter-Ording
+- uid/0x100020c7  # Street map Sankt pölten
+- uid/0x10006bf7  # Street map Sankt Pölten
+- uid/0x10002000  # Street map Sankt valentin
+- uid/0x100020ca  # Street map Sankt veit an der glan
+- uid/0x10006c61  # Street map Sankt Vith
+- uid/0x10006fff  # Street map Sankt Wendel
+- uid/0x10007000  # Street map Sankt Wolfgang
+- uid/0x10007239  # Street map Sanlúcar De Barrameda
+- uid/0x1000254d  # Street map Sannois
+- uid/0x10001a60  # Street map Sanquhar
+- uid/0x10002e25  # Street map Sant adrià de besòs
+- uid/0x10002e26  # Street map Sant boi de llobregat
+- uid/0x1000723b  # Street map Sant Boi De Llobregat
+- uid/0x10002e72  # Street map Sant carles de la ràpita
+- uid/0x10002e27  # Street map Sant celoni
+- uid/0x1000723c  # Street map Sant Celoni
+- uid/0x10002e28  # Street map Sant cugat del vallès
+- uid/0x10002e49  # Street map Sant feliu de guíxols
+- uid/0x10002e29  # Street map Sant feliu de llobregat
+- uid/0x10002e2a  # Street map Sant joan despí
+- uid/0x10002e2b  # Street map Sant just desvern
+- uid/0x10002b54  # Street map Sant'angelo di piove di sacco
+- uid/0x10002e2c  # Street map Santa coloma de gramenet
+- uid/0x10002b76  # Street map Santa marinella
+- uid/0x10002b66  # Street map Santarcangelo di romagna
+- uid/0x10002b9d  # Street map Santena
+- uid/0x10002579  # Street map Santeny
+- uid/0x10002b55  # Street map Saonara
+- uid/0x1000254e  # Street map Sarcelles
+- uid/0x10006d50  # Street map Sarcelles
+- uid/0x100027b8  # Street map Sarstedt
+- uid/0x100025df  # Street map Sartrouville
+- uid/0x10006d51  # Street map Sartrouville
+- uid/0x10002d93  # Street map Sas van gent
+- uid/0x10002a9f  # Street map Sassenberg
+- uid/0x10007001  # Street map Sassenberg
+- uid/0x10007002  # Street map Sassenburg
+- uid/0x10002de1  # Street map Sassenheim
+- uid/0x10007003  # Street map Sassnitz
+- uid/0x10002adf  # Street map Sasso marconi
+- uid/0x10002654  # Street map Saterland
+- uid/0x100024a6  # Street map Sathonay camp
+- uid/0x100024a7  # Street map Sathonay village
+- uid/0x10002fda  # Street map Satigny
+- uid/0x10002036  # Street map Satteins
+- uid/0x10007004  # Street map Sauerlach
+- uid/0x10002419  # Street map Saulx les chartreux
+- uid/0x10002470  # Street map Saulxures les nancy
+- uid/0x10001a90  # Street map Saundersfoot
+- uid/0x1000301b  # Street map Savigny
+- uid/0x1000241a  # Street map Savigny sur orge
+- uid/0x10002b7d  # Street map Savona
+- uid/0x1000711e  # Street map Savona
+- uid/0x10002ff8  # Street map Savosa
+- uid/0x10001ba2  # Street map Sawbridgeworth
+- uid/0x10001e23  # Street map Saxmundham
+- uid/0x10001d35  # Street map Scarborough
+- uid/0x10001bf1  # Street map Scarinish
+- uid/0x10002447  # Street map Sceaux
+- uid/0x100030b0  # Street map Schaerbeek
+- uid/0x10002fa1  # Street map Schaffhausen
+- uid/0x10007278  # Street map Schaffhausen
+- uid/0x10002f72  # Street map Schafisheim
+- uid/0x10002d23  # Street map Schagen
+- uid/0x100028c7  # Street map Schalksmühle
+- uid/0x1000263a  # Street map Schallstadt
+- uid/0x10002965  # Street map Scharbeutz
+- uid/0x10002890  # Street map Scharfenberg
+- uid/0x10002c6a  # Street map Scheemda
+- uid/0x10007005  # Street map Scheeßel
+- uid/0x1000282f  # Street map Scheidegg
+- uid/0x1000306e  # Street map Schelle
+- uid/0x100027b9  # Street map Schellerten
+- uid/0x10007006  # Street map Schellerten
+- uid/0x1000298e  # Street map Schenefeld
+- uid/0x10002aba  # Street map Schermbeck
+- uid/0x10002d24  # Street map Schermer
+- uid/0x10002c46  # Street map Scherpenzeel
+- uid/0x10002de2  # Street map Schiedam
+- uid/0x100020d3  # Street map Schiedlberg
+- uid/0x1000207c  # Street map Schiefling am see
+- uid/0x10002bf9  # Street map Schiermonnikoog
+- uid/0x100071c5  # Street map Schiermonnikoog
+- uid/0x10002664  # Street map Schiffdorf
+- uid/0x10007007  # Street map Schiffdorf
+- uid/0x10007008  # Street map Schifferstadt
+- uid/0x10002bb7  # Street map Schifflange
+- uid/0x100028ec  # Street map Schiffweiler
+- uid/0x10002cdd  # Street map Schijndel
+- uid/0x1000306f  # Street map Schilde
+- uid/0x10002928  # Street map Schildow
+- uid/0x100023b1  # Street map Schiltigheim
+- uid/0x10002c9a  # Street map Schinnen
+- uid/0x10002de3  # Street map Schipluiden
+- uid/0x10002821  # Street map Schkeuditz
+- uid/0x10007009  # Street map Schkeuditz
+- uid/0x100020f4  # Street map Schlatt
+- uid/0x10002a69  # Street map Schleching
+- uid/0x10002707  # Street map Schleiden
+- uid/0x1000700a  # Street map Schleiden
+- uid/0x10002f42  # Street map Schlieren
+- uid/0x10002037  # Street map Schlins
+- uid/0x1000700b  # Street map Schlitz
+- uid/0x1000700d  # Street map Schlotheim
+- uid/0x1000275b  # Street map Schloß holte stukenbrock
+- uid/0x1000700c  # Street map Schloß Holte-Stukenbrock
+- uid/0x1000700e  # Street map Schluchsee
+- uid/0x1000700f  # Street map Schmalkalden
+- uid/0x100027be  # Street map Schmallenberg
+- uid/0x10007010  # Street map Schmallenberg
+- uid/0x10007011  # Street map Schmölln
+- uid/0x10002624  # Street map Schneizlreuth
+- uid/0x10007012  # Street map Schneverdingen
+- uid/0x10002bd4  # Street map Schoonebeek
+- uid/0x10002de4  # Street map Schoonhoven
+- uid/0x10002d25  # Street map Schoorl
+- uid/0x100029c5  # Street map Schorndorf
+- uid/0x10007015  # Street map Schorndorf
+- uid/0x10002714  # Street map Schortens
+- uid/0x10003070  # Street map Schoten
+- uid/0x10007016  # Street map Schotten
+- uid/0x10002d94  # Street map Schouwen duiveland
+- uid/0x100071c6  # Street map Schouwen-Duiveland
+- uid/0x10007017  # Street map Schriesheim
+- uid/0x10002672  # Street map Schulzendorf
+- uid/0x10002a09  # Street map Schwabach
+- uid/0x1000266d  # Street map Schwabhausen
+- uid/0x1000210e  # Street map Schwadorf
+- uid/0x100028fe  # Street map Schwaig bei nürnberg
+- uid/0x100029c6  # Street map Schwaikheim
+- uid/0x1000286d  # Street map Schwalbach am taunus
+- uid/0x10007019  # Street map Schwalmstadt
+- uid/0x10002a94  # Street map Schwalmtal
+- uid/0x1000701a  # Street map Schwalmtal
+- uid/0x10002610  # Street map Schwanebeck
+- uid/0x10002960  # Street map Schwanewede
+- uid/0x1000701b  # Street map Schwanewede
+- uid/0x1000295a  # Street map Schwangau
+- uid/0x10002929  # Street map Schwante
+- uid/0x1000201e  # Street map Schwarzach
+- uid/0x100028ff  # Street map Schwarzenbruck
+- uid/0x100020cb  # Street map Schwaz
+- uid/0x10006bf8  # Street map Schwaz
+- uid/0x1000210f  # Street map Schwechat
+- uid/0x10002a77  # Street map Schwedt
+- uid/0x1000701c  # Street map Schwedt
+- uid/0x10002a0d  # Street map Schweinfurt
+- uid/0x1000701d  # Street map Schweinfurt
+- uid/0x100026b6  # Street map Schwelm
+- uid/0x10002a0e  # Street map Schwerin
+- uid/0x1000701e  # Street map Schwerin
+- uid/0x10002a7f  # Street map Schwerte
+- uid/0x1000701f  # Street map Schwerte
+- uid/0x10002fb1  # Street map Schwerzenbach
+- uid/0x100029d0  # Street map Schwetzingen
+- uid/0x10002851  # Street map Schwieberdingen
+- uid/0x10002954  # Street map Schwäbisch gmünd
+- uid/0x10007018  # Street map Schwäbisch Gmünd
+- uid/0x10002648  # Street map Schönaich
+- uid/0x10002625  # Street map Schönau am königssee
+- uid/0x10002862  # Street map Schöneck
+- uid/0x10002673  # Street map Schönefeld
+- uid/0x10002930  # Street map Schöneiche bei berlin
+- uid/0x10002f91  # Street map Schönenwerd
+- uid/0x10002611  # Street map Schönerlinde
+- uid/0x10002a57  # Street map Schönfeld weißig
+- uid/0x10007013  # Street map Schönfeld-Weißig
+- uid/0x10007014  # Street map Schöningen
+- uid/0x10002612  # Street map Schönow
+- uid/0x10002613  # Street map Schönwalde (barnim)
+- uid/0x1000278a  # Street map Schönwalde (havelland)
+- uid/0x10002e9c  # Street map Schüpfen
+- uid/0x10001df7  # Street map Scunthorpe
+- uid/0x10001ab5  # Street map Seaford
+- uid/0x100019d8  # Street map Seaham
+- uid/0x10001d18  # Street map Seahouses
+- uid/0x100019fb  # Street map Seascale
+- uid/0x10001a35  # Street map Seaton
+- uid/0x10001bfa  # Street map Seaview
+- uid/0x10006d52  # Street map Seclin
+- uid/0x10002e8f  # Street map Sedaví
+- uid/0x100019fc  # Street map Sedbergh
+- uid/0x1000299f  # Street map Seddiner see
+- uid/0x10002e9d  # Street map Seedorf (be)
+- uid/0x10002822  # Street map Seehausen
+- uid/0x10002688  # Street map Seeheim jugenheim
+- uid/0x100020ba  # Street map Seekirchen am wallersee
+- uid/0x10002776  # Street map Seelze
+- uid/0x10002f73  # Street map Seengen
+- uid/0x10002a6a  # Street map Seeon seebruck
+- uid/0x10007020  # Street map Seesen
+- uid/0x10002782  # Street map Seevetal
+- uid/0x10007021  # Street map Seevetal
+- uid/0x10002b40  # Street map Segrate
+- uid/0x10002777  # Street map Sehnde
+- uid/0x10002011  # Street map Seibersdorf
+- uid/0x10002471  # Street map Seichamps
+- uid/0x10002052  # Street map Seiersberg
+- uid/0x10001d36  # Street map Selby
+- uid/0x10002797  # Street map Selfkant
+- uid/0x1000293e  # Street map Seligenstadt
+- uid/0x10001db1  # Street map Selkirk
+- uid/0x10001daf  # Street map Selkirkshire
+- uid/0x10002a80  # Street map Selm
+- uid/0x10007022  # Street map Selters (Westerwald)
+- uid/0x10002f68  # Street map Selzach
+- uid/0x10002b41  # Street map Senago
+- uid/0x1000265f  # Street map Senden
+- uid/0x10007023  # Street map Senden
+- uid/0x10002aa0  # Street map Sendenhorst
+- uid/0x100030c2  # Street map Seneffe
+- uid/0x10002674  # Street map Senzig
+- uid/0x10002f74  # Street map Seon
+- uid/0x100023d6  # Street map Septemes les vallons
+- uid/0x1000315c  # Street map Seraing
+- uid/0x10002b42  # Street map Seregno
+- uid/0x10002852  # Street map Sersheim
+- uid/0x100024d3  # Street map Servon
+- uid/0x10002aff  # Street map Sesto fiorentino
+- uid/0x10002b43  # Street map Sesto san giovanni
+- uid/0x10002b44  # Street map Settimo milanese
+- uid/0x10002b9e  # Street map Settimo torinese
+- uid/0x10001d37  # Street map Settle
+- uid/0x10002e51  # Street map Seu d'urgell (la)
+- uid/0x1000723d  # Street map Seu D'Urgell (La)
+- uid/0x10002729  # Street map Seukendorf
+- uid/0x10002fc1  # Street map Seuzach
+- uid/0x10001c25  # Street map Sevenoaks
+- uid/0x10002c9b  # Street map Sevenum
+- uid/0x10002b45  # Street map Seveso
+- uid/0x10002e69  # Street map Sevilla
+- uid/0x1000723e  # Street map Sevilla
+- uid/0x10002514  # Street map Sevran
+- uid/0x10002448  # Street map Sevres
+- uid/0x10006d54  # Street map Seyne-Sur-Mer (La)
+- uid/0x10001a50  # Street map Shaftesbury
+- uid/0x10001bfb  # Street map Shanklin
+- uid/0x10001c26  # Street map Sheerness
+- uid/0x10001dfe  # Street map Sheffield
+- uid/0x10001dff  # Street map Sheffield Center
+- uid/0x10001937  # Street map Shefford
+- uid/0x10001cae  # Street map Shepperton
+- uid/0x10001ddb  # Street map Shepton Mallet
+- uid/0x10001a51  # Street map Sherborne
+- uid/0x10001cf4  # Street map Sheringham
+- uid/0x10001db4  # Street map Shetland
+- uid/0x10001db2  # Street map Shetland Islands
+- uid/0x10001dc3  # Street map Shifnal
+- uid/0x100019d9  # Street map Shildon
+- uid/0x10001ed9  # Street map Shipley
+- uid/0x10001e84  # Street map Shipston On Stour
+- uid/0x10001ebd  # Street map Shoreham By Sea
+- uid/0x10001c4a  # Street map Shotts
+- uid/0x10001dc4  # Street map Shrewsbury
+- uid/0x10001db5  # Street map Shropshire
+- uid/0x10001c27  # Street map Sidcup
+- uid/0x10001a36  # Street map Sidmouth
+- uid/0x100029df  # Street map Siegburg
+- uid/0x10002a15  # Street map Siegen
+- uid/0x10007024  # Street map Siegen
+- uid/0x100020db  # Street map Sieghartskirchen
+- uid/0x10002a6b  # Street map Siegsdorf
+- uid/0x10007025  # Street map Siegsdorf
+- uid/0x10002a46  # Street map Siek
+- uid/0x10002966  # Street map Sierksdorf
+- uid/0x100020d4  # Street map Sierning
+- uid/0x10002099  # Street map Sigleß
+- uid/0x10002830  # Street map Sigmarszell
+- uid/0x10007255  # Street map Sigtuna
+- uid/0x10002e90  # Street map Silla
+- uid/0x1000320b  # Street map Silly
+- uid/0x100023d7  # Street map Simiane collongue
+- uid/0x100025f4  # Street map Simmerath
+- uid/0x10007026  # Street map Simmerath
+- uid/0x10002c9c  # Street map Simpelveld
+- uid/0x10002649  # Street map Sindelfingen
+- uid/0x10007027  # Street map Sindelfingen
+- uid/0x10007028  # Street map Sinntal
+- uid/0x10002f8b  # Street map Sins
+- uid/0x10003196  # Street map Sint amands
+- uid/0x10002cde  # Street map Sint anthonis
+- uid/0x10003202  # Street map Sint gillis waas
+- uid/0x10003197  # Street map Sint katelijne waver
+- uid/0x100030e7  # Street map Sint laureins
+- uid/0x10003058  # Street map Sint lievens houtem
+- uid/0x100030fe  # Street map Sint martens latem
+- uid/0x10002cdf  # Street map Sint michielsgestel
+- uid/0x10002ce0  # Street map Sint oedenrode
+- uid/0x1000311e  # Street map Sint pieters leeuw
+- uid/0x100071c9  # Street map Sint-Anthonis
+- uid/0x100071ca  # Street map Sint-Michielsgestel
+- uid/0x10006c63  # Street map Sint-Niklaas
+- uid/0x100029a8  # Street map Sinzheim
+- uid/0x10002fa5  # Street map Sissach
+- uid/0x10002e2d  # Street map Sitges
+- uid/0x10002c9d  # Street map Sittard
+- uid/0x100071cb  # Street map Sittard
+- uid/0x10001c28  # Street map Sittingbourne
+- uid/0x10003223  # Street map Sivry rance
+- uid/0x10006cd6  # Street map Sivry-Rance
+- uid/0x10006c64  # Street map Sivry-Rance
+- uid/0x10002594  # Street map Six fours les plages
+- uid/0x10002bfa  # Street map Skarsterlan
+- uid/0x10001c88  # Street map Skegness
+- uid/0x10001c6c  # Street map Skelmersdale
+- uid/0x10001923  # Street map Skelmorlie
+- uid/0x10001d38  # Street map Skipton
+- uid/0x10002bd5  # Street map Sleen
+- uid/0x10002de5  # Street map Sliedrecht
+- uid/0x10002c6b  # Street map Slochteren
+- uid/0x100071cc  # Street map Slochteren
+- uid/0x10001941  # Street map Slough
+- uid/0x10002d95  # Street map Sluis aardenburg
+- uid/0x10002bfb  # Street map Smallingerland
+- uid/0x100071cd  # Street map Smallingerland
+- uid/0x10001ea1  # Street map Smethwick
+- uid/0x10002bd6  # Street map Smilde
+- uid/0x10002bfc  # Street map Sneek
+- uid/0x100071ce  # Street map Sneek
+- uid/0x10001c29  # Street map Snodland
+- uid/0x10002a1f  # Street map Soest
+- uid/0x10002d81  # Street map Soest
+- uid/0x10007029  # Street map Soest
+- uid/0x1000702b  # Street map Sohren
+- uid/0x1000320c  # Street map Soignies
+- uid/0x1000254f  # Street map Soisy sous montmorency
+- uid/0x1000241b  # Street map Soisy sur seine
+- uid/0x100024a8  # Street map Solaize
+- uid/0x10002b46  # Street map Solaro
+- uid/0x10001ea2  # Street map Solihull
+- uid/0x10002a24  # Street map Solingen
+- uid/0x1000702c  # Street map Solingen
+- uid/0x1000211d  # Street map Sollenau
+- uid/0x10002595  # Street map Sollies pont
+- uid/0x10002596  # Street map Sollies toucas
+- uid/0x10002597  # Street map Sollies ville
+- uid/0x10002fa7  # Street map Solothurn
+- uid/0x1000702d  # Street map Soltau
+- uid/0x100031c0  # Street map Sombreffe
+- uid/0x10002ce1  # Street map Someren
+- uid/0x10001dc7  # Street map Somerset
+- uid/0x10001ddc  # Street map Somerton
+- uid/0x100030db  # Street map Somme leuze
+- uid/0x10002ce2  # Street map Son en breugel
+- uid/0x1000702f  # Street map Sondershausen
+- uid/0x10007030  # Street map Sonneberg
+- uid/0x10002abb  # Street map Sonsbeck
+- uid/0x1000290c  # Street map Sonthofen
+- uid/0x10007031  # Street map Sonthofen
+- uid/0x10007032  # Street map Sontra
+- uid/0x100024f3  # Street map Sotteville les rouen
+- uid/0x100023b2  # Street map Souffelweyersheim
+- uid/0x1000315d  # Street map Soumagne
+- uid/0x10001a37  # Street map South Brent
+- uid/0x10001e50  # Street map South Croydon
+- uid/0x10001de8  # Street map South Glamorgan
+- uid/0x10001def  # Street map South Humberside
+- uid/0x10001a38  # Street map South Molton
+- uid/0x10001ae1  # Street map South Ockendon
+- uid/0x10001ddd  # Street map South Petherton
+- uid/0x10001e93  # Street map South Queensferry
+- uid/0x10001e78  # Street map South Shields
+- uid/0x10001c9a  # Street map South Wirral
+- uid/0x10001df9  # Street map South Yorkshire
+- uid/0x10001caf  # Street map Southall
+- uid/0x10001b7b  # Street map Southampton
+- uid/0x10001adf  # Street map Southend On Sea
+- uid/0x10001ae0  # Street map Southminster
+- uid/0x10001c99  # Street map Southport
+- uid/0x10001b7c  # Street map Southsea
+- uid/0x10001d44  # Street map Southwell
+- uid/0x10001e24  # Street map Southwold
+- uid/0x10001eda  # Street map Sowerby Bridge
+- uid/0x10003274  # Street map Spa
+- uid/0x10001c8a  # Street map Spalding
+- uid/0x10001bbd  # Street map Spean Bridge
+- uid/0x100027a1  # Street map Spenge
+- uid/0x100019da  # Street map Spennymoor
+- uid/0x1000239e  # Street map Speracedes
+- uid/0x10007033  # Street map Speyer
+- uid/0x10002ecb  # Street map Spiez
+- uid/0x10002de6  # Street map Spijkenisse
+- uid/0x100071cf  # Street map Spijkenisse
+- uid/0x10001c8b  # Street map Spilsby
+- uid/0x10002f0b  # Street map Spreitenbach
+- uid/0x1000315e  # Street map Sprimont
+- uid/0x10006cd7  # Street map Sprimont
+- uid/0x10006c65  # Street map Sprimont
+- uid/0x10002778  # Street map Springe
+- uid/0x10007034  # Street map Springe
+- uid/0x100026b7  # Street map Sprockhövel
+- uid/0x10007035  # Street map Sprockhövel
+- uid/0x100019c5  # Street map St Agnes
+- uid/0x10001ba4  # Street map St Albans
+- uid/0x10001af9  # Street map St Andrews
+- uid/0x100019a7  # Street map St Asaph
+- uid/0x100019c6  # Street map St Austell
+- uid/0x100019fd  # Street map St Bees
+- uid/0x100019c7  # Street map St Columb
+- uid/0x10007279  # Street map St Gallen
+- uid/0x10001c9b  # Street map St Helens
+- uid/0x100019c8  # Street map St Ives
+- uid/0x10001ab6  # Street map St Leonards On Sea
+- uid/0x10001bbf  # Street map St Marys
+- uid/0x10003003  # Street map Stabio
+- uid/0x10003071  # Street map Stabroek
+- uid/0x10002d5b  # Street map Stad delden
+- uid/0x10007036  # Street map Stade
+- uid/0x10007037  # Street map Stadecken-Elsheim
+- uid/0x100031fd  # Street map Staden
+- uid/0x100020fe  # Street map Stadl paura
+- uid/0x10002c6c  # Street map Stadskanaal
+- uid/0x100071d0  # Street map Stadskanaal
+- uid/0x10002a58  # Street map Stadt wehlen
+- uid/0x10007038  # Street map Stadtallendorf
+- uid/0x10002a07  # Street map Stadthagen
+- uid/0x10007039  # Street map Stadthagen
+- uid/0x1000703a  # Street map Stadtlohn
+- uid/0x10001e08  # Street map Stafford
+- uid/0x10001e00  # Street map Staffordshire
+- uid/0x100029a0  # Street map Stahnsdorf
+- uid/0x10001cb0  # Street map Staines
+- uid/0x10002515  # Street map Stains
+- uid/0x10002ee9  # Street map Stallikon
+- uid/0x10001981  # Street map Stalybridge
+- uid/0x10001c8c  # Street map Stamford
+- uid/0x10001ae2  # Street map Stanford Le Hope
+- uid/0x100019db  # Street map Stanley
+- uid/0x10001cb1  # Street map Stanmore
+- uid/0x10001ae3  # Street map Stansted
+- uid/0x10002d5c  # Street map Staphorst
+- uid/0x10002a32  # Street map Starnberg
+- uid/0x1000703b  # Street map Starnberg
+- uid/0x10002053  # Street map Stattegg
+- uid/0x10002a6c  # Street map Staudach egerndach
+- uid/0x10002f75  # Street map Staufen
+- uid/0x1000703c  # Street map Staufenberg
+- uid/0x10003275  # Street map Stavelot
+- uid/0x10002d26  # Street map Stede broec
+- uid/0x10002ce3  # Street map Steenbergen
+- uid/0x100071d1  # Street map Steenbergen
+- uid/0x10002c47  # Street map Steenderen
+- uid/0x100071d2  # Street map Steenderen
+- uid/0x1000311f  # Street map Steenokkerzeel
+- uid/0x10002d5d  # Street map Steenwijk
+- uid/0x10002ed1  # Street map Steffisburg
+- uid/0x1000703d  # Street map Steimbke
+- uid/0x1000272a  # Street map Stein
+- uid/0x10002c9e  # Street map Stein
+- uid/0x100027da  # Street map Steina
+- uid/0x10002f9e  # Street map Steinach
+- uid/0x1000703e  # Street map Steinau An Der Straße
+- uid/0x100027c5  # Street map Steinbach (taunus)
+- uid/0x1000202b  # Street map Steinbrunn
+- uid/0x1000203c  # Street map Steindorf am ossiacher see
+- uid/0x1000264a  # Street map Steinenbronn
+- uid/0x1000703f  # Street map Steinfurt
+- uid/0x1000275c  # Street map Steinhagen
+- uid/0x10007040  # Street map Steinhagen
+- uid/0x100020ff  # Street map Steinhaus
+- uid/0x10003047  # Street map Steinhausen
+- uid/0x10007041  # Street map Steinheim
+- uid/0x10002853  # Street map Steinheim an der murr
+- uid/0x10002f3c  # Street map Steinmaur
+- uid/0x10003203  # Street map Stekene
+- uid/0x10002783  # Street map Stelle
+- uid/0x10007042  # Street map Stemwede
+- uid/0x10002a3a  # Street map Stendal
+- uid/0x10007043  # Street map Stendal
+- uid/0x10007044  # Street map Stephanskirchen
+- uid/0x10002f0c  # Street map Stetten (ag)
+- uid/0x10001ba3  # Street map Stevenage
+- uid/0x10001924  # Street map Stevenston
+- uid/0x10007045  # Street map Steyerberg
+- uid/0x10001ebe  # Street map Steyning
+- uid/0x100020ce  # Street map Steyr
+- uid/0x100020e6  # Street map Steyregg
+- uid/0x10002831  # Street map Stiefenhofen
+- uid/0x10001e13  # Street map Stirling
+- uid/0x10001e0d  # Street map Stirlingshire
+- uid/0x10001b7d  # Street map Stockbridge
+- uid/0x10002967  # Street map Stockelsdorf
+- uid/0x10007258  # Street map Stockholm
+- uid/0x10007257  # Street map Stockholms Län
+- uid/0x10001982  # Street map Stockport
+- uid/0x10001d19  # Street map Stocksfield
+- uid/0x10001996  # Street map Stockton On Tees
+- uid/0x10001e09  # Street map Stoke On Trent
+- uid/0x10001dde  # Street map Stoke Sub Hamdon
+- uid/0x100025f5  # Street map Stolberg (rheinland)
+- uid/0x10007046  # Street map Stolberg (Rhld )
+- uid/0x1000292a  # Street map Stolpe süd
+- uid/0x10002a59  # Street map Stolpen
+- uid/0x10007047  # Street map Stolzenau
+- uid/0x10001e0a  # Street map Stone
+- uid/0x10001c37  # Street map Stonehaven
+- uid/0x10001b11  # Street map Stonehouse
+- uid/0x10001be6  # Street map Stornoway
+- uid/0x10003276  # Street map Stoumont
+- uid/0x10006cd8  # Street map Stoumont
+- uid/0x10006c66  # Street map Stoumont
+- uid/0x10001ea3  # Street map Stourbridge
+- uid/0x10001ef9  # Street map Stourport On Severn
+- uid/0x10001e25  # Street map Stowmarket
+- uid/0x100027f1  # Street map Straelen
+- uid/0x10007048  # Street map Straelen
+- uid/0x10002a48  # Street map Stralsund
+- uid/0x10007049  # Street map Stralsund
+- uid/0x10002c9f  # Street map Stramproy
+- uid/0x10001edf  # Street map Stranraer
+- uid/0x100023b3  # Street map Strasbourg
+- uid/0x10006d55  # Street map Strasbourg
+- uid/0x10002bba  # Street map Strassen
+- uid/0x10001e85  # Street map Stratford Upon Avon
+- uid/0x10001c4b  # Street map Strathaven
+- uid/0x10001da4  # Street map Strathcarron
+- uid/0x100018ec  # Street map Strathdon
+- uid/0x10001da5  # Street map Strathpeffer
+- uid/0x100028b9  # Street map Strausberg
+- uid/0x100028e1  # Street map Straßlach dingharting
+- uid/0x10001ddf  # Street map Street
+- uid/0x10002de7  # Street map Strijen
+- uid/0x100071d3  # Street map Strijen
+- uid/0x1000704a  # Street map Stromberg
+- uid/0x10001da6  # Street map Strome Ferry
+- uid/0x10001d4a  # Street map Stromness
+- uid/0x10001b12  # Street map Stroud
+- uid/0x10002a5a  # Street map Struppen
+- uid/0x10001e86  # Street map Studley
+- uid/0x10002695  # Street map Stuhr
+- uid/0x1000704b  # Street map Stuhr
+- uid/0x10001a52  # Street map Sturminster Newton
+- uid/0x10002a49  # Street map Stuttgart
+- uid/0x10002f86  # Street map Stäfa
+- uid/0x10002f4f  # Street map Stüsslingen
+- uid/0x1000257a  # Street map Sucy en brie
+- uid/0x10001e26  # Street map Sudbury
+- uid/0x1000704c  # Street map Suderburg
+- uid/0x10001e14  # Street map Suffolk
+- uid/0x10002a4a  # Street map Suhl
+- uid/0x1000704d  # Street map Suhl
+- uid/0x1000704e  # Street map Suhlendorf
+- uid/0x10002ede  # Street map Suhr
+- uid/0x1000704f  # Street map Sulingen
+- uid/0x10002038  # Street map Sulz
+- uid/0x10002a2b  # Street map Sulzbach
+- uid/0x1000286e  # Street map Sulzbach (taunus)
+- uid/0x1000290d  # Street map Sulzberg
+- uid/0x10001cb2  # Street map Sunbury On Thames
+- uid/0x10001e79  # Street map Sunderland
+- uid/0x100027bf  # Street map Sundern (sauerland)
+- uid/0x10007050  # Street map Sundern (Sauerland)
+- uid/0x10002a6d  # Street map Surberg
+- uid/0x10001e51  # Street map Surbiton
+- uid/0x10002449  # Street map Suresnes
+- uid/0x10001e28  # Street map Surrey
+- uid/0x10002ca0  # Street map Susteren
+- uid/0x10001e61  # Street map Sutherland
+- uid/0x10001e52  # Street map Sutton
+- uid/0x10001ea4  # Street map Sutton Coldfield
+- uid/0x10001d45  # Street map Sutton In Ashfield
+- uid/0x10001a14  # Street map Swadlincote
+- uid/0x10001cf5  # Street map Swaffham
+- uid/0x10002ca1  # Street map Swalmen
+- uid/0x10001a53  # Street map Swanage
+- uid/0x10001c2a  # Street map Swanley
+- uid/0x10001c2b  # Street map Swanscombe
+- uid/0x10001e8b  # Street map Swansea
+- uid/0x10001eeb  # Street map Swindon
+- uid/0x100029e0  # Street map Swisttal
+- uid/0x10007051  # Street map Swisttal
+- uid/0x10002696  # Street map Syke
+- uid/0x10007052  # Street map Syke
+- uid/0x10007053  # Street map Sylt-Ost
+- uid/0x10006d53  # Street map Sète
+- uid/0x10007256  # Street map Södertälje
+- uid/0x1000702a  # Street map Sögel
+- uid/0x100027ba  # Street map Söhlde
+- uid/0x1000702e  # Street map Sömmerda
+- uid/0x10002968  # Street map Süsel
+- uid/0x10001d39  # Street map Tadcaster
+- uid/0x10001b7e  # Street map Tadley
+- uid/0x10001e53  # Street map Tadworth
+- uid/0x10001da7  # Street map Tain
+- uid/0x10001b57  # Street map Talsarnau
+- uid/0x10001a91  # Street map Talybont (Dyfed)
+- uid/0x10001b58  # Street map Talybont (Gwynedd)
+- uid/0x10003204  # Street map Tamise
+- uid/0x10002854  # Street map Tamm
+- uid/0x10001e0b  # Street map Tamworth
+- uid/0x10002a47  # Street map Tangstedt
+- uid/0x10001905  # Street map Tarbert
+- uid/0x10001983  # Street map Tarporley
+- uid/0x10002e73  # Street map Tarragona
+- uid/0x1000723f  # Street map Tarragona
+- uid/0x100024a9  # Street map Tassin la demi lune
+- uid/0x10006d56  # Street map Tassin-La-Demi-Lune
+- uid/0x10002891  # Street map Taubenheim
+- uid/0x10002823  # Street map Taucha
+- uid/0x100028e2  # Street map Taufkirchen
+- uid/0x10007054  # Street map Taufkirchen (Vils)
+- uid/0x10001de0  # Street map Taunton
+- uid/0x10002e91  # Street map Tavernes blanques
+- uid/0x10002550  # Street map Taverny
+- uid/0x10001a39  # Street map Tavistock
+- uid/0x10001906  # Street map Taynuilt
+- uid/0x10001afa  # Street map Tayport
+- uid/0x1000207d  # Street map Techelsberg am wörther see
+- uid/0x10002a39  # Street map Tecklenburg
+- uid/0x10007055  # Street map Tecklenburg
+- uid/0x10001cb3  # Street map Teddington
+- uid/0x10002ca2  # Street map Tegelen
+- uid/0x100028a5  # Street map Tegernsee
+- uid/0x10001a3a  # Street map Teignmouth
+- uid/0x10002626  # Street map Teisendorf
+- uid/0x10007056  # Street map Teisendorf
+- uid/0x10001dc5  # Street map Telford
+- uid/0x10002aa1  # Street map Telgte
+- uid/0x10007057  # Street map Telgte
+- uid/0x100031cb  # Street map Tellin
+- uid/0x100029a1  # Street map Teltow
+- uid/0x10001de1  # Street map Templecombe
+- uid/0x10001efa  # Street map Tenbury Wells
+- uid/0x10001a92  # Street map Tenby
+- uid/0x100031a1  # Street map Tenneville
+- uid/0x10001c2c  # Street map Tenterden
+- uid/0x100020cc  # Street map Terfens
+- uid/0x10003212  # Street map Termonde
+- uid/0x10003120  # Street map Ternat
+- uid/0x10002d96  # Street map Terneuzen
+- uid/0x100071d4  # Street map Terneuzen
+- uid/0x10002e2e  # Street map Terrassa
+- uid/0x10007241  # Street map Terrassa
+- uid/0x10002bfd  # Street map Terschelling
+- uid/0x100071d5  # Street map Terschelling
+- uid/0x1000317b  # Street map Tervuren
+- uid/0x10002784  # Street map Tespe
+- uid/0x100025e0  # Street map Tessancourt sur aubette
+- uid/0x10003135  # Street map Tessenderlo
+- uid/0x10001b13  # Street map Tetbury
+- uid/0x10007058  # Street map Teutschenthal
+- uid/0x10001b14  # Street map Tewkesbury
+- uid/0x10002d27  # Street map Texel
+- uid/0x100071d6  # Street map Texel
+- uid/0x10002054  # Street map Thal
+- uid/0x10007059  # Street map Thalfang
+- uid/0x10002100  # Street map Thalheim bei wels
+- uid/0x100028b0  # Street map Thallwitz
+- uid/0x10002f61  # Street map Thalwil
+- uid/0x10001d59  # Street map Thame
+- uid/0x10001e54  # Street map Thames Ditton
+- uid/0x10002ab1  # Street map Tharandt
+- uid/0x10001942  # Street map Thatcham
+- uid/0x10002069  # Street map Thaur
+- uid/0x10002f99  # Street map Thayngen
+- uid/0x10002a8d  # Street map Thedinghausen
+- uid/0x1000239f  # Street map Theoule sur mer
+- uid/0x1000211e  # Street map Theresienfeld
+- uid/0x10002efd  # Street map Therwil
+- uid/0x10001cf6  # Street map Thetford
+- uid/0x10003277  # Street map Theux
+- uid/0x1000257b  # Street map Thiais
+- uid/0x10003278  # Street map Thimister clermont
+- uid/0x10006d57  # Street map Thionville
+- uid/0x10001d3a  # Street map Thirsk
+- uid/0x10002d97  # Street map Tholen
+- uid/0x100071d7  # Street map Tholen
+- uid/0x1000705a  # Street map Tholey
+- uid/0x10006d58  # Street map Thonon-Les-Bains
+- uid/0x100024d4  # Street map Thorigny sur marne
+- uid/0x10002ca3  # Street map Thorn
+- uid/0x10001a61  # Street map Thornhill
+- uid/0x10001c6d  # Street map Thornton Cleveleys
+- uid/0x10001e55  # Street map Thornton Heath
+- uid/0x10003224  # Street map Thuin
+- uid/0x10002ed2  # Street map Thun
+- uid/0x1000727a  # Street map Thun
+- uid/0x10001964  # Street map Thurso
+- uid/0x10002fdb  # Street map Thônex
+- uid/0x10002015  # Street map Thüringen
+- uid/0x10001b7f  # Street map Tidworth
+- uid/0x100026c6  # Street map Tiefenbronn
+- uid/0x10002c48  # Street map Tiel
+- uid/0x1000322b  # Street map Tielt
+- uid/0x1000317c  # Street map Tielt winge
+- uid/0x10006c67  # Street map Tienen
+- uid/0x1000241c  # Street map Tigery
+- uid/0x10001907  # Street map Tighnabruaich
+- uid/0x10002ce4  # Street map Tilburg
+- uid/0x100071d8  # Street map Tilburg
+- uid/0x10001ae4  # Street map Tilbury
+- uid/0x1000198e  # Street map Tillicoultry
+- uid/0x10002969  # Street map Timmendorfer strand
+- uid/0x10003145  # Street map Tinlot
+- uid/0x10002453  # Street map Tinqueux
+- uid/0x100019c9  # Street map Tintagel
+- uid/0x10003285  # Street map Tintigny
+- uid/0x10001ea5  # Street map Tipton
+- uid/0x1000317d  # Street map Tirlemont
+- uid/0x10006cd9  # Street map Tirlemont
+- uid/0x1000705b  # Street map Titisee-Neustadt
+- uid/0x100026a8  # Street map Titz
+- uid/0x1000705c  # Street map Titz
+- uid/0x10001a3b  # Street map Tiverton
+- uid/0x10002b77  # Street map Tivoli
+- uid/0x10001c6e  # Street map Todmorden
+- uid/0x1000705d  # Street map Todtnau
+- uid/0x10002b78  # Street map Tolfa
+- uid/0x10002472  # Street map Tomblaine
+- uid/0x10001c2d  # Street map Tonbridge
+- uid/0x10006c68  # Street map Tongeren
+- uid/0x10003239  # Street map Tongres
+- uid/0x10006cda  # Street map Tongres
+- uid/0x10001cd9  # Street map Tonypandy
+- uid/0x100024d5  # Street map Torcy
+- uid/0x1000309f  # Street map Torhout
+- uid/0x10002b9f  # Street map Torino
+- uid/0x10007120  # Street map Torino
+- uid/0x1000298f  # Street map Tornesch
+- uid/0x100019ca  # Street map Torpoint
+- uid/0x10001a3c  # Street map Torquay
+- uid/0x10002e74  # Street map Torredembarra
+- uid/0x10002e92  # Street map Torrent
+- uid/0x10007242  # Street map Torrent
+- uid/0x10002e04  # Street map Torrevieja
+- uid/0x10007243  # Street map Torrevieja
+- uid/0x10002ff9  # Street map Torricella taverne
+- uid/0x10001a3d  # Street map Torrington
+- uid/0x10002e4a  # Street map Torroella de montgrí
+- uid/0x10002e75  # Street map Tortosa
+- uid/0x10007244  # Street map Tortosa
+- uid/0x10002e4b  # Street map Tossa de mar
+- uid/0x10001bfc  # Street map Totland Bay
+- uid/0x10001a3e  # Street map Totnes
+- uid/0x10002598  # Street map Toulon
+- uid/0x10006d59  # Street map Toulon
+- uid/0x10006d5a  # Street map Toulouse
+- uid/0x10006d5b  # Street map Tourcoing
+- uid/0x10003244  # Street map Tournai
+- uid/0x10006cdb  # Street map Tournai
+- uid/0x10006d5c  # Street map Tournefeuille
+- uid/0x100023a0  # Street map Tourrette levens
+- uid/0x100023a1  # Street map Tourrettes sur loup
+- uid/0x10006d5d  # Street map Tours
+- uid/0x10001d02  # Street map Towcester
+- uid/0x10002012  # Street map Traiskirchen
+- uid/0x100020c6  # Street map Traismauer
+- uid/0x10001a9f  # Street map Tranent
+- uid/0x100025e1  # Street map Trappes
+- uid/0x10002092  # Street map Traun
+- uid/0x10002a6e  # Street map Traunstein
+- uid/0x1000705f  # Street map Traunstein
+- uid/0x1000274b  # Street map Trebur
+- uid/0x10001b27  # Street map Tredegar
+- uid/0x100020eb  # Street map Treffen
+- uid/0x10001b59  # Street map Trefriw
+- uid/0x10001a93  # Street map Tregaron
+- uid/0x10001cda  # Street map Treharris
+- uid/0x10002516  # Street map Tremblay en france
+- uid/0x1000317e  # Street map Tremelo
+- uid/0x10002ba5  # Street map Trento
+- uid/0x10007121  # Street map Trento
+- uid/0x10001cdb  # Street map Treorchy
+- uid/0x10002ba6  # Street map Treviso
+- uid/0x10007122  # Street map Treviso
+- uid/0x10002b47  # Street map Trezzano sul navigli
+- uid/0x10002892  # Street map Triebischtal
+- uid/0x100025e2  # Street map Triel sur seine
+- uid/0x10006d5f  # Street map Triel-Sur-Seine
+- uid/0x10002a72  # Street map Trier
+- uid/0x10007060  # Street map Trier
+- uid/0x10002ba7  # Street map Trieste
+- uid/0x10007123  # Street map Trieste
+- uid/0x100024d6  # Street map Trilport
+- uid/0x10002f50  # Street map Trimbach
+- uid/0x100019dc  # Street map Trimdon Station
+- uid/0x10001ba5  # Street map Tring
+- uid/0x10007061  # Street map Trippstadt
+- uid/0x10002ba0  # Street map Trofarello
+- uid/0x10002fdc  # Street map Troinex
+- uid/0x10003279  # Street map Trois ponts
+- uid/0x100029e1  # Street map Troisdorf
+- uid/0x10007062  # Street map Troisdorf
+- uid/0x10001925  # Street map Troon
+- uid/0x1000315f  # Street map Trooz
+- uid/0x10001eec  # Street map Trowbridge
+- uid/0x10002013  # Street map Trumau
+- uid/0x100019cb  # Street map Truro
+- uid/0x10006d5e  # Street map Trévoux
+- uid/0x10002d5e  # Street map Tubbergen
+- uid/0x100071d9  # Street map Tubbergen
+- uid/0x100031e3  # Street map Tubize
+- uid/0x100020dc  # Street map Tulbing
+- uid/0x100020dd  # Street map Tulln
+- uid/0x10002110  # Street map Tullnerbach
+- uid/0x10002af9  # Street map Turate
+- uid/0x10002f0d  # Street map Turgi
+- uid/0x1000325c  # Street map Turnhout
+- uid/0x10006cdc  # Street map Turnhout
+- uid/0x10006c69  # Street map Turnhout
+- uid/0x100018ed  # Street map Turriff
+- uid/0x10001cb4  # Street map Twickenham
+- uid/0x10007064  # Street map Twist
+- uid/0x10007065  # Street map Twistringen
+- uid/0x10001b5c  # Street map Ty Croes
+- uid/0x10001b5a  # Street map Tyn Y Gongl
+- uid/0x10001e6b  # Street map Tyne And Wear
+- uid/0x10002bfe  # Street map Tytsjerksteradiel
+- uid/0x100071da  # Street map Tytsjerksteradiel
+- uid/0x10001b5b  # Street map Tywyn
+- uid/0x10002e52  # Street map Tàrrega
+- uid/0x10007240  # Street map Tàrrega
+- uid/0x10002a95  # Street map Tönisvorst
+- uid/0x1000705e  # Street map Tönisvorst
+- uid/0x100029a2  # Street map Töplitz
+- uid/0x10002a76  # Street map Tübingen
+- uid/0x10007063  # Street map Tübingen
+- uid/0x10002c49  # Street map Ubbergen
+- uid/0x100030b1  # Street map Uccle
+- uid/0x10001ab7  # Street map Uckfield
+- uid/0x10002ce5  # Street map Uden
+- uid/0x100071db  # Street map Uden
+- uid/0x10007124  # Street map Udine
+- uid/0x100027f2  # Street map Uedem
+- uid/0x10007066  # Street map Uelzen
+- uid/0x10002ed3  # Street map Uetendorf
+- uid/0x10002990  # Street map Uetersen
+- uid/0x10002f87  # Street map Uetikon am see
+- uid/0x10002779  # Street map Uetze
+- uid/0x10007067  # Street map Uetze
+- uid/0x10002d28  # Street map Uitgeest
+- uid/0x10002d29  # Street map Uithoorn
+- uid/0x10002f43  # Street map Uitikon
+- uid/0x10001df8  # Street map Ulceby
+- uid/0x10001da8  # Street map Ullapool
+- uid/0x10002a78  # Street map Ulm
+- uid/0x10007068  # Street map Ulm
+- uid/0x10007069  # Street map Ulmen
+- uid/0x100019fe  # Street map Ulverston
+- uid/0x10001a3f  # Street map Umberleigh
+- uid/0x10002a81  # Street map Unna
+- uid/0x1000706a  # Street map Unna
+- uid/0x10002f44  # Street map Unterengstringen
+- uid/0x100026fd  # Street map Unterensingen
+- uid/0x10002edf  # Street map Unterentfelden
+- uid/0x100028e3  # Street map Unterföhring
+- uid/0x100028e4  # Street map Unterhaching
+- uid/0x1000706b  # Street map Unterlüß
+- uid/0x10002055  # Street map Unterpremstätten
+- uid/0x1000264f  # Street map Unterreichenbach
+- uid/0x100028e5  # Street map Unterschleißheim
+- uid/0x10002f0e  # Street map Untersiggenthal
+- uid/0x10002a6f  # Street map Unterwössen
+- uid/0x1000280b  # Street map Uplengen
+- uid/0x1000706c  # Street map Uplengen
+- uid/0x10001ae5  # Street map Upminster
+- uid/0x10007259  # Street map Uppsala
+- uid/0x10002f45  # Street map Urdorf
+- uid/0x10002be2  # Street map Urk
+- uid/0x10002eb3  # Street map Urtenen
+- uid/0x1000706d  # Street map Usingen
+- uid/0x10001b28  # Street map Usk
+- uid/0x1000706e  # Street map Uslar
+- uid/0x10002fb2  # Street map Uster
+- uid/0x1000727b  # Street map Uster
+- uid/0x10002d82  # Street map Utrecht
+- uid/0x100071dc  # Street map Utrecht
+- uid/0x100026e4  # Street map Uttenreuth
+- uid/0x10001e0c  # Street map Uttoxeter
+- uid/0x10002eb4  # Street map Utzenstorf
+- uid/0x10001cb5  # Street map Uxbridge
+- uid/0x1000706f  # Street map Uxheim
+- uid/0x10002ca4  # Street map Vaals
+- uid/0x10003004  # Street map Vacallo
+- uid/0x10002a70  # Street map Vachendorf
+- uid/0x10002855  # Street map Vaihingen an der enz
+- uid/0x10007070  # Street map Vaihingen An Der Enz
+- uid/0x100024d7  # Street map Vaires sur marne
+- uid/0x100023a2  # Street map Valbonne
+- uid/0x10002c4a  # Street map Valburg
+- uid/0x10002e93  # Street map Valencia
+- uid/0x10006d60  # Street map Valenciennes
+- uid/0x1000257c  # Street map Valenton
+- uid/0x10002de8  # Street map Valkenburg
+- uid/0x10002ca5  # Street map Valkenburg aan de geul
+- uid/0x10002ce6  # Street map Valkenswaard
+- uid/0x100071dd  # Street map Valkenswaard
+- uid/0x100023a3  # Street map Vallauris
+- uid/0x10002e76  # Street map Valls
+- uid/0x10007245  # Street map Valls
+- uid/0x10002551  # Street map Valmondois
+- uid/0x10002473  # Street map Vandoeuvre les nancy
+- uid/0x10002fdd  # Street map Vandoeuvres
+- uid/0x1000244a  # Street map Vanves
+- uid/0x10002b48  # Street map Vanzaghello
+- uid/0x10002474  # Street map Varangeville
+- uid/0x10002b7e  # Street map Varazze
+- uid/0x10002b49  # Street map Varedo
+- uid/0x10007071  # Street map Varel
+- uid/0x1000241d  # Street map Varennes jarcy
+- uid/0x10007125  # Street map Varese
+- uid/0x10002056  # Street map Vasoldsberg
+- uid/0x100026ac  # Street map Vaterstetten
+- uid/0x1000244b  # Street map Vaucresson
+- uid/0x1000241e  # Street map Vauhallan
+- uid/0x10002517  # Street map Vaujours
+- uid/0x100024aa  # Street map Vaulx en velin
+- uid/0x10002552  # Street map Vaureal
+- uid/0x100024d8  # Street map Vaux le penil
+- uid/0x100025e3  # Street map Vaux sur seine
+- uid/0x10003096  # Street map Vaux sur sure
+- uid/0x10006cdd  # Street map Vaux-Sur-Sûre
+- uid/0x10006c6a  # Street map Vaux-Sur-Sûre
+- uid/0x10002974  # Street map Vechelde
+- uid/0x10002ea5  # Street map Vechigen
+- uid/0x10007072  # Street map Vechta
+- uid/0x10002c6d  # Street map Veendam
+- uid/0x100071de  # Street map Veendam
+- uid/0x10002d83  # Street map Veenendaal
+- uid/0x10002d98  # Street map Veere
+- uid/0x10002ce7  # Street map Veghel
+- uid/0x100071df  # Street map Veghel
+- uid/0x1000272b  # Street map Veitsbronn
+- uid/0x1000289f  # Street map Velbert
+- uid/0x10007073  # Street map Velbert
+- uid/0x100020ec  # Street map Velden am wörther see
+- uid/0x10002ce8  # Street map Veldhoven
+- uid/0x100071e0  # Street map Veldhoven
+- uid/0x10002636  # Street map Velen
+- uid/0x100025e4  # Street map Velizy villacoublay
+- uid/0x100027e5  # Street map Vellmar
+- uid/0x10002d2a  # Street map Velsen
+- uid/0x1000292b  # Street map Velten
+- uid/0x10002ba1  # Street map Venaria
+- uid/0x100023a4  # Street map Vence
+- uid/0x10002e77  # Street map Vendrell (el)
+- uid/0x10007246  # Street map Vendrell (El)
+- uid/0x100023d8  # Street map Venelles
+- uid/0x10007126  # Street map Venezia
+- uid/0x10002d2b  # Street map Venhuizen
+- uid/0x100024ab  # Street map Venissieux
+- uid/0x10002ca6  # Street map Venlo
+- uid/0x100071e1  # Street map Venlo
+- uid/0x10002ca7  # Street map Venray
+- uid/0x100071e2  # Street map Venray
+- uid/0x10001bfd  # Street map Ventnor
+- uid/0x10002ba8  # Street map Vercelli
+- uid/0x10002a8e  # Street map Verden (aller)
+- uid/0x10007074  # Street map Verden (Aller)
+- uid/0x1000275d  # Street map Verl
+- uid/0x10007075  # Street map Verl
+- uid/0x10003146  # Street map Verlaine
+- uid/0x100024ac  # Street map Vernaison
+- uid/0x100025e5  # Street map Verneuil sur seine
+- uid/0x10002fde  # Street map Vernier
+- uid/0x100025e6  # Street map Vernouillet
+- uid/0x10002ba9  # Street map Verona
+- uid/0x10007127  # Street map Verona
+- uid/0x1000241f  # Street map Verrieres le buisson
+- uid/0x100025e7  # Street map Versailles
+- uid/0x10006d61  # Street map Versailles
+- uid/0x10007076  # Street map Versmold
+- uid/0x10002fdf  # Street map Versoix
+- uid/0x100024d9  # Street map Vert saint denis
+- uid/0x10002afa  # Street map Vertemate con minoprio
+- uid/0x1000327a  # Street map Verviers
+- uid/0x10006cde  # Street map Verviers
+- uid/0x10006c6b  # Street map Verviers
+- uid/0x10001a54  # Street map Verwood
+- uid/0x100026a9  # Street map Vettweiß
+- uid/0x1000303d  # Street map Vevey
+- uid/0x10002fe0  # Street map Veyrier
+- uid/0x10002ffa  # Street map Vezia
+- uid/0x10002de9  # Street map Vianen
+- uid/0x10002e2f  # Street map Vic
+- uid/0x10007247  # Street map Vic
+- uid/0x10002baa  # Street map Vicenza
+- uid/0x10007128  # Street map Vicenza
+- uid/0x10002e53  # Street map Vielha e mijaran
+- uid/0x10003097  # Street map Vielsalm
+- uid/0x10006cdf  # Street map Vielsalm
+- uid/0x10006c6c  # Street map Vielsalm
+- uid/0x1000273d  # Street map Vienenburg
+- uid/0x10007077  # Street map Vienenburg
+- uid/0x10002ce9  # Street map Vierlingsbeek
+- uid/0x10002a96  # Street map Viersen
+- uid/0x10007078  # Street map Viersen
+- uid/0x10002ffb  # Street map Viganello
+- uid/0x10002060  # Street map Vigaun
+- uid/0x10002420  # Street map Vigneux sur seine
+- uid/0x10002b56  # Street map Vigonza
+- uid/0x10007129  # Street map Vigonza
+- uid/0x10002e78  # Street map Vila seca
+- uid/0x10002e30  # Street map Viladecans
+- uid/0x10002e31  # Street map Vilafranca del penedès
+- uid/0x10007248  # Street map Vilafranca Del Penedès
+- uid/0x10007249  # Street map Vilanova I La Geltrú
+- uid/0x10002421  # Street map Villabe
+- uid/0x100020e8  # Street map Villach
+- uid/0x10006bf9  # Street map Villach
+- uid/0x10003022  # Street map Villars sur glâne
+- uid/0x10002b4a  # Street map Villasanta
+- uid/0x10002ba2  # Street map Villastellone
+- uid/0x1000244c  # Street map Ville d'avray
+- uid/0x10002422  # Street map Villebon sur yvette
+- uid/0x1000257d  # Street map Villecresnes
+- uid/0x100023a5  # Street map Villefranche sur mer
+- uid/0x1000257e  # Street map Villejuif
+- uid/0x10002423  # Street map Villejust
+- uid/0x10002424  # Street map Villemoisson sur orge
+- uid/0x10002518  # Street map Villemomble
+- uid/0x10002e05  # Street map Villena
+- uid/0x1000724a  # Street map Villena
+- uid/0x10003005  # Street map Villeneuve (vd)
+- uid/0x1000244d  # Street map Villeneuve la garenne
+- uid/0x1000257f  # Street map Villeneuve le roi
+- uid/0x100023a6  # Street map Villeneuve loubet
+- uid/0x10002580  # Street map Villeneuve saint georges
+- uid/0x10006d63  # Street map Villeneuve-D'Ascq
+- uid/0x10006d62  # Street map Villeneuve-Saint-Georges
+- uid/0x100025e8  # Street map Villennes sur seine
+- uid/0x100024da  # Street map Villenoy
+- uid/0x100024db  # Street map Villeparisis
+- uid/0x10002519  # Street map Villepinte
+- uid/0x100025e9  # Street map Villepreux
+- uid/0x100031e4  # Street map Villers la ville
+- uid/0x10003147  # Street map Villers le bouillet
+- uid/0x10002475  # Street map Villers les nancy
+- uid/0x1000251a  # Street map Villetaneuse
+- uid/0x100024ad  # Street map Villeurbanne
+- uid/0x10002553  # Street map Villiers adam
+- uid/0x10002425  # Street map Villiers le bacle
+- uid/0x10002554  # Street map Villiers le bel
+- uid/0x100025ea  # Street map Villiers saint frederic
+- uid/0x10002581  # Street map Villiers sur marne
+- uid/0x10002426  # Street map Villiers sur orge
+- uid/0x10002a0c  # Street map Villingen schwenningen
+- uid/0x10007079  # Street map Villingen-Schwenningen
+- uid/0x10002f1a  # Street map Villmergen
+- uid/0x10006c6d  # Street map Vilvoorde
+- uid/0x10003121  # Street map Vilvorde
+- uid/0x10006ce0  # Street map Vilvorde
+- uid/0x10002b4b  # Street map Vimercate
+- uid/0x10002b4c  # Street map Vimodrone
+- uid/0x10002582  # Street map Vincennes
+- uid/0x10002ba3  # Street map Vinovo
+- uid/0x10001e56  # Street map Virginia Water
+- uid/0x100025eb  # Street map Viroflay
+- uid/0x100031f4  # Street map Viroinval
+- uid/0x10003286  # Street map Virton
+- uid/0x10006ce1  # Street map Virton
+- uid/0x10006c6e  # Street map Virton
+- uid/0x10002427  # Street map Viry chatillon
+- uid/0x1000707a  # Street map Visbek
+- uid/0x10003160  # Street map Vise
+- uid/0x1000707b  # Street map Visselhövede
+- uid/0x10006ce2  # Street map Visé
+- uid/0x1000712a  # Street map Viterbo
+- uid/0x1000724b  # Street map Vitoria-Gasteiz
+- uid/0x100023d9  # Street map Vitrolles
+- uid/0x10002583  # Street map Vitry sur seine
+- uid/0x10002dea  # Street map Vlaardingen
+- uid/0x10002c6e  # Street map Vlagtwedde
+- uid/0x100071e3  # Street map Vlagtwedde
+- uid/0x10002bd7  # Street map Vledder
+- uid/0x10003299  # Street map Vleteren
+- uid/0x10002d84  # Street map Vleuten de meern
+- uid/0x10002bff  # Street map Vlieland
+- uid/0x100071e4  # Street map Vlieland
+- uid/0x10002d99  # Street map Vlissingen
+- uid/0x10002deb  # Street map Vlist
+- uid/0x100027a2  # Street map Vlotho
+- uid/0x1000707c  # Street map Vlotho
+- uid/0x10002abc  # Street map Voerde (niederrhein)
+- uid/0x1000707d  # Street map Voerde (Niederrhein)
+- uid/0x10002ca8  # Street map Voerendaal
+- uid/0x100025ec  # Street map Voisins le bretonneux
+- uid/0x1000206a  # Street map Volders
+- uid/0x10002fb3  # Street map Volketswil
+- uid/0x10002ba4  # Street map Volpiano
+- uid/0x100020cd  # Street map Vomp
+- uid/0x10002dec  # Street map Voorburg
+- uid/0x10002ded  # Street map Voorhout
+- uid/0x10002dee  # Street map Voorschoten
+- uid/0x10002c4b  # Street map Voorst
+- uid/0x100071e5  # Street map Voorst
+- uid/0x10002c4c  # Street map Vorden
+- uid/0x100071e6  # Street map Vorden
+- uid/0x1000325d  # Street map Vorselaar
+- uid/0x1000325e  # Street map Vosselaar
+- uid/0x10007080  # Street map Vreden
+- uid/0x100030dc  # Street map Vresse sur semois
+- uid/0x10006ce3  # Street map Vresse-Sur-Semois
+- uid/0x10006c6f  # Street map Vresse-Sur-Semois
+- uid/0x10002bd8  # Street map Vries
+- uid/0x10002d5f  # Street map Vriezenveen
+- uid/0x100071e7  # Street map Vriezenveen
+- uid/0x10002cea  # Street map Vught
+- uid/0x100020f5  # Street map Vöcklabruck
+- uid/0x10006bfa  # Street map Vöcklabruck
+- uid/0x1000707e  # Street map Vöhl
+- uid/0x10002a2c  # Street map Völklingen
+- uid/0x1000707f  # Street map Völklingen
+- uid/0x1000206b  # Street map Völs
+- uid/0x100020a9  # Street map Vösendorf
+- uid/0x10002ceb  # Street map Waalre
+- uid/0x100071e8  # Street map Waalre
+- uid/0x10002cec  # Street map Waalwijk
+- uid/0x100071e9  # Street map Waalwijk
+- uid/0x100030ff  # Street map Waarschoot
+- uid/0x10003213  # Street map Waasmunster
+- uid/0x100027db  # Street map Wachau bei radeberg
+- uid/0x100029e2  # Street map Wachtberg
+- uid/0x10007081  # Street map Wachtberg
+- uid/0x10003100  # Street map Wachtebeke
+- uid/0x100027f3  # Street map Wachtendonk
+- uid/0x10002def  # Street map Waddinxveen
+- uid/0x100019cc  # Street map Wadebridge
+- uid/0x10007083  # Street map Wadern
+- uid/0x10002aa2  # Street map Wadersloh
+- uid/0x10007084  # Street map Wadersloh
+- uid/0x10001ab8  # Street map Wadhurst
+- uid/0x10007085  # Street map Wagenfeld
+- uid/0x10002c4d  # Street map Wageningen
+- uid/0x100029c7  # Street map Waiblingen
+- uid/0x1000327b  # Street map Waimes
+- uid/0x10001edb  # Street map Wakefield
+- uid/0x100031f5  # Street map Walcourt
+- uid/0x10006ce4  # Street map Walcourt
+- uid/0x10006c70  # Street map Walcourt
+- uid/0x1000291a  # Street map Waldbröl
+- uid/0x10007086  # Street map Waldbröl
+- uid/0x1000264b  # Street map Waldenbuch
+- uid/0x10002798  # Street map Waldfeucht
+- uid/0x100020e7  # Street map Walding
+- uid/0x10002bbb  # Street map Walferdange
+- uid/0x100031e5  # Street map Walhain
+- uid/0x10001d62  # Street map Walkerburn
+- uid/0x10001c9c  # Street map Wallasey
+- uid/0x10002952  # Street map Wallenhorst
+- uid/0x10007087  # Street map Wallenhorst
+- uid/0x10001d5a  # Street map Wallingford
+- uid/0x10001e57  # Street map Wallington
+- uid/0x10002f30  # Street map Wallisellen
+- uid/0x10001e7a  # Street map Wallsend
+- uid/0x100029e8  # Street map Walluf
+- uid/0x100020bb  # Street map Wals siezenheim
+- uid/0x10001ea6  # Street map Walsall
+- uid/0x10001cf7  # Street map Walsingham
+- uid/0x10002a25  # Street map Walsrode
+- uid/0x10007088  # Street map Walsrode
+- uid/0x1000290e  # Street map Waltenhofen
+- uid/0x10002f8c  # Street map Waltenschwil
+- uid/0x10002675  # Street map Waltersdorf
+- uid/0x10007089  # Street map Waltershausen
+- uid/0x10001ae6  # Street map Waltham Abbey
+- uid/0x10001ba6  # Street map Waltham Cross
+- uid/0x10001e58  # Street map Walton On Thames
+- uid/0x10001ae7  # Street map Walton On The Naze
+- uid/0x100029b2  # Street map Waltrop
+- uid/0x1000708a  # Street map Waltrop
+- uid/0x10002614  # Street map Wandlitz
+- uid/0x1000708b  # Street map Wangels
+- uid/0x10002fb4  # Street map Wangen brüttisellen
+- uid/0x10002715  # Street map Wangerland
+- uid/0x10001d5b  # Street map Wantage
+- uid/0x10003148  # Street map Wanze
+- uid/0x1000708c  # Street map Warburg
+- uid/0x10002944  # Street map Wardenburg
+- uid/0x1000708d  # Street map Wardenburg
+- uid/0x10001ba7  # Street map Ware
+- uid/0x100030cc  # Street map Waregem
+- uid/0x10006ce5  # Street map Waregem
+- uid/0x10006c71  # Street map Waregem
+- uid/0x10001a55  # Street map Wareham
+- uid/0x10003293  # Street map Waremme
+- uid/0x10002aa3  # Street map Warendorf
+- uid/0x1000708e  # Street map Warendorf
+- uid/0x10001e59  # Street map Warlingham
+- uid/0x10001eed  # Street map Warminster
+- uid/0x10002df0  # Street map Warmond
+- uid/0x1000708f  # Street map Warmsen
+- uid/0x10002c4e  # Street map Warnsveld
+- uid/0x10001984  # Street map Warrington
+- uid/0x10002a20  # Street map Warstein
+- uid/0x10007090  # Street map Warstein
+- uid/0x10001e87  # Street map Warwick
+- uid/0x10001e7d  # Street map Warwickshire
+- uid/0x10001e7b  # Street map Washington
+- uid/0x10003294  # Street map Wasseige
+- uid/0x10002df1  # Street map Wassenaar
+- uid/0x10002799  # Street map Wassenberg
+- uid/0x10002832  # Street map Wasserburg (bodensee)
+- uid/0x10001de2  # Street map Watchet
+- uid/0x10002df2  # Street map Wateringen
+- uid/0x10002d2c  # Street map Waterland
+- uid/0x100031e6  # Street map Waterloo
+- uid/0x10001b80  # Street map Waterlooville
+- uid/0x100030b2  # Street map Watermael boitsfort
+- uid/0x10001ba8  # Street map Watford
+- uid/0x10001d5c  # Street map Watlington
+- uid/0x1000206c  # Street map Wattens
+- uid/0x100031e7  # Street map Wavre
+- uid/0x10007091  # Street map Wedel
+- uid/0x10002991  # Street map Wedel (holstein)
+- uid/0x1000277a  # Street map Wedemark
+- uid/0x10007092  # Street map Wedemark
+- uid/0x10001de3  # Street map Wedmore
+- uid/0x10001ea7  # Street map Wednesbury
+- uid/0x1000280c  # Street map Weener
+- uid/0x10007093  # Street map Weener
+- uid/0x10002d60  # Street map Weerselo
+- uid/0x100071ea  # Street map Weerselo
+- uid/0x10002ca9  # Street map Weert
+- uid/0x100071eb  # Street map Weert
+- uid/0x10002d2d  # Street map Weesp
+- uid/0x100027f4  # Street map Weeze
+- uid/0x10007094  # Street map Weeze
+- uid/0x1000279a  # Street map Wegberg
+- uid/0x10007095  # Street map Wegberg
+- uid/0x10002c4f  # Street map Wehl
+- uid/0x10007096  # Street map Weida
+- uid/0x10002619  # Street map Weidenberg
+- uid/0x1000264c  # Street map Weil der stadt
+- uid/0x1000264d  # Street map Weil im schönbuch
+- uid/0x10007097  # Street map Weilburg
+- uid/0x10002039  # Street map Weiler
+- uid/0x10002833  # Street map Weiler simmerberg
+- uid/0x10007098  # Street map Weiler-Simmerberg
+- uid/0x10002708  # Street map Weilerswist
+- uid/0x10007099  # Street map Weilheim I Ob
+- uid/0x1000709a  # Street map Weilmünster
+- uid/0x1000709b  # Street map Weimar
+- uid/0x10002881  # Street map Weimar (marburg biedenkopf)
+- uid/0x10002aa4  # Street map Weimar (weimar)
+- uid/0x10002893  # Street map Weinböhla
+- uid/0x1000709c  # Street map Weinheim
+- uid/0x10002f46  # Street map Weiningen (zh)
+- uid/0x10002057  # Street map Weinitzen
+- uid/0x10002791  # Street map Weinsberg
+- uid/0x100029c8  # Street map Weinstadt
+- uid/0x1000264e  # Street map Weissach
+- uid/0x100029c9  # Street map Weissach im tal
+- uid/0x10002689  # Street map Weiterstadt
+- uid/0x1000290f  # Street map Weitnau
+- uid/0x100027dc  # Street map Weixdorf
+- uid/0x1000709d  # Street map Weißenfels
+- uid/0x10002834  # Street map Weißensberg
+- uid/0x100020ed  # Street map Weißenstein
+- uid/0x10002101  # Street map Weißkirchen an der traun
+- uid/0x1000327c  # Street map Welkenraedt
+- uid/0x1000323a  # Street map Wellen
+- uid/0x100031cc  # Street map Wellin
+- uid/0x10001c2e  # Street map Welling
+- uid/0x10001d03  # Street map Wellingborough
+- uid/0x10001de4  # Street map Wellington
+- uid/0x10001de5  # Street map Wells
+- uid/0x10001cf8  # Street map Wells Next The Sea
+- uid/0x100020f6  # Street map Wels
+- uid/0x10006bfb  # Street map Wels
+- uid/0x1000709e  # Street map Welschbillig
+- uid/0x10001d88  # Street map Welshpool
+- uid/0x10002a21  # Street map Welver
+- uid/0x1000709f  # Street map Welver
+- uid/0x10001ba9  # Street map Welwyn
+- uid/0x10001baa  # Street map Welwyn Garden City
+- uid/0x10001cb6  # Street map Wembley
+- uid/0x10003122  # Street map Wemmel
+- uid/0x10001d95  # Street map Wemyss Bay
+- uid/0x10002975  # Street map Wendeburg
+- uid/0x10002a02  # Street map Wendelstein
+- uid/0x100070a0  # Street map Wendelstein
+- uid/0x100070a1  # Street map Wenden
+- uid/0x100026fe  # Street map Wendlingen am neckar
+- uid/0x1000277b  # Street map Wennigsen (deister)
+- uid/0x100027a9  # Street map Wentorf bei hamburg
+- uid/0x100029b5  # Street map Wenzenbach
+- uid/0x100070a2  # Street map Werder (Havel)
+- uid/0x100029a3  # Street map Werder(havel)
+- uid/0x100028c8  # Street map Werdohl
+- uid/0x10002ced  # Street map Werkendam
+- uid/0x100071ec  # Street map Werkendam
+- uid/0x10002a22  # Street map Werl
+- uid/0x100070a3  # Street map Werl
+- uid/0x100070a4  # Street map Werlte
+- uid/0x100029f0  # Street map Wermelskirchen
+- uid/0x100070a5  # Street map Wermelskirchen
+- uid/0x100026ff  # Street map Wernau (neckar)
+- uid/0x100020ee  # Street map Wernberg
+- uid/0x10002a82  # Street map Werne
+- uid/0x100070a6  # Street map Werne
+- uid/0x10002676  # Street map Wernsdorf
+- uid/0x1000275e  # Street map Werther (westfalen)
+- uid/0x10002d2e  # Street map Wervershoof
+- uid/0x1000329a  # Street map Wervik
+- uid/0x10002abd  # Street map Wesel
+- uid/0x100070a7  # Street map Wesel
+- uid/0x100026d5  # Street map Wesseling
+- uid/0x10001ea8  # Street map West Bromwich
+- uid/0x10001e5a  # Street map West Byfleet
+- uid/0x10001e94  # Street map West Calder
+- uid/0x10001cb7  # Street map West Drayton
+- uid/0x10001e88  # Street map West Glamorgan
+- uid/0x10001926  # Street map West Kilbride
+- uid/0x10001d63  # Street map West Linton
+- uid/0x10001e8c  # Street map West Lothian
+- uid/0x10002c50  # Street map West maas en waal
+- uid/0x10001c31  # Street map West Malling
+- uid/0x10001e95  # Street map West Midlands
+- uid/0x10001e5b  # Street map West Molesey
+- uid/0x10001eab  # Street map West Sussex
+- uid/0x10001ec0  # Street map West Yorkshire
+- uid/0x10001eee  # Street map Westbury
+- uid/0x10001b15  # Street map Westbury On Severn
+- uid/0x10001ae8  # Street map Westcliff On Sea
+- uid/0x10002d2f  # Street map Wester koggenland
+- uid/0x10002bd9  # Street map Westerbork
+- uid/0x10001c2f  # Street map Westerham
+- uid/0x100070a8  # Street map Westerkappeln
+- uid/0x1000325f  # Street map Westerlo
+- uid/0x100025fe  # Street map Westerstede
+- uid/0x100070a9  # Street map Westerstede
+- uid/0x100071ed  # Street map Westerveld
+- uid/0x10002c51  # Street map Westervoort
+- uid/0x10001c30  # Street map Westgate On Sea
+- uid/0x100018ee  # Street map Westhill
+- uid/0x1000190e  # Street map Weston Super Mare
+- uid/0x1000280d  # Street map Westoverledingen
+- uid/0x100070aa  # Street map Westoverledingen
+- uid/0x10002c00  # Street map Weststellingwerf
+- uid/0x100071ee  # Street map Weststellingwerf
+- uid/0x10002df3  # Street map Westvoorne
+- uid/0x10001edc  # Street map Wetherby
+- uid/0x10002737  # Street map Wettenberg
+- uid/0x100070ab  # Street map Wetter (Hessen)
+- uid/0x100026b8  # Street map Wetter (ruhr)
+- uid/0x10003214  # Street map Wetteren
+- uid/0x10002f0f  # Street map Wettingen
+- uid/0x100070ac  # Street map Wettringen
+- uid/0x10002eea  # Street map Wettswil am albis
+- uid/0x10002f59  # Street map Wetzikon (zh)
+- uid/0x100027fc  # Street map Wetzlar
+- uid/0x100070ad  # Street map Wetzlar
+- uid/0x100030cd  # Street map Wevelgem
+- uid/0x100070ae  # Street map Weyarn
+- uid/0x10001e5c  # Street map Weybridge
+- uid/0x10002697  # Street map Weyhe
+- uid/0x10001a56  # Street map Weymouth
+- uid/0x10003123  # Street map Wezembeek oppem
+- uid/0x10006c72  # Street map Wezet
+- uid/0x10002a33  # Street map Weßling
+- uid/0x10001d3b  # Street map Whitby
+- uid/0x10001b81  # Street map Whitchurch (Hampshire)
+- uid/0x10001dc6  # Street map Whitchurch (Shropshire)
+- uid/0x100019ff  # Street map Whitehaven
+- uid/0x10001a94  # Street map Whitland
+- uid/0x10001e7c  # Street map Whitley Bay
+- uid/0x10001c33  # Street map Whitstable
+- uid/0x10001e5d  # Street map Whyteleafe
+- uid/0x10003215  # Street map Wichelen
+- uid/0x10001965  # Street map Wick
+- uid/0x10002a23  # Street map Wickede (ruhr)
+- uid/0x10001ae9  # Street map Wickford
+- uid/0x10002f1b  # Street map Widen
+- uid/0x10001985  # Street map Widnes
+- uid/0x10002691  # Street map Wiedemar
+- uid/0x10002824  # Street map Wiederitzsch
+- uid/0x100025ff  # Street map Wiefelstede
+- uid/0x1000291b  # Street map Wiehl
+- uid/0x100070af  # Street map Wiehl
+- uid/0x1000322c  # Street map Wielsbeke
+- uid/0x10002102  # Street map Wien
+- uid/0x10006bfc  # Street map Wien
+- uid/0x10006bfe  # Street map Wien-Umgebung
+- uid/0x100020aa  # Street map Wiener neudorf
+- uid/0x10002121  # Street map Wiener neustadt
+- uid/0x10006bfd  # Street map Wiener Neustadt
+- uid/0x100020ab  # Street map Wienerwald
+- uid/0x10002d61  # Street map Wierden
+- uid/0x10002d30  # Street map Wieringen
+- uid/0x10002d31  # Street map Wieringermeer
+- uid/0x100026c7  # Street map Wiernsheim
+- uid/0x10002ac7  # Street map Wiesbaden
+- uid/0x100070b0  # Street map Wiesbaden
+- uid/0x1000209a  # Street map Wiesen
+- uid/0x10002fc2  # Street map Wiesendangen
+- uid/0x100070b1  # Street map Wietzendorf
+- uid/0x10001c6f  # Street map Wigan
+- uid/0x10001c7c  # Street map Wigston
+- uid/0x10001a00  # Street map Wigton
+- uid/0x10001edd  # Street map Wigtownshire
+- uid/0x10002c52  # Street map Wijchen
+- uid/0x100071ef  # Street map Wijchen
+- uid/0x10002d62  # Street map Wijhe
+- uid/0x10002d85  # Street map Wijk bij duurstede
+- uid/0x10002bda  # Street map Wijk de
+- uid/0x10003072  # Street map Wijnegem
+- uid/0x10002677  # Street map Wildau
+- uid/0x10002ac8  # Street map Wilhelmshaven
+- uid/0x100070b2  # Street map Wilhelmshaven
+- uid/0x100029a4  # Street map Wilhelmshorst
+- uid/0x10002093  # Street map Wilhering
+- uid/0x10003198  # Street map Willebroek
+- uid/0x10001ea9  # Street map Willenhall
+- uid/0x10002a97  # Street map Willich
+- uid/0x100070b3  # Street map Willich
+- uid/0x100070b4  # Street map Willingen (Upland)
+- uid/0x1000294c  # Street map Willstätt
+- uid/0x10001986  # Street map Wilmslow
+- uid/0x10002a16  # Street map Wilnsdorf
+- uid/0x100070b5  # Street map Wilnsdorf
+- uid/0x10002894  # Street map Wilsdruff
+- uid/0x10001ee0  # Street map Wiltshire
+- uid/0x10007134  # Street map Wiltz
+- uid/0x10001a57  # Street map Wimborne
+- uid/0x100026c8  # Street map Wimsheim
+- uid/0x10001de6  # Street map Wincanton
+- uid/0x10001ab9  # Street map Winchelsea
+- uid/0x10001b82  # Street map Winchester
+- uid/0x100029e3  # Street map Windeck
+- uid/0x100070b6  # Street map Windeck
+- uid/0x10001a01  # Street map Windermere
+- uid/0x10002f23  # Street map Windisch
+- uid/0x10001e5e  # Street map Windlesham
+- uid/0x10001943  # Street map Windsor
+- uid/0x100019dd  # Street map Wingate
+- uid/0x1000322d  # Street map Wingene
+- uid/0x10002f31  # Street map Winkel
+- uid/0x10001a40  # Street map Winkleigh
+- uid/0x100029ca  # Street map Winnenden
+- uid/0x10002c6f  # Street map Winschoten
+- uid/0x100071f0  # Street map Winschoten
+- uid/0x1000190f  # Street map Winscombe
+- uid/0x100070b7  # Street map Winsen (Aller)
+- uid/0x10002785  # Street map Winsen (luhe)
+- uid/0x100070b8  # Street map Winsen (Luhe)
+- uid/0x10001987  # Street map Winsford
+- uid/0x10002c70  # Street map Winsum
+- uid/0x100071f1  # Street map Winsum
+- uid/0x100029cb  # Street map Winterbach
+- uid/0x100070b9  # Street map Winterberg
+- uid/0x100070ba  # Street map Winterspelt
+- uid/0x10002c53  # Street map Winterswijk
+- uid/0x100071f2  # Street map Winterswijk
+- uid/0x10002fc3  # Street map Winterthur
+- uid/0x1000727d  # Street map Winterthur
+- uid/0x10002f51  # Street map Winznau
+- uid/0x1000291c  # Street map Wipperfürth
+- uid/0x100070bb  # Street map Wipperfürth
+- uid/0x10001c9d  # Street map Wirral
+- uid/0x1000196d  # Street map Wisbech
+- uid/0x10002c54  # Street map Wisch
+- uid/0x100071f3  # Street map Wisch
+- uid/0x10001c4c  # Street map Wishaw
+- uid/0x10002ac9  # Street map Wismar
+- uid/0x100070bc  # Street map Wismar
+- uid/0x100070bd  # Street map Wissen
+- uid/0x10002428  # Street map Wissous
+- uid/0x10001aea  # Street map Witham
+- uid/0x10001d27  # Street map Withernsea
+- uid/0x10001d5d  # Street map Witney
+- uid/0x10002caa  # Street map Wittem
+- uid/0x100026b9  # Street map Witten
+- uid/0x100070be  # Street map Witten
+- uid/0x10002fa9  # Street map Wittenbach
+- uid/0x10002aca  # Street map Wittenberg
+- uid/0x100070bf  # Street map Wittenberg
+- uid/0x100070c0  # Street map Wittingen
+- uid/0x100070c1  # Street map Wittlich
+- uid/0x100070c2  # Street map Wittmund
+- uid/0x100070c3  # Street map Witzenhausen
+- uid/0x10002cee  # Street map Woensdrecht
+- uid/0x100071f4  # Street map Woensdrecht
+- uid/0x10002d86  # Street map Woerden
+- uid/0x10002d32  # Street map Wognum
+- uid/0x10002f1c  # Street map Wohlen (ag)
+- uid/0x10002ea6  # Street map Wohlen bei bern
+- uid/0x10002f10  # Street map Wohlenschwil
+- uid/0x100027aa  # Street map Wohltorf
+- uid/0x10001e5f  # Street map Woking
+- uid/0x10001944  # Street map Wokingham
+- uid/0x100070c4  # Street map Wolfen
+- uid/0x10002acc  # Street map Wolfenbüttel
+- uid/0x100070c5  # Street map Wolfenbüttel
+- uid/0x100020d5  # Street map Wolfern
+- uid/0x100070c6  # Street map Wolfhagen
+- uid/0x100023b4  # Street map Wolfisheim
+- uid/0x10002acd  # Street map Wolfsburg
+- uid/0x100070c7  # Street map Wolfsburg
+- uid/0x10002700  # Street map Wolfschlugen
+- uid/0x10002111  # Street map Wolfsgraben
+- uid/0x1000201f  # Street map Wolfurt
+- uid/0x100070c8  # Street map Wolgast
+- uid/0x10002931  # Street map Woltersdorf
+- uid/0x100030b3  # Street map Woluwe saint lambert
+- uid/0x100030b4  # Street map Woluwe saint pierre
+- uid/0x10001eaa  # Street map Wolverhampton
+- uid/0x10003073  # Street map Wommelgem
+- uid/0x10001e27  # Street map Woodbridge
+- uid/0x10001aeb  # Street map Woodford Green
+- uid/0x10001c8d  # Street map Woodhall Spa
+- uid/0x10001d5e  # Street map Woodstock
+- uid/0x10001a41  # Street map Woolacombe
+- uid/0x10001d1a  # Street map Wooler
+- uid/0x10002eba  # Street map Worb
+- uid/0x10002eca  # Street map Worben
+- uid/0x10001efb  # Street map Worcester
+- uid/0x10001e60  # Street map Worcester Park
+- uid/0x10001eef  # Street map Worcestershire
+- uid/0x10001a02  # Street map Workington
+- uid/0x10001d46  # Street map Worksop
+- uid/0x10007135  # Street map Wormeldange
+- uid/0x10002d33  # Street map Wormerland
+- uid/0x10002ace  # Street map Worms
+- uid/0x100070c9  # Street map Worms
+- uid/0x10002961  # Street map Worpswede
+- uid/0x1000308d  # Street map Wortegem petegem
+- uid/0x10001ebf  # Street map Worthing
+- uid/0x10001b16  # Street map Wotton Under Edge
+- uid/0x10002d87  # Street map Woudenberg
+- uid/0x10002cef  # Street map Woudrichem
+- uid/0x100019a8  # Street map Wrexham
+- uid/0x10002665  # Street map Wulsbüttel
+- uid/0x10002058  # Street map Wundschuh
+- uid/0x10002c01  # Street map Wunseradiel
+- uid/0x100071f5  # Street map Wunseradiel
+- uid/0x1000277c  # Street map Wunstorf
+- uid/0x100070cc  # Street map Wunstorf
+- uid/0x10002acf  # Street map Wuppertal
+- uid/0x100070cd  # Street map Wuppertal
+- uid/0x100026c9  # Street map Wurmberg
+- uid/0x1000278b  # Street map Wustermark
+- uid/0x10003074  # Street map Wuustwezel
+- uid/0x10001d1b  # Street map Wylam
+- uid/0x10002c02  # Street map Wymbritseradiel
+- uid/0x100071f6  # Street map Wymbritseradiel
+- uid/0x10001cf9  # Street map Wymondham
+- uid/0x10007082  # Street map Wächtersbach
+- uid/0x10002f62  # Street map Wädenswil
+- uid/0x1000727c  # Street map Wädenswil
+- uid/0x1000211f  # Street map Wöllersdorf steinabrückl
+- uid/0x100070ca  # Street map Wörth Am Rhein
+- uid/0x100028a0  # Street map Wülfrath
+- uid/0x100070cb  # Street map Wünnenberg
+- uid/0x10002f11  # Street map Würenlingen
+- uid/0x10002f12  # Street map Würenlos
+- uid/0x100025f6  # Street map Würselen
+- uid/0x10002ad0  # Street map Würzburg
+- uid/0x100070ce  # Street map Würzburg
+- uid/0x10002abe  # Street map Xanten
+- uid/0x100070cf  # Street map Xanten
+- uid/0x10002e94  # Street map Xirivella
+- uid/0x10002e95  # Street map Xàtiva
+- uid/0x1000724c  # Street map Xàtiva
+- uid/0x10001b5d  # Street map Y Felinheli
+- uid/0x10001997  # Street map Yarm
+- uid/0x10001bfe  # Street map Yarmouth
+- uid/0x10001b83  # Street map Yateley
+- uid/0x10001a42  # Street map Yelverton
+- uid/0x10001de7  # Street map Yeovil
+- uid/0x10002429  # Street map Yerres
+- uid/0x10001d3c  # Street map York
+- uid/0x10001d3d  # Street map York Center
+- uid/0x1000329b  # Street map Ypres
+- uid/0x10006ce6  # Street map Ypres
+- uid/0x10001a95  # Street map Ystrad Meurig
+- uid/0x1000727e  # Street map Yverdon-Les-Bains
+- uid/0x100030dd  # Street map Yvoir
+- uid/0x10002d34  # Street map Zaanstad
+- uid/0x100071f7  # Street map Zaanstad
+- uid/0x10002c55  # Street map Zaltbommel
+- uid/0x100071f8  # Street map Zaltbommel
+- uid/0x10003075  # Street map Zandhoven
+- uid/0x10002d35  # Street map Zandvoort
+- uid/0x1000724d  # Street map Zaragoza
+- uid/0x10003124  # Street map Zaventem
+- uid/0x100030a0  # Street map Zedelgem
+- uid/0x10006ce7  # Street map Zedelgem
+- uid/0x10006c73  # Street map Zedelgem
+- uid/0x10002df4  # Street map Zederik
+- uid/0x100071f9  # Street map Zederik
+- uid/0x10002678  # Street map Zeesen
+- uid/0x10002d36  # Street map Zeevang
+- uid/0x10002be3  # Street map Zeewolde
+- uid/0x10002895  # Street map Zehren
+- uid/0x1000304d  # Street map Zeiningen
+- uid/0x100020de  # Street map Zeiselmauer
+- uid/0x10002d88  # Street map Zeist
+- uid/0x100071fa  # Street map Zeist
+- uid/0x10003216  # Street map Zele
+- uid/0x10002c56  # Street map Zelhem
+- uid/0x100071fb  # Street map Zelhem
+- uid/0x100070d1  # Street map Zell (Mosel)
+- uid/0x10002fc4  # Street map Zell (zh)
+- uid/0x10006bff  # Street map Zell Am See
+- uid/0x10002a08  # Street map Zella mehlis
+- uid/0x100070d0  # Street map Zella-Mehlis
+- uid/0x100030e8  # Street map Zelzate
+- uid/0x1000209b  # Street map Zemendorf stöttera
+- uid/0x100070d2  # Street map Zemmer
+- uid/0x10003125  # Street map Zemst
+- uid/0x10002615  # Street map Zepernick
+- uid/0x10002679  # Street map Zernsdorf
+- uid/0x10002059  # Street map Zettling
+- uid/0x100070d3  # Street map Zeulenroda
+- uid/0x1000267a  # Street map Zeuthen
+- uid/0x100070d4  # Street map Zeven
+- uid/0x10002c57  # Street map Zevenaar
+- uid/0x10002cf0  # Street map Zevenbergen
+- uid/0x10002df5  # Street map Zevenhuizen moerkapelle
+- uid/0x10002d37  # Street map Zijpe
+- uid/0x10002120  # Street map Zillingdorf
+- uid/0x1000308e  # Street map Zingem
+- uid/0x1000206d  # Street map Zirl
+- uid/0x1000272c  # Street map Zirndorf
+- uid/0x10003076  # Street map Zoersel
+- uid/0x10002df6  # Street map Zoetermeer
+- uid/0x100071fc  # Street map Zoetermeer
+- uid/0x10002df7  # Street map Zoeterwoude
+- uid/0x100071fd  # Street map Zoeterwoude
+- uid/0x10002ae0  # Street map Zola predosa
+- uid/0x10002ea7  # Street map Zollikofen
+- uid/0x10002f88  # Street map Zollikon
+- uid/0x10003101  # Street map Zomergem
+- uid/0x10003136  # Street map Zonhoven
+- uid/0x1000329c  # Street map Zonnebeke
+- uid/0x10003059  # Street map Zottegem
+- uid/0x10002fba  # Street map Zuchwil
+- uid/0x10002f1d  # Street map Zufikon
+- uid/0x10003048  # Street map Zug
+- uid/0x1000727f  # Street map Zug
+- uid/0x10002c71  # Street map Zuidhorn
+- uid/0x100071fe  # Street map Zuidhorn
+- uid/0x10002bdb  # Street map Zuidlaren
+- uid/0x100071ff  # Street map Zuidlaren
+- uid/0x10002bdc  # Street map Zuidwolde
+- uid/0x100030a1  # Street map Zuienkerke
+- uid/0x10003102  # Street map Zulte
+- uid/0x10002f89  # Street map Zumikon
+- uid/0x10002cf1  # Street map Zundert
+- uid/0x10002fa6  # Street map Zunzgen
+- uid/0x10003137  # Street map Zutendaal
+- uid/0x10002c58  # Street map Zutphen
+- uid/0x10007200  # Street map Zutphen
+- uid/0x1000308f  # Street map Zwalm
+- uid/0x10002d63  # Street map Zwartsluis
+- uid/0x10002bdd  # Street map Zweeloo
+- uid/0x100070d6  # Street map Zweibrücken
+- uid/0x10002825  # Street map Zwenkau
+- uid/0x100020df  # Street map Zwentendorf an der donau
+- uid/0x100030ce  # Street map Zwevegem
+- uid/0x10002ad1  # Street map Zwickau
+- uid/0x100070d7  # Street map Zwickau
+- uid/0x10003077  # Street map Zwijndrecht
+- uid/0x10002df8  # Street map Zwijndrecht
+- uid/0x10007201  # Street map Zwijndrecht
+- uid/0x1000203a  # Street map Zwischenwasser
+- uid/0x10002d64  # Street map Zwolle
+- uid/0x10007202  # Street map Zwolle
+- uid/0x10002112  # Street map Zwölfaxing
+- uid/0x1000292c  # Street map Zühlsdorf
+- uid/0x10002709  # Street map Zülpich
+- uid/0x100070d5  # Street map Zülpich
+- uid/0x10002fc7  # Street map Zürich
+- uid/0x10007280  # Street map Zürich
+- uid/0x100026ca  # Street map ölbronn dürrn
+- uid/0x100026cb  # Street map ötisheim
+- uid/0x1000279b  # Street map übach palenberg
+- uid/0x1000262c  # Street map überlingen
+- uid/0x10002a71  # Street map übersee
+---
