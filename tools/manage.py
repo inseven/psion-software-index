@@ -60,23 +60,24 @@ def command_add(options):
 
 
 @fastcommand.command("group", help="generate a grouping file for programs matching a partial search term", arguments=[
-    fastcommand.Argument("term", help="search term"),
+    fastcommand.Argument("search", help="search term"),
     fastcommand.Argument("id", help="new identifier to use"),
-    fastcommand.Argument("name", help="name of the new group"),
+    fastcommand.Argument("-n", "--name", help="name of the new group"),
 ])
 def command_group(options):
 
     library = common.Library(options.library)
+    name = options.name if options.name is not None else options.search
 
     response = requests.get("https://software.psion.community/api/v1/groups")
     groups = response.json()
-    groups = [group for group in groups if options.term.lower() in group["name"].lower()]
+    groups = [group for group in groups if options.search.lower() in group["name"].lower()]
 
     overlay_directory = os.path.join(library.overlay_directories[0], f"id_{options.id}")
     os.makedirs(overlay_directory, exist_ok=True)
     with open(os.path.join(overlay_directory, "index.md"), "w") as fh:
         fh.write("---\n")
-        fh.write(f"name: {options.name}\n")
+        fh.write(f"name: {name}\n")
         fh.write("ids:\n")
         for group in groups:
             fh.write(f"- {group["id"]}  # {group["name"]}\n")
