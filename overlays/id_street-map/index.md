@@ -1,4 +1,5 @@
 ---
+name: Street Map
 ids:
 - uid/0x10002cf2  # Street map 's graveland
 - uid/0x10006c62  # Street map 's Gravenbrakel
