@@ -8,6 +8,7 @@ blocked_identifiers:
 - uid/0x00444d43
 - uid/0x100004cd
 - uid/0x100004ce
+- uid/0x10000bcf
 - uid/0x10004818
 - uid/0x3a433d50
 - uid/0x3a633b6e
