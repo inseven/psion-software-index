@@ -1,4 +1,5 @@
 ---
+name: BlackJack 5
 subtitle: Blackjack game
 category: games/board
 links: 
