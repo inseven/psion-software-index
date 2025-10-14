@@ -83,6 +83,7 @@ def command_add(options):
     fastcommand.Argument("search", help="search term"),
     fastcommand.Argument("--id", help="new identifier to use (generated from search term if unspecified)"),
     fastcommand.Argument("-n", "--name", help="name of the new group (search term if unspecified)"),
+    fastcommand.Argument("--platform", choices=["epoc16", "epoc32"], action="append", default=[], help="platforms to search for (defaults to epoc16 and epoc32)"),
     fastcommand.Argument("--pull", action="store_true", default=False, help="pull before making any changes"),
     fastcommand.Argument("--branch", action="store_true", default=False, help="create a new git branch for the update"),
     fastcommand.Argument("--prefix", help="prefix to use when creating a branch (defaults to the current username)"),
@@ -105,10 +106,11 @@ def command_group(options):
     id = options.id if options.id is not None else options.search.lower().replace(" ", "-")
     name = options.name if options.name is not None else options.search
     prefix = options.prefix if options.prefix is not None else getpass.getuser()
+    platforms = set(options.platform if options.platform else ["epoc16", "epoc32"])
 
     response = requests.get("https://software.psion.community/api/v1/groups/")
     groups = response.json()
-    groups = [group for group in groups if options.search.lower() in group["name"].lower()]
+    groups = [group for group in groups if options.search.lower() in group["name"].lower() and platforms.intersection(group["platforms"])]
     if not groups:
         exit("No matches found.")
 
