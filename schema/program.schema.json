@@ -121,7 +121,8 @@
         "links": {
             "type": "array",
             "items": {"type": "string"}
-        }
+        },
+        "overlay": {"type": "string"}
     },
     "required": ["id", "name", "tags", "runtimes", "kinds", "platforms"],
     "additionalProperties": false

@@ -754,6 +754,7 @@ def overlay(library):
                     logging.error("Failed to validate metadata for overlay '%s'", overlay_index_path)
                     raise
                 overlay[identifier]["index"] = overlay_index
+                overlay[identifier]["path"] = overlay_basename
 
     # Clean up the destination paths.
     if os.path.exists(screenshots_output_path):
@@ -823,6 +824,7 @@ def overlay(library):
         if "index" in overlay[identifier]:
             logging.info("Copying '%s'...", identifier)
             metadata = overlay[identifier]["index"]
+            application['overlay'] = f"overlays/{overlay[identifier]["path"]}/index.md"
             application['description'] = metadata.content
             for key in metadata.metadata.keys():
                 logging.info("Copying '%s'...", key)
