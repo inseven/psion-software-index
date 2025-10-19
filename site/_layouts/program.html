@@ -4,6 +4,29 @@ layout: default
 
 {% assign program = page.program %}
 
+{% capture overlay_template -%}
+---
+name: {{ program.name }}
+subtitle: Awesome Software
+category:  # See https://software.psion.community/contributing/#metadata for a list of categories.
+publishers:  # List of publishers.
+- Software Company
+authors:  # List of authors.
+- Software Engineer
+links:  # List of releated urls (original publishers, etc).
+- https://psion.comunity
+---
+
+Include the program description here in Markdown.
+
+# Instructions (delete before submitting)
+
+All fields in this Markdown + Frontmatter file are optional; fill in what you can and please delete empty ones.
+
+See https://software.psion.community/contributing/#metadata for a more details about what metadata can be included here.
+
+{% endcapture %}
+
 <header>
     <program-icon>
         <div class="icon-wrapper">
@@ -25,6 +48,13 @@ layout: default
         </ul>
     </program-platform>
     <program-identifier>{{ program.id }}</program-identifier>
+    <program-actions>
+        {% if program.overlay %}
+            <a target="_blank" href="https://github.com/inseven/psion-software-index/edit/main/{{ program.overlay }}">Propose Edit</a>
+        {% else %}
+            <a target="_blank" href="https://github.com/inseven/psion-software-index/new/main?filename=overlays/{{ program.id | replace: "/", "_" }}/index.md&value={{ overlay_template | url_encode }}">Propose Edit</a>
+        {% endif %}
+    </program-actions>
 </header>
 
 {% if program.screenshots and program.screenshots.size > 0 %}
