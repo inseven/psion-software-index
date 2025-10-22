@@ -1,4 +1,5 @@
 ---
+name: NEUON - PacMan
 subtitle: PacMan clone
 category: games/arcade
 publishers:
