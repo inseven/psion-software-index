@@ -27,10 +27,12 @@ blocked_identifiers:
 sources:
 - https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
 - https://archive.org/download/400-psion-programma/400%20psion%20programmas.zip
+- https://archive.org/download/750-programmi-per-il-tuo-palmare/750%20programmi%20per%20il%20tuo%20palmare.iso
 - https://archive.org/download/backups_202508/backups.zip
 - https://archive.org/download/backups_202508/psion%20sis%20files.zip
 - https://archive.org/download/backups_202508/psion%20zip%20files-part2.zip
 - https://archive.org/download/berlitzphrasebook/BerlitzPhraseBook_Contents.zip
+- https://archive.org/download/bio.nic.funet.fi-epoc-32-software/bio.nic.funet.fi%20epoc32%20software.zip
 - https://archive.org/download/clock-5/Clock5.zip
 - https://archive.org/download/club-utilisateurs-psion/Club%20Utilisateurs%20Psion.zip
 - https://archive.org/download/diamond_mako/Mako.iso
@@ -83,7 +85,9 @@ sources:
 - https://archive.org/download/palmtops-numerohs-03/Palmtops_numerohs03.iso
 - https://archive.org/download/palmtops-numerohs-05/Palmtops_numerohs05.iso
 - https://archive.org/download/palmtops-numerohs-06/Palmtops_numerohs06.iso
+- https://archive.org/download/palmtops-numerohs-08-front/Techmobile%20HS%208.iso
 - https://archive.org/download/pcdierct-numero-98/PCDierct_numero98.iso
+- https://archive.org/download/pcteam-hs-03/PCTeam%20HS03.iso
 - https://archive.org/download/pda_20250822/pda.zip
 - https://archive.org/download/pdf125full/pdf%2B125full.zip
 - https://archive.org/download/pdfPrinter_full/pdfPrinter_full.zip
@@ -95,6 +99,7 @@ sources:
 - https://archive.org/download/psion-cdtextfiles.com/PSION_cdtextfiles.com.zip
 - https://archive.org/download/psion-convertpro/ConvertPro.zip
 - https://archive.org/download/psion-epoc-32-v-2-v-5/Psion%20EPOC32%20v2-v5.zip
+- https://archive.org/download/psion-epoc-32-v-2-v-5/Psion%20EPOC32%20v2-v5-update.zip
 - https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Series%203A.7z
 - https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Series%203C.7z
 - https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Siena.7z
