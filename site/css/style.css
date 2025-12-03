@@ -130,14 +130,24 @@ h1 {
     margin: 0 1rem;
 }
 
+library-actions {
+    display: block;
+    padding-bottom: var(--vertical-spacing);
+    text-align: center;
+}
+
+.lucky-button {
+    font-size: 1rem;
+}
+
 form.search-form {
     position: relative;
     display: inline-block;
 }
 
 form.search-form input:placeholder-shown + button.clear {
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 form.search-form button.clear {

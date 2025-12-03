@@ -15,6 +15,10 @@ layout: full
     <input type="checkbox" id="include-epoc32" name="include-epoc32" checked /> <label for="include-epoc32"> EPOC32</label>
 </div>
 
+<library-actions>
+    <button type="button" id="lucky-button" class="lucky-button">I'm Feeling Lucky</button>
+</library-actions>
+
 <ul id="applications" class="applications"></ul>
 
 <script type="module">
@@ -24,6 +28,7 @@ layout: full
     const searchInput = document.getElementById("search");
     const epoc16Checkbox = document.getElementById("include-epoc16");
     const epoc32Checkbox = document.getElementById("include-epoc32");
+    const luckyButton = document.getElementById("lucky-button");
 
     // Show the search header.
     searchHeader.style.display = 'block';
@@ -106,6 +111,14 @@ layout: full
             timeout = setTimeout(() => fn(...args), delay);
         };
     }
+    
+    function selectRandomGroup() {
+        console.log("I'm feeling lucky!");
+        const index = Math.floor(Math.random() * filteredGroups.length);
+        const group = filteredGroups[index];
+        console.log(group);
+        window.location.href = "/programs/" + group.id;
+    }
 
     searchForm.addEventListener('reset', function(event) {
         filter("", epoc16Checkbox.checked, epoc32Checkbox.checked);
@@ -119,6 +132,9 @@ layout: full
     });
     epoc32Checkbox.addEventListener('change', function(event) {
         filter(searchInput.value, epoc16Checkbox.checked, epoc32Checkbox.checked);
+    });
+    luckyButton.addEventListener('click', function(event) {
+        selectRandomGroup();
     });
 
     window.addEventListener('scroll', debounce(update, 100));
