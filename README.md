@@ -73,13 +73,14 @@ cd site
 bundle exec jekyll serve --watch
 ```
 
-Subsequent calls to update the index will cause the site to be rebuilt automatically.
+Building the site for the first time can be a bit slow, so be patient. Subsequent calls to update the index will cause the site to be rebuilt automatically.
 
-**Note:** The indexer runs multiple commands and Lua scripts during the indexing process (approximately 100,000 for the current library). Small changes in process launch times can therefore significantly impact index generation performance, and shim-based environment managers like [asdf](https://asdf-vm.com) can cause real problems. To work around this, the indexer respects the `LUA_PATH` environment variable to allow shims to be bypassed. For example,
-
-```bash
-LUA_PATH=/opt/homebrew/bin/lua tools/indexer libraries/3lib.yaml sync index group overlay
-```
+> [!NOTE]
+> The indexer runs multiple commands and Lua scripts during the indexing process (approximately 100,000 for the current library). Small changes in process launch times can therefore significantly impact index generation performance, and shim-based environment managers like [asdf](https://asdf-vm.com) can cause real problems. To work around this, the indexer respects the `LUA_PATH` environment variable to allow shims to be bypassed. For example,
+> 
+> ```bash
+> LUA_PATH=/opt/homebrew/bin/lua tools/indexer libraries/3lib.yaml sync index group overlay
+> ```
 
 ## Contributing
 
