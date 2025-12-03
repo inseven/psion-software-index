@@ -1,5 +1,7 @@
 ---
 name: Colors
+ids:
+- uid/0x50589505
 subtitle: Simon clone
 category:  games/other
 publishers:
