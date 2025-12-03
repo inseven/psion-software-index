@@ -109,8 +109,11 @@ class Program(object):
         versions = collections.defaultdict(list)
         for installer in installers:
             versions[installer['version']].append(installer)
-        # We use `natsort` to sort the versions to ensure, for example, 10.0 sorts _after_ 2.0.
-        self.versions = natsort.natsorted([Version(installers=installers) for installers in versions.values()], key=lambda x: x.version)
+        # We use `natsort` to sort the versions to ensure, for example, 10.0 sorts after 2.0.
+        # Note: 'Unknown' is sorted as '0' to ensure it orders before all others. This is a pretty miserable hack and
+        # should be replaced when we plumb through major and minor integer versions.
+        self.versions = list(reversed(natsort.natsorted([Version(installers=installers) for installers in versions.values()],
+                                                        key=lambda x: x.version if x.version != "Unknown" else "0")))
         self.tags = set(functools.reduce(operator.iconcat, [installer['tags'] for installer in installers], []))
         self.runtimes = set(functools.reduce(operator.iconcat, [installer['runtimes'] for installer in installers], []))
         self.kinds = set([installer['kind'] for installer in installers])
