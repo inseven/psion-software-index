@@ -77,10 +77,10 @@ Building the site for the first time can be a bit slow, so be patient. Subsequen
 
 > [!NOTE]
 > The indexer runs multiple commands and Lua scripts during the indexing process (approximately 100,000 for the current library). Small changes in process launch times can therefore significantly impact index generation performance, and shim-based environment managers like [asdf](https://asdf-vm.com) can cause real problems. To work around this, the indexer respects the `LUA_PATH` environment variable to allow shims to be bypassed. For example,
-
-```bash
-LUA_PATH=/opt/homebrew/bin/lua tools/indexer libraries/3lib.yaml sync index group overlay
-```
+> 
+> ```bash
+> LUA_PATH=/opt/homebrew/bin/lua tools/indexer libraries/3lib.yaml sync index group overlay
+> ```
 
 ## Contributing
 
