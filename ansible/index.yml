@@ -36,8 +36,8 @@
           - "--delete-during"
           - "-v"
 
-    - name: Reload Caddy
-      service:
-        name: caddy
-        state: reloaded
-      become: yes
+    # - name: Reload Caddy
+    #   service:
+    #     name: caddy
+    #     state: reloaded
+    #   become: yes

@@ -3,7 +3,7 @@ author: Jason Morley
 email: support@jbmorley.co.uk
 description: "Index of software for the Psion range of palmtop computers."
 baseurl: ""
-url: "https://software.psion.info"
+url: "https://software.psion.community"
 
 plugins:
   - jekyll-typogrify
