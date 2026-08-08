@@ -33,11 +33,6 @@ export PATH="$GEM_HOME/bin":$PATH
 export BIN_DIRECTORY="$ROOT_DIRECTORY/.local/bin"
 export PATH=$BIN_DIRECTORY:$PATH
 
-# Keep Python user installs local to the project instead of polluting the host.
-export PYTHONUSERBASE="$LOCAL_TOOLS_PATH/python"
-mkdir -p "$PYTHONUSERBASE"
-export PATH="$PYTHONUSERBASE/bin":$PATH
-
 # Keep pipenv virtualenvs local and predictable.
 export WORKON_HOME="$LOCAL_TOOLS_PATH"
 export PIPENV_CUSTOM_VENV_NAME="venv"
