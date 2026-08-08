@@ -49,11 +49,11 @@ import natsort
 
 from PIL import Image as PILImage, ImageOps
 
-import common
-import containers
-import model
-import opolua
-import utils
+from . import common
+from . import containers
+from . import model
+from . import opolua
+from . import utils
 
 ROOT_DIRECTORY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SCHEMA_DIRECTORY = os.path.join(ROOT_DIRECTORY, "schema")

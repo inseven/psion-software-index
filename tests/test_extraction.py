@@ -2,20 +2,15 @@
 
 import contextlib
 import os
-import sys
 import tempfile
 import unittest
 
+from tools import containers
+
+from tools.indexer import import_application, import_installer
+
 ROOT_DIRECTORY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOOLS_DIRECTORY = os.path.join(ROOT_DIRECTORY, "tools")
 EXAMPLES_DIRECTORY = os.path.join(ROOT_DIRECTORY, "examples")
-
-sys.path.append(TOOLS_DIRECTORY)
-
-import indexer
-import containers
-
-from indexer import import_application, import_installer
 
 
 @contextlib.contextmanager

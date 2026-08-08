@@ -29,7 +29,7 @@ import tempfile
 import zipfile
 import zlib
 
-import model
+from . import model
 
 
 def extract_7z(source, destination):

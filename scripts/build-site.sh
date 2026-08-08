@@ -28,7 +28,6 @@ set -u
 SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
-TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 INDEX_DIRECTORY="$ROOT_DIRECTORY/_index"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
 SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
@@ -38,7 +37,7 @@ SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
 
 # Generate the charts.
 mkdir -p "$SITE_DIRECTORY/images/charts"
-"$TOOLS_DIRECTORY/charts" "$SITE_DIRECTORY/images/charts" "$SITE_DATA_DIRECTORY/summary.json"
+uv run --project "$ROOT_DIRECTORY" charts "$SITE_DIRECTORY/images/charts" "$SITE_DATA_DIRECTORY/summary.json"
 
 # Build the site.
 cd "$SITE_DIRECTORY"
