@@ -44,7 +44,7 @@ jobs:
       uses: actions/cache@v6
       with:
         path: site/vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('docs/Gemfile.lock') }}
+        key: ${{ runner.os }}-gems-${{ hashFiles('site/Gemfile.lock') }}
         restore-keys: ${{ runner.os }}-gems-
 
     - name: Install dependencies
