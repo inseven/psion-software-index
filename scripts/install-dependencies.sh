@@ -30,6 +30,13 @@ SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
 TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
+LOCAL_TOOLS_PATH="$ROOT_DIRECTORY/.local"
+
+# Clean up and recreate the local tools directory.
+if [ -d "$LOCAL_TOOLS_PATH" ] ; then
+    rm -r "$LOCAL_TOOLS_PATH"
+fi
+mkdir -p "$LOCAL_TOOLS_PATH"
 
 # Install tools.
 cd "$ROOT_DIRECTORY"
@@ -40,17 +47,12 @@ mise install
 # Install NodeJS packages into the root.
 npm install
 
-# Create directory for local tools.
-if [ -d "$ROOT_DIRECTORY/.local" ] ; then
-    rm -r "$ROOT_DIRECTORY/.local"
-fi
-
-# Source the local environment configuration; this ensures tools are installed in the .local directory we just created.
+# Source `environment.sh` to ensure the remainder of our paths are set up correctly.
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
-pip install --upgrade pip pipenv wheel certifi
-which pipenv
-PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
+# Install the Python dependencies (uses PIPENV_PIPFILE from environment.sh).
+pip install --user --ignore-installed --upgrade pip pipenv wheel certifi
+pipenv install
 
 # Install the Ruby dependencies
 gem install bundler
