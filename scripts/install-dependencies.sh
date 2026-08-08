@@ -41,6 +41,7 @@ cd "$ROOT_DIRECTORY"
 npm install
 
 # Install the Python dependencies into the in-tree virtual environment.
+cd "$ROOT_DIRECTORY"
 uv sync --locked
 
 # Install the Ruby dependencies
