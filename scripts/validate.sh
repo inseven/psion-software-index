@@ -26,20 +26,12 @@ set -u
 
 ROOT_DIRECTORY="$( cd "$( dirname "$( dirname "${BASH_SOURCE[0]}" )" )" &> /dev/null && pwd )"
 
-SCRIPTS_DIRECTORY="$ROOT_DIRECTORY/scripts"
-TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
-TESTS_DIRECTORY="$ROOT_DIRECTORY/tests"
-
 API_V1_DIRECTORY="$ROOT_DIRECTORY/site/api/v1"
-
-source "$SCRIPTS_DIRECTORY/environment.sh"
-
-export PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile"
 
 function validate() {
     SCHEMA="$1"
     echo "Validating '$SCHEMA'..."
-    pipenv run check-jsonschema \
+    uv run --project "$ROOT_DIRECTORY" check-jsonschema \
         --base-uri "$API_V1_DIRECTORY/" \
         --schemafile "$API_V1_DIRECTORY/$SCHEMA.schema.json" \
         "$API_V1_DIRECTORY/$SCHEMA/index.json"
@@ -50,5 +42,5 @@ validate "programs"
 validate "sources"
 validate "summary"
 
-find "$API_V1_DIRECTORY/programs/uid" -name "index.json" -exec pipenv run check-jsonschema --verbose --base-uri "$API_V1_DIRECTORY/" --schemafile "$API_V1_DIRECTORY/program.schema.json" {} \+
-find "$API_V1_DIRECTORY/programs/sha" -name "index.json" -exec pipenv run check-jsonschema --verbose --base-uri "$API_V1_DIRECTORY/" --schemafile "$API_V1_DIRECTORY/program.schema.json" {} \+
+find "$API_V1_DIRECTORY/programs/uid" -name "index.json" -exec uv run --project "$ROOT_DIRECTORY" check-jsonschema --verbose --base-uri "$API_V1_DIRECTORY/" --schemafile "$API_V1_DIRECTORY/program.schema.json" {} \+
+find "$API_V1_DIRECTORY/programs/sha" -name "index.json" -exec uv run --project "$ROOT_DIRECTORY" check-jsonschema --verbose --base-uri "$API_V1_DIRECTORY/" --schemafile "$API_V1_DIRECTORY/program.schema.json" {} \+

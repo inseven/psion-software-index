@@ -28,15 +28,7 @@ set -u
 SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
-TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
-LOCAL_TOOLS_PATH="$ROOT_DIRECTORY/.local"
-
-# Clean up and recreate the local tools directory.
-if [ -d "$LOCAL_TOOLS_PATH" ] ; then
-    rm -r "$LOCAL_TOOLS_PATH"
-fi
-mkdir -p "$LOCAL_TOOLS_PATH"
 
 # Install tools.
 cd "$ROOT_DIRECTORY"
@@ -48,11 +40,8 @@ mise install
 cd "$ROOT_DIRECTORY"
 npm install
 
-# Source `environment.sh` to ensure the remainder of our paths are set up correctly.
-source "$SCRIPTS_DIRECTORY/environment.sh"
-
-# Install the Python dependencies (uses PIPENV_PIPFILE from environment.sh).
-pipenv install
+# Install the Python dependencies into the in-tree virtual environment.
+uv sync --locked
 
 # Install the Ruby dependencies
 cd "$SITE_DIRECTORY"

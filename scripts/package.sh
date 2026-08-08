@@ -32,8 +32,6 @@ BUILD_DIRECTORY="$ROOT_DIRECTORY/build"
 
 RELEASE_SCRIPT_PATH="$SCRIPTS_DIRECTORY/release.sh"
 
-source "$SCRIPTS_DIRECTORY/environment.sh"
-
 # Check that the GitHub command is available on the path.
 which gh || (echo "GitHub cli (gh) not available on the path." && exit 1)
 
