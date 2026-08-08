@@ -1,0 +1,27 @@
+[project]
+
+name = "psion-software-index"
+version = "0.0.0"
+description = "Tools for building the Psion Software Index"
+requires-python = "==3.12.*"
+
+dependencies = [
+    "b2sdk",
+    "beautifulsoup4",
+    "certifi",
+    "check-jsonschema",
+    "fastcommand",
+    "jinja2",
+    "jsonschema",
+    "matplotlib",
+    "natsort",
+    "pillow",
+    "python-frontmatter",
+    "pyyaml",
+    "requests",
+    "tqdm",
+]
+
+[tool.uv]
+
+package = false

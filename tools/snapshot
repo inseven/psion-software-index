@@ -24,5 +24,4 @@ ROOT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && p
 TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 NAME=`basename "$0"`
 
-source "$ROOT_DIRECTORY/scripts/environment.sh"
-pipenv run python3 "$TOOLS_DIRECTORY/$NAME.py" "$@"
+exec uv run --project "$ROOT_DIRECTORY" python3 "$TOOLS_DIRECTORY/$NAME.py" "$@"

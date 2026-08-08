@@ -27,10 +27,6 @@ set -u
 
 ROOT_DIRECTORY="$( cd "$( dirname "$( dirname "${BASH_SOURCE[0]}" )" )" &> /dev/null && pwd )"
 
-SCRIPTS_DIRECTORY="$ROOT_DIRECTORY/scripts"
-TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 TESTS_DIRECTORY="$ROOT_DIRECTORY/tests"
 
-source "$SCRIPTS_DIRECTORY/environment.sh"
-
-PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv run "$TESTS_DIRECTORY"/test_extraction.py
+uv run --project "$ROOT_DIRECTORY" "$TESTS_DIRECTORY/test_extraction.py"

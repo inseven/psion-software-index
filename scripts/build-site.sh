@@ -33,9 +33,6 @@ INDEX_DIRECTORY="$ROOT_DIRECTORY/_index"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
 SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
 
-
-source "$SCRIPTS_DIRECTORY/environment.sh"
-
 # Build the API documentation.
 "$SCRIPTS_DIRECTORY/build-api-docs.sh"
 

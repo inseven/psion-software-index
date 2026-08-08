@@ -31,9 +31,6 @@ ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
 SCHEMA_DIRECTORY="$ROOT_DIRECTORY/schema"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
 
-
-source "$SCRIPTS_DIRECTORY/environment.sh"
-
 # Generate the API documentation.
 mkdir -p "$SITE_DIRECTORY/api/docs"
 npx widdershins --expandBody --resolve --code "$SCHEMA_DIRECTORY/api.yaml" --summary -o "$SITE_DIRECTORY/api/docs/index.md"
