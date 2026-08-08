@@ -40,6 +40,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Cache the Jekyll dependencies
+      uses: actions/cache@v6
+      with:
+        path: site/vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('docs/Gemfile.lock') }}
+        restore-keys: ${{ runner.os }}-gems-
+
     - name: Install dependencies
       run: scripts/install-dependencies.sh
 
