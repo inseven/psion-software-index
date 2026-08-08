@@ -9,6 +9,7 @@
 /site/icons
 /site/images/charts
 /site/screenshots
+/site/vendor
 
 .jekyll-cache
 .venv

@@ -9,6 +9,10 @@ on:
     - cron:  '0 9 * * *'
   workflow_dispatch:
 
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
 
   build:
@@ -23,6 +27,25 @@ jobs:
         submodules: recursive
         fetch-depth: 0
         lfs: true
+
+    # Ensure we're using the latest version of mise in an attempt to catch upstream errors early.
+    - name: Get the latest mise version
+      id: mise
+      run: echo "version=$(curl -fsSL https://mise.jdx.dev/VERSION)" >> "$GITHUB_OUTPUT"
+
+    - name: Install mise
+      uses: jdx/mise-action@v4
+      with:
+        version: ${{ steps.mise.outputs.version }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Cache the Jekyll dependencies
+      uses: actions/cache@v6
+      with:
+        path: site/vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('docs/Gemfile.lock') }}
+        restore-keys: ${{ runner.os }}-gems-
 
     - name: Install dependencies
       run: scripts/install-dependencies.sh

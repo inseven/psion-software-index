@@ -20,9 +20,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+ROOT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." >/dev/null 2>&1 && pwd )"
+TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 NAME=`basename "$0"`
 
-export PIPENV_VENV_IN_PROJECT=1
-export PIPENV_PIPFILE="${DIRECTORY}/Pipfile"
-pipenv run python3 "${DIRECTORY}/${NAME}.py" "$@"
+source "$ROOT_DIRECTORY/scripts/environment.sh"
+pipenv run python3 "$TOOLS_DIRECTORY/$NAME.py" "$@"
