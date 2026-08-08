@@ -45,6 +45,7 @@ cd "$ROOT_DIRECTORY/dependencies/opolua"
 mise install
 
 # Install NodeJS packages into the root.
+cd "$ROOT_DIRECTORY"
 npm install
 
 # Source `environment.sh` to ensure the remainder of our paths are set up correctly.
