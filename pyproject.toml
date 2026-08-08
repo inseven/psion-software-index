@@ -22,6 +22,19 @@ dependencies = [
     "tqdm",
 ]
 
-[tool.uv]
+[project.scripts]
 
-package = false
+charts = "tools.charts:main"
+indexer = "tools.indexer:main"
+manage = "tools.manage:main"
+query = "tools.query:main"
+snapshot = "tools.snapshot:main"
+
+[build-system]
+
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+
+packages = ["tools"]

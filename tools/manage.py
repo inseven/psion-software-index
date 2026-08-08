@@ -30,7 +30,7 @@ import fastcommand
 import requests
 import yaml
 
-import common
+from . import common
 
 
 TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))

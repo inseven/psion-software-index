@@ -35,9 +35,9 @@ import yaml
 
 import xml.etree.ElementTree as ET
 
-import containers
-import model
-import utils
+from . import containers
+from . import model
+from . import utils
 
 
 SNAPSHOTS_BASE_URL = "https://f002.backblazeb2.com/file/psion-software-index-snapshots/"
