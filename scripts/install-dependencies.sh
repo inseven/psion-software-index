@@ -52,7 +52,6 @@ npm install
 source "$SCRIPTS_DIRECTORY/environment.sh"
 
 # Install the Python dependencies (uses PIPENV_PIPFILE from environment.sh).
-pip install --user --ignore-installed --upgrade pip pipenv wheel certifi
 pipenv install
 
 # Install the Ruby dependencies
