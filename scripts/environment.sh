@@ -30,9 +30,6 @@ export GEM_HOME="$ROOT_DIRECTORY/.local/ruby"
 mkdir -p "$GEM_HOME"
 export PATH="$GEM_HOME/bin":$PATH
 
-export BIN_DIRECTORY="$ROOT_DIRECTORY/.local/bin"
-export PATH=$BIN_DIRECTORY:$PATH
-
 # Keep pipenv virtualenvs local and predictable.
 export WORKON_HOME="$LOCAL_TOOLS_PATH"
 export PIPENV_CUSTOM_VENV_NAME="venv"
