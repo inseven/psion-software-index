@@ -26,10 +26,6 @@ SCRIPTS_DIRECTORY="$ROOT_DIRECTORY/scripts"
 export TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 export LOCAL_TOOLS_PATH="$ROOT_DIRECTORY/.local"
 
-export GEM_HOME="$ROOT_DIRECTORY/.local/ruby"
-mkdir -p "$GEM_HOME"
-export PATH="$GEM_HOME/bin":$PATH
-
 # Keep pipenv virtualenvs local and predictable.
 export WORKON_HOME="$LOCAL_TOOLS_PATH"
 export PIPENV_CUSTOM_VENV_NAME="venv"
@@ -38,5 +34,3 @@ export PIPENV_IGNORE_VIRTUALENVS=1
 export PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile"
 
 export PATH=$PATH:"$TOOLS_DIRECTORY"
-export PATH=$PATH:"$SCRIPTS_DIRECTORY/changes"
-export PATH=$PATH:"$SCRIPTS_DIRECTORY/build-tools"
