@@ -55,6 +55,5 @@ source "$SCRIPTS_DIRECTORY/environment.sh"
 pipenv install
 
 # Install the Ruby dependencies
-gem install bundler
 cd "$SITE_DIRECTORY"
 bundle install
