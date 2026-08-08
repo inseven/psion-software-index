@@ -30,7 +30,6 @@ SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
 TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
-CHANGES_DIRECTORY="$SCRIPTS_DIRECTORY/changes"
 
 # Install tools.
 cd "$ROOT_DIRECTORY"
@@ -52,7 +51,6 @@ source "$SCRIPTS_DIRECTORY/environment.sh"
 pip install --upgrade pip pipenv wheel certifi
 which pipenv
 PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
-PIPENV_PIPFILE="$CHANGES_DIRECTORY/Pipfile" pipenv install
 
 # Install the Ruby dependencies
 gem install bundler
