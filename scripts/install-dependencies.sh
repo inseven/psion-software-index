@@ -31,7 +31,6 @@ ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
 TOOLS_DIRECTORY="$ROOT_DIRECTORY/tools"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
 CHANGES_DIRECTORY="$SCRIPTS_DIRECTORY/changes"
-BUILD_TOOLS_DIRECTORY="$SCRIPTS_DIRECTORY/build-tools"
 
 # Install tools.
 cd "$ROOT_DIRECTORY"
@@ -54,7 +53,6 @@ pip install --upgrade pip pipenv wheel certifi
 which pipenv
 PIPENV_PIPFILE="$TOOLS_DIRECTORY/Pipfile" pipenv install
 PIPENV_PIPFILE="$CHANGES_DIRECTORY/Pipfile" pipenv install
-PIPENV_PIPFILE="$BUILD_TOOLS_DIRECTORY/Pipfile" pipenv install
 
 # Install the Ruby dependencies
 gem install bundler
