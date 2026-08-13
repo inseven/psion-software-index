@@ -1,9 +1,4 @@
 assets_directory: ../_assets
-index_directory: ../_index
-intermediates_directory: ../_intermediates
-output_directory: ../site
-overlays:
-- ../overlays
 blocked_identifiers:
 - uid/0x00444d43
 - uid/0x100004cd
@@ -24,6 +19,11 @@ blocked_identifiers:
 - uid/0x58454854
 - uid/0x63675c32
 - uid/0x783d4552
+index_directory: ../_index
+intermediates_directory: ../_intermediates
+output_directory: ../site
+overlays:
+- ../overlays
 sources:
 - https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
 - https://archive.org/download/400-psion-programma/400%20psion%20programmas.zip
@@ -98,8 +98,8 @@ sources:
 - https://archive.org/download/psion-calligrapher/Calligrapher.zip
 - https://archive.org/download/psion-cdtextfiles.com/PSION_cdtextfiles.com.zip
 - https://archive.org/download/psion-convertpro/ConvertPro.zip
-- https://archive.org/download/psion-epoc-32-v-2-v-5/Psion%20EPOC32%20v2-v5.zip
 - https://archive.org/download/psion-epoc-32-v-2-v-5/Psion%20EPOC32%20v2-v5-update.zip
+- https://archive.org/download/psion-epoc-32-v-2-v-5/Psion%20EPOC32%20v2-v5.zip
 - https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Series%203A.7z
 - https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Series%203C.7z
 - https://archive.org/download/psion-epoc16-collection/Psion%20EPOC16%20Siena.7z
@@ -109,6 +109,7 @@ sources:
 - https://archive.org/download/psion-michelin-red-guide/Michelin%20Red%20Guide%20EPOC.zip
 - https://archive.org/download/psion-portable-chef/Portable%20Chef.iso
 - https://archive.org/download/psion-powerbase/PowerBase.zip
+- https://archive.org/download/psion-pum-merksem-freeware-shareware-cd/PUM_Merksem_freeware_shareware_CD.iso
 - https://archive.org/download/psion-street-planner-99-uk/Psion_StreetPlanner99UK.ISO
 - https://archive.org/download/psion_netbook/psion_netbook.iso
 - https://archive.org/download/psioncdvol1/PsionCDVol1.iso
