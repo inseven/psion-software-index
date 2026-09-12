@@ -32,6 +32,12 @@ INDEX_DIRECTORY="$ROOT_DIRECTORY/_index"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
 SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
 
+# Ensure all tools share the same Python version.
+PYTHON_VERSION=$(yq -p toml '.tools.python' "$ROOT_DIRECTORY/mise.toml")
+PYTHON_VERSION_MAJOR_MINOR=$(cut -d. -f1-2 <<< "$PYTHON_VERSION")
+grep -q "^python = \"$PYTHON_VERSION_MAJOR_MINOR\." "$ROOT_DIRECTORY/mise.toml"
+grep -q "^requires-python = \"==$PYTHON_VERSION_MAJOR_MINOR.*\"$" "$ROOT_DIRECTORY/pyproject.toml"
+
 # Build the API documentation.
 "$SCRIPTS_DIRECTORY/build-api-docs.sh"
 
