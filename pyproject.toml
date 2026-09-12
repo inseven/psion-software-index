@@ -3,7 +3,7 @@
 name = "psion-software-index"
 version = "0.0.0"
 description = "Tools for building the Psion Software Index"
-requires-python = "==3.12.*"
+requires-python = "==3.14.*"
 
 dependencies = [
     "b2sdk",
