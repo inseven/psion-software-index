@@ -36,9 +36,9 @@ from PIL import Image as PILImage, ImageOps
 TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIRECTORY = os.path.dirname(TOOLS_DIRECTORY)
 OPOLUA_DIRECTORY = os.path.join(ROOT_DIRECTORY, "dependencies", "opolua")
-DUMPAIF_PATH = os.path.join(OPOLUA_DIRECTORY, "src", "dumpaif.lua")
-DUMPSIS_PATH = os.path.join(OPOLUA_DIRECTORY, "src", "dumpsis.lua")
-RECOGNIZE_PATH = os.path.join(OPOLUA_DIRECTORY, "src", "recognize.lua")
+DUMPAIF_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "dumpaif.lua")
+DUMPSIS_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "dumpsis.lua")
+RECOGNIZE_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "recognize.lua")
 
 UNSUPPORTED_MESSAGE = "Only ER5 SIS files are supported"
 NOT_AN_AI_MESSAGE = "Not an AIF file"
@@ -115,13 +115,15 @@ def run_lua_command(command, encoding, requires_decode=True):
 
 def run_json_command(command, path, encoding="utf-8"):
     try:
-        stdout = run_lua_command([command, "--json", path], encoding="utf-8")
+        stdout = run_lua_command([command, "--json", path], encoding="cp1252")
     except ExecutionError as e:
         if UNSUPPORTED_MESSAGE in e.output:
             raise UnsupportedInstaller(e.output)
         elif NOT_AN_AI_MESSAGE in e.output:
             raise InvalidAIF(e.output)
         elif "Bad uid2 in SIS file!" in e.output:
+            raise UnsupportedInstaller(e.output)
+        elif "Only EPOC16 or EPOC32 release 5 (ER5) SIS files are supported" in e.output:
             raise UnsupportedInstaller(e.output)
         elif "Unknown record type 1037" in e.output:
             raise UnsupportedInstaller(e.output)
