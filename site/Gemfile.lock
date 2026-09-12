@@ -60,14 +60,12 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rexml (3.3.4)
-      strscan
+    rexml (3.4.4)
     rouge (3.30.0)
     rubypants (0.7.1)
     safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
-    strscan (3.1.0)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     titlecase (0.1.1)
@@ -84,6 +82,7 @@ PLATFORMS
   x86_64-darwin-20
   x86_64-darwin-21
   x86_64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   base64
