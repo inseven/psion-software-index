@@ -102,7 +102,7 @@ DEPENDENCIES
   jekyll-gfm-admonitions
   jekyll-typogrify
   rexml (>= 3.3.3)
-  tzinfo (~> 1.2)
+  tzinfo (~> 2.0)
   tzinfo-data
   wdm (~> 0.2.0)
   webrick (~> 1.9.0)
