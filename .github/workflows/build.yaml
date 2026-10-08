@@ -44,7 +44,7 @@ jobs:
     - name: Install mise
       uses: jdx/mise-action@v5.1.1
       with:
-        version: 2026.10.3
+        version: 2026.10.4
         cache: false
 
     - name: Cache the Jekyll dependencies
