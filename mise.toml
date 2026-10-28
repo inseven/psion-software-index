@@ -1,7 +1,7 @@
 [tools]
 
 gh = "2.103.3"
-node = "24.22.1"
+node = "24.22.2"
 python = "3.14.8"
 ruby = "4.0.9"
 uv = "latest"
