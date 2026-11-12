@@ -65,6 +65,7 @@ jobs:
       env:
         INDEXER_ASSETS_DIRECTORY: /home/github-runner/psion-software-index/assets
         INDEXER_INTERMEDIATES_DIRECTORY: /home/github-runner/psion-software-index/intermediates
+        TMPDIR: ${{ runner.temp }}
       run: |
         mkdir -p "$INDEXER_ASSETS_DIRECTORY"
         mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
