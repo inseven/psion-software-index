@@ -41,7 +41,7 @@ class MissingTool(Exception):
 
 
 def extract_7z(source, destination):
-    seven_zip_path = shutil.which("SEVEN_ZIP_COMMAND")
+    seven_zip_path = shutil.which(SEVEN_ZIP_COMMAND)
     if seven_zip_path is None:
         raise MissingTool(f"Unable to find '{SEVEN_ZIP_COMMAND}'.")
     subprocess.check_call([seven_zip_path, "-o%s" % destination, "x", source])
