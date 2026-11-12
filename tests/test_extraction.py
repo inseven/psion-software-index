@@ -62,7 +62,7 @@ class ExtractionTests(unittest.TestCase):
 
     def test_application_version(self):
         with example_zip("blackjack5.zip") as path:
-            app_path = os.path.join(path, "blackjack5.app")
+            app_path = os.path.join(path, "BlackJack5.app")
             self.assertTrue(os.path.exists(app_path))
             release, errors = self._import_application(app_path)
 

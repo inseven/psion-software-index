@@ -17,7 +17,7 @@ jobs:
 
   build:
 
-    runs-on: mac-mini-build-02
+    runs-on: ubuntu-build-02
 
     env:
       MISE_CACHE_DIR: ${{ github.workspace }}/.mise/cache
@@ -63,8 +63,9 @@ jobs:
 
     - name: Build the index
       env:
-        INDEXER_ASSETS_DIRECTORY: /Users/jbmorley/psion-software-index/assets
-        INDEXER_INTERMEDIATES_DIRECTORY: /Users/jbmorley/psion-software-index/intermediates
+        INDEXER_ASSETS_DIRECTORY: /home/github-runner/psion-software-index/assets
+        INDEXER_INTERMEDIATES_DIRECTORY: /home/github-runner/psion-software-index/intermediates
+        TMPDIR: ${{ runner.temp }}
       run: |
         mkdir -p "$INDEXER_ASSETS_DIRECTORY"
         mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"

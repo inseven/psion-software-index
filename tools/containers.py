@@ -23,6 +23,7 @@
 import collections
 import logging
 import os
+import shutil
 import subprocess
 import tarfile
 import tempfile
@@ -32,8 +33,18 @@ import zlib
 from . import model
 
 
+SEVEN_ZIP_COMMAND = "7zz"
+
+
+class MissingTool(Exception):
+    pass
+
+
 def extract_7z(source, destination):
-    subprocess.check_call(["7z", "-o%s" % destination, "x", source])
+    seven_zip_path = shutil.which(SEVEN_ZIP_COMMAND)
+    if seven_zip_path is None:
+        raise MissingTool(f"Unable to find '{SEVEN_ZIP_COMMAND}'.")
+    subprocess.check_call([seven_zip_path, "-o%s" % destination, "x", source])
 
 
 def extract_tar(source, destination):
