@@ -62,7 +62,7 @@ verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
 logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
 
 
-INDEXER_VERSION = 18
+INDEXER_VERSION = 19
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", "ru_RU", ""]

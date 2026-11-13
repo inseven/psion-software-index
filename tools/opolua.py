@@ -96,11 +96,13 @@ class Image(object):
         self._source.save(os.path.join(directory_path, self.filename), format="GIF")
 
 
-def run_lua_command(command, encoding, requires_decode=True):
+def run_lua_command(command, encoding, errors, requires_decode=True):
     result = subprocess.run([LUA_PATH] + command, capture_output=True)
     try:
-        stdout = result.stdout.decode(encoding)
-        stderr = result.stderr.decode(encoding)
+        stdout = result.stdout.decode(encoding, errors=errors)
+        # stderr is only ever used for diagnostics and matching known (ASCII) error messages, so it must never be the
+        # reason a command fails.
+        stderr = result.stderr.decode(encoding, errors="replace")
     except UnicodeDecodeError:
         if requires_decode:
             raise
@@ -113,9 +115,9 @@ def run_lua_command(command, encoding, requires_decode=True):
     return stdout
 
 
-def run_json_command(command, path, encoding="utf-8"):
+def run_json_command(command, path, encoding, errors):
     try:
-        stdout = run_lua_command([command, "--json", path], encoding="cp1252")
+        stdout = run_lua_command([command, "--json", path], encoding=encoding, errors=errors)
     except ExecutionError as e:
         if UNSUPPORTED_MESSAGE in e.output:
             raise UnsupportedInstaller(e.output)
@@ -135,18 +137,22 @@ def run_json_command(command, path, encoding="utf-8"):
 
 
 def dumpsis(path):
-    return run_json_command(DUMPSIS_PATH, path)
+    return run_json_command(DUMPSIS_PATH, path, encoding="utf-8", errors="strict")
 
 
 def dumpaif(path):
-    return run_json_command(DUMPAIF_PATH, path)
+    # TODO: dumpaif doesn't currently attempt to convert files to unicode
+    return run_json_command(DUMPAIF_PATH, path, encoding="cp1252", errors="replace")
 
 
 def dumpsis_extract(source, destination):
     # TODO: #188: Remove guard against dumpsis invalid relative path extraction failures #18
     #       https://github.com/inseven/psion-software-index/issues/1888
     try:
-        return run_lua_command([DUMPSIS_PATH, source, destination], encoding='cp1252', requires_decode=False)
+        return run_lua_command([DUMPSIS_PATH, source, destination],
+                               encoding="cp1252",
+                               errors="strict",
+                               requires_decode=False)
     except ExecutionError as e:
         if NO_DEVICE_MAPPING_MESSAGE in e.output:
             raise UnsupportedInstaller(e.output)
@@ -194,6 +200,6 @@ def get_icons(aif_path):
 def recognize(path):
     logging.debug("Recognizing '%s'...", path)
     try:
-        return run_json_command(RECOGNIZE_PATH, path)
+        return run_json_command(RECOGNIZE_PATH, path, encoding="utf-8", errors="strict")
     except:
         return {"type": "unknown"}
