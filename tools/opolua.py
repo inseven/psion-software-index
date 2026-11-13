@@ -151,7 +151,7 @@ def dumpsis_extract(source, destination):
     try:
         return run_lua_command([DUMPSIS_PATH, source, destination],
                                encoding="cp1252",
-                               errors="strict",
+                               errors="replace",
                                requires_decode=False)
     except ExecutionError as e:
         if NO_DEVICE_MAPPING_MESSAGE in e.output:
