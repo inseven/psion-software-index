@@ -100,8 +100,6 @@ def run_lua_command(command, encoding, errors, requires_decode=True):
     result = subprocess.run([LUA_PATH] + command, capture_output=True)
     try:
         stdout = result.stdout.decode(encoding, errors=errors)
-        # stderr is only ever used for diagnostics and matching known (ASCII) error messages, so it must never be the
-        # reason a command fails.
         stderr = result.stderr.decode(encoding, errors="replace")
     except UnicodeDecodeError:
         if requires_decode:
