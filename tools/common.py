@@ -74,18 +74,24 @@ class Library(object):
         self.overlay_directories = [os.path.normpath(os.path.join(root_directory, overlay_directory))
                                     for overlay_directory in self._configuration['overlays']]
 
-        self.assets_directory = os.path.normpath(os.path.join(root_directory, self._configuration['assets_directory']))
-        if "INDEXER_ASSETS_DIRECTORY" in os.environ:
-            self.assets_directory = os.environ["INDEXER_ASSETS_DIRECTORY"]
-            logging.warning("Using $INDEXER_ASSETS_DIRECTORY environment variable (%s)", self.assets_directory)
+        def prefer_environment_variable(key):
+            """
+            Return the value of the environment variable for `key` if set; otherwise, return the library configuration
+            for `key`, resolved against to the root of the library root directory.
 
-        self.intermediates_directory = os.path.normpath(os.path.join(root_directory, self._configuration['intermediates_directory']))
-        if "INDEXER_INTERMEDIATES_DIRECTORY" in os.environ:
-            self.intermediates_directory = os.environ["INDEXER_INTERMEDIATES_DIRECTORY"]
-            logging.warning("Using $INDEXER_INTERMEDIATES_DIRECTORY environment variable (%s)", self.intermediates_directory)
+            The environment variable name is the uppercased key, prefixed with `INDEXER_`.
+            """
+            environment_variable_name = f"INDEXER_{key}".upper()
+            if environment_variable_name in os.environ:
+                value = os.environ[environment_variable_name]
+                logging.warning("Using $%s environment variable (%s)", environment_variable_name, value)
+                return value
+            return os.path.normpath(os.path.join(root_directory, self._configuration[key]))
 
-        self.index_directory = os.path.normpath(os.path.join(root_directory, self._configuration['index_directory']))
-        self.output_directory = os.path.normpath(os.path.join(root_directory, self._configuration['output_directory']))
+        self.assets_directory = prefer_environment_variable("assets_directory")
+        self.intermediates_directory = prefer_environment_variable("intermediates_directory")
+        self.index_directory = prefer_environment_variable("index_directory")
+        self.output_directory = prefer_environment_variable("output_directory")
         self.sources = [create_source(self.assets_directory, url) for url in self._configuration['sources']]
 
     def sync(self):
