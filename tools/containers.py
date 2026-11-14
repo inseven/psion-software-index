@@ -21,10 +21,12 @@
 # SOFTWARE.
 
 import collections
+import errno
 import logging
 import os
 import shutil
 import subprocess
+import sys
 import tarfile
 import tempfile
 import zipfile
