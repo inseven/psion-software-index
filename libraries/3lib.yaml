@@ -4,7 +4,9 @@ sources:
 overlays:
 - ../overlays
 
-assets_directory: ../_assets
-intermediates_directory: ../_small/_intermediates
-index_directory: ../_small/_index
-output_directory: ../site
+assets_directory:        ../_assets
+
+index_directory:         ../_indexes/small/index
+intermediates_directory: ../_indexes/small/intermediates
+
+output_directory:        ../site
