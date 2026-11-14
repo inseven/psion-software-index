@@ -40,11 +40,26 @@ class MissingTool(Exception):
     pass
 
 
+def run_command(command):
+    """
+    Brittle convenience for running commands that attempts to provide slightly more nuanced exceptions by detecting
+    certain OS errors in stderr by performing a string comparison against the standard OS output.
+    """
+    result = subprocess.run(command, stderr=subprocess.PIPE)
+    stderr = result.stderr.decode("utf-8", errors="replace")
+    sys.stderr.write(stderr)
+    if result.returncode != 0:
+        for error_number in [errno.ENOSPC, errno.EDQUOT]:
+            if os.strerror(error_number) in stderr:
+                raise OSError(error_number, os.strerror(error_number), command[0])
+        raise subprocess.CalledProcessError(result.returncode, command, stderr=result.stderr)
+
+
 def extract_7z(source, destination):
     seven_zip_path = shutil.which(SEVEN_ZIP_COMMAND)
     if seven_zip_path is None:
         raise MissingTool(f"Unable to find '{SEVEN_ZIP_COMMAND}'.")
-    subprocess.check_call([seven_zip_path, "-o%s" % destination, "x", source])
+    run_command([seven_zip_path, "-o%s" % destination, "x", source])
 
 
 def extract_tar(source, destination):
@@ -53,7 +68,7 @@ def extract_tar(source, destination):
 
 
 def extract_tar_gz(source, destination):
-    subprocess.check_call(["tar", "-zxvf", source, "-C", destination])
+    run_command(["tar", "-zxvf", source, "-C", destination])
 
 
 def extract_zip(source, destination):
@@ -74,11 +89,15 @@ CONTAINER_MAPPING = {
 }
 
 
-def get_extraction_method(path):
+def get_extractor(path):
     for ext, extraction_method in CONTAINER_MAPPING.items():
         if path.lower().endswith(ext):
-            return extraction_method
+            return Extractor(path, extraction_method)
     return None
+
+
+class UnsupportedContainer(Exception):
+    pass
 
 
 class Extractor(object):
@@ -93,6 +112,18 @@ class Extractor(object):
         try:
             self.method(self.path, self.temporary_directory.name)
             return self.temporary_directory.name
+        except (NotImplementedError,
+                zipfile.BadZipFile,
+                OSError,
+                RuntimeError,
+                tarfile.ReadError,
+                zlib.error,
+                subprocess.CalledProcessError) as e:
+            self.temporary_directory.cleanup()
+            if isinstance(e, OSError) and e.errno in [errno.ENOSPC, errno.EDQUOT]:
+                # Propagate fatal OS errors.
+                raise
+            raise UnsupportedContainer(self.path)
         except:
             self.temporary_directory.cleanup()
             raise
@@ -113,21 +144,16 @@ def walk(path, reference=None, relative_to=None):
                     yield (inner_path, inner_reference)
     else:
         reference_item = model.ReferenceItem(name=os.path.relpath(path, relative_to), url=None)
-        extraction_method = get_extraction_method(path)
-        if extraction_method is not None:
+        extractor = get_extractor(path)
+        if extractor is not None:
             logging.debug("Extracting '%s'...", path)
             try:
-                with Extractor(path, method=extraction_method) as contents_path:
+                with extractor as contents_path:
                     for (inner_path, inner_reference) in walk(contents_path,
                                                               reference=reference + [reference_item],
                                                               relative_to=contents_path):
                         yield (inner_path, inner_reference)
-            except (NotImplementedError,
-                    zipfile.BadZipFile,
-                    OSError, RuntimeError,
-                    tarfile.ReadError,
-                    zlib.error,
-                    subprocess.CalledProcessError) as e:
+            except UnsupportedContainer as e:
                 logging.warning("Failed to extract file '%s' with error '%s'.", path, e)
         else:
             yield (path, reference + [reference_item])
