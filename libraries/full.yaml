@@ -1,4 +1,3 @@
-assets_directory: ../_assets
 blocked_identifiers:
 - uid/0x00444d43
 - uid/0x100004cd
