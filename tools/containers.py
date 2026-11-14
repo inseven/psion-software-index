@@ -44,10 +44,24 @@ class MissingTool(Exception):
     pass
 
 
-class FileType(enum.Enum):
+class ItemType(enum.Enum):
     FILE = 1
     DIRECTORY = 2
     CONTAINER = 3
+    LIBRARY = 4
+
+
+class Item(object):
+
+    def __init__(self, type, name, identifier, children):
+        self.type = type
+        self.name = name
+        self.identifier = identifier
+        self.children = children
+
+    def get_extension(self):
+        _, ext = os.path.splitext(self.name)
+        return ext.lower()
 
 
 def run_command(command):
@@ -106,19 +120,6 @@ def get_extractor(path):
     return None
 
 
-class Item(object):
-
-    def __init__(self, type, name, identifier, children):
-        self.type = type
-        self.name = name
-        self.identifier = identifier
-        self.children = children
-
-    def get_extension(self):
-        _, ext = os.path.splitext(self.name)
-        return ext.lower()
-
-
 class UnsupportedContainer(Exception):
     pass
 
@@ -166,7 +167,7 @@ def get_contents(path, cache_path):
 
     # First check for regular directories.
     if os.path.isdir(path):
-        return Item(type=FileType.DIRECTORY,
+        return Item(type=ItemType.DIRECTORY,
                     name=os.path.basename(path),
                     identifier=None,
                     children=get_child_items(path, cache_path))
@@ -180,7 +181,7 @@ def get_contents(path, cache_path):
         try:
             with extractor as container_path:
                 children = get_child_items(container_path, cache_path)
-                return Item(type=FileType.CONTAINER,
+                return Item(type=ItemType.CONTAINER,
                             name=name,
                             identifier=identifier,
                             children=children)
@@ -188,7 +189,7 @@ def get_contents(path, cache_path):
             logging.warning("Failed to extract file '%s' with error '%s'.", path, e)
 
     # Finally, treat it as a regular file.
-    return Item(type=FileType.FILE,
+    return Item(type=ItemType.FILE,
                 name=name,
                 identifier=identifier,
                 children=[])

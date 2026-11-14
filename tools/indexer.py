@@ -35,6 +35,7 @@ import json
 import logging
 import operator
 import os
+import pickle
 import re
 import shutil
 import sys
@@ -551,12 +552,28 @@ def import_filetree(item):
 def filetree(library):
     logging.info("Generating filetree...")
     os.makedirs(library.filetree_directory, exist_ok=True)
+
+    source_roots = []
     for source in library.sources:
-        root = containers.get_contents(source.path, library.filetree_directory)
+        index_path = os.path.join(library.filetree_directory, source.identifier)
+        tree_path = os.path.join(index_path, "tree")
+        cache_path = os.path.join(index_path, "cache")
+        os.makedirs(cache_path, exist_ok=True)
+        root = containers.get_contents(source.path, cache_path)
+        with open(tree_path, "wb") as fh:
+            pickle.dump(root, fh)
+        source_roots.append(root)
         results = import_filetree(root)
         for result in results:
             print(result)
         print(len(results))
+
+    library_root = containers.Item(type=containers.ItemType.LIBRARY,
+                                   name="Psion Software Index",
+                                   identifier=None,
+                                   children=source_roots)
+    with open(os.path.join(library.filetree_directory, "tree"), "wb") as fh:
+        pickle.dump(library_root, fh)
 
 
 def index(library):
