@@ -22,6 +22,7 @@ blocked_identifiers:
 assets_directory:        ../_assets
 
 index_directory:         ../_indexes/full/index
+filetree_directory:      ../_indexes/full/filetree
 intermediates_directory: ../_indexes/full/intermediates
 
 output_directory:        ../site

@@ -534,6 +534,31 @@ def index_source(source, source_index_directory):
     return source_releases
 
 
+def import_filetree(item):
+    results = []
+    if item.children:
+        for child in item.children:
+            results.extend(import_filetree(child))
+    else:
+        extension = item.get_extension()
+        if extension in [".app", ".opa"]:
+            results.append(item.name)
+        elif extension in [".sis"]:
+            results.append(item.name)
+    return results
+
+
+def filetree(library):
+    logging.info("Generating filetree...")
+    os.makedirs(library.filetree_directory, exist_ok=True)
+    for source in library.sources:
+        root = containers.get_contents(source.path, library.filetree_directory)
+        results = import_filetree(root)
+        for result in results:
+            print(result)
+        print(len(results))
+
+
 def index(library):
 
     # Paths.
@@ -923,7 +948,7 @@ def overlay(library):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("definition")
-    parser.add_argument("command", choices=["sync", "index", "group", "overlay"], nargs="+", help="command to run")
+    parser.add_argument("command", choices=["sync", "index", "filetree", "group", "overlay"], nargs="+", help="command to run")
     parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
     options = parser.parse_args()
 
@@ -932,12 +957,16 @@ def main():
     for command in options.command:
         if command == "sync":
             library.sync()
-        if command == "index":
+        elif command == "index":
             index(library)
-        if command == "group":
+        elif command == "filetree":
+            filetree(library)
+        elif command == "group":
             group(library)
-        if command == "overlay":
+        elif command == "overlay":
             overlay(library)
+        else:
+            exit(f"Unknown command '{command}'.")
 
 
 if __name__ == "__main__":

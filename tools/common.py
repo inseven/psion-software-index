@@ -91,6 +91,7 @@ class Library(object):
         self.assets_directory = prefer_environment_variable("assets_directory")
         self.intermediates_directory = prefer_environment_variable("intermediates_directory")
         self.index_directory = prefer_environment_variable("index_directory")
+        self.filetree_directory = prefer_environment_variable("filetree_directory")
         self.output_directory = prefer_environment_variable("output_directory")
         self.sources = [create_source(self.assets_directory, url) for url in self._configuration['sources']]
 

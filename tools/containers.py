@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import collections
+import enum
 import errno
 import logging
 import os
@@ -33,6 +34,7 @@ import zipfile
 import zlib
 
 from . import model
+from . import utils
 
 
 SEVEN_ZIP_COMMAND = "7zz"
@@ -40,6 +42,12 @@ SEVEN_ZIP_COMMAND = "7zz"
 
 class MissingTool(Exception):
     pass
+
+
+class FileType(enum.Enum):
+    FILE = 1
+    DIRECTORY = 2
+    CONTAINER = 3
 
 
 def run_command(command):
@@ -98,6 +106,19 @@ def get_extractor(path):
     return None
 
 
+class Item(object):
+
+    def __init__(self, type, name, identifier, children):
+        self.type = type
+        self.name = name
+        self.identifier = identifier
+        self.children = children
+
+    def get_extension(self):
+        _, ext = os.path.splitext(self.name)
+        return ext.lower()
+
+
 class UnsupportedContainer(Exception):
     pass
 
@@ -132,6 +153,45 @@ class Extractor(object):
 
     def __exit__(self, exc_type, exc_value, traceback):
         self.temporary_directory.cleanup()
+
+
+def get_child_items(path, cache_path):
+    return [get_contents(os.path.join(path, file), cache_path)
+            for file in os.listdir(path)
+            if not file.startswith(".")]
+
+
+def get_contents(path, cache_path):
+    path = os.path.abspath(path)
+
+    # First check for regular directories.
+    if os.path.isdir(path):
+        return Item(type=FileType.DIRECTORY,
+                    name=os.path.basename(path),
+                    identifier=None,
+                    children=get_child_items(path, cache_path))
+
+    # Next try indexing known containers.
+    extractor = get_extractor(path)
+    identifier = utils.shasum(path)
+    name = os.path.basename(path)
+    shutil.copyfile(path, os.path.join(cache_path, identifier))
+    if extractor is not None:
+        try:
+            with extractor as container_path:
+                children = get_child_items(container_path, cache_path)
+                return Item(type=FileType.CONTAINER,
+                            name=name,
+                            identifier=identifier,
+                            children=children)
+        except UnsupportedContainer as e:
+            logging.warning("Failed to extract file '%s' with error '%s'.", path, e)
+
+    # Finally, treat it as a regular file.
+    return Item(type=FileType.FILE,
+                name=name,
+                identifier=identifier,
+                children=[])
 
 
 def walk(path, reference=None, relative_to=None):
