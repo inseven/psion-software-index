@@ -1,4 +1,3 @@
-assets_directory: ../_assets
 blocked_identifiers:
 - uid/0x00444d43
 - uid/0x100004cd
@@ -19,11 +18,17 @@ blocked_identifiers:
 - uid/0x58454854
 - uid/0x63675c32
 - uid/0x783d4552
-index_directory: ../_index
-intermediates_directory: ../_intermediates
-output_directory: ../site
+
+assets_directory:        ../_assets
+
+index_directory:         ../_indexes/full/index
+intermediates_directory: ../_indexes/full/intermediates
+
+output_directory:        ../site
+
 overlays:
 - ../overlays
+
 sources:
 - https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
 - https://archive.org/download/400-psion-programma/400%20psion%20programmas.zip
