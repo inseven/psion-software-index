@@ -35,6 +35,7 @@ import json
 import logging
 import operator
 import os
+import pickle
 import re
 import shutil
 import sys
@@ -534,6 +535,47 @@ def index_source(source, source_index_directory):
     return source_releases
 
 
+def import_filetree(item):
+    results = []
+    if item.children:
+        for child in item.children:
+            results.extend(import_filetree(child))
+    else:
+        extension = item.get_extension()
+        if extension in [".app", ".opa"]:
+            results.append(item.name)
+        elif extension in [".sis"]:
+            results.append(item.name)
+    return results
+
+
+def filetree(library):
+    logging.info("Generating filetree...")
+    os.makedirs(library.filetree_directory, exist_ok=True)
+
+    source_roots = []
+    for source in library.sources:
+        index_path = os.path.join(library.filetree_directory, source.identifier)
+        tree_path = os.path.join(index_path, "tree")
+        cache_path = os.path.join(index_path, "cache")
+        os.makedirs(cache_path, exist_ok=True)
+        root = containers.get_contents(source.path, cache_path)
+        with open(tree_path, "wb") as fh:
+            pickle.dump(root, fh)
+        source_roots.append(root)
+        results = import_filetree(root)
+        for result in results:
+            print(result)
+        print(len(results))
+
+    library_root = containers.Item(type=containers.ItemType.LIBRARY,
+                                   name="Psion Software Index",
+                                   identifier=None,
+                                   children=source_roots)
+    with open(os.path.join(library.filetree_directory, "tree"), "wb") as fh:
+        pickle.dump(library_root, fh)
+
+
 def index(library):
 
     # Paths.
@@ -923,7 +965,7 @@ def overlay(library):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("definition")
-    parser.add_argument("command", choices=["sync", "index", "group", "overlay"], nargs="+", help="command to run")
+    parser.add_argument("command", choices=["sync", "index", "filetree", "group", "overlay"], nargs="+", help="command to run")
     parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
     options = parser.parse_args()
 
@@ -932,12 +974,16 @@ def main():
     for command in options.command:
         if command == "sync":
             library.sync()
-        if command == "index":
+        elif command == "index":
             index(library)
-        if command == "group":
+        elif command == "filetree":
+            filetree(library)
+        elif command == "group":
             group(library)
-        if command == "overlay":
+        elif command == "overlay":
             overlay(library)
+        else:
+            exit(f"Unknown command '{command}'.")
 
 
 if __name__ == "__main__":
