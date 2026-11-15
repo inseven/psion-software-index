@@ -28,6 +28,8 @@ import shutil
 import subprocess
 import tempfile
 
+import git
+
 from io import BytesIO
 
 from PIL import Image as PILImage, ImageOps
@@ -39,6 +41,9 @@ OPOLUA_DIRECTORY = os.path.join(ROOT_DIRECTORY, "dependencies", "opolua")
 DUMPAIF_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "dumpaif.lua")
 DUMPSIS_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "dumpsis.lua")
 RECOGNIZE_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "recognize.lua")
+
+with git.Repo(os.path.join(ROOT_DIRECTORY, "dependencies/opolua")) as repo:
+    SHA = repo.head.commit.hexsha
 
 UNSUPPORTED_MESSAGE = "Only ER5 SIS files are supported"
 NOT_AN_AI_MESSAGE = "Not an AIF file"

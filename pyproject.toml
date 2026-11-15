@@ -11,6 +11,7 @@ dependencies = [
     "certifi",
     "check-jsonschema",
     "fastcommand",
+    "GitPython",
     "jinja2",
     "jsonschema",
     "matplotlib",
