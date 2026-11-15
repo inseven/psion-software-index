@@ -107,6 +107,52 @@ class Library(object):
         return self._configuration['blocked_identifiers']
 
 
+# This collection of messy little helper functions ensures that the returned references have valid download
+# URLs. The work is delegated to the sources as they know how to generate source-specific download URLs (at
+# least until we start caching assets somewhere else).
+def internet_archive_reference_resolver(internet_archive_identifier, title):
+    source_reference = model.ReferenceItem(name=title, url=f"https://archive.org/details/{internet_archive_identifier}")
+
+    def reference_resolver(reference):
+
+        def resolve_root_url(reference):
+            return f"https://archive.org/download/{internet_archive_identifier}/{reference[0].name}"
+
+        def resolve_root_reference_item(reference_item, root_url):
+            return model.ReferenceItem(name=reference_item.name, url=root_url)
+
+        # TODO: Not all first-level containers (e.g., .bin) can be accessed on the Internet Archive.
+        def resolve_first_tier_reference_item(reference_item, root_url):
+            return model.ReferenceItem(name=reference_item.name,
+                                       url=root_url + "/" + quote_plus(reference_item.name))
+
+        if len(reference) < 1:
+            return [source_reference]
+        if len(reference) == 1:
+            root_url = resolve_root_url(reference)
+            return [source_reference, resolve_root_reference_item(reference[0], root_url)]
+        else:
+            root, first_tier, *tail = reference
+            root_url = resolve_root_url(reference)
+            return [source_reference, resolve_root_reference_item(root, root_url)] + [resolve_first_tier_reference_item(first_tier, root_url)] + tail
+
+    return reference_resolver
+
+
+def website_reference_resolver(url, title):
+    source_reference = model.ReferenceItem(name=title, url=url)
+
+    def make_link(reference):
+        return model.ReferenceItem(name=reference.name, url=self.snapshot_url + "/" + reference.name)
+
+    def resolve_reference(reference):
+        contents_reference = reference[1:]
+        if len(contents_reference) < 1:
+            return [source_reference]
+        else:
+            return [source_reference] + [make_link(contents_reference[0])] + contents_reference[1:]
+
+
 class InternetArchiveSource(object):
 
     def __init__(self, root_directory, url):
@@ -187,31 +233,7 @@ class InternetArchiveSource(object):
 
     @property
     def assets(self):
-
-        # This collection of messy little helper functions ensures that the returned references have valid download
-        # URLs. The work is delegated to the sources as they know how to generate source-specific download URLs (at
-        # least until we start caching assets somewhere else).
-
-        source_reference = model.ReferenceItem(name=self.title, url=f"https://archive.org/details/{self.internet_archive_identifier}")
-
-        def resolve_reference(reference):
-
-            def resolve_root_reference_item(reference_item):
-                return model.ReferenceItem(name=reference_item.name, url=self.url)
-
-            # TODO: Not all first-level containers (e.g., .bin) can be accessed on the Internet Archive.
-            def resolve_first_tier_reference_item(reference_item):
-                return model.ReferenceItem(name=reference_item.name,
-                                           url=self.url + "/" + quote_plus(reference_item.name))
-
-            if len(reference) < 1:
-                return [source_reference]
-            if len(reference) == 1:
-                return [source_reference, resolve_root_reference_item(reference[0])]
-            else:
-                root, first_tier, *tail = reference
-                return [source_reference, resolve_root_reference_item(root)] + [resolve_first_tier_reference_item(first_tier)] + tail
-
+        resolve_reference = internet_archive_reference_resolver(self.internet_archive_identifier, self.title)
         for path, reference in containers.walk(self.path, relative_to=self.item_directory):
             yield (path, resolve_reference(reference))
 
@@ -280,19 +302,7 @@ class SnapshotSource(object):
 
     @property
     def assets(self):
-
-        source_reference = model.ReferenceItem(name=self.title, url=self.snapshot_url)
-
-        def make_link(reference):
-            return model.ReferenceItem(name=reference.name, url=self.snapshot_url + "/" + reference.name)
-
-        def resolve_reference(reference):
-            contents_reference = reference[1:]
-            if len(contents_reference) < 1:
-                return [source_reference]
-            else:
-                return [source_reference] + [make_link(contents_reference[0])] + contents_reference[1:]
-
+        resolve_reference = website_reference_resolver(self.snapshot_url, self.title)
         for path, reference in containers.walk(self._contents_path, relative_to=self.path):
             yield path, resolve_reference(reference)
 
