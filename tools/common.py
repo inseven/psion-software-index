@@ -143,7 +143,7 @@ def website_reference_resolver(url, title):
     source_reference = model.ReferenceItem(name=title, url=url)
 
     def make_link(reference):
-        return model.ReferenceItem(name=reference.name, url=self.snapshot_url + "/" + reference.name)
+        return model.ReferenceItem(name=reference.name, url=url + "/" + reference.name)
 
     def resolve_reference(reference):
         contents_reference = reference[1:]
@@ -151,6 +151,8 @@ def website_reference_resolver(url, title):
             return [source_reference]
         else:
             return [source_reference] + [make_link(contents_reference[0])] + contents_reference[1:]
+
+    return resolve_reference
 
 
 class InternetArchiveSource(object):
