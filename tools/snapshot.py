@@ -23,19 +23,27 @@
 import argparse
 import contextlib
 import datetime
+import hashlib
 import json
 import logging
 import os
 import subprocess
+import shutil
 import sys
 import tempfile
 
+from urllib.parse import quote
 from urllib.parse import urlparse
+
+import fastcommand
 
 import b2sdk.v2 as b2
 import requests
 
 from bs4 import BeautifulSoup
+
+from .common import SnapshotType, SnapshotMetadata
+from . import utils
 
 
 TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -68,11 +76,22 @@ def mirror_site(url, path, log_path):
 
 
 def tar(source, destination):
-    subprocess.check_call(["tar",
-                           "-zcf",
-                           destination,
-                           "-C", source,
-                           "."])
+    command = [
+        "tar",
+        "-zcf", destination,
+        "-C", source,
+        "."
+    ]
+    subprocess.check_call(command)
+
+
+@contextlib.contextmanager
+def tar_container(path):
+    path = os.path.abspath(path)
+    with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
+        yield temporary_directory
+        logging.info("Compressing '%s'...", path)
+        tar(temporary_directory, path)
 
 
 def get_title(url):
@@ -89,72 +108,119 @@ def query(text):
     return result == "y" or result == ""
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("url")
-    options = parser.parse_args()
+def upload(source_path, destination_filename):
 
-    url = options.url
-    url_components = urlparse(url)
-    hostname = url_components.hostname
+    logging.info("Loading configuration...")
+    with open(CONFIG_PATH) as fh:
+        config = json.load(fh)
 
-    date = datetime.datetime.now(datetime.timezone.utc)
-    timestamp = date.strftime("%Y-%m-%d %H-%M-%S")
-    filename = f"{timestamp} {hostname}.tar.gz"
+    logging.info("Uploading...")
+    info = b2.InMemoryAccountInfo()
+    b2_api = b2.B2Api(info)
+    b2_api.authorize_account("production", config["key_id"], config["application_key"])
+    bucket = b2_api.get_bucket_by_name("psion-software-index-snapshots")
+    upload = bucket.upload_local_file(local_file=source_path,
+                                    file_name=destination_filename,
+                                    file_infos={})
 
-    os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
+    return f"{b2_api.account_info.get_download_url()}/file/{bucket.name}/{upload.file_name.replace(" ", "+")}"
 
-    archive_path = os.path.join(SNAPSHOTS_DIRECTORY, filename)
 
-    with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
-
-        # Ensure we can get the title.
-        title = get_title(url)
-
-        # Create an archive of the site.
-        returncode = mirror_site(url, "contents.tar.gz", "log.txt")
-
-        # Write the metadata.
-        metadata = {
-            "url": url,
-            "title": title,
-            "created": date.isoformat(),
-        }
+@contextlib.contextmanager
+def snapshot_container(path, metadata):
+    with tar_container(path) as temporary_directory:
         with open("metadata.json", "w") as fh:
-            json.dump(metadata, fh, indent=4)
-            fh.write("\n")
+            metadata.dump(fh)
+        yield temporary_directory
 
-        # Generate the archive.
-        tar(temporary_directory, archive_path)
 
-        # Warn if the mirror returned errors.
+@fastcommand.command("snapshot", help="create and upload a new website snapshot", arguments=[
+    fastcommand.Argument("url", help="url to mirror")
+])
+def command_snapshot(options):
+    os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
+    url = options.url
+
+    # Create the snapshot.
+    snapshot_metadata = SnapshotMetadata(type=SnapshotType.WEBSITE,
+                                         url=url,
+                                         identifier=urlparse(url).hostname,
+                                         title=get_title(url),
+                                         description="")
+    snapshot_path = os.path.join(SNAPSHOTS_DIRECTORY, snapshot_metadata.filename)
+    with snapshot_container(snapshot_path, snapshot_metadata) as container_path:
+        returncode = mirror_site(url, "contents.tar.gz", "log.txt")
         if returncode != 0:
             logging.warning("wget exited with a non-zero exit code (%s); check log.txt for more details.", returncode)
-            # Let the user review the logs.
             if query("Review logs?"):
                 subprocess.run(["less", "log.txt"])
         else:
             logging.info("wget completed successfully.")
 
-    # Upload the file.
+    # Upload.
     if query("Upload to B2?"):
-
-        logging.info("Loading configuration...")
-        with open(CONFIG_PATH) as fh:
-            config = json.load(fh)
-
-        logging.info("Uploading...")
-        info = b2.InMemoryAccountInfo()
-        b2_api = b2.B2Api(info)
-        b2_api.authorize_account("production", config["key_id"], config["application_key"])
-        bucket = b2_api.get_bucket_by_name("psion-software-index-snapshots")
-        upload = bucket.upload_local_file(local_file=archive_path,
-                                          file_name=filename,
-                                          file_infos={})
-        url = f"{b2_api.account_info.get_download_url()}/file/{bucket.name}/{upload.file_name.replace(" ", "+")}"
+        url = upload(snapshot_path, snapshot_metadata.filename)
         print(url)
 
     logging.info("Done.")
+
+
+@fastcommand.command("import", help="import an existing Internet Archive asset", arguments=[
+    fastcommand.Argument("metadata", help="path to downloaded asset metadata file")
+])
+def command_import(options):
+    os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
+    metadata_path = os.path.abspath(options.metadata)
+    assets_directory = os.path.dirname(metadata_path)
+
+    # Read the metadata and file listing.
+    with open(metadata_path) as fh:
+        metadata = utils.InternetArchiveMetdata.load(fh)
+    files_path = os.path.join(assets_directory, f"{metadata.identifier}_files.xml")
+    with open(files_path) as fh:
+        files = utils.InternetArchiveFiles.load(fh)
+
+    # Check the files on disk.
+    assets = []
+    for f in files.files:
+        file_path = os.path.join(assets_directory, quote(f.name))
+        if f.format == "Metadata" or not os.path.exists(file_path):
+            continue
+        logging.info("Checking '%s'...", file_path)
+        if f.sha1 != utils.digest(file_path, method=hashlib.sha1):
+            exit("sha1 doesn't match.")
+        assets.append(file_path)
+
+    # Don't create a snapshot if there are no files.
+    if len(assets) < 1:
+        exit("No files found.")
+
+    # Create the snapshot.
+    snapshot_metadata = SnapshotMetadata(type=SnapshotType.INTERNET_ARCHIVE,
+                                         url=f"https://archive.org/details/{metadata.identifier}",
+                                         identifier=metadata.identifier,
+                                         title=metadata.title,
+                                         description=metadata.description)
+    snapshot_path = os.path.join(SNAPSHOTS_DIRECTORY, snapshot_metadata.filename)
+    with snapshot_container(snapshot_path, snapshot_metadata):
+        with tar_container("contents.tar.gz") as container_path:
+            for asset_path in assets + [metadata_path, files_path]:
+                name = os.path.basename(asset_path)
+                logging.info("Copying '%s'...", name)
+                shutil.copyfile(asset_path, name)
+
+    # Upload.
+    if query("Upload to B2?"):
+        url = upload(snapshot_path, snapshot_metadata.filename)
+        print(url)
+
+    logging.info("Done.")
+
+
+def main():
+    cli = fastcommand.CommandParser(description="Generate and upload source snapshots.")
+    cli.use_logging(format="[%(levelname)s] %(message)s")
+    cli.run()
 
 
 if __name__ == "__main__":

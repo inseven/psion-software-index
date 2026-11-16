@@ -77,7 +77,7 @@ class InternetArchiveFiles:
     @classmethod
     def load(cls, fh):
         root = ET.fromstring(fh.read())
-        self.files = [utils.InternetArchiveFile.from_element(f) for f in root.findall('./file')]
+        return cls(files=[InternetArchiveFile.from_element(f) for f in root.findall('./file')])
 
 
 def format_version(version):
