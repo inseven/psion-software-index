@@ -21,6 +21,8 @@
 # SOFTWARE.
 
 import contextlib
+import datetime
+import enum
 import json
 import logging
 import os
@@ -28,6 +30,7 @@ import shutil
 import sys
 import tempfile
 
+from dataclasses import dataclass
 from urllib.parse import quote_plus
 from urllib.parse import urlparse
 
@@ -51,6 +54,68 @@ ARCHIVE_EXTENSIONS = set([
 
 class UnsupportedURL(Exception):
     pass
+
+
+class UnknownSnapshotType(Exception):
+    pass
+
+
+class SnapshotType(enum.StrEnum):
+    WEBSITE = "website"
+    INTERNET_ARCHIVE = "internet-archive"
+
+
+@dataclass
+class SnapshotMetadata:
+    date: datetime
+    type: SnapshotType
+    url: str
+    identifier: str
+    title: str
+    description: str
+
+    def __init__(self, type, url, identifier, title, description):
+        self.date = datetime.datetime.now(datetime.timezone.utc)
+        self.type = type
+        self.url = url
+        self.identifier = identifier
+        self.title = title
+        self.description = description
+
+    @classmethod
+    def load(cls, fh):
+        contents = json.load(fh)
+        date = contents["created"]
+        type = SnapshotType(contents["type"]) if "type" in contents else SnapshotType.WEBSITE
+        url = contents["url"]
+        identifier = contents["identifier"] if "identifier" in contents else None
+        title = contents["title"]
+        description = contents["description"] if "description" in contents else ""
+
+        snapshot = cls(type=type,
+                       url=url,
+                       identifier=identifier,
+                       title=title,
+                       description=description)
+        snapshot.date = date
+        return snapshot
+
+
+    @property
+    def filename(self):
+        timestamp = self.date.strftime("%Y-%m-%d %H-%M-%S")
+        return f"{timestamp} {self.identifier}.tar.gz"
+
+    def dump(self, fh):
+        json.dump({
+            "created": self.date.isoformat(),
+            "type": self.type,
+            "url": self.url,
+            "identifier": self.identifier,
+            "title": self.title,
+            "description": self.description,
+        }, fh, indent=4)
+        fh.write("\n")
 
 
 def create_source(assets_directory, url):
@@ -151,11 +216,10 @@ def website_reference_resolver(url, title):
         return model.ReferenceItem(name=name, url=f"{url_components.scheme}://{url_components.netloc}/{reference.name}")
 
     def resolve_reference(reference):
-        contents_reference = reference[1:]
-        if len(contents_reference) < 1:
+        if len(reference) < 1:
             return [source_reference]
         else:
-            return [source_reference] + [make_link(contents_reference[0])] + contents_reference[1:]
+            return [source_reference] + [make_link(reference[0])] + reference[1:]
 
     return resolve_reference
 
@@ -223,20 +287,16 @@ class InternetArchiveSource(object):
     def metadata(self):
         if self._metadata is None:
             with open(self.item_metadata_path) as fh:
-                root = ET.fromstring(fh.read())
-                self._metadata = {
-                    'title': root.find('./title').text,
-                    'description': root.find('./description').text,
-                }
+                self._metadata = utils.InternetArchiveMetdata.load(fh)
         return self._metadata
 
     @property
     def title(self):
-        return self.metadata['title']
+        return self.metadata.title
 
     @property
     def description(self):
-        return self.metadata['description']
+        return self.metadata.description
 
     @property
     def assets(self):
@@ -246,7 +306,7 @@ class InternetArchiveSource(object):
 
     def as_dict(self):
         return {
-            'kind': 'internet-archive',
+            'kind': SnapshotType.INTERNET_ARCHIVE,
             'name': self.title,
             'description': self.description,
             'url': self.url,
@@ -292,30 +352,48 @@ class SnapshotSource(object):
     def metadata(self):
         if self._metadata is None:
             with open(self._metadata_path) as fh:
-                self._metadata = json.load(fh)
+                self._metadata = SnapshotMetadata.load(fh)
         return self._metadata
 
     @property
     def title(self):
-        return self.metadata['title']
-
-    @property
-    def snapshot_url(self):
-        return self.metadata["url"]
+        return self.metadata.title
 
     @property
     def description(self):
-        return ""
+        return self.metadata.description
+
+    @property
+    def kind(self):
+        """
+        Convert the snapshot type to the legacy 'kind' string enumeration.
+
+        Exists to preserve API backwards compatibility.
+        """
+        if self.metadata.type == SnapshotType.INTERNET_ARCHIVE:
+            return "internet-archive"
+        elif self.metadata.type == SnapshotType.WEBSITE:
+            return "snapshot"
+        else:
+            raise UnknownSnapshotType(self.metadata.type)
 
     @property
     def assets(self):
-        resolve_reference = website_reference_resolver(self.snapshot_url, self.title)
-        for path, reference in containers.walk(self._contents_path, relative_to=self.path):
-            yield path, resolve_reference(reference)
+        snapshot_type = self.metadata.type
+        if snapshot_type == SnapshotType.WEBSITE:
+            resolve_reference = website_reference_resolver(self.metadata.url, self.title)
+        elif snapshot_type == SnapshotType.INTERNET_ARCHIVE:
+            resolve_reference = internet_archive_reference_resolver(self.metadata.identifier, self.title)
+        else:
+            raise UnknownSnapshotType(snapshot_type)
+        with containers.get_extractor(self._contents_path) as contents_path:
+            for path, reference in containers.walk(contents_path, relative_to=contents_path):
+                yield path, resolve_reference(reference)
 
     def as_dict(self):
         return {
-            "kind": "snapshot",
+            "kind": self.kind,
             "name": self.title,
-            "html_url": self.snapshot_url,
+            "description": self.description,
+            "html_url": self.metadata.url,
         }

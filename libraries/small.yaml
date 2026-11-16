@@ -2,6 +2,7 @@ sources:
 - https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
 - https://f002.backblazeb2.com/file/psion-software-index-snapshots/2025-07-31+05-46-08+www.psion-user-club.at.tar.gz
 - https://f002.backblazeb2.com/file/psion-software-index-snapshots/2026-11-15+21-11-51+384.sumomo.ne.jp.tar.gz
+- https://f002.backblazeb2.com/file/psion-software-index-snapshots/2026-11-16+09-57-28+NWTPsion3.tar.gz
 
 overlays:
 - ../overlays

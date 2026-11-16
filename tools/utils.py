@@ -27,7 +27,57 @@ import requests
 import shutil
 import tempfile
 
+from dataclasses import dataclass
+
+import xml.etree.ElementTree as ET
+
 from tqdm import tqdm
+
+
+@dataclass
+class InternetArchiveMetdata:
+    identifier: str
+    title: str
+    description: str
+
+    @classmethod
+    def load(cls, fh):
+        root = ET.fromstring(fh.read())
+        return cls(identifier=root.find('./identifier').text,
+                   title=root.find('./title').text,
+                   description=root.find('./description').text)
+
+
+@dataclass
+class InternetArchiveFile:
+    name: str
+    source: str
+    format: str
+    size: int | None
+    md5: str | None
+    sha1: str | None
+
+    @classmethod
+    def from_element(cls, element):
+        size_element = element.find('size')
+        md5_element = element.find('md5')
+        sha1_element = element.find('sha1')
+        return cls(name=element.get('name'),
+                   source=element.get('source'),
+                   format=element.find('./format').text,
+                   size=size_element.text if size_element is not None else None,
+                   md5=md5_element.text if md5_element is not None else None,
+                   sha1=sha1_element.text if sha1_element is not None else None)
+
+
+@dataclass
+class InternetArchiveFiles:
+    files: [InternetArchiveFile]
+
+    @classmethod
+    def load(cls, fh):
+        root = ET.fromstring(fh.read())
+        self.files = [utils.InternetArchiveFile.from_element(f) for f in root.findall('./file')]
 
 
 def format_version(version):
@@ -49,8 +99,9 @@ def listdir(path, include_hidden):
     return [f for f in os.listdir(path) if (include_hidden or not f.startswith("."))]
 
 
-def shasum(*paths):
-    sha256 = hashlib.sha256()
+
+def digest(*paths, method):
+    sha256 = method()
     for path in paths:
         if os.path.isdir(path):
             for f in sorted(listdir(path, include_hidden=False)):
@@ -63,6 +114,10 @@ def shasum(*paths):
                         break
                     sha256.update(data)
     return sha256.hexdigest()
+
+
+def shasum(*paths):
+    return digest(*paths, method=hashlib.sha256)
 
 
 def merge_files(source, destination):
