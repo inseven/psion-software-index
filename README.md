@@ -97,15 +97,17 @@ The Index provides tooling to assist with the generation of snapshots.
 ### Website Snapshot
 
 ```sh
-uv run snapshot snapshot https://surf.software
+uv run manage add-snapshot https://surf.software
 ```
 
 ### Internet Archive Snapshot
 
 While there is currently no single-step process for creating a snapshot from an Internet Archive item, a snapshot can be generated from an existing pre-synchronized item. For example,
 
-```
-uv run snapshot import _assets/NWTPsion5/NWTPsion5_meta.xml
+```sh
+uv run manage import --yes \
+    _assets/NWTPsion3/NWTPsion3_meta.xml \
+    _assets/NWTPsion5/NWTPsion5_meta.xml
 ```
 
 ## Contributing
