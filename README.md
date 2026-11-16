@@ -9,7 +9,8 @@ Tools for generating an index of Psion software
 Install the dependencies:
 
 ```bash
-brew install p7zip
+mise trust
+mise install
 ```
 
 And then:
