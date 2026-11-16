@@ -49,18 +49,19 @@ def listdir(path, include_hidden):
     return [f for f in os.listdir(path) if (include_hidden or not f.startswith("."))]
 
 
-def shasum(path):
+def shasum(*paths):
     sha256 = hashlib.sha256()
-    if os.path.isdir(path):
-        for f in sorted(listdir(path, include_hidden=False)):
-            sha256.update(shasum(os.path.join(path, f)).encode('utf-8'))
-    else:
-        with open(path, 'rb') as f:
-            while True:
-                data = f.read(65536)
-                if not data:
-                    break
-                sha256.update(data)
+    for path in paths:
+        if os.path.isdir(path):
+            for f in sorted(listdir(path, include_hidden=False)):
+                sha256.update(shasum(os.path.join(path, f)).encode('utf-8'))
+        else:
+            with open(path, 'rb') as f:
+                while True:
+                    data = f.read(65536)
+                    if not data:
+                        break
+                    sha256.update(data)
     return sha256.hexdigest()
 
 
