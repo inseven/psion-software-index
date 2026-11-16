@@ -100,15 +100,13 @@ pie
 {% endif %}
 {% endfor %}
 
-{% assign snapshot_sources = site.data.sources | where: "kind", "snapshot" | sort: "name" %}
+{% assign website_sources = site.data.sources | where: "kind", "snapshot" | sort: "name" %}
 
-{% if snapshot_sources.size > 0 %}
+{% if website_sources.size > 0 %}
 
 #### Websites
 
-<ul>
-{% for source in snapshot_sources %}
-<li>
+{% for source in website_sources %}
 {% if source.description %}
 <details>
     <summary>{% if source.html_url %}<a href="{{ source.html_url }}">{% endif %}{% if source.name %}{{ source.name }}{% else %}{{ source.path }}{% endif %}{% if source.html_url %}</a>{% endif %}</summary>
@@ -117,8 +115,6 @@ pie
 {% else %}
 {% if source.html_url %}<a href="{{ source.html_url }}">{% endif %}{% if source.name %}{{ source.name }}{% else %}{{ source.path }}{% endif %}{% if source.html_url %}</a>{% endif %}
 {% endif %}
-</li>
 {% endfor %}
-</ul>
 
 {% endif %}
