@@ -143,7 +143,12 @@ def website_reference_resolver(url, title):
     source_reference = model.ReferenceItem(name=title, url=url)
 
     def make_link(reference):
-        return model.ReferenceItem(name=reference.name, url=url + "/" + reference.name)
+        url_components = urlparse(url)
+        base_path = url_components.path
+        if not base_path.endswith("/"):  # Ensure there's a trailing directory marker.
+            base_path += "/"
+        name = reference.name[len(base_path)-1:]
+        return model.ReferenceItem(name=name, url=f"{url_components.scheme}://{url_components.netloc}/{reference.name}")
 
     def resolve_reference(reference):
         contents_reference = reference[1:]
