@@ -57,6 +57,10 @@ jobs:
     - name: Install dependencies
       run: scripts/install-dependencies.sh
 
+    - name: Test Ansible
+      run: |
+        scripts/test-ansible.sh
+
     - name: Run the tests
       run: |
         scripts/test.sh
