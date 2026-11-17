@@ -18,6 +18,7 @@ jobs:
   build:
 
     runs-on: software-index-build
+    environment: ${{ github.ref == 'refs/heads/main' && 'publish' || '' }}
 
     env:
       MISE_CACHE_DIR: ${{ github.workspace }}/.mise/cache
