@@ -18,6 +18,7 @@ jobs:
   build:
 
     runs-on: software-index-build
+    environment: ${{ github.ref == 'refs/heads/main' && 'publish' || '' }}
 
     env:
       MISE_CACHE_DIR: ${{ github.workspace }}/.mise/cache
@@ -95,8 +96,6 @@ jobs:
 
     - name: Deploy site
       if: github.ref == 'refs/heads/main'
-      environment:
-        name: publish
       env:
         ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
         ANSIBLE_BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
