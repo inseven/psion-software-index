@@ -95,6 +95,8 @@ jobs:
 
     - name: Deploy site
       if: github.ref == 'refs/heads/main'
+      environment:
+        name: publish
       env:
         ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
         ANSIBLE_BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
