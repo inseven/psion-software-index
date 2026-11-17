@@ -26,7 +26,6 @@ output_directory: ../site
 overlays:
 - ../overlays
 sources:
-- https://archive.org/download/3-libjune-05/3LIBJUNE05.iso
 - https://archive.org/download/400-psion-programma/400%20psion%20programmas.zip
 - https://archive.org/download/750-programmi-per-il-tuo-palmare/750%20programmi%20per%20il%20tuo%20palmare.iso
 - https://archive.org/download/backups_202508/backups.zip
@@ -163,3 +162,4 @@ sources:
 - https://f002.backblazeb2.com/file/psion-software-index-snapshots/2026-11-16+17-00-29+NWTPsion5.tar.gz
 - https://f002.backblazeb2.com/file/psion-software-index-snapshots/2026-11-16+17-09-31+psion-epoc16-collection.tar.gz
 - https://f002.backblazeb2.com/file/psion-software-index-snapshots/2026-11-16+17-10-33+pcdierct-numero-98.tar.gz
+- https://snapshots.psion.community/2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
