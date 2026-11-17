@@ -17,7 +17,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-build-02
+    runs-on: software-index-build
 
     env:
       MISE_CACHE_DIR: ${{ github.workspace }}/.mise/cache
