@@ -64,7 +64,7 @@ git submodule update --init --recursive
 It can be useful to be able to run the indexer on a smaller library:
 
 ```bash
-uv run indexer libraries/3lib.yaml sync index group overlay
+uv run indexer libraries/small.yaml sync index group overlay
 ```
 
 You can serve the site locally as follows:
@@ -80,7 +80,7 @@ Building the site for the first time can be a bit slow, so be patient. Subsequen
 > The indexer runs multiple commands and Lua scripts during the indexing process (approximately 100,000 for the current library). Small changes in process launch times can therefore significantly impact index generation performance, and shim-based environment managers like [asdf](https://asdf-vm.com) can cause real problems. To work around this, the indexer respects the `LUA_PATH` environment variable to allow shims to be bypassed. For example,
 >
 > ```bash
-> LUA_PATH=/opt/homebrew/bin/lua uv run indexer libraries/3lib.yaml sync index group overlay
+> LUA_PATH=/opt/homebrew/bin/lua uv run indexer libraries/small.yaml sync index group overlay
 > ```
 
 ## Content
