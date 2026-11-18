@@ -6,10 +6,11 @@ description = "Tools for building the Psion Software Index"
 requires-python = "==3.14.*"
 
 dependencies = [
-    "b2sdk",
     "beautifulsoup4",
+    "boto3",
     "certifi",
     "check-jsonschema",
+    "dotenv",
     "fastcommand",
     "GitPython",
     "jinja2",

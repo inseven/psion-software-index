@@ -34,6 +34,7 @@ from dataclasses import dataclass
 from urllib.parse import quote_plus
 from urllib.parse import urlparse
 
+import boto3
 import yaml
 
 import xml.etree.ElementTree as ET
@@ -43,8 +44,7 @@ from . import model
 from . import utils
 
 
-BACKBLAZE_SNAPSHOTS_BASE_URL = "https://f002.backblazeb2.com/file/psion-software-index-snapshots/"
-CLOUDFLARE_SNAPSHOTS_BASE_URL = "https://snapshots.psion.community/"
+SNAPSHOT_PREFIX = "snapshot:"
 
 
 ARCHIVE_EXTENSIONS = set([
@@ -125,7 +125,7 @@ def create_source(assets_directory, url):
     url_components = urlparse(url)
     if url_components.hostname == "archive.org":
         return InternetArchiveSource(assets_directory, url)
-    elif url.startswith(BACKBLAZE_SNAPSHOTS_BASE_URL) or url.startswith(CLOUDFLARE_SNAPSHOTS_BASE_URL):
+    elif url.startswith(SNAPSHOT_PREFIX):
         return SnapshotSource(assets_directory, url)
     raise UnsupportedURL(url)
 
@@ -320,10 +320,15 @@ class SnapshotSource(object):
     def __init__(self, root_directory, url):
         self.root_directory = root_directory
         self.url = url
-        if not (url.startswith(BACKBLAZE_SNAPSHOTS_BASE_URL) or url.startswith(CLOUDFLARE_SNAPSHOTS_BASE_URL)) or not url.endswith(".tar.gz"):
+        if not url.startswith(SNAPSHOT_PREFIX) or not url.endswith(".tar.gz"):
             raise UnsupportedURL(url)
-        url_components = urlparse(url)
-        filename = url_components.path.split("/")[-1]
+
+        if url.startswith(SNAPSHOT_PREFIX):
+            filename = url.split(":", 1)[1]
+        else:
+            url_components = urlparse(url)
+            filename = url_components.path.split("/")[-1]
+
         basename = filename[:-(len(".tar.gz"))]
         identifier = basename.replace("+", " ")
 
@@ -333,13 +338,31 @@ class SnapshotSource(object):
         self._metadata_path = os.path.join(self.path, "metadata.json")
         self._metadata = None
 
+    def _download(self, destination_directory):
+        filename = self.url.split(":", 1)[1]
+
+        endpoint_url = os.environ["SNAPSHOTS_BUCKET_ENDPOINT_URL"]
+        bucket_name = os.environ["SNAPSHOTS_BUCKET_NAME"]
+        access_key_id = os.environ["SNAPSHOTS_BUCKET_ACCESS_KEY_ID"]
+        secret_access_key = os.environ["SNAPSHOTS_BUCKET_SECRET_ACCESS_KEY"]
+
+        logging.info("Downloading '%s' from '%s'...", filename, bucket_name)
+        client = boto3.client("s3",
+                              endpoint_url=endpoint_url,
+                              aws_access_key_id=access_key_id,
+                              aws_secret_access_key=secret_access_key,
+                              region_name="auto")
+        destination_path = os.path.join(destination_directory, filename)
+        client.download_file(bucket_name, filename, destination_path)
+        return destination_path
+
     def sync(self):
         logging.info("Syncing '%s'...", self.url)
         if os.path.exists(self.path):
             return
         with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
             print("Creating directory...")
-            filename = utils.download_file(self.url)
+            filename = self._download(temporary_directory)
             contents_path = os.path.join(temporary_directory, "contents")
             os.makedirs(contents_path)
             containers.extract_tar_gz(filename, contents_path)
