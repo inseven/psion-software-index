@@ -41,7 +41,7 @@ import fastcommand
 import requests
 import yaml
 
-import b2sdk.v2 as b2
+import boto3
 import requests
 
 from bs4 import BeautifulSoup
@@ -267,15 +267,17 @@ def upload(source_path, destination_filename):
         config = json.load(fh)
 
     logging.info("Uploading...")
-    info = b2.InMemoryAccountInfo()
-    b2_api = b2.B2Api(info)
-    b2_api.authorize_account("production", config["key_id"], config["application_key"])
-    bucket = b2_api.get_bucket_by_name("psion-software-index-snapshots")
-    upload = bucket.upload_local_file(local_file=source_path,
-                                    file_name=destination_filename,
-                                    file_infos={})
+    client = boto3.client("s3",
+                          endpoint_url=config["endpoint_url"],
+                          aws_access_key_id=config["access_key_id"],
+                          aws_secret_access_key=config["secret_access_key"],
+                          region_name="auto")
+    client.upload_file(source_path,
+                       config["bucket_name"],
+                       destination_filename,
+                       ExtraArgs={"ContentType": "application/gzip"})
 
-    return f"{b2_api.account_info.get_download_url()}/file/{bucket.name}/{upload.file_name.replace(" ", "+")}"
+    return f"{config['public_base_url']}/{destination_filename}"
 
 
 @contextlib.contextmanager
@@ -311,12 +313,8 @@ def command_add_snapshot(options):
             logging.info("wget completed successfully.")
 
     # Upload.
-    if options.yes or query("Upload to B2?"):
+    if options.yes or query("Upload and update library?"):
         url = upload(snapshot_path, snapshot_metadata.filename)
-        print(url)
-
-    # Update library.
-    if options.yes or query(f"Update library '{options.library}'?"):
         add_source(options.library, url)
 
     logging.info("Done.")
@@ -371,14 +369,11 @@ def command_import(options):
                     shutil.copyfile(asset_path, name)
 
         # Upload.
-        if options.yes or query("Upload to B2?"):
+        if options.yes or query("Upload and update library?"):
             url = upload(snapshot_path, snapshot_metadata.filename)
-            print(url)
+            snapshot_urls.append(url)
 
-        snapshot_urls.append(url)
-
-    # Update library.
-    if options.yes or query(f"Update library '{options.library}'?"):
+    if snapshot_urls:
         add_source(options.library, *snapshot_urls)
 
     logging.info("Done.")
