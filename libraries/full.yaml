@@ -127,7 +127,6 @@ sources:
 - snapshot:2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
 - snapshot:2026-11-18-04-11-20-internet-archive-400-psion-programma.tar.gz
 - snapshot:2026-11-18-04-19-19-internet-archive-750-programmi-per-il-tuo-palmare.tar.gz
-- snapshot:2026-11-18-04-22-19-internet-archive-backups_202508.tar.gz
 - snapshot:2026-11-18-04-23-50-internet-archive-berlitzphrasebook.tar.gz
 - snapshot:2026-11-18-04-24-56-internet-archive-palmtops-numero-01.tar.gz
 - snapshot:2026-11-18-04-25-35-internet-archive-palmtops-numero-03.tar.gz
@@ -163,3 +162,4 @@ sources:
 - snapshot:2026-11-18-04-43-00-internet-archive-palmtops-numero-34-front.tar.gz
 - snapshot:2026-11-18-04-43-34-internet-archive-palmtops-numero-35.tar.gz
 - snapshot:2026-11-18-04-44-03-internet-archive-palmtops-numero-36.tar.gz
+- snapshot:2026-11-18-18-52-07-internet-archive-backups_202508.tar.gz
