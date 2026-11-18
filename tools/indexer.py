@@ -44,6 +44,7 @@ import urllib.parse
 
 from enum import Enum
 
+import dotenv
 import frontmatter
 import jsonschema
 import natsort
@@ -975,6 +976,8 @@ def main():
     parser.add_argument("command", choices=["sync", "index", "filetree", "group", "overlay"], nargs="+", help="command to run")
     parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
     options = parser.parse_args()
+
+    dotenv.load_dotenv()
 
     library = common.Library(options.definition)
 
