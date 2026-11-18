@@ -43,7 +43,8 @@ from . import model
 from . import utils
 
 
-SNAPSHOTS_BASE_URL = "https://f002.backblazeb2.com/file/psion-software-index-snapshots/"
+BACKBLAZE_SNAPSHOTS_BASE_URL = "https://f002.backblazeb2.com/file/psion-software-index-snapshots/"
+CLOUDFLARE_SNAPSHOTS_BASE_URL = "https://snapshots.psion.community/"
 
 
 ARCHIVE_EXTENSIONS = set([
@@ -124,7 +125,7 @@ def create_source(assets_directory, url):
     url_components = urlparse(url)
     if url_components.hostname == "archive.org":
         return InternetArchiveSource(assets_directory, url)
-    elif url.startswith(SNAPSHOTS_BASE_URL):
+    elif url.startswith(BACKBLAZE_SNAPSHOTS_BASE_URL) or url.startswith(CLOUDFLARE_SNAPSHOTS_BASE_URL):
         return SnapshotSource(assets_directory, url)
     raise UnsupportedURL(url)
 
@@ -319,7 +320,7 @@ class SnapshotSource(object):
     def __init__(self, root_directory, url):
         self.root_directory = root_directory
         self.url = url
-        if not url.startswith(SNAPSHOTS_BASE_URL) or not url.endswith(".tar.gz"):
+        if not (url.startswith(BACKBLAZE_SNAPSHOTS_BASE_URL) or url.startswith(CLOUDFLARE_SNAPSHOTS_BASE_URL)) or not url.endswith(".tar.gz"):
             raise UnsupportedURL(url)
         url_components = urlparse(url)
         filename = url_components.path.split("/")[-1]
