@@ -104,8 +104,8 @@ class SnapshotMetadata:
 
     @property
     def filename(self):
-        timestamp = self.date.strftime("%Y-%m-%d %H-%M-%S")
-        return f"{timestamp} {self.identifier}.tar.gz"
+        timestamp = self.date.strftime("%Y-%m-%d-%H-%M-%S")
+        return f"{timestamp}-{self.type}-{self.identifier.replace(" ", "-")}.tar.gz"
 
     def dump(self, fh):
         json.dump({
