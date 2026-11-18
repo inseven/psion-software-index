@@ -277,7 +277,7 @@ def upload(source_path, destination_filename):
                        destination_filename,
                        ExtraArgs={"ContentType": "application/gzip"})
 
-    return f"{config['public_base_url']}/{destination_filename}"
+    return f"snapshot:{destination_filename}"
 
 
 @contextlib.contextmanager
