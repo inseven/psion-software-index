@@ -321,21 +321,23 @@ def command_add_snapshot(options):
 
 
 @fastcommand.command("import", help="import an existing Internet Archive asset", arguments=[
-    fastcommand.Argument("metadata", nargs="+", help="downloaded asset metadata file path(s)"),
+    fastcommand.Argument("assets", nargs="+", help="downloaded asset directory(s)"),
     fastcommand.Argument("-y", "--yes", action="store_true", default=False, help="automatically answer yes to all prompts"),
+    fastcommand.Argument("-d", "--delete", action="store_true", default=False, help="delete assets upon successful upload"),
 ])
 def command_import(options):
     os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
-    snapshot_urls = []
 
-    for metadata_path in options.metadata:
-        metadata_path = os.path.abspath(metadata_path)
-        assets_directory = os.path.dirname(metadata_path)
+    assets_directories = [os.path.abspath(directory) for directory in options.assets]
+
+    for assets_directory in assets_directories:
+        identifier = os.path.basename(assets_directory)
+        metadata_path = os.path.join(assets_directory, f"{identifier}_meta.xml")
+        files_path = os.path.join(assets_directory, f"{identifier}_files.xml")
 
         # Read the metadata and file listing.
         with open(metadata_path) as fh:
             metadata = utils.InternetArchiveMetdata.load(fh)
-        files_path = os.path.join(assets_directory, f"{metadata.identifier}_files.xml")
         with open(files_path) as fh:
             files = utils.InternetArchiveFiles.load(fh)
 
@@ -371,10 +373,12 @@ def command_import(options):
         # Upload.
         if options.yes or query("Upload and update library?"):
             url = upload(snapshot_path, snapshot_metadata.filename)
-            snapshot_urls.append(url)
+            add_source(options.library, url)
 
-    if snapshot_urls:
-        add_source(options.library, *snapshot_urls)
+        # Delete.
+        if options.delete:
+            logging.info("Deleting '%s'...", assets_directory)
+            shutil.rmtree(assets_directory)
 
     logging.info("Done.")
 
