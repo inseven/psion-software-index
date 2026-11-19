@@ -43,23 +43,27 @@ logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%
 MAX_HISTORY_COUNT = 5
 
 
+def headers(accept):
+    headers = {
+        "Accept": accept,
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    if "GITHUB_TOKEN" in os.environ:
+        headers["Authorization"] = f"Bearer {os.environ["GITHUB_TOKEN"]}"
+    return headers
+
+
 def generate_charts(path, current_summary_path):
 
     url = f"https://api.github.com/repos/inseven/psion-software-index/releases"
-    headers = {
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
-
-    # Use a GitHub token if it's present in the environment as this is likely to have fewer rate limits.
-    if "GITHUB_TOKEN" in os.environ:
-        headers["Authorization"] = f"Bearer {os.environ["GITHUB_TOKEN"]}"
 
     # Fetch the required data with an exponential backoff (max 5m) if we hit a 403 rate limit.
     # TODO: Support paging.
     attempt = 1
     while True:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url,
+                                allow_redirects=True,
+                                headers=headers(accept="application/vnd.github+json"))
         if response.status_code == 200:
             break
         elif response.status_code == 403:
@@ -72,6 +76,7 @@ def generate_charts(path, current_summary_path):
             response.raise_for_status()
 
     summaries = []
+
     releases = response.json()
     for release in releases:
         if release['prerelease']:
@@ -80,9 +85,11 @@ def generate_charts(path, current_summary_path):
         logging.info("Downloading summary for '%s'...", release_name)
         assets = {asset['name']: asset['browser_download_url'] for asset in release.get('assets', [])}
         if 'summary.json' in assets:
-            summary_response = requests.get(assets['summary.json'])
+            summary_response = requests.get(assets['summary.json'],
+                                            allow_redirects=True,
+                                            headers=headers(accept="application/octet-stream"))
             summaries.append({'version': release_name, 'summary': summary_response.json()})
-        if len(summaries) > MAX_HISTORY_COUNT:
+        if len(summaries) >= MAX_HISTORY_COUNT:
             break
     summaries.reverse()
 
