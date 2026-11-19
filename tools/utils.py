@@ -41,11 +41,26 @@ class InternetArchiveMetdata:
     description: str
 
     @classmethod
+    def loads(cls, contents):
+        root = ET.fromstring(contents)
+        return cls(identifier=root.find('./identifier').text,
+                   title=root.find('./title').text,
+                   description=root.find('./description').text)
+
+    @classmethod
     def load(cls, fh):
         root = ET.fromstring(fh.read())
         return cls(identifier=root.find('./identifier').text,
                    title=root.find('./title').text,
                    description=root.find('./description').text)
+
+    @classmethod
+    def get(cls, identifier):
+        """
+        Download the Internet Archive metadata for item `identifier`.
+        """
+        response = requests.get(f"https://archive.org/download/{identifier}/{identifier}_meta.xml")
+        return cls.loads(response.text)
 
 
 @dataclass
@@ -75,9 +90,21 @@ class InternetArchiveFiles:
     files: [InternetArchiveFile]
 
     @classmethod
-    def load(cls, fh):
-        root = ET.fromstring(fh.read())
+    def loads(cls, contents):
+        root = ET.fromstring(contents)
         return cls(files=[InternetArchiveFile.from_element(f) for f in root.findall('./file')])
+
+    @classmethod
+    def load(cls, fh):
+        return cls.loads(fh.read())
+
+    @classmethod
+    def get(cls, identifier):
+        """
+        Download the Internet Archive file listing for item `identifier`.
+        """
+        response = requests.get(f"https://archive.org/download/{identifier}/{identifier}_files.xml")
+        return cls.loads(response.text)
 
 
 def format_version(version):
