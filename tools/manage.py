@@ -320,69 +320,6 @@ def command_add_snapshot(options):
     logging.info("Done.")
 
 
-@fastcommand.command("import", help="import an existing Internet Archive asset", arguments=[
-    fastcommand.Argument("assets", nargs="+", help="downloaded asset directory(s)"),
-    fastcommand.Argument("-y", "--yes", action="store_true", default=False, help="automatically answer yes to all prompts"),
-    fastcommand.Argument("-d", "--delete", action="store_true", default=False, help="delete assets upon successful upload"),
-])
-def command_import(options):
-    os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
-
-    assets_directories = [os.path.abspath(directory) for directory in options.assets]
-
-    for assets_directory in assets_directories:
-        identifier = os.path.basename(assets_directory)
-        metadata_path = os.path.join(assets_directory, f"{identifier}_meta.xml")
-        files_path = os.path.join(assets_directory, f"{identifier}_files.xml")
-
-        # Read the metadata and file listing.
-        with open(metadata_path) as fh:
-            metadata = utils.InternetArchiveMetdata.load(fh)
-        with open(files_path) as fh:
-            files = utils.InternetArchiveFiles.load(fh)
-
-        # Check the files on disk.
-        assets = []
-        for f in files.files:
-            file_path = os.path.join(assets_directory, quote(f.name))
-            if f.format == "Metadata" or not os.path.exists(file_path):
-                continue
-            logging.info("Checking '%s'...", file_path)
-            if f.sha1 != utils.digest(file_path, method=hashlib.sha1):
-                exit("sha1 doesn't match.")
-            assets.append(file_path)
-
-        # Don't create a snapshot if there are no files.
-        if len(assets) < 1:
-            exit("No files found.")
-
-        # Create the snapshot.
-        snapshot_metadata = SnapshotMetadata(type=SnapshotType.INTERNET_ARCHIVE,
-                                            url=f"https://archive.org/details/{metadata.identifier}",
-                                            identifier=metadata.identifier,
-                                            title=metadata.title,
-                                            description=metadata.description)
-        snapshot_path = os.path.join(SNAPSHOTS_DIRECTORY, snapshot_metadata.filename)
-        with snapshot_container(snapshot_path, snapshot_metadata):
-            with tar_container("contents.tar.gz") as container_path:
-                for asset_path in assets + [metadata_path, files_path]:
-                    name = os.path.basename(asset_path)
-                    logging.info("Copying '%s'...", name)
-                    shutil.copyfile(asset_path, name)
-
-        # Upload.
-        if options.yes or query("Upload and update library?"):
-            url = upload(snapshot_path, snapshot_metadata.filename)
-            add_source(options.library, url)
-
-        # Delete.
-        if options.delete:
-            logging.info("Deleting '%s'...", assets_directory)
-            shutil.rmtree(assets_directory)
-
-    logging.info("Done.")
-
-
 def main():
     cli = fastcommand.CommandParser(description="Management tool for the Psion Software Index.")
     cli.add_argument("--library", help=f"path to the library (defaults to '{os.path.relpath(DEFAULT_LIBRARY_PATH)}')", default=DEFAULT_LIBRARY_PATH)
