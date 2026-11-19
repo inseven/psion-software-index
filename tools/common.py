@@ -119,17 +119,6 @@ class SnapshotMetadata:
         fh.write("\n")
 
 
-def create_source(assets_directory, url):
-    if os.path.isdir(url):
-        return LocalSource(assets_directory, url)
-    url_components = urlparse(url)
-    if url_components.hostname == "archive.org":
-        return InternetArchiveSource(assets_directory, url)
-    elif url.startswith(SNAPSHOT_PREFIX):
-        return SnapshotSource(assets_directory, url)
-    raise UnsupportedURL(url)
-
-
 class Library(object):
 
     def __init__(self, path):
@@ -159,7 +148,7 @@ class Library(object):
         self.index_directory = prefer_environment_variable("index_directory")
         self.filetree_directory = prefer_environment_variable("filetree_directory")
         self.output_directory = prefer_environment_variable("output_directory")
-        self.sources = [create_source(self.assets_directory, url) for url in self._configuration['sources']]
+        self.sources = [SnapshotSource(self.assets_directory, url) for url in self._configuration['sources']]
 
     def sync(self):
         logging.info("Syncing library...")
@@ -223,96 +212,6 @@ def website_reference_resolver(url, title):
             return [source_reference] + [make_link(reference[0])] + reference[1:]
 
     return resolve_reference
-
-
-class InternetArchiveSource(object):
-
-    def __init__(self, root_directory, url):
-        self.url = url
-        url_components = urlparse(url)
-
-        # We currently support a few different Internet Archive url formats:
-        # - item urls
-        # - download urls
-
-        if url_components.hostname != "archive.org":
-            raise UnsupportedURL(url)
-        path_components = url_components.path.split("/")[1:]
-        if path_components[0] == "download":
-
-            # We don't currently support downloading paths inside archives.
-            for component in path_components[:-1]:
-                if os.path.splitext(component)[1].lower() in ARCHIVE_EXTENSIONS:
-                    raise UnsupportedURL(url)
-            internet_archive_identifier = path_components[1]
-            identifier = "+".join(path_components[1:])
-        elif path_components[0] == "details" and len(path_components) == 2:
-            internet_archive_identifier = path_components[1]
-            identifier = path_components[1]
-        else:
-            raise UnsupportedURL(url)
-
-        self.internet_archive_identifier = internet_archive_identifier
-        self.identifier = utils.safe_identifier("internet-archive-" + identifier)
-        self.item_directory = os.path.join(root_directory, self.internet_archive_identifier)
-        self.item_metadata_path = os.path.join(self.item_directory, f"{self.internet_archive_identifier}_meta.xml")
-        self.file_metadata_path = os.path.join(self.item_directory, f"{self.internet_archive_identifier}_files.xml")
-        self.relative_path = os.path.join(*(path_components[2:]))
-        self.path = os.path.join(self.item_directory, self.relative_path)
-        self._metadata = None
-
-    def sync(self):
-        logging.info("Syncing '%s'...", self.internet_archive_identifier)
-        os.makedirs(self.item_directory, exist_ok=True)
-        if not os.path.exists(self.item_metadata_path):
-            utils.download_file_with_mirrors([
-                f"https://archive.org/download/{self.internet_archive_identifier}/{self.internet_archive_identifier}_meta.xml",
-            ], self.item_metadata_path)
-        if not os.path.exists(self.file_metadata_path):
-            utils.download_file_with_mirrors([
-                f"https://archive.org/download/{self.internet_archive_identifier}/{self.internet_archive_identifier}_files.xml",
-            ], self.file_metadata_path)
-        if not os.path.exists(self.path):
-            destination_directory = os.path.dirname(self.path)
-            logging.info(destination_directory)
-            os.makedirs(destination_directory, exist_ok=True)
-            utils.download_file_with_mirrors([
-                self.url,
-            ], self.path)
-
-    @property
-    def hash(self):
-        return utils.shasum(self.path)
-
-    @property
-    def metadata(self):
-        if self._metadata is None:
-            with open(self.item_metadata_path) as fh:
-                self._metadata = utils.InternetArchiveMetdata.load(fh)
-        return self._metadata
-
-    @property
-    def title(self):
-        return self.metadata.title
-
-    @property
-    def description(self):
-        return self.metadata.description
-
-    @property
-    def assets(self):
-        resolve_reference = internet_archive_reference_resolver(self.internet_archive_identifier, self.title)
-        for path, reference in containers.walk(self.path, relative_to=self.item_directory):
-            yield (path, resolve_reference(reference))
-
-    def as_dict(self):
-        return {
-            'kind': SnapshotType.INTERNET_ARCHIVE,
-            'name': self.title,
-            'description': self.description,
-            'url': self.url,
-            'html_url': f"https://archive.org/details/{self.internet_archive_identifier}"
-        }
 
 
 class SnapshotSource(object):
