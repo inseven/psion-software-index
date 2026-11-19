@@ -88,13 +88,21 @@ jobs:
         mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
         uv run indexer libraries/full.yaml index
 
-    - name: Group and overlay
+    - name: Group
       env:
         TMPDIR: ${{ runner.temp }}
       run: |
         mkdir -p "$INDEXER_ASSETS_DIRECTORY"
         mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
-        uv run indexer libraries/full.yaml group overlay
+        uv run indexer libraries/full.yaml group
+
+    - name: Overlay
+      env:
+        TMPDIR: ${{ runner.temp }}
+      run: |
+        mkdir -p "$INDEXER_ASSETS_DIRECTORY"
+        mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
+        uv run indexer libraries/full.yaml overlay
 
     - name: Validate the API
       run: |
