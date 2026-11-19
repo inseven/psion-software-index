@@ -5,7 +5,7 @@ gh = "2.105.0"
 node = "26.13.1"
 python = "3.15.2"
 rclone = "1"
-ruby = "4.0.9"
+ruby = "4.0.10"
 uv = "latest"
 yq = "latest"
 
