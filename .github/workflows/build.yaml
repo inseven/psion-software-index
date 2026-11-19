@@ -132,7 +132,7 @@ jobs:
         WEBSITE_BUCKET_SECRET_ACCESS_KEY: ${{ secrets.WEBSITE_BUCKET_SECRET_ACCESS_KEY }}
       run: |
         ansible/deploy.py
-        scripts/deploy.sh
+        # scripts/deploy.sh
 
     - name: Package and optionally release
       env:
