@@ -83,36 +83,35 @@ Building the site for the first time can be a bit slow, so be patient. Subsequen
 > LUA_PATH=/opt/homebrew/bin/lua uv run indexer libraries/small.yaml sync index group overlay
 > ```
 
-## Content
-
-The Software Index can load content directly from the [Internet Archive](https://archive.org), or from structured snapshots available on a public-facing URL.
-
-Snapshots are current stored in a public Backblaze B2 bucket (we are exploring moving to a private [Cloudflare R2](https://www.cloudflare.com/products/r2/) to avoid egress costs). They exist to guard against original sources disappearing, and to ensure we don't unnecessarily load primary hosts when generating the Index. They can be of the following types:
-
-- Website – a one-shot mirror of a website
-- Internet Archive – a copy of one or more assets from an Internet Archive item with associated metadata
-
-The Index provides tooling to assist with the generation of snapshots.
-
-### Website Snapshot
-
-```sh
-uv run manage add-snapshot https://surf.software
-```
-
-### Internet Archive Snapshot
-
-While there is currently no single-step process for creating a snapshot from an Internet Archive item, a snapshot can be generated from an existing pre-synchronized item. For example,
-
-```sh
-uv run manage import --yes \
-    _assets/NWTPsion3/NWTPsion3_meta.xml \
-    _assets/NWTPsion5/NWTPsion5_meta.xml
-```
-
 ## Contributing
 
 Contributions are welcome in the form of PRs or GitHub Issues.
+
+### Content
+
+The Software Index is built from snapshots contained within a private [Cloudflare R2](https://www.cloudflare.com/products/r2/) bucket. This guards against original sources disappearing, and to ensures we don't unnecessarily load primary hosts when generating the Index.
+
+We provide a CLI that can be used to create the following snapshot types:
+
+- Website – a one-shot mirror of a website
+
+  ```sh
+  uv run manage add-snapshot https://psion.com
+  ```
+
+- Internet Archive – a copy of one or more assets from an Internet Archive item with associated metadata
+
+  - Snapshot a complete item:
+
+    ```sh
+    uv run manage add-snapshot https://archive.org/details/palmtop-cd-2
+    ```
+
+  - Cherry-pick a single asset from an item:
+
+    ```sh
+    uv run manage add-snapshot https://archive.org/download/palmtop-cd-2/palmtop%20cd2.zip
+    ```
 
 ## References
 

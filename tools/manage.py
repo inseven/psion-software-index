@@ -34,7 +34,8 @@ import subprocess
 import sys
 import tempfile
 
-from urllib.parse import quote
+from dataclasses import dataclass
+from urllib.parse import quote, unquote
 from urllib.parse import urlparse
 
 import fastcommand
@@ -49,7 +50,8 @@ from bs4 import BeautifulSoup
 from . import common
 from . import utils
 
-from .common import SnapshotType, SnapshotMetadata
+from .utils import InternetArchiveFile, InternetArchiveFiles, InternetArchiveMetdata
+from .common import SnapshotType, SnapshotMetadata, UnknownSnapshotType, UnsupportedURL
 
 
 TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -246,12 +248,23 @@ def tar_container(path):
         tar(temporary_directory, path)
 
 
-def get_title(url):
+@dataclass
+class DocumentMetadata:
+    title: str
+    description: str
+
+
+def get_document_metadata(url):
     response = requests.get(url, headers={
         "User-Agent": USER_AGENT,
     })
     document = BeautifulSoup(response.text, 'html.parser')
-    return document.title.text
+    title = document.title.text
+    description = ""
+    description_tag = document.select('meta[name="description"]')
+    if description_tag:
+        description = description_tag[0].attrs["content"]
+    return DocumentMetadata(title=title, description=description)
 
 
 def query(text):
@@ -288,6 +301,80 @@ def snapshot_container(path, metadata):
         yield temporary_directory
 
 
+def infer_snapshot_type(url):
+    url_components = urlparse(url)
+    if url_components.hostname == "archive.org":
+        return SnapshotType.INTERNET_ARCHIVE
+    elif url_components.scheme in ["https", "http"]:
+        return SnapshotType.WEBSITE
+    else:
+        raise UnsupportedURL(url)
+
+
+@dataclass
+class InternetArchiveSpec:
+    """
+    Specification describing an Internet Archive as inferred by parsing a URL.
+    """
+    identifier: str
+    file: str | None
+
+    @classmethod
+    def parse(cls, url):
+        """
+        Parse a URL, `url`, describing an Internet Archive item or single asset from an item.
+        """
+        url_components = urlparse(url)
+        if url_components.hostname != "archive.org":
+            raise UnsupportedURL(url)
+        path_components = url_components.path.split("/")[1:]
+        if path_components[0] == "download" and len(path_components) == 3:
+            return cls(identifier=path_components[1], file=unquote(path_components[2]))
+        elif path_components[0] == "details" and len(path_components) == 2:
+            return cls(identifier=path_components[1], file=None)
+        raise UnsupportedURL(url)
+
+
+def download_internet_archive_file(identifier, filename, path):
+    url = f"https://archive.org/download/{identifier}/{quote(filename)}"
+    logging.info("Downloading '%s'...", url)
+    utils.download_file(url, path)
+
+
+class InvalidChecksum(Exception):
+    pass
+
+
+def download_internet_archive_item(spec, destination_directory):
+
+    # Metadata.
+    logging.info("Downloading metadata...")
+    item_metadata_filename = f"{spec.identifier}_meta.xml"
+    item_metadata_path = os.path.join(destination_directory, item_metadata_filename)
+    download_internet_archive_file(spec.identifier, item_metadata_filename, item_metadata_path)
+
+    # Files.
+    logging.info("Downloading file listing...")
+    item_files_filename = f"{spec.identifier}_files.xml"
+    item_files_path = os.path.join(destination_directory, item_files_filename)
+    download_internet_archive_file(spec.identifier, item_files_filename, item_files_path)
+
+    # Assets.
+    logging.info("Downloading assets...")
+    with open(item_files_path) as fh:
+        file_listing = InternetArchiveFiles.load(fh)
+    if spec.file is not None:
+        files = [next(f for f in file_listing.files if f.name == spec.file)]
+    else:
+        files = [f for f in file_listing.files if f.source == "original" and f.format not in ["Metadata", "JPEG Thumb", "Item Tile"]]
+
+    for f in files:
+        file_path = os.path.join(destination_directory, f.name)
+        download_internet_archive_file(spec.identifier, f.name, file_path)
+        if f.sha1 != utils.digest(file_path, method=hashlib.sha1):
+            raise InvalidChecksum(file_path)
+
+
 @fastcommand.command("add-snapshot", help="create and upload a new website snapshot", arguments=[
     fastcommand.Argument("url", help="url to mirror"),
     fastcommand.Argument("-y", "--yes", action="store_true", default=False, help="automatically answer yes to all prompts"),
@@ -296,21 +383,50 @@ def command_add_snapshot(options):
     os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
     url = options.url
 
+    snapshot_type = infer_snapshot_type(url)
+    if snapshot_type == SnapshotType.WEBSITE:
+
+        identifier = urlparse(url).hostname
+        document_metadata = get_document_metadata(url)
+        snapshot_metadata = SnapshotMetadata(type=snapshot_type,
+                                             url=url,
+                                             identifier=identifier,
+                                             title=document_metadata.title,
+                                             description=document_metadata.description)
+
+        def download(container_path):
+            with contextlib.chdir(container_path):
+                logging.info("Mirroring '%s'...", url)
+                returncode = mirror_site(url, "contents.tar.gz", "log.txt")
+                if returncode != 0:
+                    logging.warning("wget exited with a non-zero exit code (%s); check log.txt for more details.", returncode)
+                    if query("Review logs?"):
+                        subprocess.run(["less", "log.txt"])
+                else:
+                    logging.info("wget completed successfully.")
+
+    elif snapshot_type == SnapshotType.INTERNET_ARCHIVE:
+
+        spec = InternetArchiveSpec.parse(url)
+        item_metadata = InternetArchiveMetdata.get(spec.identifier)
+        snapshot_metadata = SnapshotMetadata(type=snapshot_type,
+                                             url=url,
+                                             identifier=spec.identifier,
+                                             title=item_metadata.title,
+                                             description=item_metadata.description)
+
+        def download(container_path):
+            with contextlib.chdir(container_path), tar_container("contents.tar.gz") as contents_path:
+                logging.info("Downloading '%s'...", spec.identifier)
+                download_internet_archive_item(spec, contents_path)
+
+    else:
+        raise UnknownSnapshotType(snapshot_type)
+
     # Create the snapshot.
-    snapshot_metadata = SnapshotMetadata(type=SnapshotType.WEBSITE,
-                                         url=url,
-                                         identifier=urlparse(url).hostname,
-                                         title=get_title(url),
-                                         description="")
     snapshot_path = os.path.join(SNAPSHOTS_DIRECTORY, snapshot_metadata.filename)
     with snapshot_container(snapshot_path, snapshot_metadata) as container_path:
-        returncode = mirror_site(url, "contents.tar.gz", "log.txt")
-        if returncode != 0:
-            logging.warning("wget exited with a non-zero exit code (%s); check log.txt for more details.", returncode)
-            if query("Review logs?"):
-                subprocess.run(["less", "log.txt"])
-        else:
-            logging.info("wget completed successfully.")
+        download(container_path)
 
     # Upload.
     if options.yes or query("Upload and update library?"):
