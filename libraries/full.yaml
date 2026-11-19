@@ -28,7 +28,6 @@ overlays:
 sources:
 - 2025-07-31-05-46-08-www.psion-user-club.at.tar.gz
 # - 2025-07-31-22-29-00-www.mypsion.ru.tar.gz
-# - 2025-08-11-08-04-13-www.rmrsoft.com.tar.gz
 - 2025-09-21-17-09-01-damian.cyningstan.org.uk.tar.gz
 - 2026-11-15-21-11-51-384.sumomo.ne.jp.tar.gz
 - 2026-11-16-09-57-28-NWTPsion3.tar.gz
@@ -159,3 +158,4 @@ sources:
 - 2026-11-18-08-09-48-internet-archive-streetplanner99.tar.gz
 - 2026-11-18-08-10-11-internet-archive-windowsNews86.tar.gz
 - 2026-11-18-18-52-07-internet-archive-backups_202508.tar.gz
+- 2026-11-19-09-22-35-website-www.rmrsoft.com.tar.gz
