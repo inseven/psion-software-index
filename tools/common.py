@@ -44,15 +44,6 @@ from . import model
 from . import utils
 
 
-SNAPSHOT_PREFIX = "snapshot:"
-
-
-ARCHIVE_EXTENSIONS = set([
-    ".zip",
-    ".iso",
-])
-
-
 class UnsupportedURL(Exception):
     pass
 
@@ -219,15 +210,7 @@ class SnapshotSource(object):
     def __init__(self, root_directory, url):
         self.root_directory = root_directory
         self.url = url
-        if not url.startswith(SNAPSHOT_PREFIX) or not url.endswith(".tar.gz"):
-            raise UnsupportedURL(url)
-
-        if url.startswith(SNAPSHOT_PREFIX):
-            filename = url.split(":", 1)[1]
-        else:
-            url_components = urlparse(url)
-            filename = url_components.path.split("/")[-1]
-
+        filename = self.url
         basename = filename[:-(len(".tar.gz"))]
         identifier = basename.replace("+", " ")
 
@@ -238,14 +221,14 @@ class SnapshotSource(object):
         self._metadata = None
 
     def _download(self, destination_directory):
-        filename = self.url.split(":", 1)[1]
+        filename = self.url
 
         endpoint_url = os.environ["SNAPSHOTS_BUCKET_ENDPOINT_URL"]
         bucket_name = os.environ["SNAPSHOTS_BUCKET_NAME"]
         access_key_id = os.environ["SNAPSHOTS_BUCKET_ACCESS_KEY_ID"]
         secret_access_key = os.environ["SNAPSHOTS_BUCKET_SECRET_ACCESS_KEY"]
 
-        logging.info("Downloading '%s' from '%s'...", filename, bucket_name)
+        logging.info("Downloading '%s'...", filename)
         client = boto3.client("s3",
                               endpoint_url=endpoint_url,
                               aws_access_key_id=access_key_id,
