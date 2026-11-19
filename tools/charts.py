@@ -22,8 +22,10 @@
 
 import argparse
 import json
+import logging
 import os
 import shutil
+import sys
 import time
 import urllib.parse
 
@@ -32,6 +34,13 @@ import requests
 import matplotlib.pyplot as plt
 
 from matplotlib.ticker import FuncFormatter, MultipleLocator
+
+
+verbose = '--verbose' in sys.argv[1:] or '-v' in sys.argv[1:]
+logging.basicConfig(level=logging.DEBUG if verbose else logging.INFO, format="[%(levelname)s] %(message)s")
+
+
+MAX_HISTORY_COUNT = 5
 
 
 def generate_charts(path, current_summary_path):
@@ -68,10 +77,13 @@ def generate_charts(path, current_summary_path):
         if release['prerelease']:
             continue
         release_name = release['name']
+        logging.info("Downloading summary for '%s'...", release_name)
         assets = {asset['name']: asset['browser_download_url'] for asset in release.get('assets', [])}
         if 'summary.json' in assets:
             summary_response = requests.get(assets['summary.json'])
             summaries.append({'version': release_name, 'summary': summary_response.json()})
+        if len(summaries) > MAX_HISTORY_COUNT:
+            break
     summaries.reverse()
 
     with open(current_summary_path) as fh:
