@@ -277,7 +277,7 @@ def upload(source_path, destination_filename):
                        destination_filename,
                        ExtraArgs={"ContentType": "application/gzip"})
 
-    return f"{config['public_base_url']}/{destination_filename}"
+    return f"snapshot:{destination_filename}"
 
 
 @contextlib.contextmanager
@@ -316,65 +316,6 @@ def command_add_snapshot(options):
     if options.yes or query("Upload and update library?"):
         url = upload(snapshot_path, snapshot_metadata.filename)
         add_source(options.library, url)
-
-    logging.info("Done.")
-
-
-@fastcommand.command("import", help="import an existing Internet Archive asset", arguments=[
-    fastcommand.Argument("metadata", nargs="+", help="downloaded asset metadata file path(s)"),
-    fastcommand.Argument("-y", "--yes", action="store_true", default=False, help="automatically answer yes to all prompts"),
-])
-def command_import(options):
-    os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
-    snapshot_urls = []
-
-    for metadata_path in options.metadata:
-        metadata_path = os.path.abspath(metadata_path)
-        assets_directory = os.path.dirname(metadata_path)
-
-        # Read the metadata and file listing.
-        with open(metadata_path) as fh:
-            metadata = utils.InternetArchiveMetdata.load(fh)
-        files_path = os.path.join(assets_directory, f"{metadata.identifier}_files.xml")
-        with open(files_path) as fh:
-            files = utils.InternetArchiveFiles.load(fh)
-
-        # Check the files on disk.
-        assets = []
-        for f in files.files:
-            file_path = os.path.join(assets_directory, quote(f.name))
-            if f.format == "Metadata" or not os.path.exists(file_path):
-                continue
-            logging.info("Checking '%s'...", file_path)
-            if f.sha1 != utils.digest(file_path, method=hashlib.sha1):
-                exit("sha1 doesn't match.")
-            assets.append(file_path)
-
-        # Don't create a snapshot if there are no files.
-        if len(assets) < 1:
-            exit("No files found.")
-
-        # Create the snapshot.
-        snapshot_metadata = SnapshotMetadata(type=SnapshotType.INTERNET_ARCHIVE,
-                                            url=f"https://archive.org/details/{metadata.identifier}",
-                                            identifier=metadata.identifier,
-                                            title=metadata.title,
-                                            description=metadata.description)
-        snapshot_path = os.path.join(SNAPSHOTS_DIRECTORY, snapshot_metadata.filename)
-        with snapshot_container(snapshot_path, snapshot_metadata):
-            with tar_container("contents.tar.gz") as container_path:
-                for asset_path in assets + [metadata_path, files_path]:
-                    name = os.path.basename(asset_path)
-                    logging.info("Copying '%s'...", name)
-                    shutil.copyfile(asset_path, name)
-
-        # Upload.
-        if options.yes or query("Upload and update library?"):
-            url = upload(snapshot_path, snapshot_metadata.filename)
-            snapshot_urls.append(url)
-
-    if snapshot_urls:
-        add_source(options.library, *snapshot_urls)
 
     logging.info("Done.")
 

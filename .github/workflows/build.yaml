@@ -43,9 +43,9 @@ jobs:
         key: ${{ runner.os }}-${{ runner.arch }}-mise--${{ hashFiles('mise.toml') }}
 
     - name: Install mise
-      uses: jdx/mise-action@v5.2.9
+      uses: jdx/mise-action@v5.2.10
       with:
-        version: 2026.11.9
+        version: 2026.11.10
         cache: false
 
     - name: Cache the Jekyll dependencies
@@ -103,8 +103,13 @@ jobs:
       env:
         ANSIBLE_SSH_KEY: ${{ secrets.ANSIBLE_SSH_KEY }}
         ANSIBLE_BECOME_PASS: ${{ secrets.ANSIBLE_BECOME_PASS }}
+        WEBSITE_BUCKET_ENDPOINT_URL: ${{ secrets.WEBSITE_BUCKET_ENDPOINT_URL }}
+        WEBSITE_BUCKET_NAME: ${{ secrets.WEBSITE_BUCKET_NAME }}
+        WEBSITE_BUCKET_ACCESS_KEY_ID: ${{ secrets.WEBSITE_BUCKET_ACCESS_KEY_ID }}
+        WEBSITE_BUCKET_SECRET_ACCESS_KEY: ${{ secrets.WEBSITE_BUCKET_SECRET_ACCESS_KEY }}
       run: |
         ansible/deploy.py
+        # scripts/deploy.sh
 
     - name: Package and optionally release
       env:
