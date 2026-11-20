@@ -1,8 +1,8 @@
 sources:
 - 2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
-- 2025-07-31-05-46-08-www.psion-user-club.at.tar.gz
-- 2026-11-15-21-11-51-384.sumomo.ne.jp.tar.gz
-- 2026-11-16-09-57-28-NWTPsion3.tar.gz
+- 2025-07-31-05-46-08-website-www.psion-user-club.at.tar.gz
+- 2026-11-15-21-11-51-website-384.sumomo.ne.jp.tar.gz
+- 2026-11-16-09-57-28-internet-archive-NWTPsion3.tar.gz
 - 2026-11-19-09-22-35-website-www.rmrsoft.com.tar.gz
 
 overlays:

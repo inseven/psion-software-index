@@ -22,12 +22,14 @@
 
 import contextlib
 import datetime
+import functools
 import getpass
 import hashlib
 import json
 import logging
+import operator
 import os
-import os
+import re
 import shutil
 import socket
 import subprocess
@@ -38,12 +40,14 @@ from dataclasses import dataclass
 from urllib.parse import quote, unquote
 from urllib.parse import urlparse
 
-import fastcommand
-import requests
-import yaml
-
 import boto3
+import fastcommand
+import humanfriendly
+import humanize
+import internetarchive
 import requests
+import tabulate
+import yaml
 
 from bs4 import BeautifulSoup
 
@@ -213,20 +217,62 @@ def command_search(options):
         print(" -> ".join([item.name for item in reference] + [basename]))
 
 
-def mirror_site(url, path, log_path):
+WGET_FETCH_PATTERN = re.compile(r"^--\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}--\s+(?:\(try:\s*\d+\)\s+)?(\S+)")
+WGET_RESPONSE_PATTERN = re.compile(r"awaiting response\.\.\. (\d{3})\b")
+
+
+def mirror_site(url, path, warc_path, log_path):
     path = os.path.abspath(path)
+    warc_path = os.path.abspath(warc_path)
     log_path = os.path.abspath(log_path)
     with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
-        result = subprocess.run(["wget",
-                                 "--execute", "robots=off",
-                                 "--mirror",
-                                 "--directory-prefix", "root",
-                                 "--no-host-directories",
-                                 "--user-agent", USER_AGENT,
-                                 "-o", log_path,
-                                 url])
+        process = subprocess.Popen(["wget",
+                                    "--execute", "robots=off",
+                                    "--recursive",
+                                    "--level", "inf",
+                                    "--no-remove-listing",
+                                    "--page-requisites",
+                                    "--directory-prefix", "root",
+                                    "--no-host-directories",
+                                    "--warc-file", "site",
+                                    "--warc-cdx",
+                                    "--user-agent", USER_AGENT,
+                                    url],
+                                   stderr=subprocess.PIPE, text=True, errors="replace",
+                                   env={**os.environ, "LC_ALL": "C"})
+        count = 0
+        current_url = None
+        failures = {}
+        with open(log_path, "w") as log:
+            for line in process.stderr:
+                log.write(line)
+                if match := WGET_FETCH_PATTERN.match(line):
+                    current_url = match.group(1)
+                    count += 1
+                    progress = f"[{count}] {current_url}"
+                    width = shutil.get_terminal_size().columns - 1
+                    print(f"\r\033[K{progress[:width]}", end="", flush=True)
+                elif match := WGET_RESPONSE_PATTERN.search(line):
+                    status = int(match.group(1))
+                    if status >= 400:
+                        failures[current_url] = status
+                    else:
+                        failures.pop(current_url, None)  # A retry succeeded.
+        print()
+        returncode = process.wait()
         tar("root", path)
-        return result.returncode
+        shutil.move("site.warc.gz", warc_path)
+        return returncode, failures
+
+
+def create_wacz(warc_path, path, metadata):
+    subprocess.check_call([sys.executable, "-m", "wacz", "create",
+                           "--output", os.path.abspath(path),
+                           "--detect-pages",
+                           "--url", metadata.url,
+                           "--title", metadata.title,
+                           "--desc", metadata.description,
+                           warc_path])
 
 
 def tar(source, destination):
@@ -290,7 +336,7 @@ def upload(source_path, destination_filename):
                        destination_filename,
                        ExtraArgs={"ContentType": "application/gzip"})
 
-    return f"snapshot:{destination_filename}"
+    return destination_filename
 
 
 @contextlib.contextmanager
@@ -375,65 +421,144 @@ def download_internet_archive_item(spec, destination_directory):
             raise InvalidChecksum(file_path)
 
 
-@fastcommand.command("add-snapshot", help="create and upload a new website snapshot", arguments=[
-    fastcommand.Argument("url", help="url to mirror"),
+@fastcommand.command("add-snapshot", help="create and upload a new snapshot", arguments=[
+    fastcommand.Argument("url", nargs="+", help="url(s) to mirror"),
     fastcommand.Argument("-y", "--yes", action="store_true", default=False, help="automatically answer yes to all prompts"),
 ])
 def command_add_snapshot(options):
-    os.makedirs(SNAPSHOTS_DIRECTORY, exist_ok=True)
-    url = options.url
+    library = common.Library(options.library)
+    os.makedirs(library.assets_directory, exist_ok=True)
 
-    snapshot_type = infer_snapshot_type(url)
-    if snapshot_type == SnapshotType.WEBSITE:
+    # Set containing unique tuples of source type and type identifier.
+    # This allows us to quickly determine if there is at least one snapshot in the index and interactively check if the
+    # user wants to add the item.
+    library_identifiers = set([(source.type, source.type_identifier) for source in library.sources])
 
-        identifier = urlparse(url).hostname
-        document_metadata = get_document_metadata(url)
-        snapshot_metadata = SnapshotMetadata(type=snapshot_type,
-                                             url=url,
-                                             identifier=identifier,
-                                             title=document_metadata.title,
-                                             description=document_metadata.description)
+    def should_snapshot(type, identifier) -> bool:
+        """
+        Check to see if a snapshot already exists in the library for the type, identifier pair. If it does,
+        interactively check to see if we should continue with the snapshot.
+        """
+        if not (type, identifier) in library_identifiers:
+            return True
+        if options.yes or query(f"Snapshot already exists for '{identifier}'. Continue?"):
+            return True
+        return False
 
-        def download(container_path):
-            with contextlib.chdir(container_path):
-                logging.info("Mirroring '%s'...", url)
-                returncode = mirror_site(url, "contents.tar.gz", "log.txt")
-                if returncode != 0:
-                    logging.warning("wget exited with a non-zero exit code (%s); check log.txt for more details.", returncode)
-                    if query("Review logs?"):
-                        subprocess.run(["less", "log.txt"])
-                else:
-                    logging.info("wget completed successfully.")
+    for url in options.url:
 
-    elif snapshot_type == SnapshotType.INTERNET_ARCHIVE:
+        snapshot_type = infer_snapshot_type(url)
+        if snapshot_type == SnapshotType.WEBSITE:
 
-        spec = InternetArchiveSpec.parse(url)
-        item_metadata = InternetArchiveMetdata.get(spec.identifier)
-        snapshot_metadata = SnapshotMetadata(type=snapshot_type,
-                                             url=url,
-                                             identifier=spec.identifier,
-                                             title=item_metadata.title,
-                                             description=item_metadata.description)
+            identifier = urlparse(url).hostname
+            if not should_snapshot(snapshot_type, identifier):
+                continue
 
-        def download(container_path):
-            with contextlib.chdir(container_path), tar_container("contents.tar.gz") as contents_path:
-                logging.info("Downloading '%s'...", spec.identifier)
-                download_internet_archive_item(spec, contents_path)
+            logging.info("Snapshotting '%s'...", url)
+            document_metadata = get_document_metadata(url)
+            snapshot_metadata = SnapshotMetadata(type=snapshot_type,
+                                                url=url,
+                                                identifier=identifier,
+                                                title=document_metadata.title,
+                                                description=document_metadata.description)
 
-    else:
-        raise UnknownSnapshotType(snapshot_type)
+            def download(container_path):
+                with contextlib.chdir(container_path), tempfile.TemporaryDirectory() as warc_directory:
+                    warc_path = os.path.join(warc_directory, "contents.warc.gz")
+                    logging.info("Mirroring '%s'...", url)
+                    returncode, failures = mirror_site(url, "contents.tar.gz", warc_path, "log.txt")
+                    if failures:
+                        logging.warning("%d URLs returned errors:", len(failures))
+                        for failed_url, status in sorted(failures.items()):
+                            logging.warning("  %d %s", status, failed_url)
+                    if returncode != 0:
+                        logging.warning("wget exited with a non-zero exit code (%s); check log.txt for more details.", returncode)
+                        if query("Review logs?"):
+                            subprocess.run(["less", "log.txt"])
+                    else:
+                        logging.info("wget completed successfully.")
+                    logging.info("Creating WACZ...")
+                    create_wacz(warc_path, "contents.wacz", snapshot_metadata)
 
-    # Create the snapshot.
-    snapshot_path = os.path.join(SNAPSHOTS_DIRECTORY, snapshot_metadata.filename)
-    with snapshot_container(snapshot_path, snapshot_metadata) as container_path:
-        download(container_path)
+        elif snapshot_type == SnapshotType.INTERNET_ARCHIVE:
 
-    # Upload.
-    if options.yes or query("Upload and update library?"):
-        url = upload(snapshot_path, snapshot_metadata.filename)
-        add_source(options.library, url)
+            spec = InternetArchiveSpec.parse(url)
+            if not should_snapshot(snapshot_type, spec.identifier):
+                continue
+
+            logging.info("Snapshotting '%s'...", url)
+            item_metadata = InternetArchiveMetdata.get(spec.identifier)
+            snapshot_metadata = SnapshotMetadata(type=snapshot_type,
+                                                url=url,
+                                                identifier=spec.identifier,
+                                                title=item_metadata.title,
+                                                description=item_metadata.description)
+
+            def download(container_path):
+                with contextlib.chdir(container_path), tar_container("contents.tar.gz") as contents_path:
+                    logging.info("Downloading '%s'...", spec.identifier)
+                    download_internet_archive_item(spec, contents_path)
+
+        else:
+            raise UnknownSnapshotType(snapshot_type)
+
+        # Create the snapshot.
+        snapshot_path = os.path.join(library.assets_directory, snapshot_metadata.filename)
+        with snapshot_container(snapshot_path, snapshot_metadata) as container_path:
+            download(container_path)
+
+        # Upload.
+        if options.yes or query("Upload and update library?"):
+            url = upload(snapshot_path, snapshot_metadata.filename)
+            add_source(options.library, url)
 
     logging.info("Done.")
+
+
+@dataclass
+class InternetArchiveResult:
+    identifier: str
+    size: int
+
+    @classmethod
+    def load(cls, result):
+        return cls(identifier=result['identifier'],
+                   size = result.get('item_size'))
+
+
+def get_internet_arcive_psion_items():
+    query = 'mediatype:software AND psion AND NOT spectrum AND NOT sinclair'
+    return [InternetArchiveResult.load(r)
+            for r in internetarchive.search_items(query, fields=['identifier', 'item_size'])]
+
+
+@fastcommand.command("list-internet-archive", help="create and upload a new website snapshot", arguments=[])
+def list_internet_archive_comamnd(options):
+    logging.info("Querying Internet Archive for new items...")
+    items = get_internet_arcive_psion_items()
+    total_size = functools.reduce(operator.add, [item.size for item in items])
+    rows = [(item.identifier, humanize.naturalsize(item.size)) for item in items]
+    print(tabulate.tabulate(rows))
+    print("Count:", len(items))
+    print("Total Size:", humanize.naturalsize(total_size))
+
+
+DEFAULT_MAX_SIZE = "50 MiB"
+
+
+@fastcommand.command("sync-internet-archive", help="search the Internet Archive for items and add new ones to the library", arguments=[
+    fastcommand.Argument("-s", "--max-size", help="maximum size (default '50 MiB')", default="50MiB"),
+])
+def sync_internet_archive_comamnd(options):
+    logging.info("Querying Internet Archive for new items...")
+    max_size = humanfriendly.parse_size(options.max_size)
+    items = get_internet_arcive_psion_items()
+    items = [item for item in items if item.size < max_size]
+    total_size = functools.reduce(operator.add, [item.size for item in items])
+    rows = [(item.identifier, humanize.naturalsize(item.size)) for item in items]
+    print(tabulate.tabulate(rows))
+    print("Count:", len(items))
+    print("Total Size:", humanize.naturalsize(total_size))
 
 
 def main():
