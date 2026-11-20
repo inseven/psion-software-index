@@ -26,172 +26,339 @@ output_directory: ../site
 overlays:
 - ../overlays
 sources:
-- 2025-07-31-05-46-08-website-www.psion-user-club.at.tar.gz
-# - 2025-07-31-22-29-00-website-www.mypsion.ru.tar.gz
-- 2025-09-21-17-09-01-website-damian.cyningstan.org.uk.tar.gz
-- 2026-11-15-21-11-51-website-384.sumomo.ne.jp.tar.gz
-- 2026-11-16-09-57-28-internet-archive-NWTPsion3.tar.gz
-- 2026-11-16-17-00-29-internet-archive-NWTPsion5.tar.gz
-- 2026-11-16-17-09-31-internet-archive-psion-epoc16-collection.tar.gz
-- 2026-11-16-17-10-33-internet-archive-pcdierct-numero-98.tar.gz
-- 2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
-- 2026-11-18-04-11-20-internet-archive-400-psion-programma.tar.gz
-- 2026-11-18-04-19-19-internet-archive-750-programmi-per-il-tuo-palmare.tar.gz
-- 2026-11-18-04-23-50-internet-archive-berlitzphrasebook.tar.gz
-- 2026-11-18-04-24-56-internet-archive-palmtops-numero-01.tar.gz
-- 2026-11-18-04-25-35-internet-archive-palmtops-numero-03.tar.gz
-- 2026-11-18-04-26-13-internet-archive-palmtops-numero-05.tar.gz
-- 2026-11-18-04-26-53-internet-archive-palmtops-numero-06.tar.gz
-- 2026-11-18-04-27-34-internet-archive-palmtops-numero-07.tar.gz
-- 2026-11-18-04-28-15-internet-archive-palmtops-numero-08.tar.gz
-- 2026-11-18-04-28-51-internet-archive-palmtops-numero-08_202507.tar.gz
-- 2026-11-18-04-29-22-internet-archive-palmtops-numero-10.tar.gz
-- 2026-11-18-04-30-03-internet-archive-palmtops-numero-11.tar.gz
-- 2026-11-18-04-30-39-internet-archive-palmtops-numero-12.tar.gz
-- 2026-11-18-04-31-16-internet-archive-palmtops-numero-13.tar.gz
-- 2026-11-18-04-31-57-internet-archive-palmtops-numero-14.tar.gz
-- 2026-11-18-04-32-36-internet-archive-palmtops-numero-15-front.tar.gz
-- 2026-11-18-04-33-12-internet-archive-palmtops-numero-16.tar.gz
-- 2026-11-18-04-33-46-internet-archive-palmtops-numero-17.tar.gz
-- 2026-11-18-04-34-20-internet-archive-palmtops-numero-18-rear.tar.gz
-- 2026-11-18-04-34-52-internet-archive-palmtops-numero-19-front.tar.gz
-- 2026-11-18-04-35-24-internet-archive-palmtops-numero-20.tar.gz
-- 2026-11-18-04-35-55-internet-archive-palmtops-numero-21-rear.tar.gz
-- 2026-11-18-04-36-25-internet-archive-palmtops-numero-22.tar.gz
-- 2026-11-18-04-36-56-internet-archive-palmtops-numero-23-rear.tar.gz
-- 2026-11-18-04-37-30-internet-archive-palmtops-numero-24.tar.gz
-- 2026-11-18-04-38-04-internet-archive-palmtops-numero-25-front.tar.gz
-- 2026-11-18-04-38-35-internet-archive-palmtops-numero-26.tar.gz
-- 2026-11-18-04-39-08-internet-archive-palmtops-numero-27.tar.gz
-- 2026-11-18-04-39-40-internet-archive-palmtops-numero-28.tar.gz
-- 2026-11-18-04-40-13-internet-archive-palmtops-numero-29.tar.gz
-- 2026-11-18-04-40-45-internet-archive-palmtops-numero-30.tar.gz
-- 2026-11-18-04-41-18-internet-archive-palmtops-numero-31.tar.gz
-- 2026-11-18-04-41-51-internet-archive-palmtops-numero-32-front.tar.gz
-- 2026-11-18-04-42-25-internet-archive-palmtops-numero-33.tar.gz
-- 2026-11-18-04-43-00-internet-archive-palmtops-numero-34-front.tar.gz
-- 2026-11-18-04-43-34-internet-archive-palmtops-numero-35.tar.gz
-- 2026-11-18-04-44-03-internet-archive-palmtops-numero-36.tar.gz
-- 2026-11-18-06-52-04-internet-archive-tucows_151416_WinEpoc.tar.gz
-- 2026-11-18-06-52-04-internet-archive-tucows_165646_Lingo.tar.gz
-- 2026-11-18-06-52-05-internet-archive-tucows_171771_AgnPrint.tar.gz
-- 2026-11-18-06-52-05-internet-archive-tucows_173034_Mocha_EPOC_Telnet.tar.gz
-- 2026-11-18-06-52-06-internet-archive-tucows_173663_eMoon.tar.gz
-- 2026-11-18-06-52-06-internet-archive-tucows_228843_Alignment.tar.gz
-- 2026-11-18-06-52-07-internet-archive-tucows_25998_PhoneCode.tar.gz
-- 2026-11-18-06-52-07-internet-archive-tucows_260548_DXFV.tar.gz
-- 2026-11-18-06-52-08-internet-archive-tucows_296952_EPOC_Network_Utilities.tar.gz
-- 2026-11-18-06-52-08-internet-archive-tucows_296954_EPOC_FTPServer.tar.gz
-- 2026-11-18-06-52-09-internet-archive-tucows_308303_Emu48E.tar.gz
-- 2026-11-18-06-52-09-internet-archive-tucows_315698_PsiMIDI.tar.gz
-- 2026-11-18-06-52-09-internet-archive-tucows_31661_PsiBlocks.tar.gz
-- 2026-11-18-06-52-10-internet-archive-tucows_321799_Dighandler.tar.gz
-- 2026-11-18-06-52-10-internet-archive-tucows_322115_Speaker.tar.gz
-- 2026-11-18-06-52-11-internet-archive-tucows_325813_Pebbles_on_the_move.tar.gz
-- 2026-11-18-06-52-11-internet-archive-tucows_35391_Fairway.tar.gz
-- 2026-11-18-06-52-12-internet-archive-tucows_47400_Morleysoft_Fern.tar.gz
-- 2026-11-18-06-52-12-internet-archive-tucows_48514_EZBank_Series_5.tar.gz
-- 2026-11-18-06-52-13-internet-archive-tucows_48861_Fancy_Galaxy.tar.gz
-- 2026-11-18-06-52-13-internet-archive-tucows_49673_nSISUtil.tar.gz
-- 2026-11-18-06-52-14-internet-archive-tucows_49925_The_Psion_Hampster_Dance.tar.gz
-- 2026-11-18-06-52-14-internet-archive-tucows_51566_LittleSense.tar.gz
-- 2026-11-18-06-52-15-internet-archive-tucows_55931_QuickNote.tar.gz
-- 2026-11-18-06-52-15-internet-archive-tucows_56884_DCALC.tar.gz
-- 2026-11-18-06-52-15-internet-archive-tucows_57427_SKey.tar.gz
-- 2026-11-18-06-52-16-internet-archive-tucows_58742_BMI_Pro.tar.gz
-- 2026-11-18-06-52-16-internet-archive-tucows_59344_SaveMail_Series_5.tar.gz
-- 2026-11-18-06-52-17-internet-archive-tucows_67813_Internettime_German.tar.gz
-- 2026-11-18-06-52-17-internet-archive-tucows_6844_Golf_Pro_Enhanced.tar.gz
-- 2026-11-18-06-52-18-internet-archive-tucows_69489_fastbank.tar.gz
-- 2026-11-18-06-52-18-internet-archive-tucows_73325_psinoweb.tar.gz
-- 2026-11-18-06-52-19-internet-archive-tucows_74116_Goby.tar.gz
-- 2026-11-18-06-52-19-internet-archive-tucows_79322_Yoris.tar.gz
-- 2026-11-18-06-53-33-internet-archive-palmtops-numerohs-02.tar.gz
-- 2026-11-18-06-54-08-internet-archive-palmtops-numerohs-03.tar.gz
-- 2026-11-18-06-54-40-internet-archive-palmtops-numerohs-05.tar.gz
-- 2026-11-18-06-55-17-internet-archive-palmtops-numerohs-06.tar.gz
-- 2026-11-18-06-55-55-internet-archive-palmtops-numerohs-08-front.tar.gz
-- 2026-11-18-06-57-56-internet-archive-wpc-0296.tar.gz
-- 2026-11-18-06-58-25-internet-archive-wpc-0396.tar.gz
-- 2026-11-18-06-58-59-internet-archive-wpc-0696.tar.gz
-- 2026-11-18-06-59-15-internet-archive-wpc-0996.tar.gz
-- 2026-11-18-06-59-31-internet-archive-wpc-1296.tar.gz
-- 2026-11-18-07-17-04-internet-archive-psion-calligrapher.tar.gz
-- 2026-11-18-07-17-04-internet-archive-psion-cdtextfiles.com.tar.gz
-- 2026-11-18-07-17-08-internet-archive-psion-convertpro.tar.gz
-- 2026-11-18-07-17-08-internet-archive-psion-epoc-32-v-2-v-5.tar.gz
-- 2026-11-18-07-17-26-internet-archive-psion-games-arcade.tar.gz
-- 2026-11-18-07-17-27-internet-archive-psion-michelin-red-guide.tar.gz
-- 2026-11-18-07-17-27-internet-archive-psion-portable-chef.tar.gz
-- 2026-11-18-07-17-34-internet-archive-psion-powerbase.tar.gz
-- 2026-11-18-07-17-35-internet-archive-psion-pum-merksem-freeware-shareware-cd.tar.gz
-- 2026-11-18-07-18-01-internet-archive-psion-street-planner-99-uk.tar.gz
-- 2026-11-18-07-28-38-internet-archive-psion_netbook.tar.gz
-- 2026-11-18-07-28-49-internet-archive-psioncdvol1.tar.gz
-- 2026-11-18-07-29-13-internet-archive-psioncdvol2.tar.gz
-- 2026-11-18-07-29-35-internet-archive-psionpowerbuch.tar.gz
-- 2026-11-18-07-29-47-internet-archive-psionpowercd2de.tar.gz
-- 2026-11-18-07-29-59-internet-archive-psionsystemvoraussetzungen.tar.gz
-- 2026-11-18-08-06-34-internet-archive-bio.nic.funet.fi-epoc-32-software.tar.gz
-- 2026-11-18-08-06-35-internet-archive-clock-5.tar.gz
-- 2026-11-18-08-06-36-internet-archive-club-utilisateurs-psion.tar.gz
-- 2026-11-18-08-06-51-internet-archive-diamond_mako.tar.gz
-- 2026-11-18-08-06-54-internet-archive-econnect.tar.gz
-- 2026-11-18-08-06-59-internet-archive-enrouteeurope.tar.gz
-- 2026-11-18-08-07-07-internet-archive-er-5_20210224.tar.gz
-- 2026-11-18-08-07-08-internet-archive-MoneyPsionSeries5.tar.gz
-- 2026-11-18-08-07-09-internet-archive-monopoly_202508.tar.gz
-- 2026-11-18-08-07-09-internet-archive-monopoly_epoc32.tar.gz
-- 2026-11-18-08-07-10-internet-archive-neuondownloads.tar.gz
-- 2026-11-18-08-07-12-internet-archive-palmtop-cd-2.tar.gz
-- 2026-11-18-08-07-20-internet-archive-pcteam-hs-03.tar.gz
-- 2026-11-18-08-07-53-internet-archive-pda_20250822.tar.gz
-- 2026-11-18-08-08-02-internet-archive-pdf125full.tar.gz
-- 2026-11-18-08-08-03-internet-archive-pdfPrinter_full.tar.gz
-- 2026-11-18-08-08-03-internet-archive-pilowar.tar.gz
-- 2026-11-18-08-08-35-internet-archive-pocketpda_numero05.tar.gz
-- 2026-11-18-08-08-41-internet-archive-pocketwarewoerterbuch.tar.gz
-- 2026-11-18-08-09-13-internet-archive-prosoft.tar.gz
-- 2026-11-18-08-09-14-internet-archive-purple_software_chess.tar.gz
-- 2026-11-18-08-09-15-internet-archive-simcity-epoc32.tar.gz
-- 2026-11-18-08-09-16-internet-archive-street_202508.tar.gz
-- 2026-11-18-08-09-48-internet-archive-streetplanner99.tar.gz
-- 2026-11-18-08-10-11-internet-archive-windowsNews86.tar.gz
-- 2026-11-18-18-52-07-internet-archive-backups_202508.tar.gz
-- 2026-11-19-09-22-35-website-www.rmrsoft.com.tar.gz
-- 2026-11-19-17-48-21-website-home.r03.itscom.net.tar.gz
-- 2026-11-19-21-13-20-internet-archive-psion-font-machine.tar.gz
-- 2026-11-19-21-13-33-internet-archive-psion-soccer-manager.tar.gz
-- 2026-11-19-21-13-43-internet-archive-psion-monopoly.tar.gz
-- 2026-11-19-21-14-00-internet-archive-psion-berlitz-phrasebook.tar.gz
-- 2026-11-19-21-14-10-internet-archive-psion-presentation-maker.tar.gz
-- 2026-11-19-21-14-21-internet-archive-psion-sleeper-s5.tar.gz
-- 2026-11-19-21-14-29-internet-archive-psion-logit.tar.gz
-- 2026-11-19-21-14-36-internet-archive-psion-notepad-deluxe.tar.gz
-- 2026-11-19-21-14-46-internet-archive-psion-purple-games.tar.gz
-- 2026-11-19-21-15-00-internet-archive-psion-navigator.tar.gz
-- 2026-11-19-21-15-10-internet-archive-psion-allegro.tar.gz
-- 2026-11-19-21-15-18-internet-archive-psion-mind-tools.tar.gz
-- 2026-11-19-21-15-24-internet-archive-psion-widget-leisure-pack.tar.gz
-- 2026-11-19-21-15-34-internet-archive-psion-simcity.tar.gz
-- 2026-11-19-21-15-47-internet-archive-psion-essential-disk-utilities.tar.gz
-- 2026-11-19-21-15-55-internet-archive-psion-v-rally.tar.gz
-- 2026-11-19-21-16-06-internet-archive-psion-offlineweb.tar.gz
-- 2026-11-19-21-16-16-internet-archive-psion-mypocket.tar.gz
-- 2026-11-19-21-16-28-internet-archive-psion-enroute-usa.tar.gz
-- 2026-11-19-21-16-42-internet-archive-psion-holy-bible.tar.gz
-- 2026-11-19-21-16-51-internet-archive-psion-flight-manager.tar.gz
-- 2026-11-19-21-16-59-internet-archive-psion-portfolio-manager.tar.gz
-- 2026-11-19-21-17-08-internet-archive-psion-financial-calculator.tar.gz
-- 2026-11-19-21-17-18-internet-archive-psion-expense-manager.tar.gz
-- 2026-11-19-21-17-35-internet-archive-psion-collins-dictionaries.tar.gz
-- 2026-11-19-21-19-13-internet-archive-psion-soundmaster.tar.gz
-- 2026-11-19-21-19-25-internet-archive-halliwell-98.tar.gz
-- 2026-11-19-21-20-30-internet-archive-ericsson-mc-218-cd.tar.gz
-- 2026-11-19-21-26-23-internet-archive-tomtom-citymaps-2001.tar.gz
-- 2026-11-19-21-36-09-internet-archive-tomtom-routeplanner-europe.tar.gz
-- 2026-11-19-21-53-06-internet-archive-tomtom-citymaps-2003.tar.gz
-- 2026-11-19-22-28-17-website-jdern.free.fr.tar.gz
-- 2026-11-19-22-33-35-website-osaris.francophone.free.fr.tar.gz
-- 2026-11-19-23-18-24-internet-archive-3-lib-cd07-1999.tar.gz
-- 2026-11-20-01-16-55-internet-archive-realmaps.millican.info.tar.gz
+- path: 2025-07-31-05-46-08-website-www.psion-user-club.at.tar.gz
+  sha256: 327916c8aadb8ce6965d62ed4638f61240128bd8cac28de98a8ef974f47442d0
+- path: 2025-09-21-17-09-01-website-damian.cyningstan.org.uk.tar.gz
+  sha256: 11a2d927973b7ca0ff22022b3335cd54c125f210d18466928353ed0d1269d457
+- path: 2026-11-15-21-11-51-website-384.sumomo.ne.jp.tar.gz
+  sha256: a557abe14c3eafc5d439489f324d33d5a65846fa2806abedf4c1ded627c9131c
+- path: 2026-11-16-09-57-28-internet-archive-NWTPsion3.tar.gz
+  sha256: 142f5849af6cc7eb6f35b3a37b453a9dae17a4a8fef02446e3487a49b51ade88
+- path: 2026-11-16-17-00-29-internet-archive-NWTPsion5.tar.gz
+  sha256: a1be3dc62c423836962b9288b6fffe9d225db12bc674eba721d4113b96cac07f
+- path: 2026-11-16-17-09-31-internet-archive-psion-epoc16-collection.tar.gz
+  sha256: c7ea2c0e2b462af02948fb008300626bd97576c207f396443ee5c34041796013
+- path: 2026-11-16-17-10-33-internet-archive-pcdierct-numero-98.tar.gz
+  sha256: 06d5f9157be173063aee6c720adc182f80b7a580927b650c663b7d1c5755075c
+- path: 2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
+  sha256: c8fe12447a84d8367c8d8b631a6720fb6278346d635901f0eb9faf5ea2c4e09b
+- path: 2026-11-18-04-11-20-internet-archive-400-psion-programma.tar.gz
+  sha256: bf9b1bf5229cff2785f91817879949c1c740fdbb831dbf3544a504b218a92b2c
+- path: 2026-11-18-04-19-19-internet-archive-750-programmi-per-il-tuo-palmare.tar.gz
+  sha256: 3e93993b281c610004cbacde6c184bced60f5f9736e50a4f02c249bbd0270b9e
+- path: 2026-11-18-04-23-50-internet-archive-berlitzphrasebook.tar.gz
+  sha256: 78b1e09bf76d9f3c4c2554df66063643379a0338db8938b64deaea7048dd14b2
+- path: 2026-11-18-04-24-56-internet-archive-palmtops-numero-01.tar.gz
+  sha256: e2d373fd939e090829b95f7ff85ad82b6b52e034cf4900b379e908f4dbbe4f26
+- path: 2026-11-18-04-25-35-internet-archive-palmtops-numero-03.tar.gz
+  sha256: 2283b3d31555850a110ea3d3bf97a5419125febf48ff48bcc7bd5fa77c5811af
+- path: 2026-11-18-04-26-13-internet-archive-palmtops-numero-05.tar.gz
+  sha256: 3447874694b0f7b5d5a742821a10f2bdfe309b5d8f206665f63cf7627207cd32
+- path: 2026-11-18-04-26-53-internet-archive-palmtops-numero-06.tar.gz
+  sha256: 443d0e012b68bbaeea295a472d2044892c4c4bab62057dc91f4d42ea11be6b54
+- path: 2026-11-18-04-27-34-internet-archive-palmtops-numero-07.tar.gz
+  sha256: 0c7bf5e329462222afb832fdd63f500a2d68cbb2be0aed228149dc102a804d23
+- path: 2026-11-18-04-28-15-internet-archive-palmtops-numero-08.tar.gz
+  sha256: 0d538d877b1d8a30ba5adf7cace455aa62136cf157836a22863d3ab7e6321fb3
+- path: 2026-11-18-04-28-51-internet-archive-palmtops-numero-08_202507.tar.gz
+  sha256: 1d998c4de94e4acbdaa68d821b0c62d311d8042d972309bccb5174a122b40a94
+- path: 2026-11-18-04-29-22-internet-archive-palmtops-numero-10.tar.gz
+  sha256: 09eed9a6e9006ea0c525f75d135cf74d4392c92feb98a7319dc20c8783336d4a
+- path: 2026-11-18-04-30-03-internet-archive-palmtops-numero-11.tar.gz
+  sha256: dc40dbe6cd74a7f3f8e5c05af8a733a163deb9c7f4ef7143d578cdaed6961eec
+- path: 2026-11-18-04-30-39-internet-archive-palmtops-numero-12.tar.gz
+  sha256: fa8ae19e4b47a8d315c033a0c532c7c220e495e1b1f6cd722ecce48233f94025
+- path: 2026-11-18-04-31-16-internet-archive-palmtops-numero-13.tar.gz
+  sha256: f86088704019b52a767c3541efa59879a54dbea2eb1034764cb1724614ea6b8c
+- path: 2026-11-18-04-31-57-internet-archive-palmtops-numero-14.tar.gz
+  sha256: 6f6b9777e5dd5663ca0262483e34decbcda41af04ae95c52a668ab6d75c1aa61
+- path: 2026-11-18-04-32-36-internet-archive-palmtops-numero-15-front.tar.gz
+  sha256: 5c922571325e9a91c4bd2d39a11f5fc935290ef54849401daf87e86fa5536f23
+- path: 2026-11-18-04-33-12-internet-archive-palmtops-numero-16.tar.gz
+  sha256: 8eecc8b1497857ef16dc3ed786ca5ca4eac49f5d388b66686a3bf96874b6cd9f
+- path: 2026-11-18-04-33-46-internet-archive-palmtops-numero-17.tar.gz
+  sha256: 0409b75e36d9df5dd73905726cab2398a919eb570d6fa2e774800921ecca7d2d
+- path: 2026-11-18-04-34-20-internet-archive-palmtops-numero-18-rear.tar.gz
+  sha256: 442d4ceb40fe6f79b85262cefc430435eae26e1015a140ed9eb10332409cf1b2
+- path: 2026-11-18-04-34-52-internet-archive-palmtops-numero-19-front.tar.gz
+  sha256: a702d46db26ea08204c94a8daf51028efe06cf4952df1c1dc78aedc85d0fa912
+- path: 2026-11-18-04-35-24-internet-archive-palmtops-numero-20.tar.gz
+  sha256: be44ef4d5c1d8c2fc0fe59aea6887e5bb6abe1a3b4a811920d4774add6109bb3
+- path: 2026-11-18-04-35-55-internet-archive-palmtops-numero-21-rear.tar.gz
+  sha256: f03de204056ebdd83ec7338d2e3ac20ff411514e4f3f2fea29673bddaac5770b
+- path: 2026-11-18-04-36-25-internet-archive-palmtops-numero-22.tar.gz
+  sha256: f8fd1464d90961289ca1f616b8b0b87e15b8d0f9db317eda0a08c4932863be3a
+- path: 2026-11-18-04-36-56-internet-archive-palmtops-numero-23-rear.tar.gz
+  sha256: 38753a2c94fdcc3b4b49a36edcda8ee9064b62075a6812070e1bd2cbe4a16fd5
+- path: 2026-11-18-04-37-30-internet-archive-palmtops-numero-24.tar.gz
+  sha256: 7a0bf8accca62b3b25852fc5d6ba3a7b772f489ac39ba3d8d81adfd537b239ba
+- path: 2026-11-18-04-38-04-internet-archive-palmtops-numero-25-front.tar.gz
+  sha256: 0d8e408e77bbd5129e389466aabb3f97e62bbdaa63419da2f42bb3ac5c821f3c
+- path: 2026-11-18-04-38-35-internet-archive-palmtops-numero-26.tar.gz
+  sha256: d0f28ac9a52be0c7498f7b5619fc753557498180026bc89b99978770294d6637
+- path: 2026-11-18-04-39-08-internet-archive-palmtops-numero-27.tar.gz
+  sha256: b75e1b7b3eb0fb496fe5ded47c5b56bbc23ec53351f8fc0614c37f9fc7ea218c
+- path: 2026-11-18-04-39-40-internet-archive-palmtops-numero-28.tar.gz
+  sha256: e74bb60a3de57fe92ebefaee7f3883185e0c2e9526edc8d59d3d20bdae50c7cd
+- path: 2026-11-18-04-40-13-internet-archive-palmtops-numero-29.tar.gz
+  sha256: 7d1c250908edaebfb180cf8609a0d41c6d4b5173e22bee252c7e7162a0ba4d4d
+- path: 2026-11-18-04-40-45-internet-archive-palmtops-numero-30.tar.gz
+  sha256: 606c6915126e3dfa544c14798a02117d7b810c3dbd41c2dc0ec600bb9db787ef
+- path: 2026-11-18-04-41-18-internet-archive-palmtops-numero-31.tar.gz
+  sha256: 1405909fad617c9520b8bf9bdecb8bb91349ea6deb31e3280e0d9f14ffc6d276
+- path: 2026-11-18-04-41-51-internet-archive-palmtops-numero-32-front.tar.gz
+  sha256: 7a8d427e2c664fe671aa40a6fc9f14d51e70712e9960353a45666f5f849fbc0c
+- path: 2026-11-18-04-42-25-internet-archive-palmtops-numero-33.tar.gz
+  sha256: 5c292c0c038aa2dff92aa4e06ceb86e9a662577f10a2dba3d207ee987c707bd8
+- path: 2026-11-18-04-43-00-internet-archive-palmtops-numero-34-front.tar.gz
+  sha256: 8aa145c0dbae6f04fcadf8079c8ba8cbd1ec4bca1e99fd9a14169c52999402e0
+- path: 2026-11-18-04-43-34-internet-archive-palmtops-numero-35.tar.gz
+  sha256: c5bbcd0da00dc4edaf32c41d0b62b3bed0bfc8978a7b76b7f5ea419754823474
+- path: 2026-11-18-04-44-03-internet-archive-palmtops-numero-36.tar.gz
+  sha256: 8bc93c176d5ee3f724220c0c83198f0703529a454a6b86453a00913a94c08321
+- path: 2026-11-18-06-52-04-internet-archive-tucows_151416_WinEpoc.tar.gz
+  sha256: 1650fc41166bf342c75f68d2dd4ad3dc03906b827279e4884894819d642498e2
+- path: 2026-11-18-06-52-04-internet-archive-tucows_165646_Lingo.tar.gz
+  sha256: 85026b7517b1a3ccd7640a10d4b6c45329ac9ff6431446300d038ef66dae2a6f
+- path: 2026-11-18-06-52-05-internet-archive-tucows_171771_AgnPrint.tar.gz
+  sha256: 7b8dbb3d42aa2d73eb53949946a9da71daacb2e6fc0410e6709eeb48f512eb9f
+- path: 2026-11-18-06-52-05-internet-archive-tucows_173034_Mocha_EPOC_Telnet.tar.gz
+  sha256: e6fe8f76339bf9ad6c06d0dec7599638c30f083e83d7ec3836f75e2c5d3576c0
+- path: 2026-11-18-06-52-06-internet-archive-tucows_173663_eMoon.tar.gz
+  sha256: 9fc06a341a8d7f0ccdcede5ea9894f83dae72481180034d97dbf79d8f3728b2a
+- path: 2026-11-18-06-52-06-internet-archive-tucows_228843_Alignment.tar.gz
+  sha256: 5ad1408596d7fee22c15f3bedd26bf0867ad5ba1545c203ad8fb4964d7ededf2
+- path: 2026-11-18-06-52-07-internet-archive-tucows_25998_PhoneCode.tar.gz
+  sha256: 681209fd88cc5e938475bdffd2383f3699cf00b6d2338f4f01df58ca6240a9a4
+- path: 2026-11-18-06-52-07-internet-archive-tucows_260548_DXFV.tar.gz
+  sha256: 556e2a6d8ead55e9c848c090825d2c5c2092766586d567f8102f7042a354226b
+- path: 2026-11-18-06-52-08-internet-archive-tucows_296952_EPOC_Network_Utilities.tar.gz
+  sha256: 5ea16609e2c5d6208c87bd2d42cec46a93fe948ade098631953ed803c5e947cc
+- path: 2026-11-18-06-52-08-internet-archive-tucows_296954_EPOC_FTPServer.tar.gz
+  sha256: bef9b0eb9897b41035f78eeb3f8f0d13e8f2e7ab17ad7b91a5e51a41c483adf8
+- path: 2026-11-18-06-52-09-internet-archive-tucows_308303_Emu48E.tar.gz
+  sha256: 0a7d7e1a0546fe37400b2149f1caccb7c47d41a1a34104147db42b22a3454799
+- path: 2026-11-18-06-52-09-internet-archive-tucows_315698_PsiMIDI.tar.gz
+  sha256: b4e66ea7e8d9788dade8e8e80325bfa33c25b154a68bc5fcdef16cea7f91f849
+- path: 2026-11-18-06-52-09-internet-archive-tucows_31661_PsiBlocks.tar.gz
+  sha256: 5f5eb87d2fbd2cfdc0ce0c54635c66a3597b606b21001956320fd92d2e53eacd
+- path: 2026-11-18-06-52-10-internet-archive-tucows_321799_Dighandler.tar.gz
+  sha256: e47a8c7c37aaa4d52cf9e0e91c162e9ba8c381931a5172379be7605789b56926
+- path: 2026-11-18-06-52-10-internet-archive-tucows_322115_Speaker.tar.gz
+  sha256: c6aad6eb90543c3e2f8b7148d7158155564139a06a48aec3862b5328b7251d64
+- path: 2026-11-18-06-52-11-internet-archive-tucows_325813_Pebbles_on_the_move.tar.gz
+  sha256: e69ddd5837daa685f57be9d7424dedcff4905fd8375ad1c621138e208219ec35
+- path: 2026-11-18-06-52-11-internet-archive-tucows_35391_Fairway.tar.gz
+  sha256: a00591d8b7716362dd7fab192f933cfc57f57209ad6d3702016c5c117920e3b8
+- path: 2026-11-18-06-52-12-internet-archive-tucows_47400_Morleysoft_Fern.tar.gz
+  sha256: e456d0374717c058ac33ec895819f3b4ac65ebe242d36bcb68011a17b2e2b311
+- path: 2026-11-18-06-52-12-internet-archive-tucows_48514_EZBank_Series_5.tar.gz
+  sha256: 2445881e4132da09674053a4137e5c427c77173a75222cc5bfae239d61fb0aa0
+- path: 2026-11-18-06-52-13-internet-archive-tucows_48861_Fancy_Galaxy.tar.gz
+  sha256: 3440e6d7cac68a95a6b770f63ed5103e3582a62370e40d6e52422be1d27068ec
+- path: 2026-11-18-06-52-13-internet-archive-tucows_49673_nSISUtil.tar.gz
+  sha256: 30b56d35d518a9a7baf017c0a8082ae82ffc1c019de147296b0b43ff7669bb04
+- path: 2026-11-18-06-52-14-internet-archive-tucows_49925_The_Psion_Hampster_Dance.tar.gz
+  sha256: e59ef567c5fff42f4f25c04af945d463c3dd2270cccb15327032f99720be9b4c
+- path: 2026-11-18-06-52-14-internet-archive-tucows_51566_LittleSense.tar.gz
+  sha256: e9e8216b1e7471fb98f3d52fecdfee71cf6255ca758b437b9ce437a6672838f7
+- path: 2026-11-18-06-52-15-internet-archive-tucows_55931_QuickNote.tar.gz
+  sha256: e8558577bd481cd9838c1f3c755195fed44827fd09ab63b91624ee2e7dae3e25
+- path: 2026-11-18-06-52-15-internet-archive-tucows_56884_DCALC.tar.gz
+  sha256: 17d2a5556ea730e76710a092800a9a93b9a5e1ac09312565c8c78a270f8f20ec
+- path: 2026-11-18-06-52-15-internet-archive-tucows_57427_SKey.tar.gz
+  sha256: c0d2850f3efe3c269354b6effc3d1705ad1f27e73a0fc363df3cd69a47b86121
+- path: 2026-11-18-06-52-16-internet-archive-tucows_58742_BMI_Pro.tar.gz
+  sha256: aef48214ec5f01cfd39fc91e39c3295a0897ef6631124be96f81b623f61124d1
+- path: 2026-11-18-06-52-16-internet-archive-tucows_59344_SaveMail_Series_5.tar.gz
+  sha256: 02c5623406f77bad33c552da20b87e9b85bc9fd99d6d871f40d32edb0a1d17e3
+- path: 2026-11-18-06-52-17-internet-archive-tucows_67813_Internettime_German.tar.gz
+  sha256: a3a048e4141c44db2f1223adc4103997860707dad8390a7d773afc4a26fc533b
+- path: 2026-11-18-06-52-17-internet-archive-tucows_6844_Golf_Pro_Enhanced.tar.gz
+  sha256: ac45dc728204c91a05678577477c818ca8d218e7c3a807b4afb2eb26dd20a0a5
+- path: 2026-11-18-06-52-18-internet-archive-tucows_69489_fastbank.tar.gz
+  sha256: f3d0615ee5d600650862a49b8e5e276ffbf4f3807979e8d3529dcf57fe2e7d6b
+- path: 2026-11-18-06-52-18-internet-archive-tucows_73325_psinoweb.tar.gz
+  sha256: 8e96a78930848f4e0a3d9982b149c79d5b2d60520fd5970e8f095ec79f18034d
+- path: 2026-11-18-06-52-19-internet-archive-tucows_74116_Goby.tar.gz
+  sha256: f0b30fd1b27d7be5423f408d22df5b2f2f252049f5d4a66c8292a57b2f41c5c8
+- path: 2026-11-18-06-52-19-internet-archive-tucows_79322_Yoris.tar.gz
+  sha256: 2458963b8f70d53a847dbb924e4ed5be15401d873b61fedf6c2f0fa3fb268bd9
+- path: 2026-11-18-06-53-33-internet-archive-palmtops-numerohs-02.tar.gz
+  sha256: cae3af5256836a0e55faba7c71b93766b7e21bf635b58f4b2ef966f4b8d7fd6a
+- path: 2026-11-18-06-54-08-internet-archive-palmtops-numerohs-03.tar.gz
+  sha256: d954f838de225434fb1346bd2d20dc7f3d3abc28df4df017bff3deb2f03ed5bc
+- path: 2026-11-18-06-54-40-internet-archive-palmtops-numerohs-05.tar.gz
+  sha256: c1749b9867c1dced258240a9aeed86c440d55fdb76082535a5ebaf31c2d598b1
+- path: 2026-11-18-06-55-17-internet-archive-palmtops-numerohs-06.tar.gz
+  sha256: 4931f25525b8a1ba16dadc85a4ba44acfa071b21bd883371b1ff47f3d5e9f162
+- path: 2026-11-18-06-55-55-internet-archive-palmtops-numerohs-08-front.tar.gz
+  sha256: 89b5f77238f10a0a2b50b92ffbb901de2c3eb9bcaaf928a736cd3d5d7d91c157
+- path: 2026-11-18-06-57-56-internet-archive-wpc-0296.tar.gz
+  sha256: 03be3b747c3bab0e71eefa5cda708492d4e361d36138831c27ea6bc006cdc51d
+- path: 2026-11-18-06-58-25-internet-archive-wpc-0396.tar.gz
+  sha256: 577a2edbabdb4e6588af1bb755f97f7435d77aee50090344b80da8076a08a371
+- path: 2026-11-18-06-58-59-internet-archive-wpc-0696.tar.gz
+  sha256: 07adb417930fc5eb8607ed7f8743d0c9976219c81012440429618482a517103e
+- path: 2026-11-18-06-59-15-internet-archive-wpc-0996.tar.gz
+  sha256: f102022ed257abecf4ff282fc40f347929fce7298da98328e5c7f52e47f641ee
+- path: 2026-11-18-06-59-31-internet-archive-wpc-1296.tar.gz
+  sha256: 54732e50a5ddca5a73446591db3e6e729be0f7676e8361e0c2e9c08aca38ba4a
+- path: 2026-11-18-07-17-04-internet-archive-psion-calligrapher.tar.gz
+  sha256: a56864342f7ac32e32464f0d5fab264f41eacfa4dd0bba3d753f45b9fdcb6642
+- path: 2026-11-18-07-17-04-internet-archive-psion-cdtextfiles.com.tar.gz
+  sha256: 8cec150f2b1b2c30b13f3441ce0a7a0cf7c2de0b8221cf509779258f767b1c56
+- path: 2026-11-18-07-17-08-internet-archive-psion-convertpro.tar.gz
+  sha256: 4e56924fc8ae39d738e85b993ff5e6c32c426b01023af8af88b712cb357ec909
+- path: 2026-11-18-07-17-08-internet-archive-psion-epoc-32-v-2-v-5.tar.gz
+  sha256: daeb7ac6c00a904c4dbbc79eb2e2289de368dfa5ab5e04a674b511aa248194df
+- path: 2026-11-18-07-17-26-internet-archive-psion-games-arcade.tar.gz
+  sha256: e45d69e08ae007b9eed793ada71aff8f2a0d1d791dd9168214d8c85bd68924c4
+- path: 2026-11-18-07-17-27-internet-archive-psion-michelin-red-guide.tar.gz
+  sha256: 75e0b93d389d72cb5673379c7cb93774a1f3e345c0b8aceff5824e7c61aed914
+- path: 2026-11-18-07-17-27-internet-archive-psion-portable-chef.tar.gz
+  sha256: 96fd36cedd38f1b0b9633ef5b3955248f07b6ea7d4a67376fa515e38687ca51f
+- path: 2026-11-18-07-17-34-internet-archive-psion-powerbase.tar.gz
+  sha256: 18535587c86c1224006524d7dd0b7a0d15d11823118812c2b3d5213de0f92f19
+- path: 2026-11-18-07-17-35-internet-archive-psion-pum-merksem-freeware-shareware-cd.tar.gz
+  sha256: 88f83fec11ae6b2fe4f61d6da0c066ea0911db435bd14eaa2549c380013ebbfc
+- path: 2026-11-18-07-18-01-internet-archive-psion-street-planner-99-uk.tar.gz
+  sha256: 7adf405c67ded3124932c5416a83d341e8a2362d063882d6cbe71508e190d8d9
+- path: 2026-11-18-07-28-38-internet-archive-psion_netbook.tar.gz
+  sha256: 9e773614f790cd3e3d943e35c3e0fcf056a868247a61e985561c00040b4c9355
+- path: 2026-11-18-07-28-49-internet-archive-psioncdvol1.tar.gz
+  sha256: 29b6271b72baa85abd97bc5fa30f8982b10b6ecb9f0b5207fc63ddf416c1b6ce
+- path: 2026-11-18-07-29-13-internet-archive-psioncdvol2.tar.gz
+  sha256: 720ba595360580940a91ea97ba20cc538b2d0017c5786edb93bcbc4852907fd7
+- path: 2026-11-18-07-29-35-internet-archive-psionpowerbuch.tar.gz
+  sha256: 35805d531df8d49a57e2ca14ffe4bf7a8d1f48eda9a74e097d44fec5fa397acc
+- path: 2026-11-18-07-29-47-internet-archive-psionpowercd2de.tar.gz
+  sha256: 3a8858ad90092e538faf0de24a79688e01d953052f0ce6f52974765cf84c4ad2
+- path: 2026-11-18-07-29-59-internet-archive-psionsystemvoraussetzungen.tar.gz
+  sha256: 7725619f3bc17a25839de2579831ecafd097ac64c70e5ff4ae66c04b6505f98a
+- path: 2026-11-18-08-06-34-internet-archive-bio.nic.funet.fi-epoc-32-software.tar.gz
+  sha256: c083360ded5be7117a4cd97fbf0f551010a39360ce732fdf4a0463d9ce8a57e6
+- path: 2026-11-18-08-06-35-internet-archive-clock-5.tar.gz
+  sha256: ccfa61a80c9be356edd132da15c9be92686c09fbca498a31b42b301c634eeb20
+- path: 2026-11-18-08-06-36-internet-archive-club-utilisateurs-psion.tar.gz
+  sha256: e9ceab5713c07916ab0c3ad2f3732ef729933a5bf3b9ead6ec0347f8b1e100f7
+- path: 2026-11-18-08-06-51-internet-archive-diamond_mako.tar.gz
+  sha256: 484883e297148ccf981cece4c0437fdad79705abf1378d4b20bb2add175819e9
+- path: 2026-11-18-08-06-54-internet-archive-econnect.tar.gz
+  sha256: f66daa6ed44d3317951a9b68ed9deeeac60c05905d07795eeab08862e0f15d8b
+- path: 2026-11-18-08-06-59-internet-archive-enrouteeurope.tar.gz
+  sha256: a4d9a65cf3393631c7e94bcf9a7e2a7b6ee5a67d06462be9294f42c7159d1804
+- path: 2026-11-18-08-07-07-internet-archive-er-5_20210224.tar.gz
+  sha256: 4d663730b3a9615928b5d0e3de3b481e1cb8122a0f4a09d29d2e70cd2ca1fd92
+- path: 2026-11-18-08-07-08-internet-archive-MoneyPsionSeries5.tar.gz
+  sha256: 5f6a23a7f3681e52dab6815d0f99c26e504137124d07a3c2a6516b1491b3f993
+- path: 2026-11-18-08-07-09-internet-archive-monopoly_202508.tar.gz
+  sha256: da324c0d297fd2d40bb97680143a83e025e621216bd0c2e6e2c3091c4e2f226f
+- path: 2026-11-18-08-07-09-internet-archive-monopoly_epoc32.tar.gz
+  sha256: ea0ad6e42e5b6a87bcfb869ef4b55b8e9e849dc9400c7282b96579075b202fdb
+- path: 2026-11-18-08-07-10-internet-archive-neuondownloads.tar.gz
+  sha256: 5b0c0ca00772660b2f4adeb75b539e6c3ecaaf5d977ba027414575486fad0003
+- path: 2026-11-18-08-07-12-internet-archive-palmtop-cd-2.tar.gz
+  sha256: f3dd4ed9055b201f0bc63150c8faa41eb59a54b89b167185decb578b77984fe5
+- path: 2026-11-18-08-07-20-internet-archive-pcteam-hs-03.tar.gz
+  sha256: add2f6b18a3bb115d0c2d7dfa362728f3a8879f8d7f8473a32d3da1891cdecc4
+- path: 2026-11-18-08-07-53-internet-archive-pda_20250822.tar.gz
+  sha256: ea2a1058571af0826e0cde3d3d979a44eb3635b8b0a799c3576aa4846a846a21
+- path: 2026-11-18-08-08-02-internet-archive-pdf125full.tar.gz
+  sha256: 93cff0bbeb9678396ca8c704336ab445608f4c97caa4ad82f3eb427117bcdf2a
+- path: 2026-11-18-08-08-03-internet-archive-pdfPrinter_full.tar.gz
+  sha256: d308f0135562cc9bdae0dd9bc7e7e24cefd84a24c7f2d3dcfe76e5293d377cd1
+- path: 2026-11-18-08-08-03-internet-archive-pilowar.tar.gz
+  sha256: fa12f97fc25dec34d2da11a88e6f71b381d5dc528e1e9888a546bbf932a5815a
+- path: 2026-11-18-08-08-35-internet-archive-pocketpda_numero05.tar.gz
+  sha256: 1a2d8b13f48566d0f503ae10fbff3b1961e813bb1d31f0734da242390808f76c
+- path: 2026-11-18-08-08-41-internet-archive-pocketwarewoerterbuch.tar.gz
+  sha256: 6d94e254de15e250e254dea5edecdfe899a53a57895bf9c71f9eb15a280a67f7
+- path: 2026-11-18-08-09-13-internet-archive-prosoft.tar.gz
+  sha256: ce5b806eac6a0e79cdd6e3a2081cba2b9aeb599ab6d85236ae5b3aac5304648c
+- path: 2026-11-18-08-09-14-internet-archive-purple_software_chess.tar.gz
+  sha256: ad0cc20092221d8ba818acb434df339a6b96dbb8395bbeb04eeddc42be90d5db
+- path: 2026-11-18-08-09-15-internet-archive-simcity-epoc32.tar.gz
+  sha256: f7e9e419c9643158f4365ab86076a1fdb7aea79ee7699aff9eddedfa0e96ad46
+- path: 2026-11-18-08-09-16-internet-archive-street_202508.tar.gz
+  sha256: abab92f3a053f1afcd8f7c52e7710f0df3bb5a55c171a22cb68c3c21cf3d9492
+- path: 2026-11-18-08-09-48-internet-archive-streetplanner99.tar.gz
+  sha256: e53fc2563f215e6a562559972850aeaeafecd75ba5514cb9ce30e570ace93ed1
+- path: 2026-11-18-08-10-11-internet-archive-windowsNews86.tar.gz
+  sha256: 2ce7b8e2dde27d8f0a42d7b97690c0efbcd26042f20ed369ef8f64bcabf84d8c
+- path: 2026-11-18-18-52-07-internet-archive-backups_202508.tar.gz
+  sha256: 2ec56c3756f4322fbf30039a97af10646fb456579d6edbdfd1493c7573f775eb
+- path: 2026-11-19-09-22-35-website-www.rmrsoft.com.tar.gz
+  sha256: ad75b3b8663d31cc5cf8eab4ca794d9d67bac2e40ad10a70d61796f74ba7abcb
+- path: 2026-11-19-17-48-21-website-home.r03.itscom.net.tar.gz
+  sha256: 8e3dedf552b4ee16368705946233423ae019c72ef82acfdfc95453557511cf63
+- path: 2026-11-19-21-13-20-internet-archive-psion-font-machine.tar.gz
+  sha256: 69bf055a55ec390674f9e105a9ed15e924ba204bb7dfe299260b4844faf75a0d
+- path: 2026-11-19-21-13-33-internet-archive-psion-soccer-manager.tar.gz
+  sha256: 8f9d0a6c51b2c63efec0982236127c91e6e9112bbe96a4c0bec80b92b3552e99
+- path: 2026-11-19-21-13-43-internet-archive-psion-monopoly.tar.gz
+  sha256: 93206b7423386ede95c63279fa09e0628b9b1770a8e8cb4a77029eb4d746c4dc
+- path: 2026-11-19-21-14-00-internet-archive-psion-berlitz-phrasebook.tar.gz
+  sha256: 907b5147b8abb3e2a8216301369543c762884e6658b5d81b81f7d7e577b3193a
+- path: 2026-11-19-21-14-10-internet-archive-psion-presentation-maker.tar.gz
+  sha256: 842fe645b3fca2d73e4ba252338aac36360944a401eb873cd0fc7bb1ae809421
+- path: 2026-11-19-21-14-21-internet-archive-psion-sleeper-s5.tar.gz
+  sha256: 9711e7edeb28bbaf3bdbb2010631597d7ac108a1dac6a75331354f3ac9341fb6
+- path: 2026-11-19-21-14-29-internet-archive-psion-logit.tar.gz
+  sha256: 6a525c1ea9e385c915cc1ac331e2b048ae8565337ec56aab9dae3e07d1856180
+- path: 2026-11-19-21-14-36-internet-archive-psion-notepad-deluxe.tar.gz
+  sha256: 1dc0b906f133158d1ac2d3af43a73485c70117b2891d8f2fff55526d24cf9990
+- path: 2026-11-19-21-14-46-internet-archive-psion-purple-games.tar.gz
+  sha256: 9ed7b11d2decc6849ada1670122d4da9d7000d6998a56ffe898766bec339edac
+- path: 2026-11-19-21-15-00-internet-archive-psion-navigator.tar.gz
+  sha256: 9354b8c81f4bd0d765b467db96ffb0493279e9311c3f6aa318cd91eb61de30f2
+- path: 2026-11-19-21-15-10-internet-archive-psion-allegro.tar.gz
+  sha256: 040da742edde9024b4dd1017bf9eead17097c290160e5dc95940b1028523df9d
+- path: 2026-11-19-21-15-18-internet-archive-psion-mind-tools.tar.gz
+  sha256: ff5e5fe98f3cb5915e9b75f84408549e6535902075130f8adfda660b9aa3823f
+- path: 2026-11-19-21-15-24-internet-archive-psion-widget-leisure-pack.tar.gz
+  sha256: a0dfba5d09f9e616c995ccb2ba0830bb62a4ebc82a4fc81d1b27e21ff86760f4
+- path: 2026-11-19-21-15-34-internet-archive-psion-simcity.tar.gz
+  sha256: 31106d70549e7d4bca7c4e8a194d646f5e7005dc9e4e8fb0a1109b7b51801f21
+- path: 2026-11-19-21-15-47-internet-archive-psion-essential-disk-utilities.tar.gz
+  sha256: 27172a5724a5a44b0d7c89f938df35699a7311d5ceb4ad9ecbc3fc3ca82e5c5c
+- path: 2026-11-19-21-15-55-internet-archive-psion-v-rally.tar.gz
+  sha256: 7c0c82703e2bc9c0e6894dfde92a5726c442f37e498f20fbfdb5a57143360594
+- path: 2026-11-19-21-16-06-internet-archive-psion-offlineweb.tar.gz
+  sha256: 2371829d3bc72eb9cd8fbd101ea97396fd401b3ebb5b144a74814fa4633707bf
+- path: 2026-11-19-21-16-16-internet-archive-psion-mypocket.tar.gz
+  sha256: 62c4c4d700ca082d9ccee4c00c042e98d6ecbdea4d674ce792356a2d97fef442
+- path: 2026-11-19-21-16-28-internet-archive-psion-enroute-usa.tar.gz
+  sha256: d2b1e0f99a4ba3dd69ade51110fd12da1ed4fed217e4fe5a823354110507cdb7
+- path: 2026-11-19-21-16-42-internet-archive-psion-holy-bible.tar.gz
+  sha256: 2e81ba688d5aaba455a2cdbe4ba7b39837b6804b68a6314779b25bc6b900e398
+- path: 2026-11-19-21-16-51-internet-archive-psion-flight-manager.tar.gz
+  sha256: c528bb210c803a07b113495d3f110dd526e40c32e7f9723a54aedab23e4bfe0f
+- path: 2026-11-19-21-16-59-internet-archive-psion-portfolio-manager.tar.gz
+  sha256: fffac9b491548913b610e8e66d27b64a041f69a30ddf0fc635b4a4de04a693f8
+- path: 2026-11-19-21-17-08-internet-archive-psion-financial-calculator.tar.gz
+  sha256: 2dca3272a7d2083f998b99948b6dc9c123683d9ed406e8a252ec2110bf2f0478
+- path: 2026-11-19-21-17-18-internet-archive-psion-expense-manager.tar.gz
+  sha256: 37fe7237b6df7be57d175d0de360d5b276ef3e7239cb9c3f70c90ab97f60c735
+- path: 2026-11-19-21-17-35-internet-archive-psion-collins-dictionaries.tar.gz
+  sha256: ba01e8debadc7ef061e1b19adea8e49fe480aae817d65a00e5c405d593f17651
+- path: 2026-11-19-21-19-13-internet-archive-psion-soundmaster.tar.gz
+  sha256: ab520e25fc95ea0e7d712b352f7a79286c2e67d9c27c45be5d41a893e53ec5b0
+- path: 2026-11-19-21-19-25-internet-archive-halliwell-98.tar.gz
+  sha256: 46223b512f1916adaa34ffc60c1aad62123ba05f74f0d360e664c3100cb59814
+- path: 2026-11-19-21-20-30-internet-archive-ericsson-mc-218-cd.tar.gz
+  sha256: 52fc5c4f301e4436b8717de64a1b760382337efc7b624622872e80769c107b87
+- path: 2026-11-19-21-26-23-internet-archive-tomtom-citymaps-2001.tar.gz
+  sha256: c5993488ff0f49cdc258abb560d74f2017e29ec87d0ec9b0af9bf28c78d592c3
+- path: 2026-11-19-21-36-09-internet-archive-tomtom-routeplanner-europe.tar.gz
+  sha256: 1d9d9bfd94a51a5e3632ef8f1f8feca4a28f6c8b4435c389deafd97f08a1060c
+- path: 2026-11-19-21-53-06-internet-archive-tomtom-citymaps-2003.tar.gz
+  sha256: 99ef920b265b2a0b6a3abf3902aa43c89b985d11fa8ecf9a76a3e99010fdc519
+- path: 2026-11-19-22-28-17-website-jdern.free.fr.tar.gz
+  sha256: a2f297c242da4a4d473ef5f1458ea89c8be2237182fa2f97c2b8a43cec8f1fb5
+- path: 2026-11-19-22-33-35-website-osaris.francophone.free.fr.tar.gz
+  sha256: e1582b857199afb30b72ec05e5da4fa276ab55f7cf20f15a7dfe20e7446f2555
+- path: 2026-11-19-23-18-24-internet-archive-3-lib-cd07-1999.tar.gz
+  sha256: 7151ef4db7327fa2f7ab08b4a188041371fc71730e0652492406c2c0a94e5786
+- path: 2026-11-20-01-16-55-internet-archive-realmaps.millican.info.tar.gz
+  sha256: 98d5557f2a506c6a4a2a5ed5362c663e6310778dbebd8c7466f0d03433b4eefb

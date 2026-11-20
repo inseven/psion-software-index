@@ -1,17 +1,18 @@
 sources:
-- 2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
-- 2025-07-31-05-46-08-website-www.psion-user-club.at.tar.gz
-- 2026-11-15-21-11-51-website-384.sumomo.ne.jp.tar.gz
-- 2026-11-16-09-57-28-internet-archive-NWTPsion3.tar.gz
-- 2026-11-19-09-22-35-website-www.rmrsoft.com.tar.gz
-
+- path: 2025-07-31-05-46-08-website-www.psion-user-club.at.tar.gz
+  sha256: 327916c8aadb8ce6965d62ed4638f61240128bd8cac28de98a8ef974f47442d0
+- path: 2026-11-15-21-11-51-website-384.sumomo.ne.jp.tar.gz
+  sha256: a557abe14c3eafc5d439489f324d33d5a65846fa2806abedf4c1ded627c9131c
+- path: 2026-11-16-09-57-28-internet-archive-NWTPsion3.tar.gz
+  sha256: 142f5849af6cc7eb6f35b3a37b453a9dae17a4a8fef02446e3487a49b51ade88
+- path: 2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
+  sha256: c8fe12447a84d8367c8d8b631a6720fb6278346d635901f0eb9faf5ea2c4e09b
+- path: 2026-11-19-09-22-35-website-www.rmrsoft.com.tar.gz
+  sha256: ad75b3b8663d31cc5cf8eab4ca794d9d67bac2e40ad10a70d61796f74ba7abcb
 overlays:
 - ../overlays
-
-assets_directory:        ../_assets
-
-index_directory:         ../_indexes/small/index
-filetree_directory:      ../_indexes/small/filetree
+assets_directory: ../_assets
+index_directory: ../_indexes/small/index
+filetree_directory: ../_indexes/small/filetree
 intermediates_directory: ../_indexes/small/intermediates
-
-output_directory:        ../site
+output_directory: ../site
