@@ -185,16 +185,14 @@ def internet_archive_reference_resolver(internet_archive_identifier, title):
     return reference_resolver
 
 
-def website_reference_resolver(url, title):
-    source_reference = model.ReferenceItem(name=title, url=url)
+def website_reference_resolver(url):
+    url_components = urlparse(url)
+    source_reference = model.ReferenceItem(name=url_components.netloc, url=f"{url_components.scheme}://{url_components.netloc}")
 
     def make_link(reference):
-        url_components = urlparse(url)
         base_path = url_components.path
-        if not base_path.endswith("/"):  # Ensure there's a trailing directory marker.
-            base_path += "/"
-        name = reference.name[len(base_path)-1:]
-        return model.ReferenceItem(name=name, url=f"{url_components.scheme}://{url_components.netloc}/{reference.name}")
+        return model.ReferenceItem(name=reference.name,
+                                   url=f"{url_components.scheme}://{url_components.netloc}/{reference.name}")
 
     def resolve_reference(reference):
         if len(reference) < 1:
@@ -258,7 +256,13 @@ class SnapshotSource(object):
 
     @property
     def title(self):
-        return self.metadata.title
+        if self.metadata.type == SnapshotType.WEBSITE:
+            url_components = urlparse(self.metadata.url)
+            return url_components.netloc
+        elif self.metadata.type == SnapshotType.INTERNET_ARCHIVE:
+            return self.metadata.title
+        else:
+            raise UnknownSnapshotType(self.type)
 
     @property
     def description(self):
@@ -282,7 +286,7 @@ class SnapshotSource(object):
     def assets(self):
         snapshot_type = self.metadata.type
         if snapshot_type == SnapshotType.WEBSITE:
-            resolve_reference = website_reference_resolver(self.metadata.url, self.title)
+            resolve_reference = website_reference_resolver(self.metadata.url)
         elif snapshot_type == SnapshotType.INTERNET_ARCHIVE:
             resolve_reference = internet_archive_reference_resolver(self.metadata.identifier, self.title)
         else:
