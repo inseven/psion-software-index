@@ -214,10 +214,8 @@ class SnapshotSource(object):
         basename = filename[:-(len(".tar.gz"))]
         identifier = basename.replace("+", " ")
 
-        self.path = os.path.join(root_directory, "snapshots", identifier)
+        self.path = os.path.join(root_directory, filename)
         self.identifier = utils.safe_identifier("snapshot-" + identifier)
-        self._contents_path = os.path.join(self.path, "contents.tar.gz")
-        self._metadata_path = os.path.join(self.path, "metadata.json")
         self._metadata = None
 
     def _download(self, destination_directory):
@@ -243,12 +241,8 @@ class SnapshotSource(object):
         if os.path.exists(self.path):
             return
         with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
-            print("Creating directory...")
-            filename = self._download(temporary_directory)
-            contents_path = os.path.join(temporary_directory, "contents")
-            os.makedirs(contents_path)
-            containers.extract_tar_gz(filename, contents_path)
-            shutil.move(contents_path, self.path)
+            download_path = self._download(temporary_directory)
+            shutil.move(download_path, self.path)
 
     @property
     def hash(self):
@@ -257,8 +251,9 @@ class SnapshotSource(object):
     @property
     def metadata(self):
         if self._metadata is None:
-            with open(self._metadata_path) as fh:
-                self._metadata = SnapshotMetadata.load(fh)
+            with containers.get_extractor(self.path) as snapshot_path:
+                with open(os.path.join(snapshot_path, "metadata.json")) as fh:
+                    self._metadata = SnapshotMetadata.load(fh)
         return self._metadata
 
     @property
@@ -292,9 +287,11 @@ class SnapshotSource(object):
             resolve_reference = internet_archive_reference_resolver(self.metadata.identifier, self.title)
         else:
             raise UnknownSnapshotType(snapshot_type)
-        with containers.get_extractor(self._contents_path) as contents_path:
-            for path, reference in containers.walk(contents_path, relative_to=contents_path):
-                yield path, resolve_reference(reference)
+
+        with containers.get_extractor(self.path) as snapshot_path:
+            with containers.get_extractor(os.path.join(snapshot_path, "contents.tar.gz")) as contents_path:
+                for path, reference in containers.walk(contents_path, relative_to=contents_path):
+                    yield path, resolve_reference(reference)
 
     def as_dict(self):
         return {
