@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 import collections
+import contextlib
 import enum
 import errno
 import logging
@@ -30,9 +31,11 @@ import subprocess
 import sys
 import tarfile
 import tempfile
+import threading
 import zipfile
 import zlib
 
+from . import cache
 from . import model
 from . import utils
 
@@ -124,6 +127,35 @@ class UnsupportedContainer(Exception):
     pass
 
 
+class ExtractionCache(object):
+
+    def __init__(self, cache_directory):
+        self._cache_directory = cache_directory
+        self._cache_key = utils.shasum(__file__)
+        self._lock = threading.Lock()
+
+    def extract(self, path):
+        return self.extractor(path)
+
+    def extractor(self, path):
+        extractor = get_extractor(path)
+        if extractor is None:
+            return None
+
+        @contextlib.contextmanager
+        def caching_extractor():
+            path_sha = utils.shasum(path)
+            with cache.disk_cache(self._cache_directory, f"{self._cache_key}_{path_sha}") as directory:
+                extraction_directory = os.path.join(directory, "contents")
+                with self._lock:
+                    if not os.path.exists(extraction_directory):
+                        with extractor as snapshot_path:
+                            shutil.move(snapshot_path, extraction_directory)
+                yield extraction_directory
+
+        return caching_extractor()
+
+
 class Extractor(object):
 
     def __init__(self, path, method):
@@ -195,7 +227,7 @@ def get_contents(path, cache_path):
                 children=[])
 
 
-def walk(path, reference=None, relative_to=None):
+def walk(cache, path, reference=None, relative_to=None):
     reference = reference if reference is not None else []
     path = os.path.abspath(path)
     if os.path.isdir(path):
@@ -203,16 +235,17 @@ def walk(path, reference=None, relative_to=None):
             files = [f for f in files if not f.startswith("._")]  # Ignore resource files.
             for a in [os.path.join(root, f) for f in files]:
                 reference_item = model.ReferenceItem(name=os.path.relpath(a, relative_to), url=None)
-                for (inner_path, inner_reference) in walk(a, reference=reference, relative_to=relative_to):
+                for (inner_path, inner_reference) in walk(cache, a, reference=reference, relative_to=relative_to):
                     yield (inner_path, inner_reference)
     else:
         reference_item = model.ReferenceItem(name=os.path.relpath(path, relative_to), url=None)
-        extractor = get_extractor(path)
+        extractor = cache.extractor(path)
         if extractor is not None:
             logging.debug("Extracting '%s'...", path)
             try:
                 with extractor as contents_path:
-                    for (inner_path, inner_reference) in walk(contents_path,
+                    for (inner_path, inner_reference) in walk(cache,
+                                                              contents_path,
                                                               reference=reference + [reference_item],
                                                               relative_to=contents_path):
                         yield (inner_path, inner_reference)
