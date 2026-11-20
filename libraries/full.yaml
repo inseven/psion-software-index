@@ -26,14 +26,14 @@ output_directory: ../site
 overlays:
 - ../overlays
 sources:
-- 2025-07-31-05-46-08-www.psion-user-club.at.tar.gz
-# - 2025-07-31-22-29-00-www.mypsion.ru.tar.gz
-- 2025-09-21-17-09-01-damian.cyningstan.org.uk.tar.gz
-- 2026-11-15-21-11-51-384.sumomo.ne.jp.tar.gz
-- 2026-11-16-09-57-28-NWTPsion3.tar.gz
-- 2026-11-16-17-00-29-NWTPsion5.tar.gz
-- 2026-11-16-17-09-31-psion-epoc16-collection.tar.gz
-- 2026-11-16-17-10-33-pcdierct-numero-98.tar.gz
+- 2025-07-31-05-46-08-website-www.psion-user-club.at.tar.gz
+# - 2025-07-31-22-29-00-website-www.mypsion.ru.tar.gz
+- 2025-09-21-17-09-01-website-damian.cyningstan.org.uk.tar.gz
+- 2026-11-15-21-11-51-website-384.sumomo.ne.jp.tar.gz
+- 2026-11-16-09-57-28-internet-archive-NWTPsion3.tar.gz
+- 2026-11-16-17-00-29-internet-archive-NWTPsion5.tar.gz
+- 2026-11-16-17-09-31-internet-archive-psion-epoc16-collection.tar.gz
+- 2026-11-16-17-10-33-internet-archive-pcdierct-numero-98.tar.gz
 - 2026-11-17-23-32-34-internet-archive-3-libjune-05.tar.gz
 - 2026-11-18-04-11-20-internet-archive-400-psion-programma.tar.gz
 - 2026-11-18-04-19-19-internet-archive-750-programmi-per-il-tuo-palmare.tar.gz
