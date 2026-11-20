@@ -13,6 +13,9 @@ dependencies = [
     "dotenv",
     "fastcommand",
     "GitPython",
+    "humanfriendly",
+    "humanize",
+    "internetarchive",
     "jinja2",
     "jsonschema",
     "matplotlib",
@@ -21,7 +24,9 @@ dependencies = [
     "python-frontmatter",
     "pyyaml",
     "requests",
+    "tabulate",
     "tqdm",
+    "wacz",
 ]
 
 [project.scripts]
