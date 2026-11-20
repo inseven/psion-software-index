@@ -146,6 +146,7 @@ class Library(object):
             cache_directory = os.path.join(source_root_directory, "_cache", library_basename)
         os.makedirs(cache_directory, exist_ok=True)
 
+        self.extraction_cache = containers.ExtractionCache(cache_directory=os.path.join(cache_directory, "containers"))
         self.opolua_cache = opolua.OpoLuaCache.load(cache_directory=os.path.join(cache_directory, "opolua"))
 
         self.assets_directory = prefer_environment_variable("assets_directory")
@@ -153,7 +154,7 @@ class Library(object):
         self.index_directory = prefer_environment_variable("index_directory")
         self.filetree_directory = prefer_environment_variable("filetree_directory")
         self.output_directory = prefer_environment_variable("output_directory")
-        self.sources = [SnapshotSource(self.assets_directory, url) for url in self._configuration['sources']]
+        self.sources = [SnapshotSource(self.extraction_cache, self.assets_directory, url) for url in self._configuration['sources']]
 
     def finalize(self):
         self.opolua_cache.finalize()
@@ -162,6 +163,9 @@ class Library(object):
         logging.info("Syncing library...")
         for source in self.sources:
             source.sync()
+
+    def extractor(self, path):
+        return self.extraction_cache.extractor(path)
 
     @property
     def blocked_identifiers(self):
@@ -222,7 +226,8 @@ def website_reference_resolver(url):
 
 class SnapshotSource(object):
 
-    def __init__(self, root_directory, url):
+    def __init__(self, extraction_cache, root_directory, url):
+        self._extraction_cache = extraction_cache
         self.root_directory = root_directory
         self.url = url
         filename = self.url
@@ -266,7 +271,7 @@ class SnapshotSource(object):
     @property
     def metadata(self):
         if self._metadata is None:
-            with containers.get_extractor(self.path) as snapshot_path:
+            with self._extraction_cache.extract(self.path) as snapshot_path:
                 with open(os.path.join(snapshot_path, "metadata.json")) as fh:
                     self._metadata = SnapshotMetadata.load(fh)
         return self._metadata
@@ -309,9 +314,9 @@ class SnapshotSource(object):
         else:
             raise UnknownSnapshotType(snapshot_type)
 
-        with containers.get_extractor(self.path) as snapshot_path:
+        with self._extraction_cache.extract(self.path) as snapshot_path:
             with containers.get_extractor(os.path.join(snapshot_path, "contents.tar.gz")) as contents_path:
-                for path, reference in containers.walk(contents_path, relative_to=contents_path):
+                for path, reference in containers.walk(self._extraction_cache, contents_path, relative_to=contents_path):
                     yield path, resolve_reference(reference)
 
     def as_dict(self):
