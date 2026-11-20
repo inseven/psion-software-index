@@ -40,6 +40,7 @@ import re
 import shutil
 import sys
 import tempfile
+import threading
 import urllib.parse
 
 from enum import Enum
@@ -283,6 +284,27 @@ def remap_tag(tag):
         return tag
 
 
+class OpoLuaCache(object):
+
+    def __init__(self):
+        self._lock = threading.Lock()
+        self._domains = collections.defaultdict(dict)
+
+    def get(self, method, path):
+        domain = method.__name__
+        key = utils.shasum(path)
+        with self._lock:
+            if key in self._domains[domain]:
+                return self._domains[domain][key]
+        value = method(path)
+        with self._lock:
+            self._domains[domain][key] = value
+        return value
+
+
+cache = OpoLuaCache()
+
+
 def discover_tags(path):
     tags = set([])
     for root, dirs, files in os.walk(path):
@@ -290,7 +312,7 @@ def discover_tags(path):
             if f.startswith("."):  # Ignore hidden files.
                 continue
             f = os.path.join(root, f)
-            details = opolua.recognize(f)
+            details = cache.get(opolua.recognize, f)
             if "era" in details:
                 tags.add(remap_tag(details["era"]))
             if "type" in details:
@@ -323,7 +345,7 @@ def import_installer(source, output_directory, reference, path, error_handler):
 
     logging.info(f"Importing installer '{path}'...")
 
-    info = opolua.dumpsis(path)
+    info = cache.get(opolua.dumpsis, path)
     icons = []
     tags = []
 
@@ -335,7 +357,7 @@ def import_installer(source, output_directory, reference, path, error_handler):
         if contents:
             aif_path = contents[0]
             try:
-                icons = opolua.get_icons(aif_path)
+                icons = cache.get(opolua.get_icons, aif_path)
             except Exception as e:
                 error_handler(aif_path, e)
 
@@ -376,7 +398,7 @@ def import_application(source, output_directory, reference, path, error_handler)
     has_aif = False
 
     # Recognize the app to determine what to do.
-    details = opolua.recognize(path)
+    details = cache.get(opolua.recognize, path)
     if details['type'] == 'unknown':
         raise UnknownApplication()
 
@@ -389,10 +411,10 @@ def import_application(source, output_directory, reference, path, error_handler)
     if aif_path:
         # TODO: Remove this check.
         try:
-            info = opolua.dumpaif(aif_path)
+            info = cache.get(opolua.dumpaif, aif_path)
             uid = ("0x%08x" % info["uid3"]).lower()
             app_name = select_name(info["captions"])
-            icons = opolua.get_icons(aif_path)
+            icons = cache.get(opolua.get_icons, aif_path)
             has_aif = True
         except Exception as e:
             error_handler(aif_path, e)
@@ -400,8 +422,8 @@ def import_application(source, output_directory, reference, path, error_handler)
 
     # If we don't have a manifest, we can attempt to load one from EPOC16-era OPAs.
     if not has_aif and details['era'] == 'sibo' and details['type'] == 'opa':
-        info = opolua.dumpaif(path)
-        icons = opolua.get_icons(path)
+        info = cache.get(opolua.dumpaif, path)
+        icons = cache.get(opolua.get_icons, path)
         app_name = select_name(info["captions"])
 
     sha256 = utils.shasum(path)
