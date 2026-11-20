@@ -26,6 +26,7 @@ import enum
 import json
 import logging
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -224,6 +225,9 @@ def website_reference_resolver(url):
     return resolve_reference
 
 
+SOURCE_IDENTIFIER_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-(\d{2}-\d{2}-\d{2})-(website|internet-archive)-?(.+)$")
+
+
 class SnapshotSource(object):
 
     def __init__(self, extraction_cache, root_directory, url):
@@ -234,9 +238,33 @@ class SnapshotSource(object):
         basename = filename[:-(len(".tar.gz"))]
         identifier = basename.replace("+", " ")
 
+        match = SOURCE_IDENTIFIER_RE.match(basename)
+        date = match.group(1)
+        time = match.group(2)
+        self._type = SnapshotType(match.group(3))
+        self._type_identifier = match.group(4)
+
         self.path = os.path.join(root_directory, filename)
         self.identifier = utils.safe_identifier("snapshot-" + identifier)
         self._metadata = None
+
+    @property
+    def type(self) -> SnapshotType:
+        """
+        The type of the snapshot.
+        """
+        return self._type
+
+    @property
+    def type_identifier(self) -> str:
+        """
+        Type-specific identifier.
+
+        This should uniquely scope the snapshot within the domain of the snapshot type, but isn't guaranteed to be the
+        only instance of a snapshot with this identifier within the index, as there may be multiple snapshots from
+        different points in time.
+        """
+        return self._type_identifier
 
     def _download(self, destination_directory):
         filename = self.url
