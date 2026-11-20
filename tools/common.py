@@ -41,6 +41,7 @@ import xml.etree.ElementTree as ET
 
 from . import containers
 from . import model
+from . import opolua
 from . import utils
 
 
@@ -92,7 +93,6 @@ class SnapshotMetadata:
         snapshot.date = date
         return snapshot
 
-
     @property
     def filename(self):
         timestamp = self.date.strftime("%Y-%m-%d-%H-%M-%S")
@@ -134,12 +134,29 @@ class Library(object):
                 return value
             return os.path.normpath(os.path.join(root_directory, self._configuration[key]))
 
+        source_root_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        library_basename = os.path.splitext(os.path.basename(self.path))[0]
+        cache_directory = os.path.join(source_root_directory, "_cache", library_basename)
+
+        if "INDEXER_CACHE_DIRECTORY" in os.environ:
+            cache_directory = os.path.abspath(os.environ["INDEXER_CACHE_DIRECTORY"])
+        else:
+            source_root_directory = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            library_basename = os.path.splitext(os.path.basename(self.path))[0]
+            cache_directory = os.path.join(source_root_directory, "_cache", library_basename)
+        os.makedirs(cache_directory, exist_ok=True)
+
+        self.opolua_cache = opolua.OpoLuaCache.load(cache_directory=os.path.join(cache_directory, "opolua"))
+
         self.assets_directory = prefer_environment_variable("assets_directory")
         self.intermediates_directory = prefer_environment_variable("intermediates_directory")
         self.index_directory = prefer_environment_variable("index_directory")
         self.filetree_directory = prefer_environment_variable("filetree_directory")
         self.output_directory = prefer_environment_variable("output_directory")
         self.sources = [SnapshotSource(self.assets_directory, url) for url in self._configuration['sources']]
+
+    def finalize(self):
+        self.opolua_cache.finalize()
 
     def sync(self):
         logging.info("Syncing library...")
