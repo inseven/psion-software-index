@@ -6,6 +6,7 @@ import tempfile
 import unittest
 
 from tools import containers
+from tools import opolua
 
 from tools.indexer import import_application, import_installer
 
@@ -31,8 +32,14 @@ class ExtractionTests(unittest.TestCase):
             errors.append(error)
 
         with tempfile.TemporaryDirectory() as temporary_directory:
-            installer = import_installer(source={},
-                                         output_directory=temporary_directory,
+            cache_directory = os.path.join(temporary_directory, "cache")
+            os.makedirs(cache_directory)
+            output_directory = os.path.join(temporary_directory, "output")
+            os.makedirs(output_directory)
+            opolua_cache = opolua.OpoLuaCache.load(cache_directory)
+            installer = import_installer(cache=opolua_cache,
+                                         source={},
+                                         output_directory=output_directory,
                                          reference=[],
                                          path=path,
                                          error_handler=error_handler)
@@ -45,9 +52,17 @@ class ExtractionTests(unittest.TestCase):
         def error_handler(error):
             errors.append(error)
 
+
+
         with tempfile.TemporaryDirectory() as temporary_directory:
-            installer = import_application(source={},
-                                           output_directory=temporary_directory,
+            cache_directory = os.path.join(temporary_directory, "cache")
+            os.makedirs(cache_directory)
+            output_directory = os.path.join(temporary_directory, "output")
+            os.makedirs(output_directory)
+            opolua_cache = opolua.OpoLuaCache.load(cache_directory)
+            installer = import_application(cache=opolua_cache,
+                                           source={},
+                                           output_directory=output_directory,
                                            reference=[],
                                            path=path,
                                            error_handler=error_handler)

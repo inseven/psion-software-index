@@ -19,6 +19,7 @@
 # SOFTWARE.
 
 import base64
+import collections
 import hashlib
 import json
 import logging
@@ -26,13 +27,18 @@ import os
 import re
 import shutil
 import subprocess
+import pickle
 import tempfile
+import threading
 
 import git
 
 from io import BytesIO
 
 from PIL import Image as PILImage, ImageOps
+
+from .cache import disk_cache
+from . import utils
 
 
 TOOLS_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -43,7 +49,7 @@ DUMPSIS_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "dumpsis.lua")
 RECOGNIZE_PATH = os.path.join(OPOLUA_DIRECTORY, "bin", "recognize.lua")
 
 with git.Repo(os.path.join(ROOT_DIRECTORY, "dependencies/opolua")) as repo:
-    SHA = repo.head.commit.hexsha
+    SUBMODULE_SHA = repo.head.commit.hexsha
 
 UNSUPPORTED_MESSAGE = "Only ER5 SIS files are supported"
 NOT_AN_AI_MESSAGE = "Not an AIF file"
@@ -73,6 +79,46 @@ class ExecutionError(Exception):
     @property
     def output(self):
         return self.stdout + self.stderr
+
+
+class OpoLuaCache(object):
+
+    @classmethod
+    def load(cls, cache_directory):
+        cache_key = f"{SUBMODULE_SHA}_{utils.shasum(__file__)}"
+        with disk_cache(cache_directory, cache_key) as directory_path:
+            cache_path = os.path.join(directory_path, "cache")
+            cache = cls(cache_directory, cache_key)
+            try:
+                with open(cache_path, "rb") as fh:
+                    cache._domains = pickle.load(fh)
+                    cache._cache_directory = cache_directory
+                    cache._cache_key = cache_key
+            except FileNotFoundError:
+                pass
+            return cache
+
+    def __init__(self, cache_directory, cache_key):
+        self._cache_directory = cache_directory
+        self._cache_key = cache_key
+        self._lock = threading.Lock()
+        self._domains = collections.defaultdict(dict)
+
+    def get(self, method, path):
+        domain = method.__name__
+        key = utils.shasum(path)
+        with self._lock:
+            if key in self._domains[domain]:
+                return self._domains[domain][key]
+        value = method(path)
+        with self._lock:
+            self._domains[domain][key] = value
+        return value
+
+    def finalize(self):
+        with disk_cache(self._cache_directory, self._cache_key) as directory_path:
+            with open(os.path.join(directory_path, "cache"), "wb") as fh:
+                pickle.dump(self._domains, fh)
 
 
 class Image(object):

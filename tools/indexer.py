@@ -72,7 +72,7 @@ INDEXER_SOURCE = [
     "tools/utils.py"
 ]
 INDEXER_SHASUM = utils.shasum(*[os.path.join(ROOT_DIRECTORY, path) for path in INDEXER_SOURCE])
-INDEXER_VERSION = f"22_{INDEXER_SHASUM}_{opolua.SHA}"
+INDEXER_VERSION = f"22_{INDEXER_SHASUM}_{opolua.SUBMODULE_SHA}"
 
 # TODO: Check if there are more languages.
 LANGUAGE_ORDER = ["en_GB", "en_US", "en_AU", "fr_FR", "de_DE", "it_IT", "nl_NL", "bg_BG", "is_IS", "cs_CZ", "sv_SE", "fr_CH", "fr_BE", "no_NO", "ru_RU", ""]
@@ -284,28 +284,7 @@ def remap_tag(tag):
         return tag
 
 
-class OpoLuaCache(object):
-
-    def __init__(self):
-        self._lock = threading.Lock()
-        self._domains = collections.defaultdict(dict)
-
-    def get(self, method, path):
-        domain = method.__name__
-        key = utils.shasum(path)
-        with self._lock:
-            if key in self._domains[domain]:
-                return self._domains[domain][key]
-        value = method(path)
-        with self._lock:
-            self._domains[domain][key] = value
-        return value
-
-
-cache = OpoLuaCache()
-
-
-def discover_tags(path):
+def discover_tags(cache, path):
     tags = set([])
     for root, dirs, files in os.walk(path):
         for f in files:
@@ -341,7 +320,7 @@ def find_files_recursive(path, extensions):
     return result
 
 
-def import_installer(source, output_directory, reference, path, error_handler):
+def import_installer(cache, source, output_directory, reference, path, error_handler):
 
     logging.info(f"Importing installer '{path}'...")
 
@@ -352,7 +331,7 @@ def import_installer(source, output_directory, reference, path, error_handler):
     # TODO: Move this into an OpoLua utility.
     with tempfile.TemporaryDirectory() as temporary_directory_path:
         opolua.dumpsis_extract(path, temporary_directory_path)
-        tags = discover_tags(temporary_directory_path)
+        tags = discover_tags(cache, temporary_directory_path)
         contents = find_files_recursive(temporary_directory_path, [".aif", ".aco", ".abw"])
         if contents:
             aif_path = contents[0]
@@ -377,13 +356,13 @@ def import_installer(source, output_directory, reference, path, error_handler):
                    platform="epoc32")
 
 
-def import_application(source, output_directory, reference, path, error_handler):
+def import_application(cache, source, output_directory, reference, path, error_handler):
 
     logging.info(f"Importing application '{path}'...")
 
     basename = os.path.basename(path)
     name, _ = os.path.splitext(basename)
-    tags = discover_tags(os.path.dirname(path))
+    tags = discover_tags(cache, os.path.dirname(path))
 
     # TODO: Find the AIF by using recognize?
     aif_path = find_sibling(path, name + ".aif")
@@ -446,7 +425,7 @@ class UnknownApplication(Exception):
     pass
 
 
-def import_source(source, output_directory, error_handler=None):
+def import_source(cache, source, output_directory, error_handler=None):
 
     apps = []
     logging.info(f"Importing source '{source.path}'...")
@@ -457,17 +436,19 @@ def import_source(source, output_directory, error_handler=None):
 
         try:
             if ext == ".app" or ext == ".opa":
-                apps.append(import_application(source=source,
+                apps.append(import_application(cache=cache,
+                                               source=source,
                                                output_directory=output_directory,
                                                reference=reference,
                                                path=file_path,
                                                error_handler=error_handler))
             elif ext == ".sis":
-                apps.append(import_installer(source=source,
-                                            output_directory=output_directory,
-                                            reference=reference,
-                                            path=file_path,
-                                            error_handler=error_handler))
+                apps.append(import_installer(cache=cache,
+                                             source=source,
+                                             output_directory=output_directory,
+                                             reference=reference,
+                                             path=file_path,
+                                             error_handler=error_handler))
         except (UnknownApplication, opolua.UnsupportedInstaller):
             # It's safe to ignore these exceptions as it implies the file is not an EPOC16 or EPOC32 file.
             continue
@@ -479,7 +460,7 @@ def import_source(source, output_directory, error_handler=None):
     return apps
 
 
-def index_source(source, source_index_directory):
+def index_source(cache, source, source_index_directory):
     logging.info("Indexing '%s'...", source.url)
 
     # Capture failing files for later investigation.
@@ -537,7 +518,8 @@ def index_source(source, source_index_directory):
             source_index_errors_directory
         ])
 
-        source_releases = import_source(source=source,
+        source_releases = import_source(cache=cache,
+                                        source=source,
                                         output_directory=source_index_files_directory,
                                         error_handler=error_handler(source_index_errors_directory))
 
@@ -627,7 +609,7 @@ def index(library):
         futures = []
         for source in library.sources:
             source_index_directory = os.path.join(library.intermediates_directory, "sources", source.identifier)
-            futures.append(executor.submit(index_source, source, source_index_directory))
+            futures.append(executor.submit(index_source, library.opolua_cache, source, source_index_directory))
         for future in concurrent.futures.as_completed(futures):
             releases += future.result()
 
@@ -647,6 +629,7 @@ def index(library):
         json.dump(releases, fh, indent=4)
 
     logging.info("Indexing complete.")
+    library.finalize()
 
 
 def flatten_grouped_programs(groups):

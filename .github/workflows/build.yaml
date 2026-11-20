@@ -27,6 +27,7 @@ jobs:
       MISE_STATE_DIR: ${{ github.workspace }}/.mise/state
       INDEXER_ASSETS_DIRECTORY: /home/github-runner/psion-software-index/assets
       INDEXER_INTERMEDIATES_DIRECTORY: /home/github-runner/psion-software-index/intermediates
+      INDEXER_CACHE_DIRECTORY: /home/github-runner/psion-software-index/cache
 
     steps:
 
@@ -78,30 +79,25 @@ jobs:
       run: |
         mkdir -p "$INDEXER_ASSETS_DIRECTORY"
         mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
+        mkdir -p "$INDEXER_CACHE_DIRECTORY"
         uv run indexer libraries/full.yaml sync
 
     - name: Index
       env:
         TMPDIR: ${{ runner.temp }}
       run: |
-        mkdir -p "$INDEXER_ASSETS_DIRECTORY"
-        mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
         uv run indexer libraries/full.yaml index
 
     - name: Group
       env:
         TMPDIR: ${{ runner.temp }}
       run: |
-        mkdir -p "$INDEXER_ASSETS_DIRECTORY"
-        mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
         uv run indexer libraries/full.yaml group
 
     - name: Overlay
       env:
         TMPDIR: ${{ runner.temp }}
       run: |
-        mkdir -p "$INDEXER_ASSETS_DIRECTORY"
-        mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
         uv run indexer libraries/full.yaml overlay
 
     - name: Validate the API
