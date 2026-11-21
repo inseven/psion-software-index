@@ -1,3 +1,0 @@
-[production]
-
-staging-01.jbmorley.co.uk ansible_ssh_user=jbmorley
