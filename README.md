@@ -78,6 +78,17 @@ scripts/build-site.sh
 
 These steps are intentionally separated to make it easy to cache different phases of index generation, especially when using GitHub Actions.
 
+## Deployments
+
+This Software Index is hosted from a Cloudflare R2 bucket with a lightweight Worker, located in `workers`. The Worker is currently manually deployed as follows:
+
+```sh
+npx cf auth login
+cd workers/software-psion-community
+npm install
+npx cf deploy
+```
+
 ## Development
 
 It can be useful to be able to run the indexer on a smaller library:
