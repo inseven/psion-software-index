@@ -29,6 +29,7 @@ SCRIPTS_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd 
 
 ROOT_DIRECTORY="$SCRIPTS_DIRECTORY/.."
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
+WORKER_DIRECTORY="$ROOT_DIRECTORY/workers/software-psion-community"
 
 # Install tools.
 cd "$ROOT_DIRECTORY"
@@ -39,6 +40,10 @@ mise install
 # Install NodeJS packages into the root.
 cd "$ROOT_DIRECTORY"
 npm install
+
+# Install the Worker's NodeJS packages.
+cd "$WORKER_DIRECTORY"
+npm ci
 
 # Install the Python dependencies into the in-tree virtual environment.
 cd "$ROOT_DIRECTORY"

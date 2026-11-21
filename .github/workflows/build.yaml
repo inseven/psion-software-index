@@ -144,14 +144,14 @@ jobs:
       run: |
         scripts/build-site.sh --cloudflare
 
-    - name: Sync site to Cloudflare
+    - name: Deploy site to Cloudflare
       if: github.ref == 'refs/heads/main'
-      continue-on-error: true
       env:
         WEBSITE_BUCKET_ENDPOINT_URL: ${{ secrets.WEBSITE_BUCKET_ENDPOINT_URL }}
         WEBSITE_BUCKET_NAME: ${{ secrets.WEBSITE_BUCKET_NAME }}
         WEBSITE_BUCKET_ACCESS_KEY_ID: ${{ secrets.WEBSITE_BUCKET_ACCESS_KEY_ID }}
         WEBSITE_BUCKET_SECRET_ACCESS_KEY: ${{ secrets.WEBSITE_BUCKET_SECRET_ACCESS_KEY }}
+        CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       run: |
         scripts/deploy.sh
 

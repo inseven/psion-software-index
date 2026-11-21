@@ -28,5 +28,10 @@ set -u
 ROOT_DIRECTORY="$( cd "$( dirname "$( dirname "${BASH_SOURCE[0]}" )" )" &> /dev/null && pwd )"
 
 TESTS_DIRECTORY="$ROOT_DIRECTORY/tests"
+WORKER_DIRECTORY="$ROOT_DIRECTORY/workers/software-psion-community"
 
 uv run --project "$ROOT_DIRECTORY" "$TESTS_DIRECTORY/test_extraction.py"
+
+cd "$WORKER_DIRECTORY"
+npm run typecheck
+npx cf build

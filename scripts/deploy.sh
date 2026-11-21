@@ -27,6 +27,7 @@ set -u
 
 ROOT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." &> /dev/null && pwd )"
 SITE_DIRECTORY="$ROOT_DIRECTORY/_site"
+WORKER_DIRECTORY="$ROOT_DIRECTORY/workers/software-psion-community"
 
 ENV_PATH="$ROOT_DIRECTORY/.env"
 
@@ -48,3 +49,6 @@ rclone sync \
     --transfers 32 \
     --stats 30s \
     --stats-one-line
+
+cd "$WORKER_DIRECTORY"
+npx cf deploy
