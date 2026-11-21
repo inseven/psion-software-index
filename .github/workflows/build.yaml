@@ -125,6 +125,13 @@ jobs:
       run: |
         ansible/deploy.py
 
+    - name: Build site for Cloudflare
+      if: github.ref == 'refs/heads/main'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        scripts/build-site.sh --cloudflare
+
     - name: Sync site to Cloudflare
       if: github.ref == 'refs/heads/main'
       continue-on-error: true
