@@ -32,6 +32,22 @@ INDEX_DIRECTORY="$ROOT_DIRECTORY/_index"
 SITE_DIRECTORY="$ROOT_DIRECTORY/site"
 SITE_DATA_DIRECTORY="$SITE_DIRECTORY/_data"
 
+CLOUDFLARE=${CLOUDFLARE:-false}
+while [[ $# -gt 0 ]]
+do
+    key="$1"
+    case $key in
+        -c|--cloudflare)
+        CLOUDFLARE=true
+        shift
+        ;;
+        *)
+        echo "Unknown argument '$key'."
+        exit 1
+        ;;
+    esac
+done
+
 # Ensure all tools share the same Python version.
 PYTHON_VERSION=$(yq -p toml '.tools.python' "$ROOT_DIRECTORY/mise.toml")
 PYTHON_VERSION_MAJOR_MINOR=$(cut -d. -f1-2 <<< "$PYTHON_VERSION")
@@ -47,4 +63,8 @@ uv run --project "$ROOT_DIRECTORY" charts "$SITE_DIRECTORY/images/charts" "$SITE
 
 # Build the site.
 cd "$SITE_DIRECTORY"
-bundle exec jekyll build
+JEKYLL_CONFIG="_config.yml"
+if $CLOUDFLARE ; then
+    JEKYLL_CONFIG="$JEKYLL_CONFIG,_config.cloudflare.yml"
+fi
+bundle exec jekyll build --config "$JEKYLL_CONFIG"
