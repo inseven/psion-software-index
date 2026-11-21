@@ -362,3 +362,19 @@ sources:
   sha256: 7151ef4db7327fa2f7ab08b4a188041371fc71730e0652492406c2c0a94e5786
 - path: 2026-11-20-01-16-55-internet-archive-realmaps.millican.info.tar.gz
   sha256: 98d5557f2a506c6a4a2a5ed5362c663e6310778dbebd8c7466f0d03433b4eefb
+- path: 2026-11-21-08-21-41-internet-archive-TileFall_1020.tar.gz
+  sha256: 87c10c7f52807cea38ca1184561058fe5aef87bb834d70a996fdf89eade4d00d
+- path: 2026-11-21-08-26-37-internet-archive-instexe.tar.gz
+  sha256: 84c3756e96d90cdfd7a2a2210378c8d7338463c0dc620da5fd478290d8052100
+- path: 2026-11-21-08-36-29-internet-archive-psiloc-2-e-pro.tar.gz
+  sha256: 5454000cd580209f519e751a831289d141a55a3d2d761050bc9243541b46ec88
+- path: 2026-11-21-08-37-37-internet-archive-reg-it.tar.gz
+  sha256: 0a10bb722a0b354fa7240d232e9f9ff55d07134fc8a719a2aefd160c3005f188
+- path: 2026-11-21-08-37-49-internet-archive-register_202605.tar.gz
+  sha256: 05256411deec68c890c1ad3e603203f46eaf970ca190aa019eaaad5add1ac14d
+- path: 2026-11-21-08-38-15-internet-archive-tucows_145371_Smart_Find.tar.gz
+  sha256: e40416496a8d833406c0ffadb9edd634bf5f1b7450cc08a45238c667d016de5b
+- path: 2026-11-21-08-38-39-internet-archive-tucows_145889_Shipmania.tar.gz
+  sha256: 2fe84e790a19f027bac8c2be0e44b532fda04928c99e20436feab9e0121aad78
+- path: 2026-11-21-08-39-05-internet-archive-tucows_15308_DayCount_PopUp.tar.gz
+  sha256: 9c29af5a2cdb030241be788175928de092ca9a2ac7e7aede2e7b3afa4fd4ed47
