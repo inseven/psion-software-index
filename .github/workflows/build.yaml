@@ -146,7 +146,6 @@ jobs:
 
     - name: Sync site to Cloudflare
       if: github.ref == 'refs/heads/main'
-      continue-on-error: true
       env:
         WEBSITE_BUCKET_ENDPOINT_URL: ${{ secrets.WEBSITE_BUCKET_ENDPOINT_URL }}
         WEBSITE_BUCKET_NAME: ${{ secrets.WEBSITE_BUCKET_NAME }}

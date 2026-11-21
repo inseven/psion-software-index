@@ -29,6 +29,5 @@ ROOT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." &> /dev/null && pwd 
 WORKER_DIRECTORY="$ROOT_DIRECTORY/workers/software-psion-community"
 
 cd "$WORKER_DIRECTORY"
-npm install
 npx cf deploy
 
