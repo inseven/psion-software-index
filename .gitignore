@@ -1,7 +1,10 @@
 __pycache__
+.cloudflare/
+.dev.vars*
 .env
 .jekyll-cache
 .venv
+.wrangler/
 /_*
 /.mise
 /assets.txt
@@ -14,3 +17,5 @@ __pycache__
 /site/images/charts
 /site/screenshots
 /site/vendor
+dist/
+node_modules/

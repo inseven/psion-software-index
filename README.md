@@ -84,9 +84,7 @@ This Software Index is hosted from a Cloudflare R2 bucket with a lightweight Wor
 
 ```sh
 npx cf auth login
-cd workers/software-psion-community
-npm install
-npx cf deploy
+scripts/deploy-cloudflare.sh
 ```
 
 ## Development
