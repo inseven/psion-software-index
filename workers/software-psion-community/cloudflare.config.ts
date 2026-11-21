@@ -32,6 +32,6 @@ export default defineConfig({
 		},
 		workersDev: false,
 		previewUrls: false,
-		domains: ["cloudflare.software.psion.community"],
+		domains: ["software.psion.community"],
 	},
 });
