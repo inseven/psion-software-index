@@ -65,8 +65,6 @@ SNAPSHOTS_DIRECTORY = os.path.join(ROOT_DIRECTORY, "_snapshots")
 
 DEFAULT_LIBRARY_PATH = os.path.join(ROOT_DIRECTORY, "libraries", "full.yaml")
 
-CONFIG_PATH = os.path.expanduser("~/.config/psion-software-index/snapshot-config.json")
-
 USER_AGENT = "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0"
 
 
@@ -312,22 +310,16 @@ def query(text):
 
 
 def upload(source_path, destination_filename):
-
-    logging.info("Loading configuration...")
-    with open(CONFIG_PATH) as fh:
-        config = json.load(fh)
-
     logging.info("Uploading...")
     client = boto3.client("s3",
-                          endpoint_url=config["endpoint_url"],
-                          aws_access_key_id=config["access_key_id"],
-                          aws_secret_access_key=config["secret_access_key"],
+                          endpoint_url=os.environ["SNAPSHOTS_BUCKET_ENDPOINT_URL"],
+                          aws_access_key_id=os.environ["SNAPSHOTS_BUCKET_ACCESS_KEY_ID"],
+                          aws_secret_access_key=os.environ["SNAPSHOTS_BUCKET_SECRET_ACCESS_KEY"],
                           region_name="auto")
     client.upload_file(source_path,
-                       config["bucket_name"],
+                       os.environ["SNAPSHOTS_BUCKET_NAME"],
                        destination_filename,
                        ExtraArgs={"ContentType": "application/gzip"})
-
     return {
         "path": destination_filename,
         "sha256": utils.shasum(source_path),
