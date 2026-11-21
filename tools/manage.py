@@ -41,6 +41,7 @@ from urllib.parse import quote, unquote
 from urllib.parse import urlparse
 
 import boto3
+import dotenv
 import fastcommand
 import humanfriendly
 import humanize
@@ -86,29 +87,20 @@ def process_network_options(options):
         force_ipv4()
 
 
-def add_source(library_path, *source_urls):
+def add_source(library_path, details):
     """
     Add `source_url` to the library at `library_path`.
     """
     with open(library_path) as fh:
         library = yaml.safe_load(fh)
 
-    # Use a set to ensure uniqueness.
-    sources = set(library["sources"])
-    sources = sources.union(source_urls)
+    sources = library["sources"] + [details]
 
     # We always want the output to be sorted.
-    library["sources"] = sorted(sources, key=str.casefold)
+    library["sources"] = sorted(sources, key=lambda x: str.casefold(x["path"]))
 
     with open(library_path, "w") as fh:
         yaml.dump(library, fh, sort_keys=False)
-
-
-@fastcommand.command("add", help="add a source to the index", arguments=[
-    fastcommand.Argument("url", help="source url")
-])
-def command_add(options):
-    add_source(options.library, options.url)
 
 
 @fastcommand.command("group", help="generate a grouping file for programs matching a partial search term", arguments=[
@@ -336,7 +328,10 @@ def upload(source_path, destination_filename):
                        destination_filename,
                        ExtraArgs={"ContentType": "application/gzip"})
 
-    return destination_filename
+    return {
+        "path": destination_filename,
+        "sha256": utils.shasum(source_path),
+    }
 
 
 @contextlib.contextmanager
@@ -387,10 +382,6 @@ def download_internet_archive_file(identifier, filename, path):
     utils.download_file(url, path)
 
 
-class InvalidChecksum(Exception):
-    pass
-
-
 def download_internet_archive_item(spec, destination_directory):
 
     # Metadata.
@@ -418,7 +409,7 @@ def download_internet_archive_item(spec, destination_directory):
         file_path = os.path.join(destination_directory, f.name)
         download_internet_archive_file(spec.identifier, f.name, file_path)
         if f.sha1 != utils.digest(file_path, method=hashlib.sha1):
-            raise InvalidChecksum(file_path)
+            raise common.InvalidChecksum(file_path)
 
 
 @fastcommand.command("add-snapshot", help="create and upload a new snapshot", arguments=[
@@ -509,8 +500,8 @@ def command_add_snapshot(options):
 
         # Upload.
         if options.yes or query("Upload and update library?"):
-            url = upload(snapshot_path, snapshot_metadata.filename)
-            add_source(options.library, url)
+            details = upload(snapshot_path, snapshot_metadata.filename)
+            add_source(options.library, details)
 
     logging.info("Done.")
 
@@ -562,6 +553,7 @@ def sync_internet_archive_comamnd(options):
 
 
 def main():
+    dotenv.load_dotenv()
     cli = fastcommand.CommandParser(description="Management tool for the Psion Software Index.")
     cli.add_argument("--library", help=f"path to the library (defaults to '{os.path.relpath(DEFAULT_LIBRARY_PATH)}')", default=DEFAULT_LIBRARY_PATH)
     cli.add_argument("--disable-ipv6", action="store_true", help="disable ipv6")

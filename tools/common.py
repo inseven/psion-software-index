@@ -54,6 +54,10 @@ class UnknownSnapshotType(Exception):
     pass
 
 
+class InvalidChecksum(Exception):
+    pass
+
+
 class SnapshotType(enum.StrEnum):
     WEBSITE = "website"
     INTERNET_ARCHIVE = "internet-archive"
@@ -155,7 +159,8 @@ class Library(object):
         self.index_directory = prefer_environment_variable("index_directory")
         self.filetree_directory = prefer_environment_variable("filetree_directory")
         self.output_directory = prefer_environment_variable("output_directory")
-        self.sources = [SnapshotSource(self.extraction_cache, self.assets_directory, url) for url in self._configuration['sources']]
+        self.sources = [SnapshotSource(self.extraction_cache, self.assets_directory, details)
+                        for details in self._configuration['sources']]
 
     def finalize(self):
         self.opolua_cache.finalize()
@@ -230,10 +235,11 @@ SOURCE_IDENTIFIER_RE = re.compile(r"^(\d{4}-\d{2}-\d{2})-(\d{2}-\d{2}-\d{2})-(we
 
 class SnapshotSource(object):
 
-    def __init__(self, extraction_cache, root_directory, url):
+    def __init__(self, extraction_cache, root_directory, details):
         self._extraction_cache = extraction_cache
         self.root_directory = root_directory
-        self.url = url
+        self.url = details["path"]
+        self.sha256 = details["sha256"]
         filename = self.url
         basename = filename[:-(len(".tar.gz"))]
         identifier = basename.replace("+", " ")
@@ -286,11 +292,12 @@ class SnapshotSource(object):
 
     def sync(self):
         logging.info("Syncing '%s'...", self.url)
-        if os.path.exists(self.path):
-            return
-        with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
-            download_path = self._download(temporary_directory)
-            shutil.move(download_path, self.path)
+        if not os.path.exists(self.path):
+            with tempfile.TemporaryDirectory() as temporary_directory, contextlib.chdir(temporary_directory):
+                download_path = self._download(temporary_directory)
+                shutil.move(download_path, self.path)
+        if utils.shasum(self.path) != self.sha256:
+            raise InvalidChecksum(self.path)
 
     @property
     def hash(self):
