@@ -362,3 +362,13 @@ sources:
   sha256: 7151ef4db7327fa2f7ab08b4a188041371fc71730e0652492406c2c0a94e5786
 - path: 2026-11-20-01-16-55-internet-archive-realmaps.millican.info.tar.gz
   sha256: 98d5557f2a506c6a4a2a5ed5362c663e6310778dbebd8c7466f0d03433b4eefb
+- path: 2026-11-21-08-21-41-internet-archive-TileFall_1020.tar.gz
+  sha256: 87c10c7f52807cea38ca1184561058fe5aef87bb834d70a996fdf89eade4d00d
+- path: 2026-11-21-08-26-21-internet-archive-clock-5.tar.gz
+  sha256: 72e3504cbeedf04e6804af568b569b5c6602b5d1a422f9e297f46e34ec6b9846
+- path: 2026-11-21-08-26-37-internet-archive-instexe.tar.gz
+  sha256: 84c3756e96d90cdfd7a2a2210378c8d7338463c0dc620da5fd478290d8052100
+- path: 2026-11-21-08-27-24-internet-archive-pdf125full.tar.gz
+  sha256: d50f94a010051b39004bcd0cc31b5f9259584dd9ec533f9a45a7ff99f69f6cad
+- path: 2026-11-21-08-27-39-internet-archive-pdfPrinter_full.tar.gz
+  sha256: 4a748c18be4a3be7b7716862c1e64f95f6c095b8f31ec1b2f9dddc9127bb0451
