@@ -147,6 +147,7 @@ class Library(object):
             cache_directory = os.path.join(source_root_directory, "_cache", library_basename)
         os.makedirs(cache_directory, exist_ok=True)
 
+        self.cache_directory = cache_directory
         self.extraction_cache = containers.ExtractionCache(cache_directory=os.path.join(cache_directory, "containers"))
         self.opolua_cache = opolua.OpoLuaCache.load(cache_directory=os.path.join(cache_directory, "opolua"))
 
@@ -157,22 +158,30 @@ class Library(object):
         self.output_directory = prefer_environment_variable("output_directory")
         self.sources = [SnapshotSource(self.extraction_cache, self.assets_directory, url) for url in self._configuration['sources']]
 
-    def finalize(self):
-        self.opolua_cache.finalize()
+    @property
+    def blocked_identifiers(self):
+        if 'blocked_identifiers' not in self._configuration:
+            return []
+        return self._configuration['blocked_identifiers']
+
+    def extractor(self, path):
+        return self.extraction_cache.extractor(path)
+
+    def clean(self):
+        def reset_directory(path):
+            logging.info("Resetting '%s'...", path)
+            utils.reset_directory(path)
+        reset_directory(self.cache_directory)
+        reset_directory(self.assets_directory)
+        reset_directory(self.intermediates_directory)
 
     def sync(self):
         logging.info("Syncing library...")
         for source in self.sources:
             source.sync()
 
-    def extractor(self, path):
-        return self.extraction_cache.extractor(path)
-
-    @property
-    def blocked_identifiers(self):
-        if 'blocked_identifiers' not in self._configuration:
-            return []
-        return self._configuration['blocked_identifiers']
+    def finalize(self):
+        self.opolua_cache.finalize()
 
 
 # This collection of messy little helper functions ensures that the returned references have valid download

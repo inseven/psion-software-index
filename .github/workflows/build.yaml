@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: '0 14 * * 1'  # 04:00 Monday, HST.
   workflow_dispatch:
+    clean:
+      inputs:
+        description: "Clean"
+        type: boolean
+        default: false
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
@@ -81,6 +86,13 @@ jobs:
         mkdir -p "$INDEXER_INTERMEDIATES_DIRECTORY"
         mkdir -p "$INDEXER_CACHE_DIRECTORY"
         uv run indexer libraries/full.yaml sync
+
+    - name: Clean
+      if: github.event_name == 'schedule' || inputs.clean
+      env:
+        TMPDIR: ${{ runner.temp }}
+      run: |
+        uv run indexer libraries/full.yaml clean
 
     - name: Index
       env:

@@ -978,7 +978,7 @@ def overlay(library):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("definition")
-    parser.add_argument("command", choices=["sync", "index", "filetree", "group", "overlay"], nargs="+", help="command to run")
+    parser.add_argument("command", choices=["clean", "sync", "index", "filetree", "group", "overlay"], nargs="+", help="command to run")
     parser.add_argument('--verbose', '-v', action='store_true', default=False, help="show verbose output")
     options = parser.parse_args()
 
@@ -987,7 +987,9 @@ def main():
     library = common.Library(options.definition)
 
     for command in options.command:
-        if command == "sync":
+        if command == "clean":
+            library.clean()
+        elif command == "sync":
             library.sync()
         elif command == "index":
             index(library)
